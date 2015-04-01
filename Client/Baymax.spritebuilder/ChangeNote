@@ -1,0 +1,3 @@
+CCAppDelegate.m
+Comment [OALSimpleAudio sharedInstance]; Because it will make playing music pause.
+
