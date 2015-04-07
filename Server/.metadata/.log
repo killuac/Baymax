@@ -317,3 +317,6 @@ Caused by: java.net.ConnectException: Operation timed out
 	at org.apache.http.conn.scheme.SchemeLayeredSocketFactoryAdaptor2.connectSocket(SchemeLayeredSocketFactoryAdaptor2.java:60)
 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
 	... 22 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-04-04 00:39:25.414
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1

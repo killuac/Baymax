@@ -251,8 +251,7 @@
 				PRODUCT_NAME = Ogg;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
-			GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				};
+			};
 			name = Debug;
 		};
 		730F235609181A3A00AB638C /* Release */ = {
@@ -280,8 +279,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = __MACOSX__;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
-			GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				};
+			};
 			name = Debug;
 		};
 		730F235A09181A3A00AB638C /* Release */ = {
@@ -313,8 +311,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = ogg;
 				ZERO_LINK = YES;
-			GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				};
+			};
 			name = Debug;
 		};
 		734FB2EF0B18B3B900D561D7 /* Release */ = {

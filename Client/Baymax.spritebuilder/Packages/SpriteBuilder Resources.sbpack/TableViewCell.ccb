@@ -120,10 +120,10 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>300</real>
-							<real>44</real>
-							<integer>0</integer>
-							<integer>0</integer>
+							<real>1</real>
+							<real>1</real>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -135,8 +135,8 @@
 						<array>
 							<real>0.0</real>
 							<real>0.0</real>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
