@@ -1,4 +1,7 @@
 platform :ios, "6.0"
 use_frameworks!
 
-pod 'AFNetworking', '~> 2.5'
+xcodeproj 'Baymax'
+link_with 'Baymax iOS', 'Baymax Android', 'Baymax Mac'
+
+pod 'AFNetworking', '~> 2.5', :inhibit_warnings => true
