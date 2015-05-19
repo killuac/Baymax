@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;nginx.conf" />
+  <component name="PublishConfigData" serverName="Localhost" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;nginx.conf">
+    <serverData>
+      <paths name="115.29.190.0">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/opt/AutoBaymax" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
 </project>
