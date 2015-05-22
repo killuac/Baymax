@@ -1,9 +1,11 @@
 package com.baymax.model.entity;
 
+import com.baymax.common.Util;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by Killua on 4/29/15.
@@ -22,6 +24,7 @@ public class User {
     private String userName;
 
     @Column(name = "password", nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(name = "real_name")
@@ -39,14 +42,15 @@ public class User {
     @Column(name = "create_time")
     private Timestamp createTime;
 
-    public User() {
+    @Transient
+    private boolean isWrongPassword;
 
-    }
+    @OneToMany(mappedBy = "user")
+    private Set<Automobile> automobiles;
 
-    public User(String mobile, String password) {
-        this.mobile = mobile;
-        this.password = password;
-    }
+    @OneToMany(mappedBy = "user")
+    private Set<Address> addresses;
+
 
     public int getUserId() {
         return userId;
@@ -56,8 +60,16 @@ public class User {
         return mobile;
     }
 
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = Util.generateHashedPassword(password);
     }
 
     public String getUserName() {
@@ -98,5 +110,21 @@ public class User {
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    public Set<Automobile> getAutomobiles() {
+        return automobiles;
+    }
+
+    public void setAutomobiles(Set<Automobile> automobiles) {
+        this.automobiles = automobiles;
+    }
+
+    public boolean isWrongPassword() {
+        return isWrongPassword;
+    }
+
+    public void setIsWrongPassword(boolean isWrongPassword) {
+        this.isWrongPassword = isWrongPassword;
     }
 }

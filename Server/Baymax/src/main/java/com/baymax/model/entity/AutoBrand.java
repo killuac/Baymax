@@ -1,6 +1,7 @@
 package com.baymax.model.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Killua on 5/7/15.
@@ -15,14 +16,14 @@ public class AutoBrand {
     @GeneratedValue
     private short brandId;
 
-    @Column(name = "brand_name")
+    @Column(name = "brand_name", nullable = false)
     private String brandName;
 
-    @Column(name = "logo_path")
-    private String logoPath;
+    @Column(name = "logo_filename", nullable = false)
+    private String logoFilename;
 
-    @Column(name = "logo_file")
-    private String logoFile;
+    @OneToMany(mappedBy = "autoBrand")
+    private Set<AutoSeries> autoSerieses;
 
     public short getBrandId() {
         return brandId;
@@ -36,19 +37,19 @@ public class AutoBrand {
         this.brandName = brandName;
     }
 
-    public String getLogoPath() {
-        return logoPath;
+    public String getLogoFilename() {
+        return logoFilename;
     }
 
-    public void setLogoPath(String logoPath) {
-        this.logoPath = logoPath;
+    public void setLogoFilename(String logoFilename) {
+        this.logoFilename = logoFilename;
     }
 
-    public String getLogoFile() {
-        return logoFile;
+    public Set<AutoSeries> getAutoSerieses() {
+        return autoSerieses;
     }
 
-    public void setLogoFile(String logoFile) {
-        this.logoFile = logoFile;
+    public void setAutoSerieses(Set<AutoSeries> autoSerieses) {
+        this.autoSerieses = autoSerieses;
     }
 }

@@ -5,6 +5,9 @@ import com.baymax.model.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -25,35 +28,16 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public User signUp(@RequestBody User user) {
-        userService.signUp(user);
-        return user;
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public List<User> getUserList() {
-        return userService.getUserList();
-    }
-
-    @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
-    public void updateUser(@RequestBody User user) {
-        userService.update(user);
-    }
-
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public User getUser(@PathVariable int userId) {
-        return userService.getUserById(userId);
-    }
-
-    @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
-    public void deleteUser(@PathVariable int userId) {
-//        userService.delete(userId);
-    }
-
     @RequestMapping(value = "/{mobile}/session", method = RequestMethod.POST)
-    public void signIn(@RequestBody User user) {
-        userService.signIn(user);
+    public HttpEntity<User> signIn(@RequestBody User oneUser) {
+        User user = userService.signIn(oneUser);
+        HttpStatus status;
+        if (null != oneUser) {
+            status = oneUser.isWrongPassword() ? HttpStatus.NOT_ACCEPTABLE : HttpStatus.OK;
+        } else {
+            status = HttpStatus.NOT_FOUND;
+        }
+        return new ResponseEntity<User>(user, status);
     }
 
     @RequestMapping(value = "/{mobile}/session", method = RequestMethod.DELETE)
