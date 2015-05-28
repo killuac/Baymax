@@ -10,8 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * Created by Killua on 4/29/15.
  */
@@ -28,19 +26,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/{mobile}/session", method = RequestMethod.POST)
-    public HttpEntity<User> signIn(@RequestBody User oneUser) {
-        User user = userService.signIn(oneUser);
+    @RequestMapping(value = "/signIn", method = RequestMethod.GET)
+    public HttpEntity<User> signIn(@RequestBody User anUser) {
+        User user = userService.signIn(anUser);
         HttpStatus status;
-        if (null != oneUser) {
-            status = oneUser.isWrongPassword() ? HttpStatus.NOT_ACCEPTABLE : HttpStatus.OK;
+        if (null != anUser) {
+            status = anUser.isWrongPassword() ? HttpStatus.UNAUTHORIZED : HttpStatus.OK;
         } else {
             status = HttpStatus.NOT_FOUND;
         }
         return new ResponseEntity<User>(user, status);
     }
 
-    @RequestMapping(value = "/{mobile}/session", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/singOut", method = RequestMethod.PATCH)
     public void signOut(@PathVariable String mobile) {
         userService.signOut();
     }

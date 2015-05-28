@@ -1,149 +1,126 @@
 package com.baymax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/8/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_order")
+//@JsonIdentityInfo(property = "orderId", generator=ObjectIdGenerators.PropertyGenerator.class)
 public class Order {
 
     @Id
-    @Column(name = "order_id")
+    @Column
     @GeneratedValue
     private int orderId;
 
-    @Column(name = "service_time")
+    @Column
+    private int automobileId;
+
+    @Column
+    private byte statusId;
+
+    @Column
+    private byte paymentId;
+
+    @Column
+    private int addressId;
+
+    @Column
+    private String employeeId;
+
+    @Column
+    private String coworkerId;
+
+    @Column
+    private boolean ownParts;
+
+    @Column
+    private boolean needInvoice;
+
+    @Column
+    private double amount;      // Assign it after orderItems assignment
+
+    @Column
     private Timestamp serviceTime;
 
-    @Column(name = "create_time")
+    @Column
     private Timestamp createTime;
 
-    @Column(name = "accept_time")
+    @Column
     private Timestamp acceptTime;
 
-    @Column(name = "complete_time")
+    @Column
     private Timestamp completeTime;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "automobile_id", nullable = false)
-    private Automobile automobile;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "status_id", nullable = false)
-    private OrderStatus orderStatus;
-
-    @OneToMany(mappedBy = "order")
-    private Set<OrderItem> orderItems;
+    @RestResource(exported = false)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "automobileId", insertable = false, updatable = false)
+    private Automobile automobile;
+
+    @ManyToOne
+    @JoinColumn(name = "statusId", insertable = false, updatable = false)
+    private OrderStatus orderStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "paymentId", insertable = false, updatable = false)
+    private Payment payment;
+
+    @ManyToOne
+    @JoinColumn(name = "addressId", insertable = false, updatable = false)
+    private Address address;
+
+    @ManyToOne
+    @JoinColumn(name = "employeeId", insertable = false, updatable = false)
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "coworker_id")
+    @JoinColumn(name = "coworkerId", insertable = false, updatable = false)
     private Employee coworker;
 
-    @OneToOne(optional = false)
-    @PrimaryKeyJoinColumn(name = "order_id")
+    @OneToOne
+    @PrimaryKeyJoinColumn(name = "orderId")
     private Rating rating;
 
-    public int getOrderId() {
-        return orderId;
+
+    public String getAutoLogoFilename() {
+        return automobile.getLogoFilename();
     }
 
-    public Timestamp getServiceTime() {
-        return serviceTime;
+    public String getStatusName() {
+        return orderStatus.getStatusName();
     }
 
-    public void setServiceTime(Timestamp serviceTime) {
-        this.serviceTime = serviceTime;
+    public String getPaymentName() {
+        return payment.getPaymentName();
     }
 
-    public Timestamp getCreateTime() {
-        return createTime;
+    public String getAddressName() {
+        return address.getDetailAddress();
     }
 
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public Timestamp getAcceptTime() {
-        return acceptTime;
-    }
-
-    public void setAcceptTime(Timestamp acceptTime) {
-        this.acceptTime = acceptTime;
-    }
-
-    public Timestamp getCompleteTime() {
-        return completeTime;
-    }
-
-    public void setCompleteTime(Timestamp completeTime) {
-        this.completeTime = completeTime;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Automobile getAutomobile() {
-        return automobile;
-    }
-
-    public void setAutomobile(Automobile automobile) {
-        this.automobile = automobile;
-    }
-
-    public OrderStatus getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public Set<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(Set<OrderItem> orderItems) {
-        this.orderItems = orderItems;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Employee getCoworker() {
-        return coworker;
-    }
-
-    public void setCoworker(Employee coworker) {
-        this.coworker = coworker;
-    }
-
-    public Rating getRating() {
-        return rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
+    public void setAmount(double amount) {
+        for (OrderItem orderItem : orderItems) {
+            amount += orderItem.getPrice() * orderItem.getQuantity();
+        }
+        this.amount = amount;
     }
 }

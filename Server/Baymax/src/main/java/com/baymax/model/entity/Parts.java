@@ -1,44 +1,34 @@
 package com.baymax.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_parts")
 public class Parts {
 
     @Id
-    @Column(name = "parts_id")
+    @Column
     @GeneratedValue
-    private byte partsId;
+    private short partsId;
 
-    @Column(name = "parts_name", nullable = false)
+    @Column
     private String partsName;
 
-    @OneToMany(mappedBy = "parts")
-    private Set<PartsBrand> partsBrands;
+    @Column
+    private boolean obsolete;
 
-    public byte getPartsId() {
-        return partsId;
-    }
-
-    public String getPartsName() {
-        return partsName;
-    }
-
-    public void setPartsName(String partsName) {
-        this.partsName = partsName;
-    }
-
-    public Set<PartsBrand> getPartsBrands() {
-        return partsBrands;
-    }
-
-    public void setPartsBrands(Set<PartsBrand> partsBrands) {
-        this.partsBrands = partsBrands;
-    }
+    @OneToMany(mappedBy = "parts", cascade = CascadeType.ALL)
+    @Where(clause = "obsolete = '0'")
+    private List<PartsItem> partsItems;
 }

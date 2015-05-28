@@ -9,14 +9,15 @@ import org.springframework.data.rest.core.annotation.RestResource;
 /**
  * Created by Killua on 4/29/15.
  */
-//@RepositoryRestResource(exported = false)
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    @Query("select u from User u where u.mobile = :mobile")
-    User findByMobile(@Param("mobile") String mobile);
+    User findByMobile(String mobile);
 
-    @Query("select u from User u where u.userName = :userName")
-    User findByUserName(@Param("userName") String userName);
+    User findByUserName(String userName);
+
+    @Query("select new User(u.mobile, u.password) from User u where u.mobile = :mobile")
+    @RestResource(exported = false)
+    User getPasswordByMobile(@Param("mobile") String mobile);
 
     @Override
     @RestResource(exported = false)
@@ -24,5 +25,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Override
     @RestResource(exported = false)
-    void delete(User user);
+    void delete(User entity);
 }

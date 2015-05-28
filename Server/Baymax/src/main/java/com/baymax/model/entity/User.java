@@ -1,130 +1,95 @@
 package com.baymax.model.entity;
 
+import com.baymax.common.Constant;
 import com.baymax.common.Util;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Set;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Killua on 4/29/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_user")
 public class User {
 
     @Id
-    @Column(name = "user_id")
+    @Column
     @GeneratedValue
     private int userId;
 
-    @Column(name = "user_name", unique = true, nullable = false)
-    private String userName;
-
-    @Column(name = "password", nullable = false)
-    @JsonIgnore
+    @Column
     private String password;
 
-    @Column(name = "real_name")
+    @Column
+    private String userName;
+
+    @Column
     private String realName;
 
-    @Column(name = "mobile", unique = true, nullable = false, length = 11)
+    @Column
     private String mobile;
 
-    @Column(name = "email", unique = true)
+    @Column
     private String email;
 
-    @Column(name = "is_obsolete")
-    private boolean isObsolete;
+    @Column
+    private boolean obsolete;
 
-    @Column(name = "create_time")
+    @Column
     private Timestamp createTime;
 
+    @Column
+    private String avatarFilename;
+
     @Transient
-    private boolean isWrongPassword;
+    private boolean wrongPassword;
 
     @OneToMany(mappedBy = "user")
-    private Set<Automobile> automobiles;
+    @Where(clause = "obsolete = '0'")
+    private List<Automobile> automobiles;
 
     @OneToMany(mappedBy = "user")
-    private Set<Address> addresses;
+    @Where(clause = "obsolete = '0'")
+    private List<Address> addresses;
 
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
+    public User() {}
+    public User(String mobile, String password) {
         this.mobile = mobile;
+        this.password = password;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = Util.generateHashedPassword(password);
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = (null != userName && "" != userName) ? userName : randomAnUserName();
     }
 
-    public String getRealName() {
-        return realName;
+    public String randomAnUserName() {
+        return Constant.PREFIX_RANDOM_USER +
+                (long)(new Random(Long.parseLong(mobile)).nextDouble()*Math.pow(10, 16));
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isObsolete() {
-        return isObsolete;
-    }
-
-    public void setIsObsolete(boolean isObsolete) {
-        this.isObsolete = isObsolete;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public Set<Automobile> getAutomobiles() {
-        return automobiles;
-    }
-
-    public void setAutomobiles(Set<Automobile> automobiles) {
-        this.automobiles = automobiles;
-    }
-
-    public boolean isWrongPassword() {
-        return isWrongPassword;
-    }
-
-    public void setIsWrongPassword(boolean isWrongPassword) {
-        this.isWrongPassword = isWrongPassword;
+    public String getAvatarFilename() {
+        return (null != avatarFilename) ? Constant.IMG_AVATAR_PATH + avatarFilename : avatarFilename;
     }
 }

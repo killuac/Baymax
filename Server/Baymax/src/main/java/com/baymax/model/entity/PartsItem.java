@@ -1,90 +1,52 @@
 package com.baymax.model.entity;
 
+import com.baymax.common.Constant;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_parts_item")
 public class PartsItem {
 
     @Id
-    @Column(name = "item_id")
+    @Column
     @GeneratedValue
-    private byte itemId;
+    private short itemId;
 
-    @Column(name = "weight", nullable = false)
-    private byte weight;
+    @Column
+    private byte partsId;
 
-    @Column(name = "price", nullable = false)
+    @Column
+    private String brandName;
+
+    @Column
     private double price;
 
-    @Column(name = "image_filename", nullable = false)
+    @Column
+    private double fourLiterPrice;
+
+    @Column
+    private String description;
+
+    @Column
     private String imageFilename;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "brand_id", nullable = false)
-    private PartsBrand partsBrand;
+    @Column
+    private boolean obsolete;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "package_id", nullable = false)
-    private Package aPackage;
-
-    @OneToMany(mappedBy = "partsItem")
-    private Set<OrderItem> orderItems;
-
-    public byte getItemId() {
-        return itemId;
-    }
-
-    public byte getWeight() {
-        return weight;
-    }
-
-    public void setWeight(byte weight) {
-        this.weight = weight;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    @ManyToOne
+    @JoinColumn(name = "partsId", insertable = false, updatable = false)
+    private Parts parts;
 
     public String getImageFilename() {
-        return imageFilename;
-    }
-
-    public void setImageFilename(String imageFilename) {
-        this.imageFilename = imageFilename;
-    }
-
-    public PartsBrand getPartsBrand() {
-        return partsBrand;
-    }
-
-    public void setPartsBrand(PartsBrand partsBrand) {
-        this.partsBrand = partsBrand;
-    }
-
-    public Package getaPackage() {
-        return aPackage;
-    }
-
-    public void setaPackage(Package aPackage) {
-        this.aPackage = aPackage;
-    }
-
-    public Set<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(Set<OrderItem> orderItems) {
-        this.orderItems = orderItems;
+        return Constant.IMG_PARTS_PATH + imageFilename;
     }
 }

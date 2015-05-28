@@ -1,78 +1,41 @@
 package com.baymax.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_city")
 public class City {
 
     @Id
-    @Column(name = "city_id")
+    @Column
     @GeneratedValue
     private short cityId;
 
-    @Column(name = "city_name", nullable = false)
+    @Column
+    private byte provinceId;
+
+    @Column
     private String cityName;
 
-    @Column(name = "area_code", nullable = false)
-    private String areaCode;
+    @Column
+    private boolean opened;
 
-    @Column(name = "is_opened")
-    private boolean isOpened;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "province_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "provinceId", insertable = false, updatable = false)
     private Province province;
 
-    @OneToMany(mappedBy = "city")
-    private Set<District> districts;
-
-    public short getCityId() {
-        return cityId;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public String getAreaCode() {
-        return areaCode;
-    }
-
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode;
-    }
-
-    public boolean isOpened() {
-        return isOpened;
-    }
-
-    public void setIsOpened(boolean isOpened) {
-        this.isOpened = isOpened;
-    }
-
-    public Province getProvince() {
-        return province;
-    }
-
-    public void setProvince(Province province) {
-        this.province = province;
-    }
-
-    public Set<District> getDistricts() {
-        return districts;
-    }
-
-    public void setDistricts(Set<District> districts) {
-        this.districts = districts;
-    }
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @Where(clause = "opened = '1'")
+    private List<District> districts;
 }

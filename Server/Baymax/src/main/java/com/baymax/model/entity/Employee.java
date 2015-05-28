@@ -1,125 +1,63 @@
 package com.baymax.model.entity;
 
+import com.baymax.common.Util;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_employee")
 public class Employee {
 
     @Id
-    @Column(name = "employee_id")
+    @Column
     private String employeeId;
 
-    @Column(name = "employee_name")
+    @Column
     private String employeeName;
 
-    @Column(name = "password", nullable = false)
-    @JsonIgnore
+    @Column
     private String password;
 
-    @Column(name = "mobile", unique = true, nullable = false, length = 11)
+    @Column
     private String mobile;
 
-    @Column(name = "email", unique = true)
+    @Column
     private String email;
 
-    @Column(name = "is_obsolete")
-    private boolean isObsolete;
+    @Column
+    private boolean obsolete;
 
-    @Column(name = "create_time")
+    @Column
     private Timestamp createTime;
 
     @Transient
-    private boolean isWrongPassword;
+    private boolean wrongPassword;
 
     @OneToMany(mappedBy = "employee")
-    private Set<Order> employeeOrders;
+    private List<Order> employeeOrders;
 
     @OneToMany(mappedBy = "coworker")
-    private Set<Order> coworkerOrders;
+    private List<Order> coworkerOrders;
 
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isObsolete() {
-        return isObsolete;
-    }
-
-    public void setIsObsolete(boolean isObsolete) {
-        this.isObsolete = isObsolete;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public boolean isWrongPassword() {
-        return isWrongPassword;
-    }
-
-    public void setIsWrongPassword(boolean isWrongPassword) {
-        this.isWrongPassword = isWrongPassword;
-    }
-
-    public Set<Order> getEmployeeOrders() {
-        return employeeOrders;
-    }
-
-    public void setEmployeeOrders(Set<Order> employeeOrders) {
-        this.employeeOrders = employeeOrders;
-    }
-
-    public Set<Order> getCoworkerOrders() {
-        return coworkerOrders;
-    }
-
-    public void setCoworkerOrders(Set<Order> coworkerOrders) {
-        this.coworkerOrders = coworkerOrders;
+        this.password = Util.generateHashedPassword(password);
     }
 }

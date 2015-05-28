@@ -1,66 +1,37 @@
 package com.baymax.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_province")
 public class Province {
 
     @Id
-    @Column(name = "province_id")
+    @Column
     @GeneratedValue
-    private byte provinceId;
+    private short provinceId;
 
-    @Column(name = "province_name", nullable = false)
+    @Column
     private String provinceName;
 
-    @Column(name = "abbreviation", nullable = false)
+    @Column
     private String abbreviation;
 
-    @Column(name = "is_opened")
-    private boolean isOpened;
+    @Column
+    private boolean opened;
 
-    @OneToMany(mappedBy = "province")
-    private Set<City> cities;
-
-    public byte getProvinceId() {
-        return provinceId;
-    }
-
-    public String getProvinceName() {
-        return provinceName;
-    }
-
-    public void setProvinceName(String provinceName) {
-        this.provinceName = provinceName;
-    }
-
-    public String getAbbreviation() {
-        return abbreviation;
-    }
-
-    public void setAbbreviation(String abbreviation) {
-        this.abbreviation = abbreviation;
-    }
-
-    public boolean isOpened() {
-        return isOpened;
-    }
-
-    public void setIsOpened(boolean isOpened) {
-        this.isOpened = isOpened;
-    }
-
-    public Set<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(Set<City> cities) {
-        this.cities = cities;
-    }
+    @OneToMany(mappedBy = "province", cascade = CascadeType.ALL)
+    @Where(clause = "opened = '0'")
+    private List<City> cities;
 }

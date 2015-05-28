@@ -1,32 +1,25 @@
 package com.baymax.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_order_status")
 public class OrderStatus {
 
     @Id
-    @Column(name = "status_id")
+    @Column
     @GeneratedValue
-    private byte statusId;
+    private short statusId;
 
-    @Column(name = "status_name")
+    @Column
     private String statusName;
-
-    public byte getStatusId() {
-        return statusId;
-    }
-
-    public String getStatusName() {
-        return statusName;
-    }
-
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
-    }
 }

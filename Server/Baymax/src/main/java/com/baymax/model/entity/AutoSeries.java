@@ -1,56 +1,39 @@
 package com.baymax.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_auto_series")
-public class AutoSeries {
+public class AutoSeries{
 
     @Id
-    @Column(name = "series_id")
+    @Column
     @GeneratedValue
     private short seriesId;
 
-    @Column(name = "series_name")
+    @Column
+    private short brandId;
+
+    @Column
     private String seriesName;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "brand_id", nullable = false)
+    @Column
+    private boolean obsolete;
+
+    @ManyToOne
+    @JoinColumn(name = "brandId", insertable = false, updatable = false)
     private AutoBrand autoBrand;
 
-    @OneToMany(mappedBy = "autoSeries")
-    private Set<AutoModel> autoModels;
-
-    public short getSeriesId() {
-        return seriesId;
-    }
-
-    public String getSeriesName() {
-        return seriesName;
-    }
-
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
-    }
-
-    public AutoBrand getAutoBrand() {
-        return autoBrand;
-    }
-
-    public void setAutoBrand(AutoBrand autoBrand) {
-        this.autoBrand = autoBrand;
-    }
-
-    public Set<AutoModel> getAutoModels() {
-        return autoModels;
-    }
-
-    public void setAutoModels(Set<AutoModel> autoModels) {
-        this.autoModels = autoModels;
-    }
+    @OneToMany(mappedBy = "autoSeries", cascade = CascadeType.ALL)
+    private List<AutoModel> autoModels;
 }

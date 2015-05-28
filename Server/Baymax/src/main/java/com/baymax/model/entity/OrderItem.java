@@ -1,68 +1,71 @@
 package com.baymax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 /**
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_order_item")
+//@JsonIdentityInfo(property = "itemId", generator=ObjectIdGenerators.PropertyGenerator.class)
 public class OrderItem {
 
     @Id
-    @Column(name = "item_id")
+    @Column
     @GeneratedValue
     private int itemId;
 
-    @Column(name = "quantity")
+    @Column
+    private int orderId;
+
+    @Column
+    private Byte partsItemId;   // Maybe null, so use Byte object
+
+    @Column
+    private Byte serviceId;
+
+    @Column
     private byte quantity;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "order_id", nullable = false)
+    @Column
+    private double price;   // Assign it after partsItems assignment
+
+    @ManyToOne
+    @JoinColumn(name = "orderId", insertable = false, updatable = false)
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "parts_item_id")
+    @JoinColumn(name = "partsItemId", insertable = false, updatable = false)
     private PartsItem partsItem;
 
     @ManyToOne
-    @JoinColumn(name = "service_id")
+    @JoinColumn(name = "serviceId", insertable = false, updatable = false)
     private Service service;
 
-    public int getItemId() {
-        return itemId;
+
+    public void setPrice(double price) {
+        this.price = (null != partsItem) ? partsItem.getPrice() : service.getPrice();
+
+        double fourLiterPrice = partsItem.getFourLiterPrice();
+        if (null != partsItem && fourLiterPrice > 0) {
+            int oilCapacity = order.getAutomobile().getOilCapacity();
+            this.price = (oilCapacity/4) * fourLiterPrice + (oilCapacity%4) * this.price;
+        }
     }
 
-    public byte getQuantity() {
-        return quantity;
+    public String getItemName() {
+        return (null != partsItem) ? partsItem.getBrandName() : service.getServiceName();
     }
 
-    public void setQuantity(byte quantity) {
-        this.quantity = quantity;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public PartsItem getPartsItem() {
-        return partsItem;
-    }
-
-    public void setPartsItem(PartsItem partsItem) {
-        this.partsItem = partsItem;
-    }
-
-    public Service getService() {
-        return service;
-    }
-
-    public void setService(Service service) {
-        this.service = service;
+    public String getDescription() {
+        return (null != partsItem) ? partsItem.getDescription() : service.getDescription();
     }
 }

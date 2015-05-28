@@ -1,5 +1,8 @@
 package com.baymax.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -7,73 +10,56 @@ import java.sql.Timestamp;
  * Created by Killua on 5/22/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_address")
 public class Address {
 
     @Id
-    @Column(name = "address_id")
+    @Column
     @GeneratedValue
     private int addressId;
 
-    @Column(name = "detail_address", nullable = false)
+    @Column
+    private short districtId;
+
+    @Column
+    private int userId;
+
+    @Column
+    private String mobile;
+
+    @Column
+    private String realName;
+
+    @Column
     private String detailAddress;
 
-    @Column(name = "is_obsolete")
-    private boolean isObsolete;
+    @Column
+    private boolean obsolete;
 
-    @Column(name = "create_time")
+    @Column
     private Timestamp createTime;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "district_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "districtId", insertable = false, updatable = false)
     private District district;
 
-    public int getAddressId() {
-        return addressId;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private User user;
+
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+        if (null == user.getRealName() || "" == user.getRealName()) {
+            user.setRealName(realName);
+        }
     }
 
     public String getDetailAddress() {
-        return detailAddress;
-    }
-
-    public void setDetailAddress(String detailAddress) {
-        this.detailAddress = detailAddress;
-    }
-
-    public boolean isObsolete() {
-        return isObsolete;
-    }
-
-    public void setIsObsolete(boolean isObsolete) {
-        this.isObsolete = isObsolete;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public District getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(District district) {
-        this.district = district;
+        return district.getCity().getCityName() + " " +
+                district.getDistrictName() + " " + detailAddress;
     }
 }

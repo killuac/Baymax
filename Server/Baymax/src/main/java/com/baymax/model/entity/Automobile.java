@@ -1,124 +1,98 @@
 package com.baymax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by Killua on 5/8/15.
  */
 
+@Getter
+@Setter
 @Entity
 @Table(name = "t_automobile")
 public class Automobile {
 
     @Id
-    @Column(name = "automobile_id")
+    @Column
     @GeneratedValue
-    private short automobileId;
+    private int automobileId;
 
-    @Column(name = "registration_plate", unique = true, nullable = false, length = 7)
+    @Column
     private String registrationPlate;
 
-    @Column(name = "vin_number", unique = true, length = 17)
+    @Column
     private String vinNumber;
 
-    @Column(name = "mileage")
+    @Column
     private int mileage;
 
-    @Column(name = "maintenance_count")
+    @Column
     private byte maintenanceCount;
 
-    @Column(name = "is_obsolete")
-    private boolean isObsolete;
+    @Column
+    private boolean obsolete;
 
-    @Column(name = "create_time")
+    @Column
     private Timestamp createTime;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "model_id", nullable = false)
+    @RestResource(exported = false)
+    @ManyToOne
+    @JoinColumn(name = "modelId")
     private AutoModel autoModel;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @RestResource(exported = false)
+    @ManyToOne
+    @JoinColumn(name = "userId")
     private User user;
 
     @OneToMany(mappedBy = "automobile")
-    private Set<Order> orders;
+    private List<Order> orders;
 
-    public short getAutomobileId() {
-        return automobileId;
-    }
-
-    public String getRegistrationPlate() {
-        return registrationPlate;
-    }
-
-    public void setRegistrationPlate(String registrationPlate) {
-        this.registrationPlate = registrationPlate;
-    }
-
-    public String getVinNumber() {
-        return vinNumber;
-    }
-
-    public void setVinNumber(String vinNumber) {
-        this.vinNumber = vinNumber;
-    }
-
-    public int getMileage() {
-        return mileage;
-    }
-
-    public void setMileage(int mileage) {
-        this.mileage = mileage;
-    }
-
-    public byte getMaintenanceCount() {
-        return maintenanceCount;
-    }
-
-    public void setMaintenanceCount(byte maintenanceCount) {
-        this.maintenanceCount = maintenanceCount;
-    }
-
-    public boolean isObsolete() {
-        return isObsolete;
-    }
-
-    public void setIsObsolete(boolean isObsolete) {
-        this.isObsolete = isObsolete;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
+    @JsonIgnore
     public AutoModel getAutoModel() {
         return autoModel;
     }
 
+    @JsonProperty
     public void setAutoModel(AutoModel autoModel) {
         this.autoModel = autoModel;
     }
 
+    public String getBrandName() {
+        return autoModel.getAutoSeries().getAutoBrand().getBrandName();
+    }
+
+    public String getSeriesName() {
+        return autoModel.getAutoSeries().getSeriesName();
+    }
+
+    public String getModelName() {
+        return autoModel.getModelName();
+    }
+
+    public byte getOilCapacity() {
+        return autoModel.getOilCapacity();
+    }
+
+    public String getLogoFilename() {
+        return autoModel.getAutoSeries().getAutoBrand().getLogoFilename();
+    }
+
+    @JsonIgnore
     public User getUser() {
         return user;
     }
 
+    @JsonProperty
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Set<Order> orders) {
-        this.orders = orders;
     }
 }
