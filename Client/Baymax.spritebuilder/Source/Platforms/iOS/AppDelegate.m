@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @implementation AppController
 
@@ -55,6 +56,8 @@
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     [UIApplication sharedApplication].statusBarHidden = NO;
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     return YES;
 }

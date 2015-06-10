@@ -65,7 +65,7 @@ public class OrderItem {
         return (null != partsItem) ? partsItem.getBrandName() : service.getServiceName();
     }
 
-    public String getDescription() {
+    public String getItemDescription() {
         return (null != partsItem) ? partsItem.getDescription() : service.getDescription();
     }
 }

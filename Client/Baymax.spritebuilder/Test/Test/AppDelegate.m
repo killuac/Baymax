@@ -31,8 +31,8 @@
         count = idx + 1;
     }];
     NSDate *end = [NSDate date];
-    LLog(@"Loop duration: %f", [end timeIntervalSinceDate:begin]);
-    LLog(@"Array count: %li", count);
+    NSLog(@"Loop duration: %f", [end timeIntervalSinceDate:begin]);
+    NSLog(@"Array count: %li", count);
     
     return YES;
 }

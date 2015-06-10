@@ -9,14 +9,12 @@ import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * Created by Killua on 5/8/15.
  */
 
 @RestController
-@RequestMapping("/api/orders/create")
+@RequestMapping("/api/orderList")
 public class OrderController implements ResourceProcessor<Resource<Order>> {
 
     private final OrderService orderService;
@@ -42,8 +40,6 @@ public class OrderController implements ResourceProcessor<Resource<Order>> {
 
     @Override
     public Resource<Order> process(Resource<Order> resource) {
-//        linkTo(AutoBrand.class)
-//        ControllerLinkBuilder.linkTo()
         return resource;
     }
 }

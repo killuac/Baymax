@@ -26,6 +26,12 @@ public class Automobile {
     private int automobileId;
 
     @Column
+    private int userId;
+
+    @Column
+    private short modelId;
+
+    @Column
     private String registrationPlate;
 
     @Column
@@ -43,14 +49,12 @@ public class Automobile {
     @Column
     private Timestamp createTime;
 
-    @RestResource(exported = false)
     @ManyToOne
-    @JoinColumn(name = "modelId")
+    @JoinColumn(name = "modelId", insertable = false, updatable = false)
     private AutoModel autoModel;
 
-    @RestResource(exported = false)
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
     private User user;
 
     @OneToMany(mappedBy = "automobile")
@@ -82,8 +86,8 @@ public class Automobile {
         return autoModel.getOilCapacity();
     }
 
-    public String getLogoFilename() {
-        return autoModel.getAutoSeries().getAutoBrand().getLogoFilename();
+    public String getLogoURL() {
+        return autoModel.getAutoSeries().getAutoBrand().getLogoURL();
     }
 
     @JsonIgnore

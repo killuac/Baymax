@@ -52,8 +52,9 @@ public class Address {
 
 
     public void setRealName(String realName) {
-        this.realName = realName;
-        if (null == user.getRealName() || "" == user.getRealName()) {
+        if (!realName.isEmpty()) {
+            this.realName = realName;
+        } else if (null == user.getRealName() || user.getRealName().isEmpty()) {
             user.setRealName(realName);
         }
     }

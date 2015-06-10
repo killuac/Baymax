@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
+import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -21,7 +22,13 @@ import java.util.Random;
 @Setter
 @Entity
 @Table(name = "t_user")
-public class User {
+public class User implements Identifiable<Integer> {
+
+    @JsonIgnore
+    @Override
+    public Integer getId() {
+        return userId;
+    }
 
     @Id
     @Column
@@ -50,7 +57,7 @@ public class User {
     private Timestamp createTime;
 
     @Column
-    private String avatarFilename;
+    private String avatarName;
 
     @Transient
     private boolean wrongPassword;
@@ -59,15 +66,14 @@ public class User {
     @Where(clause = "obsolete = '0'")
     private List<Automobile> automobiles;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Where(clause = "obsolete = '0'")
     private List<Address> addresses;
-
 
     public User() {}
     public User(String mobile, String password) {
         this.mobile = mobile;
-        this.password = password;
+        this.password = Util.generateHashedPassword(password);
     }
 
     @JsonIgnore
@@ -89,7 +95,17 @@ public class User {
                 (long)(new Random(Long.parseLong(mobile)).nextDouble()*Math.pow(10, 16));
     }
 
-    public String getAvatarFilename() {
-        return (null != avatarFilename) ? Constant.IMG_AVATAR_PATH + avatarFilename : avatarFilename;
+    @JsonIgnore
+    public String getAvatarName() {
+        return avatarName;
+    }
+
+    @JsonProperty
+    public void setAvatarName(String avatarName) {
+        this.avatarName = avatarName;
+    }
+
+    public String getAvatarURL() {
+        return (null != avatarName) ? Constant.IMG_AVATAR_PATH + avatarName : "";
     }
 }

@@ -113,7 +113,7 @@
 		FC76223B19919E3B0001BCF4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "SpriteBuilder (forked from https://git.xiph.org/mirrors/ogg.git)";
 			};
 			buildConfigurationList = FC76223E19919E3B0001BCF4 /* Build configuration list for PBXProject "ogg" */;
@@ -230,6 +230,7 @@
 		FC76224D19919E3B0001BCF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -243,6 +244,7 @@
 		FC76224E19919E3B0001BCF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";

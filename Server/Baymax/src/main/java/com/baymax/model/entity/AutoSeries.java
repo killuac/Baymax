@@ -36,4 +36,8 @@ public class AutoSeries{
 
     @OneToMany(mappedBy = "autoSeries", cascade = CascadeType.ALL)
     private List<AutoModel> autoModels;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "seriesId")
+    private List<AutoSeriesPartsItem> autoSeriesPartsItems;
 }

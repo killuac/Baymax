@@ -2,7 +2,6 @@ package com.baymax.model.service;
 
 import com.baymax.model.repository.UserRepository;
 import com.baymax.model.entity.User;
-import com.baymax.common.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,7 @@ public class UserService {
     public User signIn(User anUser) {
         User user = userRepository.findByMobile(anUser.getMobile());
         if (null != user) {
-            if (!user.getPassword().equals(Util.generateHashedPassword(anUser.getPassword()))) {
+            if (!user.getPassword().equals(anUser.getPassword())) {
                 anUser.setWrongPassword(true);
                 user = anUser;
             }
@@ -31,7 +30,7 @@ public class UserService {
         return user;
     }
 
-    public void signOut() {
+    public void signOut(int userId) {
 
     }
 }

@@ -1,7 +1,5 @@
 package com.baymax.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -101,8 +99,8 @@ public class Order {
     private Rating rating;
 
 
-    public String getAutoLogoFilename() {
-        return automobile.getLogoFilename();
+    public String getAutoLogoURL() {
+        return automobile.getLogoURL();
     }
 
     public String getStatusName() {
@@ -113,7 +111,7 @@ public class Order {
         return payment.getPaymentName();
     }
 
-    public String getAddressName() {
+    public String getDetailAddress() {
         return address.getDetailAddress();
     }
 

@@ -4084,6 +4084,7 @@
 					"$(SRCROOT)/external/ObjectAL/ObjectAL/ObjectAL/**",
 					"$(SRCROOT)/external/SSZipArchive/**",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\\\\\"$(SRCROOT)/build/Debug-iphonesimulator\\\\\\\"",
@@ -4131,6 +4132,7 @@
 					"$(SRCROOT)/external/ObjectAL/ObjectAL/ObjectAL/**",
 					"$(SRCROOT)/external/SSZipArchive/**",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\\\\\"$(SRCROOT)/build/Debug-iphonesimulator\\\\\\\"",

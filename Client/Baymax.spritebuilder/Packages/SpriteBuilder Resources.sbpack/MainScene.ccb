@@ -954,7 +954,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>MainScene</string>
 		<key>displayName</key>
 		<string>MainScene</string>
 		<key>memberVarAssignmentName</key>

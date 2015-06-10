@@ -7,14 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D1EB4C776F7F068A85940F9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782C8ACE0E7B8BFE7DE8A399 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5B121030197484FA004C1E1D /* BaymaxActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* BaymaxActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
-		5F644200FABE7413F336A630 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782C8ACE0E7B8BFE7DE8A399 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7619B27DF04AC29DABAC0F1F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782C8ACE0E7B8BFE7DE8A399 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
-		7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A4036EB19DE3F8E007B6E8F /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		7A4036EC19DE3F90007B6E8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3117B978D7009739AE /* QuartzCore.framework */; };
 		7A4036EE19DE3F93007B6E8F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
@@ -47,7 +42,6 @@
 		7A97911719E631C6001FFC4D /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A97910419E62E40001FFC4D /* libcocos2d-mac.a */; };
 		7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9790FE19E62E40001FFC4D /* libcocos2d.a */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
-		927F619E196C771E000F43EF /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		927F61A5196C771E000F43EF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
 		927F61A9196C771E000F43EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		927F61AA196C771E000F43EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
@@ -97,6 +91,87 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		E2635BDC718876A9DD9BF386 /* Pods_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF313551EF1F7A7866C3BD3 /* Pods_Mac.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E375D23C1B22DEB9001FA4A0 /* libThirdKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */; };
+		E375D2791B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
+		E375D27A1B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
+		E375D27B1B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
+		E375D2A31B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2A21B26DF07001FA4A0 /* JSONModel+BMJSONModel.m */; };
+		E375D2A41B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2A21B26DF07001FA4A0 /* JSONModel+BMJSONModel.m */; };
+		E375D2A51B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2A21B26DF07001FA4A0 /* JSONModel+BMJSONModel.m */; };
+		E375D2A81B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2A71B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m */; };
+		E375D2A91B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2A71B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m */; };
+		E375D2AA1B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2A71B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m */; };
+		E375D2AF1B26F558001FA4A0 /* BMAutoBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2AE1B26F558001FA4A0 /* BMAutoBrand.m */; };
+		E375D2B01B26F558001FA4A0 /* BMAutoBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2AE1B26F558001FA4A0 /* BMAutoBrand.m */; };
+		E375D2B11B26F558001FA4A0 /* BMAutoBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2AE1B26F558001FA4A0 /* BMAutoBrand.m */; };
+		E375D2B41B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */; };
+		E375D2B51B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */; };
+		E375D2B61B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */; };
+		E375D2B91B27116F001FA4A0 /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B81B27116F001FA4A0 /* BMServerAPI.m */; };
+		E375D2BA1B27116F001FA4A0 /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B81B27116F001FA4A0 /* BMServerAPI.m */; };
+		E375D2BB1B27116F001FA4A0 /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B81B27116F001FA4A0 /* BMServerAPI.m */; };
+		E375D2BE1B271711001FA4A0 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2BC1B271711001FA4A0 /* MainScene.m */; };
+		E375D2BF1B271711001FA4A0 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2BC1B271711001FA4A0 /* MainScene.m */; };
+		E375D2C01B271711001FA4A0 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2BC1B271711001FA4A0 /* MainScene.m */; };
+		E375D2C41B271772001FA4A0 /* BMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2C31B271772001FA4A0 /* BMSessionManager.m */; };
+		E375D2C51B271772001FA4A0 /* BMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2C31B271772001FA4A0 /* BMSessionManager.m */; };
+		E375D2C61B271772001FA4A0 /* BMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2C31B271772001FA4A0 /* BMSessionManager.m */; };
+		E3A9F5441B27231F00F92CAE /* application.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* application.plist */; };
+		E3A9F5471B27233C00F92CAE /* application.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* application.plist */; };
+		E3A9F5481B27233D00F92CAE /* application.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* application.plist */; };
+		E3A9F54B1B27328600F92CAE /* BMAutoSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */; };
+		E3A9F54C1B27328600F92CAE /* BMAutoSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */; };
+		E3A9F54D1B27328600F92CAE /* BMAutoSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */; };
+		E3A9F5501B27339000F92CAE /* BMAutoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54F1B27339000F92CAE /* BMAutoModel.m */; };
+		E3A9F5511B27339000F92CAE /* BMAutoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54F1B27339000F92CAE /* BMAutoModel.m */; };
+		E3A9F5521B27339000F92CAE /* BMAutoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54F1B27339000F92CAE /* BMAutoModel.m */; };
+		E3A9F5551B2737D200F92CAE /* BMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5541B2737D200F92CAE /* BMContainer.m */; };
+		E3A9F5561B2737D200F92CAE /* BMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5541B2737D200F92CAE /* BMContainer.m */; };
+		E3A9F5571B2737D200F92CAE /* BMContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5541B2737D200F92CAE /* BMContainer.m */; };
+		E3A9F55A1B273E8600F92CAE /* BMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5591B273E8600F92CAE /* BMAddress.m */; };
+		E3A9F55B1B273E8600F92CAE /* BMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5591B273E8600F92CAE /* BMAddress.m */; };
+		E3A9F55C1B273E8600F92CAE /* BMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5591B273E8600F92CAE /* BMAddress.m */; };
+		E3A9F55F1B27414400F92CAE /* BMAutomobile.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F55E1B27414400F92CAE /* BMAutomobile.m */; };
+		E3A9F5601B27414400F92CAE /* BMAutomobile.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F55E1B27414400F92CAE /* BMAutomobile.m */; };
+		E3A9F5611B27414400F92CAE /* BMAutomobile.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F55E1B27414400F92CAE /* BMAutomobile.m */; };
+		E3A9F5641B27CCD500F92CAE /* BMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5631B27CCD500F92CAE /* BMCity.m */; };
+		E3A9F5651B27CCD500F92CAE /* BMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5631B27CCD500F92CAE /* BMCity.m */; };
+		E3A9F5661B27CCD500F92CAE /* BMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5631B27CCD500F92CAE /* BMCity.m */; };
+		E3A9F5691B27CE0100F92CAE /* BMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5681B27CE0000F92CAE /* BMDistrict.m */; };
+		E3A9F56A1B27CE0100F92CAE /* BMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5681B27CE0000F92CAE /* BMDistrict.m */; };
+		E3A9F56B1B27CE0100F92CAE /* BMDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5681B27CE0000F92CAE /* BMDistrict.m */; };
+		E3A9F56E1B27CE7900F92CAE /* BMProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F56D1B27CE7900F92CAE /* BMProvince.m */; };
+		E3A9F56F1B27CE7900F92CAE /* BMProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F56D1B27CE7900F92CAE /* BMProvince.m */; };
+		E3A9F5701B27CE7900F92CAE /* BMProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F56D1B27CE7900F92CAE /* BMProvince.m */; };
+		E3A9F5731B27CF7600F92CAE /* BMEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5721B27CF7600F92CAE /* BMEmployee.m */; };
+		E3A9F5741B27CF7600F92CAE /* BMEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5721B27CF7600F92CAE /* BMEmployee.m */; };
+		E3A9F5751B27CF7600F92CAE /* BMEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5721B27CF7600F92CAE /* BMEmployee.m */; };
+		E3A9F5781B27D54300F92CAE /* BMOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5771B27D54300F92CAE /* BMOrder.m */; };
+		E3A9F5791B27D54300F92CAE /* BMOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5771B27D54300F92CAE /* BMOrder.m */; };
+		E3A9F57A1B27D54300F92CAE /* BMOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5771B27D54300F92CAE /* BMOrder.m */; };
+		E3A9F57D1B27D79C00F92CAE /* BMOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F57C1B27D79C00F92CAE /* BMOrderItem.m */; };
+		E3A9F57E1B27D79C00F92CAE /* BMOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F57C1B27D79C00F92CAE /* BMOrderItem.m */; };
+		E3A9F57F1B27D79C00F92CAE /* BMOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F57C1B27D79C00F92CAE /* BMOrderItem.m */; };
+		E3A9F5821B27E83700F92CAE /* BMPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5811B27E83700F92CAE /* BMPayment.m */; };
+		E3A9F5831B27E83700F92CAE /* BMPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5811B27E83700F92CAE /* BMPayment.m */; };
+		E3A9F5841B27E83700F92CAE /* BMPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5811B27E83700F92CAE /* BMPayment.m */; };
+		E3A9F5871B27E89800F92CAE /* BMRating.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5861B27E89800F92CAE /* BMRating.m */; };
+		E3A9F5881B27E89800F92CAE /* BMRating.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5861B27E89800F92CAE /* BMRating.m */; };
+		E3A9F5891B27E89800F92CAE /* BMRating.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5861B27E89800F92CAE /* BMRating.m */; };
+		E3A9F58C1B27E8FF00F92CAE /* BMParts.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F58B1B27E8FF00F92CAE /* BMParts.m */; };
+		E3A9F58D1B27E8FF00F92CAE /* BMParts.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F58B1B27E8FF00F92CAE /* BMParts.m */; };
+		E3A9F58E1B27E8FF00F92CAE /* BMParts.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F58B1B27E8FF00F92CAE /* BMParts.m */; };
+		E3A9F5911B27E91300F92CAE /* BMPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5901B27E91300F92CAE /* BMPartsItem.m */; };
+		E3A9F5921B27E91300F92CAE /* BMPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5901B27E91300F92CAE /* BMPartsItem.m */; };
+		E3A9F5931B27E91300F92CAE /* BMPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5901B27E91300F92CAE /* BMPartsItem.m */; };
+		E3A9F5961B27E91D00F92CAE /* BMService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5951B27E91D00F92CAE /* BMService.m */; };
+		E3A9F5971B27E91D00F92CAE /* BMService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5951B27E91D00F92CAE /* BMService.m */; };
+		E3A9F5981B27E91D00F92CAE /* BMService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5951B27E91D00F92CAE /* BMService.m */; };
+		E3A9F59B1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */; };
+		E3A9F59C1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */; };
+		E3A9F59D1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */; };
+		EED03DD85650222C6C60B479 /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678BCF1A2882E893985A991 /* Pods_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +227,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		480352A379AC55ECDEBFF8DC /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		4CF721DDC344AE629AD957E6 /* Pods-Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mac/Pods-Mac.debug.xcconfig"; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -162,7 +239,7 @@
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
 		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
-		782C8ACE0E7B8BFE7DE8A399 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		641A57197B5EAF95311104DE /* Pods-Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mac/Pods-Mac.release.xcconfig"; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* Baymax Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baymax Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
 		7A40360319DDEE84007B6E8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/Mac/main.m; sourceTree = "<group>"; };
@@ -177,7 +254,8 @@
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		927F61BF196C771E000F43EF /* Baymax Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baymax Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D90C8A4B05FB07235436844 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A678BCF1A2882E893985A991 /* Pods_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1CEBEFBDD0A1F9192E0E3F7 /* Pods-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS/Pods-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -198,8 +276,6 @@
 		B737896E180762440076A88C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Source/Resources/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		B73789851807631A0076A88C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/iOS/main.m; sourceTree = SOURCE_ROOT; };
 		B73789861807631A0076A88C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = Source/Prefix.pch; sourceTree = SOURCE_ROOT; };
-		B7378992180767190076A88C /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Source/MainScene.h; sourceTree = "<group>"; };
-		B7378993180767190076A88C /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScene.m; path = Source/MainScene.m; sourceTree = "<group>"; };
 		B77F1B2E17B978D7009739AE /* Baymax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baymax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77F1B3117B978D7009739AE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B77F1B3317B978D7009739AE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -217,18 +293,64 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		CFF313551EF1F7A7866C3BD3 /* Pods_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		E303025C1ACC0C3F009D9314 /* ChangeNote */ = {isa = PBXFileReference; lastKnownFileType = text; path = ChangeNote; sourceTree = "<group>"; };
-		E3074DE71AD652280094881F /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
-		E3074DE91AD652320094881F /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods/AFNetworking.framework"; sourceTree = "<group>"; };
-		E3074DEB1AD6523C0094881F /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
+		E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libThirdKit.a; path = "Libraries/build/Debug-iphoneos/libThirdKit.a"; sourceTree = "<group>"; };
+		E375D2771B26DA63001FA4A0 /* BMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUser.h; sourceTree = "<group>"; };
+		E375D2781B26DA63001FA4A0 /* BMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUser.m; sourceTree = "<group>"; };
+		E375D2A11B26DF07001FA4A0 /* JSONModel+BMJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+BMJSONModel.h"; sourceTree = "<group>"; };
+		E375D2A21B26DF07001FA4A0 /* JSONModel+BMJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+BMJSONModel.m"; sourceTree = "<group>"; };
+		E375D2A61B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONKeyMapper+BMJSONKeyMapper.h"; sourceTree = "<group>"; };
+		E375D2A71B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONKeyMapper+BMJSONKeyMapper.m"; sourceTree = "<group>"; };
+		E375D2AB1B26E0F9001FA4A0 /* Catetory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Catetory.h; path = Source/Catetory.h; sourceTree = "<group>"; };
+		E375D2AD1B26F558001FA4A0 /* BMAutoBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoBrand.h; sourceTree = "<group>"; };
+		E375D2AE1B26F558001FA4A0 /* BMAutoBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoBrand.m; sourceTree = "<group>"; };
+		E375D2B21B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+BMJSONValueTransformer.h"; sourceTree = "<group>"; };
+		E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+BMJSONValueTransformer.m"; sourceTree = "<group>"; };
+		E375D2B71B27116F001FA4A0 /* BMServerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerAPI.h; sourceTree = "<group>"; };
+		E375D2B81B27116F001FA4A0 /* BMServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerAPI.m; sourceTree = "<group>"; };
+		E375D2BC1B271711001FA4A0 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
+		E375D2BD1B271711001FA4A0 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		E375D2C21B271772001FA4A0 /* BMSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSessionManager.h; sourceTree = "<group>"; };
+		E375D2C31B271772001FA4A0 /* BMSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSessionManager.m; sourceTree = "<group>"; };
+		E375D2CA1B271AC5001FA4A0 /* application.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = application.plist; sourceTree = "<group>"; };
+		E375D2CC1B2720B1001FA4A0 /* BMConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMConstant.h; sourceTree = "<group>"; };
 		E38A84E21ACC6A32006C1BFF /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = Library/Frameworks/AppleScriptObjC.framework; sourceTree = DEVELOPER_DIR; };
-		E38A84E61ACC6A32006C1BFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E38A84E71ACC6A32006C1BFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E38A84E91ACC6A32006C1BFF /* AppDelegate.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = AppDelegate.applescript; sourceTree = "<group>"; };
-		E38A84EB1ACC6A32006C1BFF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E38A84EE1ACC6A32006C1BFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		FA38A18C6DBD08D948DD46C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E3A9F5491B27328600F92CAE /* BMAutoSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoSeries.h; sourceTree = "<group>"; };
+		E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoSeries.m; sourceTree = "<group>"; };
+		E3A9F54E1B27339000F92CAE /* BMAutoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoModel.h; sourceTree = "<group>"; };
+		E3A9F54F1B27339000F92CAE /* BMAutoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoModel.m; sourceTree = "<group>"; };
+		E3A9F5531B2737D200F92CAE /* BMContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMContainer.h; sourceTree = "<group>"; };
+		E3A9F5541B2737D200F92CAE /* BMContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMContainer.m; sourceTree = "<group>"; };
+		E3A9F5581B273E8600F92CAE /* BMAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddress.h; sourceTree = "<group>"; };
+		E3A9F5591B273E8600F92CAE /* BMAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddress.m; sourceTree = "<group>"; };
+		E3A9F55D1B27414400F92CAE /* BMAutomobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutomobile.h; sourceTree = "<group>"; };
+		E3A9F55E1B27414400F92CAE /* BMAutomobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutomobile.m; sourceTree = "<group>"; };
+		E3A9F5621B27CCD500F92CAE /* BMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCity.h; sourceTree = "<group>"; };
+		E3A9F5631B27CCD500F92CAE /* BMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCity.m; sourceTree = "<group>"; };
+		E3A9F5671B27CE0000F92CAE /* BMDistrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDistrict.h; sourceTree = "<group>"; };
+		E3A9F5681B27CE0000F92CAE /* BMDistrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDistrict.m; sourceTree = "<group>"; };
+		E3A9F56C1B27CE7900F92CAE /* BMProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMProvince.h; sourceTree = "<group>"; };
+		E3A9F56D1B27CE7900F92CAE /* BMProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMProvince.m; sourceTree = "<group>"; };
+		E3A9F5711B27CF7600F92CAE /* BMEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMEmployee.h; sourceTree = "<group>"; };
+		E3A9F5721B27CF7600F92CAE /* BMEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMEmployee.m; sourceTree = "<group>"; };
+		E3A9F5761B27D54300F92CAE /* BMOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrder.h; sourceTree = "<group>"; };
+		E3A9F5771B27D54300F92CAE /* BMOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrder.m; sourceTree = "<group>"; };
+		E3A9F57B1B27D79C00F92CAE /* BMOrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrderItem.h; sourceTree = "<group>"; };
+		E3A9F57C1B27D79C00F92CAE /* BMOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrderItem.m; sourceTree = "<group>"; };
+		E3A9F5801B27E83700F92CAE /* BMPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPayment.h; sourceTree = "<group>"; };
+		E3A9F5811B27E83700F92CAE /* BMPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMPayment.m; sourceTree = "<group>"; };
+		E3A9F5851B27E89800F92CAE /* BMRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMRating.h; sourceTree = "<group>"; };
+		E3A9F5861B27E89800F92CAE /* BMRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMRating.m; sourceTree = "<group>"; };
+		E3A9F58A1B27E8FF00F92CAE /* BMParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMParts.h; sourceTree = "<group>"; };
+		E3A9F58B1B27E8FF00F92CAE /* BMParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMParts.m; sourceTree = "<group>"; };
+		E3A9F58F1B27E91300F92CAE /* BMPartsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPartsItem.h; sourceTree = "<group>"; };
+		E3A9F5901B27E91300F92CAE /* BMPartsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMPartsItem.m; sourceTree = "<group>"; };
+		E3A9F5941B27E91D00F92CAE /* BMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMService.h; sourceTree = "<group>"; };
+		E3A9F5951B27E91D00F92CAE /* BMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMService.m; sourceTree = "<group>"; };
+		E3A9F5991B28219800F92CAE /* BMAutoSeriesPartsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoSeriesPartsItem.h; sourceTree = "<group>"; };
+		E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoSeriesPartsItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +370,7 @@
 				7A4036EC19DE3F90007B6E8F /* QuartzCore.framework in Frameworks */,
 				7A4036F119DE3F9C007B6E8F /* Foundation.framework in Frameworks */,
 				7A4036F219DE3F9E007B6E8F /* CoreGraphics.framework in Frameworks */,
-				5F644200FABE7413F336A630 /* Pods.framework in Frameworks */,
+				E2635BDC718876A9DD9BF386 /* Pods_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E375D23C1B22DEB9001FA4A0 /* libThirdKit.a in Frameworks */,
 				BC5399D81A44DCC90063F482 /* AndroidKit.framework in Frameworks */,
 				BC5399D91A44DCC90063F482 /* CoreJava.framework in Frameworks */,
 				BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */,
@@ -266,7 +389,6 @@
 				927F61A9196C771E000F43EF /* Foundation.framework in Frameworks */,
 				927F61AA196C771E000F43EF /* CoreGraphics.framework in Frameworks */,
 				927F61AB196C771E000F43EF /* CoreText.framework in Frameworks */,
-				7619B27DF04AC29DABAC0F1F /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +407,7 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
-				3D1EB4C776F7F068A85940F9 /* Pods.framework in Frameworks */,
+				EED03DD85650222C6C60B479 /* Pods_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +566,17 @@
 			name = Mac;
 			sourceTree = "<group>";
 		};
+		7BC531F12B2F42CD84C12C2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CF721DDC344AE629AD957E6 /* Pods-Mac.debug.xcconfig */,
+				641A57197B5EAF95311104DE /* Pods-Mac.release.xcconfig */,
+				B1CEBEFBDD0A1F9192E0E3F7 /* Pods-iOS.debug.xcconfig */,
+				480352A379AC55ECDEBFF8DC /* Pods-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9222E2B918734FF800A246C7 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,9 +588,13 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E375D2CB1B271FD6001FA4A0 /* Common */,
+				E37440551B1F08CA00821EF0 /* Controller */,
+				E37440541B1F08CA00821EF0 /* Model */,
+				E375D2741B26D9F0001FA4A0 /* Node */,
+				E375D2AC1B26E7D2001FA4A0 /* Service */,
+				E375D2C11B271772001FA4A0 /* Networking */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
-				B7378992180767190076A88C /* MainScene.h */,
-				B7378993180767190076A88C /* MainScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -488,14 +625,14 @@
 			isa = PBXGroup;
 			children = (
 				B737893C1807616C0076A88C /* Source */,
+				E375D2C91B271A8D001FA4A0 /* Configs */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				E303025B1ACC0C3F009D9314 /* ReadMe */,
 				9222E2B918734FF800A246C7 /* libs */,
 				B77F1CCF17B978D8009739AE /* Supporting Files */,
-				E38A84E41ACC6A32006C1BFF /* DeleteApp */,
 				B77F1B3017B978D7009739AE /* Frameworks */,
 				B77F1B2F17B978D7009739AE /* Products */,
-				FD3C29430AD331693C9B0D90 /* Pods */,
+				7BC531F12B2F42CD84C12C2B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -512,9 +649,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3074DEB1AD6523C0094881F /* Pods.framework */,
-				E3074DE91AD652320094881F /* AFNetworking.framework */,
-				E3074DE71AD652280094881F /* Pods.framework */,
+				E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
 				BC5399D51A44DCC90063F482 /* GLActivityKit.framework */,
@@ -536,8 +671,9 @@
 				B77F1B3D17B978D7009739AE /* Foundation.framework */,
 				B77F1B3F17B978D7009739AE /* CoreGraphics.framework */,
 				B77F1B4117B978D7009739AE /* CoreText.framework */,
-				782C8ACE0E7B8BFE7DE8A399 /* Pods.framework */,
 				E38A84E21ACC6A32006C1BFF /* AppleScriptObjC.framework */,
+				CFF313551EF1F7A7866C3BD3 /* Pods_Mac.framework */,
+				A678BCF1A2882E893985A991 /* Pods_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -562,6 +698,7 @@
 				7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */,
 				7AFCD5DB19E9BD9F00BCCCDA /* cocos2d.h */,
 				B73789861807631A0076A88C /* Prefix.pch */,
+				E375D2AB1B26E0F9001FA4A0 /* Catetory.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -574,33 +711,120 @@
 			path = ReadMe;
 			sourceTree = "<group>";
 		};
-		E38A84E41ACC6A32006C1BFF /* DeleteApp */ = {
+		E37440541B1F08CA00821EF0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E38A84E91ACC6A32006C1BFF /* AppDelegate.applescript */,
-				E38A84EB1ACC6A32006C1BFF /* Images.xcassets */,
-				E38A84ED1ACC6A32006C1BFF /* MainMenu.xib */,
-				E38A84E51ACC6A32006C1BFF /* Supporting Files */,
+				E3A9F5581B273E8600F92CAE /* BMAddress.h */,
+				E3A9F5591B273E8600F92CAE /* BMAddress.m */,
+				E375D2AD1B26F558001FA4A0 /* BMAutoBrand.h */,
+				E375D2AE1B26F558001FA4A0 /* BMAutoBrand.m */,
+				E3A9F55D1B27414400F92CAE /* BMAutomobile.h */,
+				E3A9F55E1B27414400F92CAE /* BMAutomobile.m */,
+				E3A9F54E1B27339000F92CAE /* BMAutoModel.h */,
+				E3A9F54F1B27339000F92CAE /* BMAutoModel.m */,
+				E3A9F5491B27328600F92CAE /* BMAutoSeries.h */,
+				E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */,
+				E3A9F5991B28219800F92CAE /* BMAutoSeriesPartsItem.h */,
+				E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */,
+				E3A9F5621B27CCD500F92CAE /* BMCity.h */,
+				E3A9F5631B27CCD500F92CAE /* BMCity.m */,
+				E3A9F5531B2737D200F92CAE /* BMContainer.h */,
+				E3A9F5541B2737D200F92CAE /* BMContainer.m */,
+				E3A9F5671B27CE0000F92CAE /* BMDistrict.h */,
+				E3A9F5681B27CE0000F92CAE /* BMDistrict.m */,
+				E3A9F5711B27CF7600F92CAE /* BMEmployee.h */,
+				E3A9F5721B27CF7600F92CAE /* BMEmployee.m */,
+				E3A9F5761B27D54300F92CAE /* BMOrder.h */,
+				E3A9F5771B27D54300F92CAE /* BMOrder.m */,
+				E3A9F57B1B27D79C00F92CAE /* BMOrderItem.h */,
+				E3A9F57C1B27D79C00F92CAE /* BMOrderItem.m */,
+				E3A9F58A1B27E8FF00F92CAE /* BMParts.h */,
+				E3A9F58B1B27E8FF00F92CAE /* BMParts.m */,
+				E3A9F58F1B27E91300F92CAE /* BMPartsItem.h */,
+				E3A9F5901B27E91300F92CAE /* BMPartsItem.m */,
+				E3A9F5801B27E83700F92CAE /* BMPayment.h */,
+				E3A9F5811B27E83700F92CAE /* BMPayment.m */,
+				E3A9F56C1B27CE7900F92CAE /* BMProvince.h */,
+				E3A9F56D1B27CE7900F92CAE /* BMProvince.m */,
+				E3A9F5851B27E89800F92CAE /* BMRating.h */,
+				E3A9F5861B27E89800F92CAE /* BMRating.m */,
+				E375D2B71B27116F001FA4A0 /* BMServerAPI.h */,
+				E375D2B81B27116F001FA4A0 /* BMServerAPI.m */,
+				E3A9F5941B27E91D00F92CAE /* BMService.h */,
+				E3A9F5951B27E91D00F92CAE /* BMService.m */,
+				E375D2771B26DA63001FA4A0 /* BMUser.h */,
+				E375D2781B26DA63001FA4A0 /* BMUser.m */,
+				E375D2A01B26DEF3001FA4A0 /* Category */,
 			);
-			path = DeleteApp;
+			name = Model;
+			path = Source/Model;
 			sourceTree = "<group>";
 		};
-		E38A84E51ACC6A32006C1BFF /* Supporting Files */ = {
+		E37440551B1F08CA00821EF0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E38A84E61ACC6A32006C1BFF /* Info.plist */,
-				E38A84E71ACC6A32006C1BFF /* main.m */,
+				E375D2BD1B271711001FA4A0 /* MainScene.h */,
+				E375D2BC1B271711001FA4A0 /* MainScene.m */,
 			);
-			name = "Supporting Files";
+			name = Controller;
+			path = Source/Controller;
 			sourceTree = "<group>";
 		};
-		FD3C29430AD331693C9B0D90 /* Pods */ = {
+		E375D2741B26D9F0001FA4A0 /* Node */ = {
 			isa = PBXGroup;
 			children = (
-				FA38A18C6DBD08D948DD46C2 /* Pods.debug.xcconfig */,
-				9D90C8A4B05FB07235436844 /* Pods.release.xcconfig */,
 			);
-			name = Pods;
+			name = Node;
+			path = Source/Node;
+			sourceTree = "<group>";
+		};
+		E375D2A01B26DEF3001FA4A0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E375D2A61B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.h */,
+				E375D2A71B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m */,
+				E375D2A11B26DF07001FA4A0 /* JSONModel+BMJSONModel.h */,
+				E375D2A21B26DF07001FA4A0 /* JSONModel+BMJSONModel.m */,
+				E375D2B21B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.h */,
+				E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		E375D2AC1B26E7D2001FA4A0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			path = Source/Service;
+			sourceTree = "<group>";
+		};
+		E375D2C11B271772001FA4A0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E375D2C21B271772001FA4A0 /* BMSessionManager.h */,
+				E375D2C31B271772001FA4A0 /* BMSessionManager.m */,
+			);
+			name = Networking;
+			path = Source/Networking;
+			sourceTree = "<group>";
+		};
+		E375D2C91B271A8D001FA4A0 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				E375D2CA1B271AC5001FA4A0 /* application.plist */,
+			);
+			name = Configs;
+			path = Source/Resources/Configs;
+			sourceTree = "<group>";
+		};
+		E375D2CB1B271FD6001FA4A0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E375D2CC1B2720B1001FA4A0 /* BMConstant.h */,
+			);
+			name = Common;
+			path = Source/Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -610,12 +834,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A40361E19DDEE84007B6E8F /* Build configuration list for PBXNativeTarget "Baymax Mac" */;
 			buildPhases = (
-				EB42DE5BB0DFACBC003A5B7F /* Check Pods Manifest.lock */,
+				F635956A040C5467BD0F5364 /* Check Pods Manifest.lock */,
 				7A4035FB19DDEE84007B6E8F /* Sources */,
 				7A4035FC19DDEE84007B6E8F /* Frameworks */,
 				7A4035FD19DDEE84007B6E8F /* Resources */,
-				9C0175D2B3D9CC79D170CAAB /* Embed Pods Frameworks */,
-				D4379739938B55A2D929F3A3 /* Copy Pods Resources */,
+				BB636669A38ACD578EFC1990 /* Embed Pods Frameworks */,
+				1882B877A9382D0C4577E31C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -631,13 +855,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 927F61BC196C771E000F43EF /* Build configuration list for PBXNativeTarget "Baymax Android" */;
 			buildPhases = (
-				D0A578131995B85C4A63B5A6 /* Check Pods Manifest.lock */,
 				927F619B196C771E000F43EF /* Run Script */,
 				927F619C196C771E000F43EF /* Sources */,
 				927F61A0196C771E000F43EF /* Frameworks */,
 				927F61AC196C771E000F43EF /* Resources */,
-				E16B4D68D05F8451676C06B6 /* Embed Pods Frameworks */,
-				DDB35A43FF579D6DC5222A97 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -653,14 +874,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "Baymax iOS" */;
 			buildPhases = (
-				93071EC172EA9B7499788E6F /* Check Pods Manifest.lock */,
+				CF9433D3449E928D0ECFEA95 /* Check Pods Manifest.lock */,
 				D2E0167A18D782EC00927430 /* Run Script */,
 				B77F1B2A17B978D7009739AE /* Sources */,
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				D352B47A19EC5D8A00829775 /* Compile Metal Shaders */,
 				B77F1B2C17B978D7009739AE /* Resources */,
-				DCCD58AF81EF51CB5B4F6E45 /* Embed Pods Frameworks */,
-				0A9D0B97C38D544F18B22EC4 /* Copy Pods Resources */,
+				BE58E04609441F62038AFA8D /* Embed Pods Frameworks */,
+				559BB8461760338A1428C7E0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -683,6 +904,7 @@
 				TargetAttributes = {
 					7A4035FE19DDEE84007B6E8F = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 4AGG3RNQPH;
 					};
 					B77F1B2D17B978D7009739AE = {
 						DevelopmentTeam = 4AGG3RNQPH;
@@ -758,6 +980,7 @@
 			files = (
 				7A4036F719DE401F007B6E8F /* iPad-old.png in Resources */,
 				7A4036F819DE401F007B6E8F /* iPad-old@2x.png in Resources */,
+				E3A9F5481B27233D00F92CAE /* application.plist in Resources */,
 				7A4036F919DE401F007B6E8F /* iPad.png in Resources */,
 				7A4036FA19DE401F007B6E8F /* iPad@2x.png in Resources */,
 				7A4036FB19DE401F007B6E8F /* iPhone-old.png in Resources */,
@@ -794,6 +1017,7 @@
 				927F61B9196C771E000F43EF /* iPhone@2x.png in Resources */,
 				927F61BA196C771E000F43EF /* Default.png in Resources */,
 				927F61BB196C771E000F43EF /* iPad-old.png in Resources */,
+				E3A9F5471B27233C00F92CAE /* application.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +1025,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A9F5441B27231F00F92CAE /* application.plist in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
@@ -822,7 +1047,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A9D0B97C38D544F18B22EC4 /* Copy Pods Resources */ = {
+		1882B877A9382D0C4577E31C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -834,7 +1059,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac/Pods-Mac-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		559BB8461760338A1428C7E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS/Pods-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		927F619B196C771E000F43EF /* Run Script */ = {
@@ -851,22 +1091,7 @@
 			shellPath = /bin/sh;
 			shellScript = "osascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'";
 		};
-		93071EC172EA9B7499788E6F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9C0175D2B3D9CC79D170CAAB /* Embed Pods Frameworks */ = {
+		BB636669A38ACD578EFC1990 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -878,10 +1103,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mac/Pods-Mac-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D0A578131995B85C4A63B5A6 /* Check Pods Manifest.lock */ = {
+		BE58E04609441F62038AFA8D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS/Pods-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF9433D3449E928D0ECFEA95 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -924,67 +1164,7 @@
 			shellPath = /usr/bin/ruby;
 			shellScript = "# Special thanks to Filip Iliescu at Apple for the help with this.\n\n# Environment variables.\nSDK = ENV[\"PLATFORM_NAME\"]\nOBJECT_FILE_DIR = ENV[\"OBJECT_FILE_DIR\"]\nSRCROOT = ENV[\"SRCROOT\"]\nBUILT_PRODUCTS_DIR = ENV[\"BUILT_PRODUCTS_DIR\"]\nPRODUCT_NAME = ENV[\"PRODUCT_NAME\"]\n\n# User variables\n# Directory with your custom .metal files in it.\nSHADER_DIR = \"#{SRCROOT}/Source/MetalShaders\"\n# Location of the cocos2d library directory.\nCOCOS2D_DIR = \"#{SRCROOT}/Source/libs/cocos2d-iphone/cocos2d\"\n\nMETAL_ARGS = [\n\t\"-arch air64\",\n\t\"-emit-llvm\",\n\t\"-c\",\n\t\"-gline-tables-only\",\n\t\"-ffast-math\",\n\t\"-std=ios-metal1.0\",\n    %{-I \"#{COCOS2D_DIR}\"},\n]\n\ndef system(cmd)\n\tputs cmd\n    Kernel.system cmd\nend\n\nPRODUCTS = \"#{OBJECT_FILE_DIR}/CCMetalShaders\"\nARCHIVE = \"#{PRODUCTS}/default.metal-ar\"\n\ndef compile_shader(src)\n\tdst = \"#{PRODUCTS}/#{File.basename(src, \".metal\")}.air\"\n\t\n\t# Compile and archive the shader.\n\tsystem %{xcrun -sdk #{SDK} metal #{METAL_ARGS.join(\" \")} \"#{src}\" -o \"#{dst}\"}\n\tsystem %{xcrun -sdk #{SDK} ar r \"#{ARCHIVE}\" \"#{dst}\"}\nend\n\nif SDK == \"iphoneos\"\n\t# Cannot use default.metallib to avoid clashing with Xcode build magic.\n\t# This is part of a workaround due to the iOS simulator not supporting Metal and may go away in the future.\n\tmetal_lib = \"#{BUILT_PRODUCTS_DIR}/#{PRODUCT_NAME}.app/CCShaders.metallib\"\n    \n\t# Delete the old products dir and metal lib.\n\tsystem %{rm -rf \"#{PRODUCTS}\"}\n    system %{rm -f \"#{metal_lib}\"}\n    system %{mkdir -p \"#{PRODUCTS}\"}\n    \n    # Compile the builtin shaders.\n    compile_shader(%{#{COCOS2D_DIR}/Platforms/iOS/CCShaders.metal})\n    \n\t# Compile/archive all the shaders in the shader directory.\n    Dir.glob(\"#{SHADER_DIR}/*.metal\").each{|src| compile_shader(src)}\n    \n\t# Link all shaders into default lib.\n\tsystem %{xcrun -sdk #{SDK} metallib -o \"#{metal_lib}\" \"#{ARCHIVE}\"}\nend\n";
 		};
-		D4379739938B55A2D929F3A3 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCCD58AF81EF51CB5B4F6E45 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DDB35A43FF579D6DC5222A97 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E16B4D68D05F8451676C06B6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB42DE5BB0DFACBC003A5B7F /* Check Pods Manifest.lock */ = {
+		F635956A040C5467BD0F5364 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1006,9 +1186,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */,
+				E375D2B61B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
+				E3A9F56B1B27CE0100F92CAE /* BMDistrict.m in Sources */,
+				E375D2A51B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				7A40360419DDEE84007B6E8F /* main.m in Sources */,
+				E375D2AA1B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */,
+				E3A9F57F1B27D79C00F92CAE /* BMOrderItem.m in Sources */,
+				E3A9F5981B27E91D00F92CAE /* BMService.m in Sources */,
 				7A59498E19E3941300F65F90 /* AppDelegate.m in Sources */,
+				E3A9F5931B27E91300F92CAE /* BMPartsItem.m in Sources */,
+				E3A9F5571B2737D200F92CAE /* BMContainer.m in Sources */,
+				E3A9F5611B27414400F92CAE /* BMAutomobile.m in Sources */,
+				E375D2C61B271772001FA4A0 /* BMSessionManager.m in Sources */,
+				E375D27B1B26DA63001FA4A0 /* BMUser.m in Sources */,
+				E375D2C01B271711001FA4A0 /* MainScene.m in Sources */,
+				E375D2BB1B27116F001FA4A0 /* BMServerAPI.m in Sources */,
+				E3A9F58E1B27E8FF00F92CAE /* BMParts.m in Sources */,
+				E3A9F5701B27CE7900F92CAE /* BMProvince.m in Sources */,
+				E3A9F5661B27CCD500F92CAE /* BMCity.m in Sources */,
+				E3A9F5521B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3A9F5891B27E89800F92CAE /* BMRating.m in Sources */,
+				E3A9F59D1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,
+				E3A9F5751B27CF7600F92CAE /* BMEmployee.m in Sources */,
+				E3A9F54D1B27328600F92CAE /* BMAutoSeries.m in Sources */,
+				E375D2B11B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
+				E3A9F5841B27E83700F92CAE /* BMPayment.m in Sources */,
+				E3A9F55C1B273E8600F92CAE /* BMAddress.m in Sources */,
+				E3A9F57A1B27D54300F92CAE /* BMOrder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1016,8 +1220,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				927F619E196C771E000F43EF /* MainScene.m in Sources */,
+				E3A9F5791B27D54300F92CAE /* BMOrder.m in Sources */,
+				E3A9F5831B27E83700F92CAE /* BMPayment.m in Sources */,
+				E3A9F56F1B27CE7900F92CAE /* BMProvince.m in Sources */,
+				E3A9F5651B27CCD500F92CAE /* BMCity.m in Sources */,
+				E3A9F5741B27CF7600F92CAE /* BMEmployee.m in Sources */,
+				E375D2BA1B27116F001FA4A0 /* BMServerAPI.m in Sources */,
+				E375D2A41B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
+				E3A9F54C1B27328600F92CAE /* BMAutoSeries.m in Sources */,
+				E375D27A1B26DA63001FA4A0 /* BMUser.m in Sources */,
+				E375D2B01B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
+				E3A9F5601B27414400F92CAE /* BMAutomobile.m in Sources */,
+				E3A9F58D1B27E8FF00F92CAE /* BMParts.m in Sources */,
+				E375D2C51B271772001FA4A0 /* BMSessionManager.m in Sources */,
+				E375D2BF1B271711001FA4A0 /* MainScene.m in Sources */,
+				E3A9F5561B2737D200F92CAE /* BMContainer.m in Sources */,
+				E375D2A91B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */,
+				E3A9F5921B27E91300F92CAE /* BMPartsItem.m in Sources */,
+				E3A9F57E1B27D79C00F92CAE /* BMOrderItem.m in Sources */,
+				E375D2B51B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
+				E3A9F56A1B27CE0100F92CAE /* BMDistrict.m in Sources */,
+				E3A9F5971B27E91D00F92CAE /* BMService.m in Sources */,
 				5B121030197484FA004C1E1D /* BaymaxActivity.m in Sources */,
+				E3A9F5881B27E89800F92CAE /* BMRating.m in Sources */,
+				E3A9F5511B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3A9F59C1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,
+				E3A9F55B1B273E8600F92CAE /* BMAddress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,9 +1253,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E375D2B41B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
+				E3A9F5691B27CE0100F92CAE /* BMDistrict.m in Sources */,
+				E375D2A31B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
-				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
+				E375D2A81B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */,
+				E3A9F57D1B27D79C00F92CAE /* BMOrderItem.m in Sources */,
+				E3A9F5961B27E91D00F92CAE /* BMService.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				E3A9F5911B27E91300F92CAE /* BMPartsItem.m in Sources */,
+				E3A9F5551B2737D200F92CAE /* BMContainer.m in Sources */,
+				E3A9F55F1B27414400F92CAE /* BMAutomobile.m in Sources */,
+				E375D2C41B271772001FA4A0 /* BMSessionManager.m in Sources */,
+				E375D2791B26DA63001FA4A0 /* BMUser.m in Sources */,
+				E375D2BE1B271711001FA4A0 /* MainScene.m in Sources */,
+				E375D2B91B27116F001FA4A0 /* BMServerAPI.m in Sources */,
+				E3A9F58C1B27E8FF00F92CAE /* BMParts.m in Sources */,
+				E3A9F56E1B27CE7900F92CAE /* BMProvince.m in Sources */,
+				E3A9F5641B27CCD500F92CAE /* BMCity.m in Sources */,
+				E3A9F5501B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3A9F5871B27E89800F92CAE /* BMRating.m in Sources */,
+				E3A9F59B1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,
+				E3A9F5731B27CF7600F92CAE /* BMEmployee.m in Sources */,
+				E3A9F54B1B27328600F92CAE /* BMAutoSeries.m in Sources */,
+				E375D2AF1B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
+				E3A9F5821B27E83700F92CAE /* BMPayment.m in Sources */,
+				E3A9F55A1B273E8600F92CAE /* BMAddress.m in Sources */,
+				E3A9F5781B27D54300F92CAE /* BMOrder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,21 +1303,10 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		E38A84ED1ACC6A32006C1BFF /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E38A84EE1ACC6A32006C1BFF /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		7A40361919DDEE84007B6E8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA38A18C6DBD08D948DD46C2 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 4CF721DDC344AE629AD957E6 /* Pods-Mac.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1076,20 +1317,12 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
@@ -1103,6 +1336,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lz",
@@ -1117,7 +1351,7 @@
 		};
 		7A40361A19DDEE84007B6E8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D90C8A4B05FB07235436844 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 641A57197B5EAF95311104DE /* Pods-Mac.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1128,17 +1362,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
@@ -1152,6 +1382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lz",
@@ -1165,7 +1396,6 @@
 		};
 		927F61BD196C771E000F43EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA38A18C6DBD08D948DD46C2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ANDROID_MANIFEST = "$(SRCROOT)/Source/Resources/Platforms/Android/AndroidManifest.xml";
@@ -1175,11 +1405,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -1194,6 +1420,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"$(SRCROOT)/Libraries/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Android/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1201,8 +1428,10 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/armv7a",
 					"$(SDKROOT)/usr/local/lib/armv7a-neon",
+					"$(PROJECT_DIR)/Libraries/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1214,6 +1443,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = sbandroid;
+				SUPPORTED_PLATFORMS = sbandroid;
+				VALID_ARCHS = "armeabi armv7a armv7a-neon x86";
 				WRAPPER_EXTENSION = app;
 				opengles2 = YES;
 			};
@@ -1221,7 +1452,6 @@
 		};
 		927F61BE196C771E000F43EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D90C8A4B05FB07235436844 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ANDROID_MANIFEST = "$(SRCROOT)/Source/Resources/Platforms/Android/AndroidManifest.xml";
@@ -1231,11 +1461,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1249,6 +1475,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"$(SRCROOT)/Libraries/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Android/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1256,7 +1483,9 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/armv7a",
 					"$(SDKROOT)/usr/local/lib/armv7a-neon",
+					"$(PROJECT_DIR)/Libraries/build/Debug-iphoneos",
 				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1268,7 +1497,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = sbandroid;
+				SUPPORTED_PLATFORMS = sbandroid;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armeabi armv7a armv7a-neon x86";
 				WRAPPER_EXTENSION = app;
 				opengles2 = YES;
 			};
@@ -1300,7 +1531,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1331,7 +1567,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1339,7 +1580,7 @@
 		};
 		B77F1CDF17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA38A18C6DBD08D948DD46C2 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = B1CEBEFBDD0A1F9192E0E3F7 /* Pods-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1350,6 +1591,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					"\"Source/libs/cocos2d-iphone/cocos2d\"/**",
 					"Source/libs/cocos2d-iphone/external/Chipmunk/objectivec/include",
@@ -1361,6 +1603,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1369,13 +1612,14 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		B77F1CE017B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D90C8A4B05FB07235436844 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 480352A379AC55ECDEBFF8DC /* Pods-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1385,6 +1629,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					"\"Source/libs/cocos2d-iphone/cocos2d\"/**",
 					"Source/libs/cocos2d-iphone/external/Chipmunk/objectivec/include",
@@ -1395,6 +1640,7 @@
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1402,6 +1648,7 @@
 				PRODUCT_NAME = Baymax;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -16,7 +16,7 @@
     // [director setDisplayStats:YES];
 
     // Set a default window size
-    CGSize defaultWindowSize = CGSizeMake(480.0f, 320.0f);
+    CGSize defaultWindowSize = CGSizeMake(320.0f, 568.0f);
     [self.window setFrame:CGRectMake(0.0f, 0.0f, defaultWindowSize.width, defaultWindowSize.height) display:true animate:false];
     [self.glView setFrame:self.window.frame];
 
