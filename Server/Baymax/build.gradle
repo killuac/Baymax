@@ -31,6 +31,7 @@ repositories {
 }
 
 configurations {
+    optional
     providedRuntime
     compile.exclude module: "spring-boot-starter-tomcat"
     compile.exclude module: "tomcat-jdbc"
@@ -54,7 +55,6 @@ dependencies {
 //    providedRuntime("org.springframework.boot:spring-boot-starter-jetty")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
-
 
 eclipse {
     classpath {

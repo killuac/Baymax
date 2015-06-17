@@ -1,0 +1,54 @@
+## LOGGING
+#logging:
+#  config: classpath:logback.xml
+##  file: logs/Baymax.log
+#  level:
+#    com.baymax: DEBUG
+#    org.springframework: ERROR
+#    org.hibernate: ERROR
+#    com.zaxxer.hikari: ERROR
+#    eclipse.jetty: ERROR
+#
+## DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+#spring.datasource:
+#  driver-class-name: com.mysql.jdbc.Driver
+#  jdbc-url: jdbc:mysql://localhost:3306/baymax
+#  username: jdbc_user
+#  password: '!Jdbc2015!'
+#  maximum-pool-size: 30
+#  data-source-properties:
+#    cachePrepStmts: true
+#    prepStmtCacheSize: 250
+#    prepStmtCacheSqlLimit: 2048
+##    url: ""   #Ignore embedded database
+#
+## DATA REST (RepositoryRestConfiguration)
+#spring.data.rest:
+#  base-uri: /api
+#  return-body-on-create: true
+#  return-body-on-update: false
+#
+## JPA (JpaBaseConfiguration, HibernateJpaAutoConfiguration)
+##spring.jpa:
+##  hibernate:
+##    ddl-auto: create-drop
+##    naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+##  database: MYSQL
+##  show-sql: true
+#
+## EMBEDDED SERVER CONFIGURATION (ServerProperties)
+#spring:
+#  profiles:
+#    active: development
+#server:
+#  port: 8080
+#---
+#spring:
+#  profiles: development
+#server:
+#  address: localhost
+#---
+#spring:
+#  profiles: production
+#server:
+#  address: 115.29.190.0

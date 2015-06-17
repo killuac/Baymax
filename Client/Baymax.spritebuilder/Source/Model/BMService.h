@@ -10,8 +10,8 @@
 
 @interface BMService : JSONModel
 
-@property (nonatomic) ushort serviceId;
-@property (nonatomic) double price;
+@property (nonatomic, assign) ushort serviceId;
+@property (nonatomic, assign) double price;
 @property (nonatomic, copy) NSString *serviceName;
 @property (nonatomic, copy) NSString *serviceDesc;
 

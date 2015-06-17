@@ -15,7 +15,9 @@
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
         @"_links.automobiles.href": @"automobilesURL",
-        @"_links.addresses.href": @"addressesURL"
+        @"_links.addresses.href": @"addressesURL",
+        @"_embedded.autombiles": @"autombiles",
+        @"_embedded.addresses": @"addresses"
     }];
 }
 

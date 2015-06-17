@@ -13,12 +13,12 @@
 
 @interface BMOrderItem : JSONModel
 
-@property (nonatomic) NSUInteger itemId;
-@property (nonatomic) NSUInteger orderId;
-@property (nonatomic) ushort partsItemId;
-@property (nonatomic) ushort serviceId;
-@property (nonatomic) ushort quantity;
-@property (nonatomic) double price;
+@property (nonatomic, assign) NSUInteger itemId;
+@property (nonatomic, assign) NSUInteger orderId;
+@property (nonatomic, assign) ushort partsItemId;
+@property (nonatomic, assign) ushort serviceId;
+@property (nonatomic, assign) ushort quantity;
+@property (nonatomic, assign) double price;
 @property (nonatomic, copy) NSString *itemName;
 @property (nonatomic, copy) NSString *itemDescription;
 

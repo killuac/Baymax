@@ -27,7 +27,11 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import "BMAppSetting.h"
+#import "BMServerAPI.h"
+#import "BMCredential.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+#import "AFNetworkReachabilityManager+BMNetworkReachabilityManager.h"
 
 @implementation AppController
 
@@ -57,14 +61,42 @@
     
     [UIApplication sharedApplication].statusBarHidden = NO;
     
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [self setupApplication];
     
     return YES;
 }
 
-- (CCScene*) startScene
+- (void)setupApplication
 {
-    return [CCBReader loadAsScene:@"MainScene"];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] checkReachability];
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
+
+- (CCScene *)startScene
+{
+    CCScene *firstScene = [self firstLaunch];
+    if (firstScene) {
+        return firstScene;
+    } else {
+        NSString *sceneName = ([BMCredential sharedCredential].isSignedIn) ? SIGN_SCENE : MAIN_SCENE;
+        return [CCBReader loadAsScene:sceneName];
+    }
+}
+
+- (CCScene *)firstLaunch
+{
+    BMAppSetting *appSetting = [BMAppSetting defaultAppSetting];
+    if (appSetting.isFirstLaunch) {
+        [BMServerAPI writeAPIFile];
+        return (appSetting.guideScene.length) ? [CCBReader loadAsScene:appSetting.guideScene] : nil;
+    }
+    return nil;
+}
+
+//- (void)applicationDidBecomeActive:(UIApplication *)application
+//{
+//    Affect performance
+//}
 
 @end

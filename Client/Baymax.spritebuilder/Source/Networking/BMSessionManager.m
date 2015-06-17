@@ -7,8 +7,9 @@
 //
 
 #import "BMSessionManager.h"
-#import "BMConstant.h"
-#import "BMContainer.h"
+#import "BMAppSetting.h"
+
+#define HTTP_HEADER_ACCEPT  @"application/json"
 
 @implementation BMSessionManager
 
@@ -16,37 +17,71 @@ static BMSessionManager *instanceOfSessionManager = nil;
 + (instancetype)sharedSessionManager
 {
     if (!instanceOfSessionManager) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:PLIST_APPLICATION ofType:FILE_TYPE_PLIST];
-        NSURL *baseURL = [NSURL URLWithString:[NSDictionary dictionaryWithContentsOfFile:path][@"baseURL"]];
-        instanceOfSessionManager = [[self alloc] initWithBaseURL:baseURL];
+        instanceOfSessionManager = [[self alloc] initWithBaseURL:[BMAppSetting defaultAppSetting].baseURL];
+        [instanceOfSessionManager.requestSerializer setValue:HTTP_HEADER_ACCEPT forHTTPHeaderField:@"Accept"];
     }
     return instanceOfSessionManager;
-}
-
-- (NSDictionary *)userInfo
-{
-    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    [self GET:@"api/autoBrands" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMContainer *container = [BMContainer jsonModelWithDictionary:responseObject];
-        NSLog(@"%@", container);
-        NSLog(@"%ld", operation.response.statusCode);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
-    }];
-    return nil;
 }
 
 - (AFHTTPRequestOperation *)GET:(NSURL *)url
                      parameters:(id)parameters
                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
-    return [self GET:url.relativePath parameters:parameters success:success failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
-        if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
-            [self.delegate sessionManager:self didFailWithError:error];
-        }
-    }];
+    return [self GET:url.relativePath
+          parameters:parameters
+             success:success
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"GET ERROR: %@", error);
+                 if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
+                     [self.delegate sessionManager:self didFailWithError:error];
+                 }
+             }];
+}
+
+- (AFHTTPRequestOperation *)POST:(NSURL *)url
+                      parameters:(id)parameters
+                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+{
+    return [self POST:url.relativePath
+           parameters:parameters
+              success:success
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"POST ERROR: %@", error);
+                  if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
+                      [self.delegate sessionManager:self didFailWithError:error];
+                  }
+              }];
+}
+
+- (AFHTTPRequestOperation *)POST:(NSURL *)url
+                      parameters:(id)parameters
+       constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
+                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+{
+    return [self POST:url.relativePath
+           parameters:parameters
+constructingBodyWithBlock:block success:success
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"POST MULTIPART ERROR: %@", error);
+                  if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
+                      [self.delegate sessionManager:self didFailWithError:error];
+                  }
+              }];
+}
+
+- (AFHTTPRequestOperation *)PATCH:(NSURL *)url
+                       parameters:(id)parameters
+                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+{
+    return [self PATCH:url.relativePath
+            parameters:parameters
+               success:success
+               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   NSLog(@"PATCH ERROR: %@", error);
+                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
+                       [self.delegate sessionManager:self didFailWithError:error];
+                   }
+               }];
 }
 
 @end

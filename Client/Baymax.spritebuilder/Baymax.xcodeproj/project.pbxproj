@@ -108,18 +108,21 @@
 		E375D2B41B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */; };
 		E375D2B51B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */; };
 		E375D2B61B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */; };
-		E375D2B91B27116F001FA4A0 /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B81B27116F001FA4A0 /* BMServerAPI.m */; };
-		E375D2BA1B27116F001FA4A0 /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B81B27116F001FA4A0 /* BMServerAPI.m */; };
-		E375D2BB1B27116F001FA4A0 /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2B81B27116F001FA4A0 /* BMServerAPI.m */; };
-		E375D2BE1B271711001FA4A0 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2BC1B271711001FA4A0 /* MainScene.m */; };
-		E375D2BF1B271711001FA4A0 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2BC1B271711001FA4A0 /* MainScene.m */; };
-		E375D2C01B271711001FA4A0 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2BC1B271711001FA4A0 /* MainScene.m */; };
 		E375D2C41B271772001FA4A0 /* BMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2C31B271772001FA4A0 /* BMSessionManager.m */; };
 		E375D2C51B271772001FA4A0 /* BMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2C31B271772001FA4A0 /* BMSessionManager.m */; };
 		E375D2C61B271772001FA4A0 /* BMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2C31B271772001FA4A0 /* BMSessionManager.m */; };
-		E3A9F5441B27231F00F92CAE /* application.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* application.plist */; };
-		E3A9F5471B27233C00F92CAE /* application.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* application.plist */; };
-		E3A9F5481B27233D00F92CAE /* application.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* application.plist */; };
+		E38E7CEA1B2FDB490065A098 /* CCNode+BMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */; };
+		E38E7CEB1B2FDB490065A098 /* CCNode+BMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */; };
+		E38E7CEC1B2FDB490065A098 /* CCNode+BMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */; };
+		E38E7CF11B3036CD0065A098 /* BMImageSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E38E7CF01B3036CD0065A098 /* BMImageSprite.m */; };
+		E38E7CF21B3036CD0065A098 /* BMImageSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E38E7CF01B3036CD0065A098 /* BMImageSprite.m */; };
+		E38E7CF31B3036CD0065A098 /* BMImageSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E38E7CF01B3036CD0065A098 /* BMImageSprite.m */; };
+		E3954A861B2D43E300B4BE9C /* user-view-setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3954A851B2D43E300B4BE9C /* user-view-setting.plist */; };
+		E3954A871B2D43E300B4BE9C /* user-view-setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3954A851B2D43E300B4BE9C /* user-view-setting.plist */; };
+		E3954A881B2D43E300B4BE9C /* user-view-setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3954A851B2D43E300B4BE9C /* user-view-setting.plist */; };
+		E3A9F5441B27231F00F92CAE /* app-setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* app-setting.plist */; };
+		E3A9F5471B27233C00F92CAE /* app-setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* app-setting.plist */; };
+		E3A9F5481B27233D00F92CAE /* app-setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = E375D2CA1B271AC5001FA4A0 /* app-setting.plist */; };
 		E3A9F54B1B27328600F92CAE /* BMAutoSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */; };
 		E3A9F54C1B27328600F92CAE /* BMAutoSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */; };
 		E3A9F54D1B27328600F92CAE /* BMAutoSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */; };
@@ -171,6 +174,81 @@
 		E3A9F59B1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */; };
 		E3A9F59C1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */; };
 		E3A9F59D1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */; };
+		E3A9F5A71B29133900F92CAE /* BMAppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5A61B29133900F92CAE /* BMAppSetting.m */; };
+		E3A9F5A81B29133900F92CAE /* BMAppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5A61B29133900F92CAE /* BMAppSetting.m */; };
+		E3A9F5A91B29133900F92CAE /* BMAppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5A61B29133900F92CAE /* BMAppSetting.m */; };
+		E3A9F5B11B29138E00F92CAE /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5B01B29138E00F92CAE /* BMServerAPI.m */; };
+		E3A9F5B21B29138E00F92CAE /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5B01B29138E00F92CAE /* BMServerAPI.m */; };
+		E3A9F5B31B29138E00F92CAE /* BMServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5B01B29138E00F92CAE /* BMServerAPI.m */; };
+		E3A9F5C41B2952BB00F92CAE /* BMCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5C31B2952BB00F92CAE /* BMCredential.m */; };
+		E3A9F5C51B2952BB00F92CAE /* BMCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5C31B2952BB00F92CAE /* BMCredential.m */; };
+		E3A9F5C61B2952BB00F92CAE /* BMCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5C31B2952BB00F92CAE /* BMCredential.m */; };
+		E3A9F5C91B29C75F00F92CAE /* BMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5C81B29C75F00F92CAE /* BMTabBar.m */; };
+		E3A9F5CA1B29C75F00F92CAE /* BMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5C81B29C75F00F92CAE /* BMTabBar.m */; };
+		E3A9F5CB1B29C75F00F92CAE /* BMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5C81B29C75F00F92CAE /* BMTabBar.m */; };
+		E3A9F5CE1B29C9F800F92CAE /* BMTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5CD1B29C9F800F92CAE /* BMTabBarItem.m */; };
+		E3A9F5CF1B29C9F800F92CAE /* BMTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5CD1B29C9F800F92CAE /* BMTabBarItem.m */; };
+		E3A9F5D01B29C9F800F92CAE /* BMTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5CD1B29C9F800F92CAE /* BMTabBarItem.m */; };
+		E3A9F5F81B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5F71B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m */; };
+		E3A9F5F91B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5F71B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m */; };
+		E3A9F5FA1B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5F71B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m */; };
+		E3A9F5FD1B2A910900F92CAE /* BMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5FC1B2A910900F92CAE /* BMNavigationBar.m */; };
+		E3A9F5FE1B2A910900F92CAE /* BMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5FC1B2A910900F92CAE /* BMNavigationBar.m */; };
+		E3A9F5FF1B2A910900F92CAE /* BMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F5FC1B2A910900F92CAE /* BMNavigationBar.m */; };
+		E3A9F6191B2A91EA00F92CAE /* BMAutoScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F60C1B2A91EA00F92CAE /* BMAutoScene.m */; };
+		E3A9F61A1B2A91EA00F92CAE /* BMAutoScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F60C1B2A91EA00F92CAE /* BMAutoScene.m */; };
+		E3A9F61B1B2A91EA00F92CAE /* BMAutoScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F60C1B2A91EA00F92CAE /* BMAutoScene.m */; };
+		E3A9F61C1B2A91EA00F92CAE /* BMMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F60E1B2A91EA00F92CAE /* BMMainScene.m */; };
+		E3A9F61D1B2A91EA00F92CAE /* BMMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F60E1B2A91EA00F92CAE /* BMMainScene.m */; };
+		E3A9F61E1B2A91EA00F92CAE /* BMMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F60E1B2A91EA00F92CAE /* BMMainScene.m */; };
+		E3A9F61F1B2A91EA00F92CAE /* BMNavigationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */; };
+		E3A9F6201B2A91EA00F92CAE /* BMNavigationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */; };
+		E3A9F6211B2A91EA00F92CAE /* BMNavigationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */; };
+		E3A9F6221B2A91EA00F92CAE /* BMOrderScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6121B2A91EA00F92CAE /* BMOrderScene.m */; };
+		E3A9F6231B2A91EA00F92CAE /* BMOrderScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6121B2A91EA00F92CAE /* BMOrderScene.m */; };
+		E3A9F6241B2A91EA00F92CAE /* BMOrderScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6121B2A91EA00F92CAE /* BMOrderScene.m */; };
+		E3A9F6251B2A91EA00F92CAE /* BMSignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6141B2A91EA00F92CAE /* BMSignInScene.m */; };
+		E3A9F6261B2A91EA00F92CAE /* BMSignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6141B2A91EA00F92CAE /* BMSignInScene.m */; };
+		E3A9F6271B2A91EA00F92CAE /* BMSignInScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6141B2A91EA00F92CAE /* BMSignInScene.m */; };
+		E3A9F6281B2A91EA00F92CAE /* BMTabBarScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */; };
+		E3A9F6291B2A91EA00F92CAE /* BMTabBarScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */; };
+		E3A9F62A1B2A91EA00F92CAE /* BMTabBarScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */; };
+		E3A9F62B1B2A91EA00F92CAE /* BMUserScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6181B2A91EA00F92CAE /* BMUserScene.m */; };
+		E3A9F62C1B2A91EA00F92CAE /* BMUserScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6181B2A91EA00F92CAE /* BMUserScene.m */; };
+		E3A9F62D1B2A91EA00F92CAE /* BMUserScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6181B2A91EA00F92CAE /* BMUserScene.m */; };
+		E3A9F63A1B2A955C00F92CAE /* BMNavBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6391B2A955C00F92CAE /* BMNavBarItem.m */; };
+		E3A9F63B1B2A955C00F92CAE /* BMNavBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6391B2A955C00F92CAE /* BMNavBarItem.m */; };
+		E3A9F63C1B2A955C00F92CAE /* BMNavBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6391B2A955C00F92CAE /* BMNavBarItem.m */; };
+		E3A9F6401B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F63F1B2AB21700F92CAE /* CCTransition+BMTransition.m */; };
+		E3A9F6411B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F63F1B2AB21700F92CAE /* CCTransition+BMTransition.m */; };
+		E3A9F6421B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F63F1B2AB21700F92CAE /* CCTransition+BMTransition.m */; };
+		E3A9F6451B2ABFED00F92CAE /* BMBaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */; };
+		E3A9F6461B2ABFED00F92CAE /* BMBaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */; };
+		E3A9F6471B2ABFED00F92CAE /* BMBaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */; };
+		E3A9F64A1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6491B2AE06C00F92CAE /* BMTableViewCell.m */; };
+		E3A9F64B1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6491B2AE06C00F92CAE /* BMTableViewCell.m */; };
+		E3A9F64C1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6491B2AE06C00F92CAE /* BMTableViewCell.m */; };
+		E3A9F64F1B2AEC9E00F92CAE /* BMCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F64E1B2AEC9E00F92CAE /* BMCellButton.m */; };
+		E3A9F6501B2AEC9E00F92CAE /* BMCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F64E1B2AEC9E00F92CAE /* BMCellButton.m */; };
+		E3A9F6511B2AEC9E00F92CAE /* BMCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F64E1B2AEC9E00F92CAE /* BMCellButton.m */; };
+		E3A9F6591B2B365000F92CAE /* CCSprite+BMSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6581B2B365000F92CAE /* CCSprite+BMSprite.m */; };
+		E3A9F65A1B2B365000F92CAE /* CCSprite+BMSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6581B2B365000F92CAE /* CCSprite+BMSprite.m */; };
+		E3A9F65B1B2B365000F92CAE /* CCSprite+BMSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6581B2B365000F92CAE /* CCSprite+BMSprite.m */; };
+		E3A9F65E1B2B367700F92CAE /* CCScene+BMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F65D1B2B367700F92CAE /* CCScene+BMScene.m */; };
+		E3A9F65F1B2B367700F92CAE /* CCScene+BMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F65D1B2B367700F92CAE /* CCScene+BMScene.m */; };
+		E3A9F6601B2B367700F92CAE /* CCScene+BMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F65D1B2B367700F92CAE /* CCScene+BMScene.m */; };
+		E3A9F6631B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6621B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m */; };
+		E3A9F6641B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6621B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m */; };
+		E3A9F6651B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6621B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m */; };
+		E3A9F6681B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6671B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m */; };
+		E3A9F6691B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6671B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m */; };
+		E3A9F66A1B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A9F6671B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m */; };
+		E3C44C631B2C1741007DA129 /* BMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C44C621B2C1741007DA129 /* BMTableView.m */; };
+		E3C44C641B2C1741007DA129 /* BMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C44C621B2C1741007DA129 /* BMTableView.m */; };
+		E3C44C651B2C1741007DA129 /* BMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C44C621B2C1741007DA129 /* BMTableView.m */; };
+		E3D358761B31546900769C9B /* BMUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D358751B31546900769C9B /* BMUtil.m */; };
+		E3D358771B31546900769C9B /* BMUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D358751B31546900769C9B /* BMUtil.m */; };
+		E3D358781B31546900769C9B /* BMUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D358751B31546900769C9B /* BMUtil.m */; };
 		EED03DD85650222C6C60B479 /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678BCF1A2882E893985A991 /* Pods_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -308,15 +386,16 @@
 		E375D2AE1B26F558001FA4A0 /* BMAutoBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoBrand.m; sourceTree = "<group>"; };
 		E375D2B21B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+BMJSONValueTransformer.h"; sourceTree = "<group>"; };
 		E375D2B31B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+BMJSONValueTransformer.m"; sourceTree = "<group>"; };
-		E375D2B71B27116F001FA4A0 /* BMServerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerAPI.h; sourceTree = "<group>"; };
-		E375D2B81B27116F001FA4A0 /* BMServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerAPI.m; sourceTree = "<group>"; };
-		E375D2BC1B271711001FA4A0 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
-		E375D2BD1B271711001FA4A0 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		E375D2C21B271772001FA4A0 /* BMSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSessionManager.h; sourceTree = "<group>"; };
 		E375D2C31B271772001FA4A0 /* BMSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSessionManager.m; sourceTree = "<group>"; };
-		E375D2CA1B271AC5001FA4A0 /* application.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = application.plist; sourceTree = "<group>"; };
+		E375D2CA1B271AC5001FA4A0 /* app-setting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app-setting.plist"; sourceTree = "<group>"; };
 		E375D2CC1B2720B1001FA4A0 /* BMConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMConstant.h; sourceTree = "<group>"; };
 		E38A84E21ACC6A32006C1BFF /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = Library/Frameworks/AppleScriptObjC.framework; sourceTree = DEVELOPER_DIR; };
+		E38E7CE81B2FDB490065A098 /* CCNode+BMNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+BMNode.h"; sourceTree = "<group>"; };
+		E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+BMNode.m"; sourceTree = "<group>"; };
+		E38E7CEF1B3036CD0065A098 /* BMImageSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMImageSprite.h; sourceTree = "<group>"; };
+		E38E7CF01B3036CD0065A098 /* BMImageSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMImageSprite.m; sourceTree = "<group>"; };
+		E3954A851B2D43E300B4BE9C /* user-view-setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "user-view-setting.plist"; sourceTree = "<group>"; };
 		E3A9F5491B27328600F92CAE /* BMAutoSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoSeries.h; sourceTree = "<group>"; };
 		E3A9F54A1B27328600F92CAE /* BMAutoSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoSeries.m; sourceTree = "<group>"; };
 		E3A9F54E1B27339000F92CAE /* BMAutoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoModel.h; sourceTree = "<group>"; };
@@ -351,6 +430,56 @@
 		E3A9F5951B27E91D00F92CAE /* BMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMService.m; sourceTree = "<group>"; };
 		E3A9F5991B28219800F92CAE /* BMAutoSeriesPartsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoSeriesPartsItem.h; sourceTree = "<group>"; };
 		E3A9F59A1B28219800F92CAE /* BMAutoSeriesPartsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoSeriesPartsItem.m; sourceTree = "<group>"; };
+		E3A9F5A51B29133900F92CAE /* BMAppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAppSetting.h; sourceTree = "<group>"; };
+		E3A9F5A61B29133900F92CAE /* BMAppSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAppSetting.m; sourceTree = "<group>"; };
+		E3A9F5AF1B29138E00F92CAE /* BMServerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerAPI.h; sourceTree = "<group>"; };
+		E3A9F5B01B29138E00F92CAE /* BMServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerAPI.m; sourceTree = "<group>"; };
+		E3A9F5C21B2952BB00F92CAE /* BMCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCredential.h; sourceTree = "<group>"; };
+		E3A9F5C31B2952BB00F92CAE /* BMCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCredential.m; sourceTree = "<group>"; };
+		E3A9F5C71B29C75F00F92CAE /* BMTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTabBar.h; sourceTree = "<group>"; };
+		E3A9F5C81B29C75F00F92CAE /* BMTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTabBar.m; sourceTree = "<group>"; };
+		E3A9F5CC1B29C9F800F92CAE /* BMTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTabBarItem.h; sourceTree = "<group>"; };
+		E3A9F5CD1B29C9F800F92CAE /* BMTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTabBarItem.m; sourceTree = "<group>"; };
+		E3A9F5F61B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFNetworkReachabilityManager+BMNetworkReachabilityManager.h"; sourceTree = "<group>"; };
+		E3A9F5F71B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFNetworkReachabilityManager+BMNetworkReachabilityManager.m"; sourceTree = "<group>"; };
+		E3A9F5FB1B2A910900F92CAE /* BMNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNavigationBar.h; sourceTree = "<group>"; };
+		E3A9F5FC1B2A910900F92CAE /* BMNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNavigationBar.m; sourceTree = "<group>"; };
+		E3A9F60B1B2A91EA00F92CAE /* BMAutoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoScene.h; sourceTree = "<group>"; };
+		E3A9F60C1B2A91EA00F92CAE /* BMAutoScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAutoScene.m; sourceTree = "<group>"; };
+		E3A9F60D1B2A91EA00F92CAE /* BMMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMainScene.h; sourceTree = "<group>"; };
+		E3A9F60E1B2A91EA00F92CAE /* BMMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMainScene.m; sourceTree = "<group>"; };
+		E3A9F60F1B2A91EA00F92CAE /* BMNavigationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNavigationScene.h; sourceTree = "<group>"; };
+		E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNavigationScene.m; sourceTree = "<group>"; };
+		E3A9F6111B2A91EA00F92CAE /* BMOrderScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrderScene.h; sourceTree = "<group>"; };
+		E3A9F6121B2A91EA00F92CAE /* BMOrderScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrderScene.m; sourceTree = "<group>"; };
+		E3A9F6131B2A91EA00F92CAE /* BMSignInScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSignInScene.h; sourceTree = "<group>"; };
+		E3A9F6141B2A91EA00F92CAE /* BMSignInScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSignInScene.m; sourceTree = "<group>"; };
+		E3A9F6151B2A91EA00F92CAE /* BMTabBarScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTabBarScene.h; sourceTree = "<group>"; };
+		E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTabBarScene.m; sourceTree = "<group>"; };
+		E3A9F6171B2A91EA00F92CAE /* BMUserScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUserScene.h; sourceTree = "<group>"; };
+		E3A9F6181B2A91EA00F92CAE /* BMUserScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUserScene.m; sourceTree = "<group>"; };
+		E3A9F6381B2A955C00F92CAE /* BMNavBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNavBarItem.h; sourceTree = "<group>"; };
+		E3A9F6391B2A955C00F92CAE /* BMNavBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNavBarItem.m; sourceTree = "<group>"; };
+		E3A9F63E1B2AB21700F92CAE /* CCTransition+BMTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTransition+BMTransition.h"; sourceTree = "<group>"; };
+		E3A9F63F1B2AB21700F92CAE /* CCTransition+BMTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTransition+BMTransition.m"; sourceTree = "<group>"; };
+		E3A9F6431B2ABFED00F92CAE /* BMBaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseScene.h; sourceTree = "<group>"; };
+		E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseScene.m; sourceTree = "<group>"; };
+		E3A9F6481B2AE06C00F92CAE /* BMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableViewCell.h; sourceTree = "<group>"; };
+		E3A9F6491B2AE06C00F92CAE /* BMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableViewCell.m; sourceTree = "<group>"; };
+		E3A9F64D1B2AEC9E00F92CAE /* BMCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCellButton.h; sourceTree = "<group>"; };
+		E3A9F64E1B2AEC9E00F92CAE /* BMCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCellButton.m; sourceTree = "<group>"; };
+		E3A9F6571B2B365000F92CAE /* CCSprite+BMSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCSprite+BMSprite.h"; sourceTree = "<group>"; };
+		E3A9F6581B2B365000F92CAE /* CCSprite+BMSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCSprite+BMSprite.m"; sourceTree = "<group>"; };
+		E3A9F65C1B2B367700F92CAE /* CCScene+BMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCScene+BMScene.h"; sourceTree = "<group>"; };
+		E3A9F65D1B2B367700F92CAE /* CCScene+BMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCScene+BMScene.m"; sourceTree = "<group>"; };
+		E3A9F6611B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCSpriteFrame+BMSpriteFrame.h"; sourceTree = "<group>"; };
+		E3A9F6621B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCSpriteFrame+BMSpriteFrame.m"; sourceTree = "<group>"; };
+		E3A9F6661B2B491F00F92CAE /* CCTextureCache+BMTextureCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTextureCache+BMTextureCache.h"; sourceTree = "<group>"; };
+		E3A9F6671B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTextureCache+BMTextureCache.m"; sourceTree = "<group>"; };
+		E3C44C611B2C1741007DA129 /* BMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableView.h; sourceTree = "<group>"; };
+		E3C44C621B2C1741007DA129 /* BMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableView.m; sourceTree = "<group>"; };
+		E3D358741B31546900769C9B /* BMUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUtil.h; sourceTree = "<group>"; };
+		E3D358751B31546900769C9B /* BMUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,9 +718,9 @@
 			isa = PBXGroup;
 			children = (
 				E375D2CB1B271FD6001FA4A0 /* Common */,
-				E37440551B1F08CA00821EF0 /* Controller */,
 				E37440541B1F08CA00821EF0 /* Model */,
 				E375D2741B26D9F0001FA4A0 /* Node */,
+				E3A9F60A1B2A91EA00F92CAE /* Scene */,
 				E375D2AC1B26E7D2001FA4A0 /* Service */,
 				E375D2C11B271772001FA4A0 /* Networking */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
@@ -748,8 +877,6 @@
 				E3A9F56D1B27CE7900F92CAE /* BMProvince.m */,
 				E3A9F5851B27E89800F92CAE /* BMRating.h */,
 				E3A9F5861B27E89800F92CAE /* BMRating.m */,
-				E375D2B71B27116F001FA4A0 /* BMServerAPI.h */,
-				E375D2B81B27116F001FA4A0 /* BMServerAPI.m */,
 				E3A9F5941B27E91D00F92CAE /* BMService.h */,
 				E3A9F5951B27E91D00F92CAE /* BMService.m */,
 				E375D2771B26DA63001FA4A0 /* BMUser.h */,
@@ -760,19 +887,26 @@
 			path = Source/Model;
 			sourceTree = "<group>";
 		};
-		E37440551B1F08CA00821EF0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E375D2BD1B271711001FA4A0 /* MainScene.h */,
-				E375D2BC1B271711001FA4A0 /* MainScene.m */,
-			);
-			name = Controller;
-			path = Source/Controller;
-			sourceTree = "<group>";
-		};
 		E375D2741B26D9F0001FA4A0 /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				E3A9F64D1B2AEC9E00F92CAE /* BMCellButton.h */,
+				E3A9F64E1B2AEC9E00F92CAE /* BMCellButton.m */,
+				E38E7CEF1B3036CD0065A098 /* BMImageSprite.h */,
+				E38E7CF01B3036CD0065A098 /* BMImageSprite.m */,
+				E3A9F6381B2A955C00F92CAE /* BMNavBarItem.h */,
+				E3A9F6391B2A955C00F92CAE /* BMNavBarItem.m */,
+				E3A9F5FB1B2A910900F92CAE /* BMNavigationBar.h */,
+				E3A9F5FC1B2A910900F92CAE /* BMNavigationBar.m */,
+				E3A9F5C71B29C75F00F92CAE /* BMTabBar.h */,
+				E3A9F5C81B29C75F00F92CAE /* BMTabBar.m */,
+				E3A9F5CC1B29C9F800F92CAE /* BMTabBarItem.h */,
+				E3A9F5CD1B29C9F800F92CAE /* BMTabBarItem.m */,
+				E3C44C611B2C1741007DA129 /* BMTableView.h */,
+				E3C44C621B2C1741007DA129 /* BMTableView.m */,
+				E3A9F6481B2AE06C00F92CAE /* BMTableViewCell.h */,
+				E3A9F6491B2AE06C00F92CAE /* BMTableViewCell.m */,
+				E3A9F5EA1B2A78B700F92CAE /* Category */,
 			);
 			name = Node;
 			path = Source/Node;
@@ -802,6 +936,7 @@
 		E375D2C11B271772001FA4A0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E3A9F5F51B2A798B00F92CAE /* Category */,
 				E375D2C21B271772001FA4A0 /* BMSessionManager.h */,
 				E375D2C31B271772001FA4A0 /* BMSessionManager.m */,
 			);
@@ -812,7 +947,8 @@
 		E375D2C91B271A8D001FA4A0 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				E375D2CA1B271AC5001FA4A0 /* application.plist */,
+				E375D2CA1B271AC5001FA4A0 /* app-setting.plist */,
+				E3954A851B2D43E300B4BE9C /* user-view-setting.plist */,
 			);
 			name = Configs;
 			path = Source/Resources/Configs;
@@ -821,10 +957,78 @@
 		E375D2CB1B271FD6001FA4A0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E3A9F5A51B29133900F92CAE /* BMAppSetting.h */,
+				E3A9F5A61B29133900F92CAE /* BMAppSetting.m */,
 				E375D2CC1B2720B1001FA4A0 /* BMConstant.h */,
+				E3A9F5C21B2952BB00F92CAE /* BMCredential.h */,
+				E3A9F5C31B2952BB00F92CAE /* BMCredential.m */,
+				E3A9F5AF1B29138E00F92CAE /* BMServerAPI.h */,
+				E3A9F5B01B29138E00F92CAE /* BMServerAPI.m */,
+				E3D358741B31546900769C9B /* BMUtil.h */,
+				E3D358751B31546900769C9B /* BMUtil.m */,
 			);
 			name = Common;
 			path = Source/Common;
+			sourceTree = "<group>";
+		};
+		E3A9F5EA1B2A78B700F92CAE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E3A9F6571B2B365000F92CAE /* CCSprite+BMSprite.h */,
+				E3A9F6581B2B365000F92CAE /* CCSprite+BMSprite.m */,
+				E3A9F6611B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.h */,
+				E3A9F6621B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m */,
+				E3A9F6661B2B491F00F92CAE /* CCTextureCache+BMTextureCache.h */,
+				E3A9F6671B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m */,
+				E38E7CE81B2FDB490065A098 /* CCNode+BMNode.h */,
+				E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		E3A9F5F51B2A798B00F92CAE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E3A9F5F61B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.h */,
+				E3A9F5F71B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		E3A9F60A1B2A91EA00F92CAE /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				E3A9F60B1B2A91EA00F92CAE /* BMAutoScene.h */,
+				E3A9F60C1B2A91EA00F92CAE /* BMAutoScene.m */,
+				E3A9F6431B2ABFED00F92CAE /* BMBaseScene.h */,
+				E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */,
+				E3A9F60D1B2A91EA00F92CAE /* BMMainScene.h */,
+				E3A9F60E1B2A91EA00F92CAE /* BMMainScene.m */,
+				E3A9F60F1B2A91EA00F92CAE /* BMNavigationScene.h */,
+				E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */,
+				E3A9F6111B2A91EA00F92CAE /* BMOrderScene.h */,
+				E3A9F6121B2A91EA00F92CAE /* BMOrderScene.m */,
+				E3A9F6131B2A91EA00F92CAE /* BMSignInScene.h */,
+				E3A9F6141B2A91EA00F92CAE /* BMSignInScene.m */,
+				E3A9F6151B2A91EA00F92CAE /* BMTabBarScene.h */,
+				E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */,
+				E3A9F6171B2A91EA00F92CAE /* BMUserScene.h */,
+				E3A9F6181B2A91EA00F92CAE /* BMUserScene.m */,
+				E3A9F63D1B2AB1FA00F92CAE /* Category */,
+			);
+			name = Scene;
+			path = Source/Scene;
+			sourceTree = "<group>";
+		};
+		E3A9F63D1B2AB1FA00F92CAE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E3A9F65C1B2B367700F92CAE /* CCScene+BMScene.h */,
+				E3A9F65D1B2B367700F92CAE /* CCScene+BMScene.m */,
+				E3A9F63E1B2AB21700F92CAE /* CCTransition+BMTransition.h */,
+				E3A9F63F1B2AB21700F92CAE /* CCTransition+BMTransition.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -980,9 +1184,10 @@
 			files = (
 				7A4036F719DE401F007B6E8F /* iPad-old.png in Resources */,
 				7A4036F819DE401F007B6E8F /* iPad-old@2x.png in Resources */,
-				E3A9F5481B27233D00F92CAE /* application.plist in Resources */,
+				E3A9F5481B27233D00F92CAE /* app-setting.plist in Resources */,
 				7A4036F919DE401F007B6E8F /* iPad.png in Resources */,
 				7A4036FA19DE401F007B6E8F /* iPad@2x.png in Resources */,
+				E3954A881B2D43E300B4BE9C /* user-view-setting.plist in Resources */,
 				7A4036FB19DE401F007B6E8F /* iPhone-old.png in Resources */,
 				7A4036FC19DE401F007B6E8F /* iPhone-old@2x.png in Resources */,
 				7A4036FD19DE401F007B6E8F /* iPhone.png in Resources */,
@@ -1011,13 +1216,14 @@
 				927F61B4196C771E000F43EF /* Settings@2x.png in Resources */,
 				927F61B5196C771E000F43EF /* Default-Landscape~ipad.png in Resources */,
 				B78A0B10198AF87200C63841 /* Published-Android in Resources */,
+				E3954A871B2D43E300B4BE9C /* user-view-setting.plist in Resources */,
 				927F61B6196C771E000F43EF /* iPhone-old.png in Resources */,
 				927F61B7196C771E000F43EF /* iPhone.png in Resources */,
 				927F61B8196C771E000F43EF /* Default-568h@2x.png in Resources */,
 				927F61B9196C771E000F43EF /* iPhone@2x.png in Resources */,
 				927F61BA196C771E000F43EF /* Default.png in Resources */,
 				927F61BB196C771E000F43EF /* iPad-old.png in Resources */,
-				E3A9F5471B27233C00F92CAE /* application.plist in Resources */,
+				E3A9F5471B27233C00F92CAE /* app-setting.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,7 +1231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3A9F5441B27231F00F92CAE /* application.plist in Resources */,
+				E3A9F5441B27231F00F92CAE /* app-setting.plist in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
@@ -1034,6 +1240,7 @@
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
+				E3954A861B2D43E300B4BE9C /* user-view-setting.plist in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
@@ -1186,33 +1393,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A9F5C61B2952BB00F92CAE /* BMCredential.m in Sources */,
+				E3A9F6471B2ABFED00F92CAE /* BMBaseScene.m in Sources */,
+				E3A9F6511B2AEC9E00F92CAE /* BMCellButton.m in Sources */,
 				E375D2B61B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
 				E3A9F56B1B27CE0100F92CAE /* BMDistrict.m in Sources */,
 				E375D2A51B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				7A40360419DDEE84007B6E8F /* main.m in Sources */,
+				E3A9F61B1B2A91EA00F92CAE /* BMAutoScene.m in Sources */,
+				E3D358781B31546900769C9B /* BMUtil.m in Sources */,
+				E3A9F5FF1B2A910900F92CAE /* BMNavigationBar.m in Sources */,
 				E375D2AA1B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */,
 				E3A9F57F1B27D79C00F92CAE /* BMOrderItem.m in Sources */,
 				E3A9F5981B27E91D00F92CAE /* BMService.m in Sources */,
 				7A59498E19E3941300F65F90 /* AppDelegate.m in Sources */,
+				E3A9F5B31B29138E00F92CAE /* BMServerAPI.m in Sources */,
+				E3A9F5CB1B29C75F00F92CAE /* BMTabBar.m in Sources */,
+				E3A9F65B1B2B365000F92CAE /* CCSprite+BMSprite.m in Sources */,
 				E3A9F5931B27E91300F92CAE /* BMPartsItem.m in Sources */,
+				E3A9F5FA1B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */,
 				E3A9F5571B2737D200F92CAE /* BMContainer.m in Sources */,
 				E3A9F5611B27414400F92CAE /* BMAutomobile.m in Sources */,
+				E3A9F66A1B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m in Sources */,
+				E3C44C651B2C1741007DA129 /* BMTableView.m in Sources */,
 				E375D2C61B271772001FA4A0 /* BMSessionManager.m in Sources */,
 				E375D27B1B26DA63001FA4A0 /* BMUser.m in Sources */,
-				E375D2C01B271711001FA4A0 /* MainScene.m in Sources */,
-				E375D2BB1B27116F001FA4A0 /* BMServerAPI.m in Sources */,
 				E3A9F58E1B27E8FF00F92CAE /* BMParts.m in Sources */,
+				E38E7CF31B3036CD0065A098 /* BMImageSprite.m in Sources */,
+				E3A9F5D01B29C9F800F92CAE /* BMTabBarItem.m in Sources */,
+				E38E7CEC1B2FDB490065A098 /* CCNode+BMNode.m in Sources */,
+				E3A9F6651B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */,
 				E3A9F5701B27CE7900F92CAE /* BMProvince.m in Sources */,
 				E3A9F5661B27CCD500F92CAE /* BMCity.m in Sources */,
+				E3A9F6601B2B367700F92CAE /* CCScene+BMScene.m in Sources */,
 				E3A9F5521B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3A9F64C1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
+				E3A9F61E1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
 				E3A9F5891B27E89800F92CAE /* BMRating.m in Sources */,
+				E3A9F6271B2A91EA00F92CAE /* BMSignInScene.m in Sources */,
+				E3A9F62A1B2A91EA00F92CAE /* BMTabBarScene.m in Sources */,
 				E3A9F59D1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,
 				E3A9F5751B27CF7600F92CAE /* BMEmployee.m in Sources */,
 				E3A9F54D1B27328600F92CAE /* BMAutoSeries.m in Sources */,
+				E3A9F6421B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */,
+				E3A9F63C1B2A955C00F92CAE /* BMNavBarItem.m in Sources */,
 				E375D2B11B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
+				E3A9F6211B2A91EA00F92CAE /* BMNavigationScene.m in Sources */,
 				E3A9F5841B27E83700F92CAE /* BMPayment.m in Sources */,
 				E3A9F55C1B273E8600F92CAE /* BMAddress.m in Sources */,
+				E3A9F62D1B2A91EA00F92CAE /* BMUserScene.m in Sources */,
 				E3A9F57A1B27D54300F92CAE /* BMOrder.m in Sources */,
+				E3A9F5A91B29133900F92CAE /* BMAppSetting.m in Sources */,
+				E3A9F6241B2A91EA00F92CAE /* BMOrderScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,27 +1457,52 @@
 				E3A9F56F1B27CE7900F92CAE /* BMProvince.m in Sources */,
 				E3A9F5651B27CCD500F92CAE /* BMCity.m in Sources */,
 				E3A9F5741B27CF7600F92CAE /* BMEmployee.m in Sources */,
-				E375D2BA1B27116F001FA4A0 /* BMServerAPI.m in Sources */,
 				E375D2A41B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				E3A9F54C1B27328600F92CAE /* BMAutoSeries.m in Sources */,
+				E3A9F5CF1B29C9F800F92CAE /* BMTabBarItem.m in Sources */,
+				E3A9F62C1B2A91EA00F92CAE /* BMUserScene.m in Sources */,
+				E3A9F61D1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
+				E3C44C641B2C1741007DA129 /* BMTableView.m in Sources */,
 				E375D27A1B26DA63001FA4A0 /* BMUser.m in Sources */,
 				E375D2B01B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
+				E3A9F5F91B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */,
 				E3A9F5601B27414400F92CAE /* BMAutomobile.m in Sources */,
 				E3A9F58D1B27E8FF00F92CAE /* BMParts.m in Sources */,
 				E375D2C51B271772001FA4A0 /* BMSessionManager.m in Sources */,
-				E375D2BF1B271711001FA4A0 /* MainScene.m in Sources */,
+				E3D358771B31546900769C9B /* BMUtil.m in Sources */,
+				E3A9F6691B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m in Sources */,
 				E3A9F5561B2737D200F92CAE /* BMContainer.m in Sources */,
 				E375D2A91B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */,
+				E3A9F6461B2ABFED00F92CAE /* BMBaseScene.m in Sources */,
 				E3A9F5921B27E91300F92CAE /* BMPartsItem.m in Sources */,
+				E3A9F5FE1B2A910900F92CAE /* BMNavigationBar.m in Sources */,
 				E3A9F57E1B27D79C00F92CAE /* BMOrderItem.m in Sources */,
 				E375D2B51B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
+				E3A9F6291B2A91EA00F92CAE /* BMTabBarScene.m in Sources */,
 				E3A9F56A1B27CE0100F92CAE /* BMDistrict.m in Sources */,
+				E3A9F5B21B29138E00F92CAE /* BMServerAPI.m in Sources */,
+				E3A9F63B1B2A955C00F92CAE /* BMNavBarItem.m in Sources */,
 				E3A9F5971B27E91D00F92CAE /* BMService.m in Sources */,
+				E3A9F65F1B2B367700F92CAE /* CCScene+BMScene.m in Sources */,
 				5B121030197484FA004C1E1D /* BaymaxActivity.m in Sources */,
+				E3A9F5C51B2952BB00F92CAE /* BMCredential.m in Sources */,
+				E3A9F6231B2A91EA00F92CAE /* BMOrderScene.m in Sources */,
+				E38E7CEB1B2FDB490065A098 /* CCNode+BMNode.m in Sources */,
+				E3A9F6641B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */,
 				E3A9F5881B27E89800F92CAE /* BMRating.m in Sources */,
+				E3A9F6501B2AEC9E00F92CAE /* BMCellButton.m in Sources */,
+				E3A9F6201B2A91EA00F92CAE /* BMNavigationScene.m in Sources */,
+				E38E7CF21B3036CD0065A098 /* BMImageSprite.m in Sources */,
+				E3A9F5A81B29133900F92CAE /* BMAppSetting.m in Sources */,
+				E3A9F6261B2A91EA00F92CAE /* BMSignInScene.m in Sources */,
+				E3A9F5CA1B29C75F00F92CAE /* BMTabBar.m in Sources */,
 				E3A9F5511B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3A9F64B1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
+				E3A9F61A1B2A91EA00F92CAE /* BMAutoScene.m in Sources */,
 				E3A9F59C1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,
 				E3A9F55B1B273E8600F92CAE /* BMAddress.m in Sources */,
+				E3A9F6411B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */,
+				E3A9F65A1B2B365000F92CAE /* CCSprite+BMSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,33 +1510,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A9F5C41B2952BB00F92CAE /* BMCredential.m in Sources */,
+				E3A9F6451B2ABFED00F92CAE /* BMBaseScene.m in Sources */,
+				E3A9F64F1B2AEC9E00F92CAE /* BMCellButton.m in Sources */,
 				E375D2B41B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
 				E3A9F5691B27CE0100F92CAE /* BMDistrict.m in Sources */,
 				E375D2A31B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				E3A9F6191B2A91EA00F92CAE /* BMAutoScene.m in Sources */,
+				E3D358761B31546900769C9B /* BMUtil.m in Sources */,
+				E3A9F5FD1B2A910900F92CAE /* BMNavigationBar.m in Sources */,
 				E375D2A81B26E03F001FA4A0 /* JSONKeyMapper+BMJSONKeyMapper.m in Sources */,
 				E3A9F57D1B27D79C00F92CAE /* BMOrderItem.m in Sources */,
 				E3A9F5961B27E91D00F92CAE /* BMService.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				E3A9F5B11B29138E00F92CAE /* BMServerAPI.m in Sources */,
+				E3A9F5C91B29C75F00F92CAE /* BMTabBar.m in Sources */,
+				E3A9F6591B2B365000F92CAE /* CCSprite+BMSprite.m in Sources */,
 				E3A9F5911B27E91300F92CAE /* BMPartsItem.m in Sources */,
+				E3A9F5F81B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */,
 				E3A9F5551B2737D200F92CAE /* BMContainer.m in Sources */,
 				E3A9F55F1B27414400F92CAE /* BMAutomobile.m in Sources */,
+				E3A9F6681B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m in Sources */,
+				E3C44C631B2C1741007DA129 /* BMTableView.m in Sources */,
 				E375D2C41B271772001FA4A0 /* BMSessionManager.m in Sources */,
 				E375D2791B26DA63001FA4A0 /* BMUser.m in Sources */,
-				E375D2BE1B271711001FA4A0 /* MainScene.m in Sources */,
-				E375D2B91B27116F001FA4A0 /* BMServerAPI.m in Sources */,
 				E3A9F58C1B27E8FF00F92CAE /* BMParts.m in Sources */,
+				E38E7CF11B3036CD0065A098 /* BMImageSprite.m in Sources */,
+				E3A9F5CE1B29C9F800F92CAE /* BMTabBarItem.m in Sources */,
+				E38E7CEA1B2FDB490065A098 /* CCNode+BMNode.m in Sources */,
+				E3A9F6631B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */,
 				E3A9F56E1B27CE7900F92CAE /* BMProvince.m in Sources */,
 				E3A9F5641B27CCD500F92CAE /* BMCity.m in Sources */,
+				E3A9F65E1B2B367700F92CAE /* CCScene+BMScene.m in Sources */,
 				E3A9F5501B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3A9F64A1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
+				E3A9F61C1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
 				E3A9F5871B27E89800F92CAE /* BMRating.m in Sources */,
+				E3A9F6251B2A91EA00F92CAE /* BMSignInScene.m in Sources */,
+				E3A9F6281B2A91EA00F92CAE /* BMTabBarScene.m in Sources */,
 				E3A9F59B1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,
 				E3A9F5731B27CF7600F92CAE /* BMEmployee.m in Sources */,
 				E3A9F54B1B27328600F92CAE /* BMAutoSeries.m in Sources */,
+				E3A9F6401B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */,
+				E3A9F63A1B2A955C00F92CAE /* BMNavBarItem.m in Sources */,
 				E375D2AF1B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
+				E3A9F61F1B2A91EA00F92CAE /* BMNavigationScene.m in Sources */,
 				E3A9F5821B27E83700F92CAE /* BMPayment.m in Sources */,
 				E3A9F55A1B273E8600F92CAE /* BMAddress.m in Sources */,
+				E3A9F62B1B2A91EA00F92CAE /* BMUserScene.m in Sources */,
 				E3A9F5781B27D54300F92CAE /* BMOrder.m in Sources */,
+				E3A9F5A71B29133900F92CAE /* BMAppSetting.m in Sources */,
+				E3A9F6221B2A91EA00F92CAE /* BMOrderScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

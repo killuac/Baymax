@@ -10,4 +10,13 @@
 
 @implementation BMAutomobile
 
++ (JSONKeyMapper *)keyMapper
+{
+    return [JSONKeyMapper jsonKeyMapperWithDictionary:@
+    {
+        @"_links.orders.href": @"ordersURL",
+        @"_embedded.orders": @"orders"
+    }];
+}
+
 @end

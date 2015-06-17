@@ -24,14 +24,45 @@
 
 
 #import "BaymaxActivity.h"
-
+#import "BMAppSetting.h"
+#import "BMServerAPI.h"
+#import "BMCredential.h"
 #import <AndroidKit/AndroidKeyEvent.h>
+#import "AFNetworkReachabilityManager+BMNetworkReachabilityManager.h"
 
 @implementation BaymaxActivity
 
+- (void)run
+{
+    [super run];
+    [self setupApplication];
+}
+
+- (void)setupApplication
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] checkReachability];
+}
+
 - (CCScene *)startScene
 {
-    return [CCBReader loadAsScene:@"MainScene"];
+    CCScene *firstScene = [self firstLaunch];
+    if (firstScene) {
+        return firstScene;
+    } else {
+        NSString *sceneName = ([BMCredential sharedCredential].isSignedIn) ? SIGN_SCENE : MAIN_SCENE;
+        return [CCBReader loadAsScene:sceneName];
+    }
+}
+
+- (CCScene *)firstLaunch
+{
+    BMAppSetting *appSetting = [BMAppSetting defaultAppSetting];
+    if (appSetting.isFirstLaunch) {
+        [BMServerAPI writeAPIFile];
+        return (appSetting.guideScene.length) ? [CCBReader loadAsScene:appSetting.guideScene] : nil;
+    }
+    return nil;
 }
 
 - (BOOL)onKeyUp:(int32_t)keyCode keyEvent:(AndroidKeyEvent *)event
@@ -41,6 +72,11 @@
         [self finish];
     }
     return NO;
+}
+
+- (void)onResume
+{
+    
 }
 
 @end

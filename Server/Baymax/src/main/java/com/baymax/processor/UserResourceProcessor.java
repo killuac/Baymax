@@ -1,4 +1,4 @@
-package com.baymax;
+package com.baymax.processor;
 
 import com.baymax.controller.UserController;
 import org.springframework.data.rest.webmvc.RepositoryLinksResource;

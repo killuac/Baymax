@@ -1,14 +1,14 @@
 package com.baymax.model.entity;
 
-import com.baymax.common.Constant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.util.List;
+
+import static com.baymax.common.CustomProperties.propertiesInstance;
 
 /**
  * Created by Killua on 5/7/15.
@@ -48,6 +48,6 @@ public class AutoBrand {
     }
 
     public String getLogoURL() {
-        return Constant.IMG_LOGO_PATH + logoName;
+        return propertiesInstance().getLogoBaseURL() + logoName;
     }
 }

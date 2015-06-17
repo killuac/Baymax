@@ -14,7 +14,8 @@
 {
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
-        @"_links.districts.href": @"districtsURL"
+        @"_links.districts.href": @"districtsURL",
+        @"_embedded.districts": @"districts"
     }];
 }
 

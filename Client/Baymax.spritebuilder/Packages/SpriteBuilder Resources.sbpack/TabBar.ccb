@@ -153,9 +153,9 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>BMTabBarItem</string>
 						<key>displayName</key>
-						<string>MainButton</string>
+						<string>MainBarItem</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -168,7 +168,7 @@
 								<key>type</key>
 								<string>StringSimple</string>
 								<key>value</key>
-								<string></string>
+								<string>MainScene</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -215,7 +215,7 @@
 								<string>Block</string>
 								<key>value</key>
 								<array>
-									<string></string>
+									<string>selectItem:</string>
 									<integer>1</integer>
 								</array>
 							</dict>
@@ -536,9 +536,9 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>BMTabBarItem</string>
 						<key>displayName</key>
-						<string>AutoButton</string>
+						<string>AutoBarItem</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -551,7 +551,7 @@
 								<key>type</key>
 								<string>StringSimple</string>
 								<key>value</key>
-								<string></string>
+								<string>AutoScene</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -598,7 +598,7 @@
 								<string>Block</string>
 								<key>value</key>
 								<array>
-									<string></string>
+									<string>selectItem:</string>
 									<integer>1</integer>
 								</array>
 							</dict>
@@ -919,9 +919,9 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>BMTabBarItem</string>
 						<key>displayName</key>
-						<string>OrderButton</string>
+						<string>OrderBarItem</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -934,7 +934,7 @@
 								<key>type</key>
 								<string>StringSimple</string>
 								<key>value</key>
-								<string></string>
+								<string>OrderScene</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -981,7 +981,7 @@
 								<string>Block</string>
 								<key>value</key>
 								<array>
-									<string></string>
+									<string>selectItem:</string>
 									<integer>1</integer>
 								</array>
 							</dict>
@@ -1302,9 +1302,9 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>BMTabBarItem</string>
 						<key>displayName</key>
-						<string>UserButton</string>
+						<string>UserBarItem</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -1317,7 +1317,7 @@
 								<key>type</key>
 								<string>StringSimple</string>
 								<key>value</key>
-								<string></string>
+								<string>UserScene</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1364,7 +1364,7 @@
 								<string>Block</string>
 								<key>value</key>
 								<array>
-									<string></string>
+									<string>selectItem:</string>
 									<integer>1</integer>
 								</array>
 							</dict>
@@ -1681,9 +1681,9 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>barItemBox</string>
+				<string>barItemsBox</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_barItemsBox</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1902,7 +1902,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>BMTabBar</string>
 		<key>displayName</key>
 		<string>TabBar</string>
 		<key>memberVarAssignmentName</key>

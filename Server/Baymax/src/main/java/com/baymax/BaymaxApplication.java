@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.rest.SpringBootRepositoryRestMvcConfiguration;
 import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.convert.support.ConfigurableConversionService;
@@ -28,7 +29,6 @@ public class BaymaxApplication {
     public static void main(String[] args) {
         SpringApplication.run(BaymaxApplication.class, args);
     }
-
 
     @Configuration
     public static class RestConfiguration extends SpringBootRepositoryRestMvcConfiguration {

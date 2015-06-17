@@ -842,6 +842,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					9A908DCED205D1887BEEEA49 = {
+						DevelopmentTeam = 4AGG3RNQPH;
+					};
+					FC72737C0EFAA26C97CFD8AE = {
+						DevelopmentTeam = 4AGG3RNQPH;
+					};
+				};
 			};
 			buildConfigurationList = F0EF3E3386D06869F81293E5 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1063,6 +1071,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7FB48FE7E62C4738AF053716 /* Pods-iOS-JSONModel-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1078,6 +1087,7 @@
 				MODULEMAP_FILE = "Target Support Files/Pods-iOS-JSONModel/Pods-iOS-JSONModel.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = JSONModel;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1210,6 +1220,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7FB48FE7E62C4738AF053716 /* Pods-iOS-JSONModel-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1225,6 +1236,7 @@
 				MODULEMAP_FILE = "Target Support Files/Pods-iOS-JSONModel/Pods-iOS-JSONModel.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = JSONModel;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

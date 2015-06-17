@@ -10,4 +10,13 @@
 
 @implementation BMParts
 
++ (JSONKeyMapper *)keyMapper
+{
+    return [JSONKeyMapper jsonKeyMapperWithDictionary:@
+    {
+        @"_links.partsItems.href": @"partsItemsURL",
+        @"_embedded.partsItems": @"partsItems"
+    }];
+}
+
 @end

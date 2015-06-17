@@ -10,7 +10,7 @@
 
 @implementation JSONModel (BMJSONModel)
 
-+ (instancetype)jsonModelWithString:(NSString *)string
++ (instancetype)modelWithString:(NSString *)string
 {
     NSError *error;
     id jsonModel = [[self alloc] initWithString:string error:&error];
@@ -18,7 +18,7 @@
     return jsonModel;
 }
 
-+ (instancetype)jsonModelWithDictionary:(NSDictionary *)dictionary
++ (instancetype)modelWithDictionary:(NSDictionary *)dictionary
 {
     NSError *error;
     id jsonModel = [[self alloc] initWithDictionary:dictionary error:&error];
@@ -26,7 +26,7 @@
     return jsonModel;
 }
 
-+ (instancetype)jsonModelWithData:(NSData *)data
++ (instancetype)modelWithData:(NSData *)data
 {
     NSError *error;
     id jsonModel = [[self alloc] initWithData:data error:&error];

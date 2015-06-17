@@ -12,9 +12,9 @@
 
 @interface BMUser : JSONModel
 
-@property (nonatomic) NSUInteger userId;
+@property (nonatomic, assign) NSUInteger userId;
 @property (nonatomic, copy) NSString *mobile;
-@property (nonatomic, copy) NSString<Ignore> *password;
+@property (nonatomic, copy) NSString<Optional> *password;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *realName;
 @property (nonatomic, copy) NSString *email;

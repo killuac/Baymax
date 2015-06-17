@@ -14,6 +14,6 @@
 @interface BMAutoModel : JSONModel
 
 @property (nonatomic, copy) NSString *modelName;
-@property (nonatomic) ushort oilCapacity;
+@property (nonatomic, assign) ushort oilCapacity;
 
 @end

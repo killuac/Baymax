@@ -11,7 +11,7 @@
 
 @interface BMParts : JSONModel
 
-@property (nonatomic) ushort partsId;
+@property (nonatomic, assign) ushort partsId;
 @property (nonatomic, copy) NSString *partsName;
 
 @property (nonatomic, strong) NSURL<Optional> *partsItemsURL;

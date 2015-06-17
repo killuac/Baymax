@@ -10,10 +10,10 @@
 
 @interface BMRating : JSONModel
 
-@property (nonatomic) NSUInteger orderId;
-@property (nonatomic) ushort product;
-@property (nonatomic) ushort service;
-@property (nonatomic) ushort timeliness;
+@property (nonatomic, assign) NSUInteger orderId;
+@property (nonatomic, assign) ushort product;
+@property (nonatomic, assign) ushort service;
+@property (nonatomic, assign) ushort timeliness;
 @property (nonatomic, copy) NSString *comment;
 
 @end

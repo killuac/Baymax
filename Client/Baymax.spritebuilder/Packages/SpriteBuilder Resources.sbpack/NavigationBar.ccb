@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>11</integer>
+	<integer>13</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -41,9 +41,9 @@
 		<array>
 			<dict>
 				<key>UUID</key>
-				<integer>2</integer>
+				<integer>12</integer>
 				<key>baseClass</key>
-				<string>CCNodeColor</string>
+				<string>CCNodeGradient</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
@@ -117,7 +117,7 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>color</string>
+						<string>startColor</string>
 						<key>type</key>
 						<string>Color3</string>
 						<key>value</key>
@@ -130,11 +130,27 @@
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>opacity</string>
+						<string>endColor</string>
 						<key>type</key>
-						<string>Float</string>
+						<string>Color3</string>
 						<key>value</key>
-						<real>1</real>
+						<array>
+							<real>0.0</real>
+							<real>0.47058823704719543</real>
+							<real>1</real>
+							<real>1</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>vector</string>
+						<key>type</key>
+						<string>Point</string>
+						<key>value</key>
+						<array>
+							<real>0.0</real>
+							<real>1</real>
+						</array>
 					</dict>
 				</array>
 			</dict>
@@ -148,9 +164,9 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>title</string>
+				<string>titleLabel</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_titleLabel</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -246,7 +262,7 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>200</real>
+							<real>220</real>
 							<real>44</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -347,17 +363,17 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>7</integer>
+				<integer>8</integer>
 				<key>baseClass</key>
 				<string>CCButton</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string></string>
+				<string>BMNavBarItem</string>
 				<key>displayName</key>
-				<string>CCButton</string>
+				<string>leftBarItem</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_leftBarItem</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -368,7 +384,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>leftBarItem</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -379,7 +395,7 @@
 						<array>
 							<real>0.0</real>
 							<real>0.0</real>
-							<integer>3</integer>
+							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -391,7 +407,7 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
+							<real>0.0</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -415,7 +431,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string></string>
+							<string>selectItem:</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -472,7 +488,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/nav_button_dropdown.png</string>
+							<string></string>
 						</array>
 					</dict>
 					<dict>
@@ -670,22 +686,20 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>8</integer>
+				<integer>7</integer>
 				<key>baseClass</key>
 				<string>CCButton</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string></string>
+				<string>BMNavBarItem</string>
 				<key>displayName</key>
-				<string>CCButton</string>
+				<string>rightBarItem</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_rightBarItem</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -696,7 +710,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>rightBarItem</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -707,7 +721,7 @@
 						<array>
 							<real>0.0</real>
 							<real>0.0</real>
-							<integer>0</integer>
+							<integer>3</integer>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -719,7 +733,7 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>1</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -743,7 +757,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string></string>
+							<string>selectItem:</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -800,7 +814,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/nav_button_back.png</string>
+							<string></string>
 						</array>
 					</dict>
 					<dict>
@@ -1001,7 +1015,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>BMNavigationBar</string>
 		<key>displayName</key>
 		<string>NavigationBar</string>
 		<key>memberVarAssignmentName</key>

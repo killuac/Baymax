@@ -14,6 +14,8 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Random;
 
+import static com.baymax.common.CustomProperties.propertiesInstance;
+
 /**
  * Created by Killua on 4/29/15.
  */
@@ -22,7 +24,7 @@ import java.util.Random;
 @Setter
 @Entity
 @Table(name = "t_user")
-public class User implements Identifiable<Integer> {
+public class User implements Identifiable<Integer> {    // For creating resource link
 
     @JsonIgnore
     @Override
@@ -106,6 +108,6 @@ public class User implements Identifiable<Integer> {
     }
 
     public String getAvatarURL() {
-        return (null != avatarName) ? Constant.IMG_AVATAR_PATH + avatarName : "";
+        return (null != avatarName) ? propertiesInstance().getAvatarBaseURL() + avatarName : "";
     }
 }

@@ -14,7 +14,8 @@
 {
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
-        @"_links.cities.href": @"citiesURL"
+        @"_links.cities.href": @"citiesURL",
+        @"_embedded.cities": @"cities"
     }];
 }
 

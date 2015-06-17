@@ -166,7 +166,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/table_view_cell_round.png</string>
+							<string>ccbResources/table_view_cell_grouped.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -177,7 +177,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/table_view_cell_round.png</string>
+							<string></string>
 						</array>
 					</dict>
 					<dict>
@@ -1421,7 +1421,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/AutoLogo/bmw.png</string>
+									<string>ccbResources/bmw.png</string>
 								</array>
 							</dict>
 							<dict>

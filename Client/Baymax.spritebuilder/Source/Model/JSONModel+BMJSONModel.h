@@ -10,8 +10,8 @@
 
 @interface JSONModel (BMJSONModel)
 
-+ (instancetype)jsonModelWithString:(NSString *)string;
-+ (instancetype)jsonModelWithDictionary:(NSDictionary *)dictionary;
-+ (instancetype)jsonModelWithData:(NSData *)data;
++ (instancetype)modelWithString:(NSString *)string;
++ (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)modelWithData:(NSData *)data;
 
 @end

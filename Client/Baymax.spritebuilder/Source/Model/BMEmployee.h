@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy) NSString *employeeId;
 @property (nonatomic, copy) NSString *employeeName;
-@property (nonatomic, copy) NSString<Ignore> *password;
+@property (nonatomic, copy) NSString<Optional> *password;
 @property (nonatomic, copy) NSString *mobile;
 @property (nonatomic, copy) NSString *email;
 

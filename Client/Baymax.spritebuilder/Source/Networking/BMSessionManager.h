@@ -11,19 +11,34 @@
 @class BMSessionManager;
 
 @protocol BMSessionManagerDelegate <NSObject>
+
 @optional
 -(void)sessionManager:(BMSessionManager *)sessionManager didFailWithError:(NSError *)error;
+
 @end
+
 
 @interface BMSessionManager : AFHTTPRequestOperationManager
 
-@property (nonatomic, weak) id<BMSessionManagerDelegate> delegate;
+@property (nonatomic, weak) id <BMSessionManagerDelegate> delegate;
 
 + (instancetype)sharedSessionManager;
-- (NSDictionary *)userInfo;
 
 - (AFHTTPRequestOperation *)GET:(NSURL *)url
                      parameters:(id)parameters
                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success;
+
+- (AFHTTPRequestOperation *)POST:(NSURL *)url
+                      parameters:(id)parameters
+                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success;
+
+- (AFHTTPRequestOperation *)POST:(NSURL *)url
+                      parameters:(id)parameters
+       constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
+                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success;
+
+- (AFHTTPRequestOperation *)PATCH:(NSURL *)url
+                       parameters:(id)parameters
+                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success;
 
 @end

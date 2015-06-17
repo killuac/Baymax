@@ -9,7 +9,21 @@
 #ifndef Baymax_BMConstant_h
 #define Baymax_BMConstant_h
 
-#define PLIST_APPLICATION   @"application"
-#define FILE_TYPE_PLIST     @"plist"
+#define SCREEN_SIZE             [CCDirector sharedDirector].designSize
+#define SCREEN_WIDTH            SCREEN_SIZE.width
+#define SCREEN_HEIGHT           SCREEN_SIZE.height
+#define SCREEN_CENTER           ccp(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
+#define SWAP(a, b)              (a ^= b, b ^= a, a ^= b)
+
+
+#define MAIN_SCENE              @"TabBarScene"
+#define SIGN_SCENE              @"SignScene"
+
+#define IMG_DIRECTORY           @"ccbResources/"
+#define IMG_FILE_NAME(str)      [IMG_DIRECTORY stringByAppendingString:str]
+#define IMG_NAV_BUTTON_ADD      IMG_FILE_NAME(@"nav_button_add.png")
+#define IMG_NAV_BUTTON_BACK     IMG_FILE_NAME(@"nav_button_back.png")
+#define IMG_NAV_BUTTON_DROPDOWN IMG_FILE_NAME(@"nav_button_dropdown.png")
 
 #endif

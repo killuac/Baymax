@@ -1,4 +1,8 @@
 #import "AppDelegate.h"
+#import "BMAppSetting.h"
+#import "BMServerAPI.h"
+#import "BMCredential.h"
+#import "AFNetworkReachabilityManager+BMNetworkReachabilityManager.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +42,36 @@
     
     [[CCPackageManager sharedManager] loadPackages];
 
-    [director runWithScene:[CCBReader loadAsScene:@"MainScene"]];
+    [self setupApplication];
+    
+    [director runWithScene:[self startScene]];
+}
+
+- (void)setupApplication
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] checkReachability];
+}
+
+- (CCScene *)startScene
+{
+    CCScene *firstScene = [self firstLaunch];
+    if (firstScene) {
+        return firstScene;
+    } else {
+        NSString *sceneName = ([BMCredential sharedCredential].isSignedIn) ? SIGN_SCENE : MAIN_SCENE;
+        return [CCBReader loadAsScene:sceneName];
+    }
+}
+
+- (CCScene *)firstLaunch
+{
+    BMAppSetting *appSetting = [BMAppSetting defaultAppSetting];
+    if (appSetting.isFirstLaunch) {
+        [BMServerAPI writeAPIFile];
+        return (appSetting.guideScene.length) ? [CCBReader loadAsScene:appSetting.guideScene] : nil;
+    }
+    return nil;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

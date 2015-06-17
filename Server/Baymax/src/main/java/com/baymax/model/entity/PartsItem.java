@@ -1,13 +1,13 @@
 package com.baymax.model.entity;
 
-import com.baymax.common.Constant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+
+import static com.baymax.common.CustomProperties.propertiesInstance;
 
 /**
  * Created by Killua on 5/22/15.
@@ -60,6 +60,6 @@ public class PartsItem {
     }
 
     public String getImageURL() {
-        return Constant.IMG_PARTS_PATH + imageName;
+        return propertiesInstance().getPartsBaseURL() + imageName;
     }
 }
