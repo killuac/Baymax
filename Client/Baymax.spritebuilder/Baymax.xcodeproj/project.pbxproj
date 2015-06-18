@@ -92,6 +92,9 @@
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		E2635BDC718876A9DD9BF386 /* Pods_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF313551EF1F7A7866C3BD3 /* Pods_Mac.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E3278F8F1B3287DF0054D1B4 /* BMTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */; };
+		E3278F901B3287DF0054D1B4 /* BMTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */; };
+		E3278F911B3287DF0054D1B4 /* BMTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */; };
 		E375D23C1B22DEB9001FA4A0 /* libThirdKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */; };
 		E375D2791B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
 		E375D27A1B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
@@ -374,6 +377,8 @@
 		CFF313551EF1F7A7866C3BD3 /* Pods_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		E303025C1ACC0C3F009D9314 /* ChangeNote */ = {isa = PBXFileReference; lastKnownFileType = text; path = ChangeNote; sourceTree = "<group>"; };
+		E3278F8D1B3287DF0054D1B4 /* BMTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableViewSection.h; sourceTree = "<group>"; };
+		E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableViewSection.m; sourceTree = "<group>"; };
 		E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libThirdKit.a; path = "Libraries/build/Debug-iphoneos/libThirdKit.a"; sourceTree = "<group>"; };
 		E375D2771B26DA63001FA4A0 /* BMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUser.h; sourceTree = "<group>"; };
 		E375D2781B26DA63001FA4A0 /* BMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUser.m; sourceTree = "<group>"; };
@@ -906,6 +911,8 @@
 				E3C44C621B2C1741007DA129 /* BMTableView.m */,
 				E3A9F6481B2AE06C00F92CAE /* BMTableViewCell.h */,
 				E3A9F6491B2AE06C00F92CAE /* BMTableViewCell.m */,
+				E3278F8D1B3287DF0054D1B4 /* BMTableViewSection.h */,
+				E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */,
 				E3A9F5EA1B2A78B700F92CAE /* Category */,
 			);
 			name = Node;
@@ -974,14 +981,14 @@
 		E3A9F5EA1B2A78B700F92CAE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E38E7CE81B2FDB490065A098 /* CCNode+BMNode.h */,
+				E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */,
 				E3A9F6571B2B365000F92CAE /* CCSprite+BMSprite.h */,
 				E3A9F6581B2B365000F92CAE /* CCSprite+BMSprite.m */,
 				E3A9F6611B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.h */,
 				E3A9F6621B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m */,
 				E3A9F6661B2B491F00F92CAE /* CCTextureCache+BMTextureCache.h */,
 				E3A9F6671B2B491F00F92CAE /* CCTextureCache+BMTextureCache.m */,
-				E38E7CE81B2FDB490065A098 /* CCNode+BMNode.h */,
-				E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -1443,6 +1450,7 @@
 				E3A9F55C1B273E8600F92CAE /* BMAddress.m in Sources */,
 				E3A9F62D1B2A91EA00F92CAE /* BMUserScene.m in Sources */,
 				E3A9F57A1B27D54300F92CAE /* BMOrder.m in Sources */,
+				E3278F911B3287DF0054D1B4 /* BMTableViewSection.m in Sources */,
 				E3A9F5A91B29133900F92CAE /* BMAppSetting.m in Sources */,
 				E3A9F6241B2A91EA00F92CAE /* BMOrderScene.m in Sources */,
 			);
@@ -1458,6 +1466,7 @@
 				E3A9F5651B27CCD500F92CAE /* BMCity.m in Sources */,
 				E3A9F5741B27CF7600F92CAE /* BMEmployee.m in Sources */,
 				E375D2A41B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
+				E3278F901B3287DF0054D1B4 /* BMTableViewSection.m in Sources */,
 				E3A9F54C1B27328600F92CAE /* BMAutoSeries.m in Sources */,
 				E3A9F5CF1B29C9F800F92CAE /* BMTabBarItem.m in Sources */,
 				E3A9F62C1B2A91EA00F92CAE /* BMUserScene.m in Sources */,
@@ -1560,6 +1569,7 @@
 				E3A9F55A1B273E8600F92CAE /* BMAddress.m in Sources */,
 				E3A9F62B1B2A91EA00F92CAE /* BMUserScene.m in Sources */,
 				E3A9F5781B27D54300F92CAE /* BMOrder.m in Sources */,
+				E3278F8F1B3287DF0054D1B4 /* BMTableViewSection.m in Sources */,
 				E3A9F5A71B29133900F92CAE /* BMAppSetting.m in Sources */,
 				E3A9F6221B2A91EA00F92CAE /* BMOrderScene.m in Sources */,
 			);

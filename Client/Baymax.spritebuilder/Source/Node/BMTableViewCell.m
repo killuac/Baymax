@@ -34,6 +34,9 @@
 - (void)didLoadFromCCB
 {
     _indentWidth = 10.0f;
+    
+    CGFloat width = self.contentSize.width + 2;
+    _borderLine.contentSize = CGSizeMake(width/self.contentSize.width, 1);
 }
 
 - (BMTableView *)tableView
@@ -92,6 +95,7 @@
             
         case BMTableViewCellAccessoryCheckmark:
             imageName = IMG_FILE_NAME(@"check_mark");
+            _accessorySprite.visible = NO;
             break;
             
         case BMTableViewCellAccessoryDisclosureIndicator:
@@ -99,21 +103,66 @@
             break;
     }
     
-    CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@".png"]];
-    CCSpriteFrame *spriteFrameHL = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@"_highlighted.png"]];
-    [_accessorySprite setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
-    [_accessorySprite setBackgroundSpriteFrame:spriteFrameHL forState:CCControlStateHighlighted];
+    _accessorySprite.name = [imageName lastPathComponent];
+    _accessorySprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@".png"]];
+}
+
+- (void)setIndexPath:(NSIndexPath *)indexPath
+{
+    if (BMTableViewStyleGrouped == [self tableView].style) {
+        NSUInteger rowCount = [[self tableView] rowCountInSection:indexPath.section];
+//      First row or last row
+        if (0 == indexPath.row || indexPath.row == rowCount - 1) {
+            NSString *bgImageName, *borderImageName;
+            if (rowCount > 1) {
+                bgImageName = @"table_view_cell_group_half.png";
+                borderImageName = @"table_view_cell_group_border.png";
+            } else {
+                bgImageName = @"table_view_cell_group_full.png";
+                borderImageName = @"table_view_cell_full_border.png";
+                [self removeChild:_separatorLine];
+            }
+            
+            [_contentButton setBackgroundSpriteFrame:[CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(bgImageName)]];
+            _borderLine.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(borderImageName)];
+            
+            if (indexPath.row > 0) {
+                [self removeChild:_separatorLine];
+                _contentButton.background.rotation = _borderLine.rotation = 180;
+            }
+        }
+    } else {
+        if (0 == indexPath.row) {
+            CCSprite9Slice *line = [_separatorLine copySprite9Slice];
+            line.position = ccp(0.5, 1);
+            [self addChild:line];
+        }
+    }
+    
+    _indexPath = indexPath;
+}
+
+- (void)setContentSize:(CGSize)contentSize
+{
+    CGSize preSize = self.contentSize;
+    [super setContentSize:contentSize];
+    
+    if (_valueLabelsBox) {
+        CGFloat width = _valueLabelsBox.contentSize.width - (preSize.width - contentSize.width);
+        _valueLabelsBox.contentSize = CGSizeMake(width, _valueLabelsBox.contentSize.height);
+    }
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
+    NSString *imageName = _accessorySprite.name;
+    
     if (highlighted) {
         _textLabel.fontColor = _detailTextLabel.fontColor = HIGHLIGHTED_COLOR;
-        [_accessorySprite setBackgroundColor:HIGHLIGHTED_COLOR forState:CCControlStateHighlighted];
-        _accessorySprite.highlighted = YES;
+        _accessorySprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME([imageName stringByAppendingString:@"_highlighted.png"])];
     } else {
         _textLabel.fontColor = _textFontColor;
         _detailTextLabel.fontColor = _detailTextFontColor;
-        _accessorySprite.highlighted = NO;
+        _accessorySprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME([imageName stringByAppendingString:@".png"])];
     }
 }
 
@@ -125,14 +174,16 @@
         _textLabel.fontColor = _textFontColor;
         _detailTextLabel.fontColor = _detailTextFontColor;
     }
-    _cellButton.selected = selected;
+    
+    _contentButton.selected = selected;
+    _accessorySprite.visible = selected;
 }
 
 - (void)selected:(BMCellButton *)button
 {
     if (BMTableViewCellAccessoryCheckmark == _accessoryType) {
-        self.selected = YES;
         [[self tableView] selectedCell].selected = NO;
+        self.selected = YES;
     }
     [[self tableView] selectRowAtIndexPath:_indexPath];
 }

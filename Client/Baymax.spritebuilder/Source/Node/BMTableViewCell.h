@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
     CCLayoutBox *_nodesBox;
     CCLayoutBox *_subtitleLabelsBox;
     CCNode *_valueLabelsBox;
+    CCSprite9Slice *_borderLine;
+    CCSprite9Slice *_separatorLine;
 }
 
 // Use default CCB file name "TableViewCell"
@@ -42,12 +44,12 @@ typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
 + (instancetype)cellWithCCBNamed:(NSString *)name Style:(BMTableViewCellStyle)style;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak, readonly) BMCellButton *cellButton;
+@property (nonatomic, weak, readonly) BMCellButton *contentButton;
 
 @property (nonatomic, weak, readonly) BMImageSprite *imageSprite;
-@property (nonatomic, weak, readonly) CCButton *accessorySprite;
 @property (nonatomic, weak, readonly) CCLabelTTF *textLabel;
 @property (nonatomic, weak, readonly) CCLabelTTF *detailTextLabel;
+@property (nonatomic, weak, readonly) CCSprite *accessorySprite;
 
 @property (nonatomic, readonly) BMTableViewCellStyle style;
 @property (nonatomic, assign) BMTableViewCellAccessoryType accessoryType;

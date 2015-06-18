@@ -15,6 +15,24 @@
     return [self spriteWithSpriteFrame:[CCSpriteFrame frameWithContentsOfFile:path]];
 }
 
+- (id)copySprite
+{
+    CCSprite *sprite = [CCSprite spriteWithSpriteFrame:self.spriteFrame];
+    sprite.positionType = self.positionType;
+    sprite.contentSizeType = self.contentSizeType;
+    sprite.contentSize = self.contentSize;
+    return sprite;
+}
+
+- (id)copySprite9Slice
+{
+    CCSprite9Slice *sprite = [CCSprite9Slice spriteWithSpriteFrame:self.spriteFrame];
+    sprite.positionType = self.positionType;
+    sprite.contentSizeType = self.contentSizeType;
+    sprite.contentSize = self.contentSize;
+    return sprite;
+}
+
 - (CCSpriteFrame *)newRoundCornerSpriteFrameWithRadius:(CGFloat[])radiuses
 {
     CGImageRef imageRef = [self newCGImage];
@@ -37,7 +55,8 @@
     CGColorSpaceRelease(colorSpace);
     CGImageRelease(imageRef);
     
-    CCSprite *sprite = [CCSprite spriteWithCGImage:imageMasked key:@"round_corner"];
+    NSArray *array = [NSArray arrayWithObjects:@(radiuses[0]), @(radiuses[1]), @(radiuses[2]), @(radiuses[3]), nil];
+    CCSprite *sprite = [CCSprite spriteWithCGImage:imageMasked key:[array componentsJoinedByString:@""]];
     CGImageRelease(imageMasked);
     
     return [CCSpriteFrame frameWithTexture:sprite.texture

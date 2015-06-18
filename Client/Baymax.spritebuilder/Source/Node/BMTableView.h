@@ -8,6 +8,7 @@
 
 #import "CCScrollView.h"
 #import "BMTableViewCell.h"
+#import "BMTableViewSection.h"
 
 #define DEFAULT_TABLE_VIEW  @"TableView"
 
@@ -21,7 +22,7 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 
 @interface BMTableView : CCScrollView {
     BOOL _visibleRowsDirty;
-    NSMutableArray *_rows;
+    NSMutableArray *_cellHolders;
     NSRange _currentlyVisibleRange;
 }
 
@@ -37,6 +38,8 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 @property (nonatomic, assign, readonly) CGFloat margin;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
+- (NSUInteger)rowCountInSection:(NSUInteger)sectionNumber;
 
 - (BMTableViewCell *)selectedCell;
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;

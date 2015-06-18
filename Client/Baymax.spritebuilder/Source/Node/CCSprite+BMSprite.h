@@ -12,6 +12,9 @@
 
 + (instancetype)spriteWithContentsOfFile:(NSString *)path;
 
+- (id)copySprite;
+- (id)copySprite9Slice;
+
 - (CCSpriteFrame *)newRoundCornerSpriteFrameWithRadius:(CGFloat[])radiuses;
 
 @end

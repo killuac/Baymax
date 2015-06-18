@@ -24,7 +24,7 @@
 #pragma mark - BMTableViewCellHolder
 @interface BMTableViewCellHolder : NSObject
 
-@property (nonatomic, strong) BMTableViewCell *cell;
+@property (nonatomic, strong) CCNode *cell;
 
 @end
 
@@ -98,7 +98,7 @@
 
 - (CGFloat)margin
 {
-    return (BMTableViewStylePlain == _style) ? 0: 10;
+    return (BMTableViewStylePlain == _style) ? 0.0f: 10.0f;
 }
 
 #if __CC_PLATFORM_IOS
@@ -121,7 +121,7 @@
 
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_rows[indexPath.row] cell];
+    return [_cellHolders[indexPath.row] cell];
 }
 
 - (id)init
@@ -154,7 +154,7 @@
     return [_dataSource tableView:self numberOfRowsInSection:sectionNumber];
 }
 
-- (NSUInteger)rowCountInSections:(NSUInteger)sectionCount
+- (NSUInteger)totcalRowCountInSections:(NSUInteger)sectionCount
 {
     NSUInteger rowCount = 0;
     for (NSUInteger i = 0; i < sectionCount; i++) {
@@ -172,15 +172,25 @@
     return rowCount;
 }
 
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        return [_delegate tableView:self heightForRowAtIndexPath:indexPath];
+    } else {
+        return DEFAULT_ROW_HEIGHT;
+    }
+}
+
 - (NSRange)visibleRangeForScrollPosition:(CGFloat)scrollPosition
 {
     CGFloat positionScale = [CCDirector sharedDirector].UIScaleFactor;
+    CGFloat deltaMargin = self.margin;
     
-    if ([_dataSource respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+    if ([_delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         // Rows may have different heights
         NSUInteger startSection = 0;
         NSUInteger startRow = 0;
-        NSUInteger rows = 0;
+        NSUInteger rowCount = 0;
         CGFloat currentRowPos = 0;
         
         NSUInteger numVisibleRows = 1;
@@ -190,33 +200,34 @@
         for (NSUInteger section = 0; section < [self sectionCount]; section++) {
             for (NSUInteger row = 0; row < [self rowCountInSection:section]; row++) {
                 // Increase row position
-                CGFloat rowHeight = [_delegate tableView:self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+                CGFloat rowHeight = [self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
                 if (_rowHeightUnit == CCSizeUnitUIPoints) {
                     rowHeight *= positionScale;
                 }
                 currentRowPos += rowHeight;
                 
                 // Check if we are within visible range
-                if (currentRowPos >= scrollPosition) {
+                if (currentRowPos + deltaMargin >= scrollPosition) {
                     startSection = section;
-                    startRow = row + rows;
+                    startRow = row + rowCount;
                     goto find_end_row;
                 }
             }
-            rows += [self rowCountInSection:section];
+            rowCount += [self rowCountInSection:section];
+            deltaMargin += self.margin * 2;
         }
         
-        // Find end row
     find_end_row:
+        // Find end row
         for (NSUInteger section = startSection; section < [self sectionCount]; section++) {
-            for (NSUInteger row = startRow; row < rows + [self rowCountInSection:section]; row++) {
+            for (NSUInteger row = startRow; row < rowCount + [self rowCountInSection:section]; row++) {
                 // Check if we are out of visible range
-                if (currentRowPos > scrollPosition + tableHeight){
-                    goto done;
+                if (currentRowPos + deltaMargin > scrollPosition + tableHeight){
+                    goto done_if;
                 }
                 
                 // Increase row position
-                CGFloat rowHeight = [_delegate tableView:self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row+1 inSection:section]];
+                CGFloat rowHeight = [self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row+1 inSection:section]];
                 if (_rowHeightUnit == CCSizeUnitUIPoints) {
                     rowHeight *= positionScale;
                 }
@@ -224,11 +235,12 @@
                 
                 numVisibleRows++;
             }
-            rows += [self rowCountInSection:section];
+            rowCount += [self rowCountInSection:section];
+            deltaMargin += self.margin * 2;
         }
         
+    done_if:
         // Handle potential edge case
-    done:
         if ((startRow + numVisibleRows) > [self totalRowCount]) {
             numVisibleRows -= 1;
         }
@@ -240,8 +252,21 @@
         NSUInteger totalNumRows = [self totalRowCount];
         
         NSUInteger startRow = clampf(floorf(scrollPosition/self.rowHeightInPoints), 0, totalNumRows - 1);
-        NSUInteger numVisibleRows = floorf( self.contentSizeInPoints.height / self.rowHeightInPoints) + 2;
+        NSUInteger numVisibleRows = floorf(self.contentSizeInPoints.height/self.rowHeightInPoints) + 2;
         
+        if (0 == deltaMargin) goto done_else;
+        for (NSUInteger section = 0, rowCount = 0; section < [self sectionCount]; section++) {
+            for (NSUInteger row = 0; row < [self rowCountInSection:section]; row++) {
+                if (startRow == row + rowCount) {
+                    startRow = clampf(floorf(scrollPosition/(self.rowHeightInPoints+deltaMargin/startRow)), 0, totalNumRows - 1);
+                    goto done_else;
+                }
+            }
+            rowCount += [self rowCountInSection:section];
+            deltaMargin += self.margin * 2;
+        }
+        
+    done_else:
         // Make sure we are in range
         if (startRow + numVisibleRows >= totalNumRows) {
             numVisibleRows = totalNumRows - startRow;
@@ -256,14 +281,14 @@
     if (!_delegate) return 0;
     
     CGFloat location = 0;
-    NSUInteger rowCount = [self rowCountInSections:indexPath.section] + indexPath.row;
+    NSUInteger rowCount = [self totcalRowCountInSections:indexPath.section] + indexPath.row;
     
     if ([_delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         for (NSUInteger i = 0; i < rowCount; i++) {
-            location += [_delegate tableView:self heightForRowAtIndexPath:indexPath];
+            location += [self heightForRowAtIndexPath:indexPath];
         }
     } else {
-        location = rowCount * _rowHeight;
+        location += rowCount * _rowHeight;
     }
     
     if (_rowHeightUnit == CCSizeUnitUIPoints) {
@@ -279,7 +304,7 @@
     
     for (NSUInteger oldIdx = _currentlyVisibleRange.location; oldIdx < NSMaxRange(_currentlyVisibleRange); oldIdx++) {
         if (!NSLocationInRange(oldIdx, range)) {
-            BMTableViewCellHolder* holder = [_rows objectAtIndex:oldIdx];
+            BMTableViewCellHolder *holder = [_cellHolders objectAtIndex:oldIdx];
             if (holder) {
                 [self.contentNode removeChild:holder.cell cleanup:YES];
                 holder.cell = nil;
@@ -287,29 +312,37 @@
         }
     }
     
-    for (NSUInteger section = 0, rows = 0; section < [self sectionCount]; section++) {
+    CGFloat deltaMargin = self.margin;
+    for (NSUInteger section = 0, rowCount = 0; section < [self sectionCount]; section++) {
         for (NSUInteger row = 0; row < [self rowCountInSection:section]; row++) {
-            NSUInteger newIdx = row + rows;
+            NSUInteger newIdx = row + rowCount;
             if (newIdx < range.location) continue;
             if (newIdx >= NSMaxRange(range)) goto done;
             
             if (!NSLocationInRange(newIdx, _currentlyVisibleRange)) {
-                BMTableViewCellHolder* holder = [_rows objectAtIndex:newIdx];
+                BMTableViewCellHolder* holder = [_cellHolders objectAtIndex:newIdx];
                 if (!holder.cell) {
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-                    holder.cell = [_dataSource tableView:self cellForRowAtIndexPath:indexPath];
-                    holder.cell.indexPath = indexPath;
-                    holder.cell.position = CGPointMake(self.margin, [self locationForCellWithIndexPath:indexPath]);
-                    holder.cell.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerTopLeft);
-                    holder.cell.contentSize = CGSizeMake(holder.cell.contentSize.width - 2*self.margin, holder.cell.contentSize.height);
-                }
-                
-                if (holder.cell) {
+                    if (0 == row || row == [self rowCountInSection:section]-1) {
+                        holder.cell = [BMTableViewSection node];
+                        [self.contentNode addChild:holder.cell];
+                    }
+                    
+                    BMTableViewCell *cell = [_dataSource tableView:self cellForRowAtIndexPath:indexPath];
+                    holder.cell = cell;
+                    [self.contentNode addChild:cell];
+                    cell.indexPath = indexPath;
+                    cell.position = CGPointMake(self.margin, [self locationForCellWithIndexPath:indexPath] + deltaMargin);
+                    cell.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerTopLeft);
+                    cell.contentSize = CGSizeMake(holder.cell.contentSize.width - 2*self.margin, [self heightForRowAtIndexPath:indexPath]);
+                } else {
                     [self.contentNode addChild:holder.cell];
                 }
             }
         }
-        rows += [self rowCountInSection:section];
+        
+        rowCount += [self rowCountInSection:section];
+        deltaMargin += self.margin * 2;
     }
     
 done:
@@ -329,6 +362,15 @@ done:
     }
 }
 
+- (CGFloat)heightIncrement
+{
+    CGFloat increment = self.margin;
+    for (NSInteger section = 0; section < [self sectionCount]; section++) {
+        increment += self.margin * 2;
+    }
+    return increment;
+}
+
 - (void)reloadData
 {
     _currentlyVisibleRange = NSMakeRange(0, 0);
@@ -338,26 +380,26 @@ done:
     if (!_dataSource) return;
     
     // Resize the content node
-    NSUInteger numRows = [self totalRowCount];
+    NSUInteger rowCount = [self totalRowCount];
     CGFloat layerHeight = 0;
     
-    if ([_dataSource respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+    if ([_delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         for (NSInteger section = 0; section < [self sectionCount]; section++) {
             for (int row = 0; row < [self rowCountInSection:section]; row++) {
-                layerHeight += [_delegate tableView:self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+                layerHeight += [self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
             }
         }
     } else {
-        layerHeight = numRows * _rowHeight;
+        layerHeight = rowCount * _rowHeight;
     }
     
-    self.contentNode.contentSize = CGSizeMake(1, layerHeight);
+    self.contentNode.contentSize = CGSizeMake(1, layerHeight + [self heightIncrement]);
     self.contentNode.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, _rowHeightUnit);
     
     // Create empty placeholders for all rows
-    _rows = [NSMutableArray arrayWithCapacity:numRows];
-    for (int i = 0; i < numRows; i++) {
-        [_rows addObject:[[BMTableViewCellHolder alloc] init]];
+    _cellHolders = [NSMutableArray arrayWithCapacity:rowCount];
+    for (int i = 0; i < rowCount; i++) {
+        [_cellHolders addObject:[[BMTableViewCellHolder alloc] init]];
     }
     
     // Update scroll position

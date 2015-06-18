@@ -13,7 +13,7 @@
 
 - (void)didLoadFromCCB
 {
-    [_tableView setupWithStyle:BMTableViewStylePlain];
+    [_tableView setupWithStyle:BMTableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
 }
@@ -25,12 +25,12 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return 10;
+    return 5;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleValue accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
+    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleValue accessoryType:BMTableViewCellAccessoryCheckmark];
     cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:@"ccbResources/bmw.png"];
     return cell;
 }
@@ -38,11 +38,6 @@
 - (NSUInteger)numberOfSectionsInTableView:(BMTableView *)tableView
 {
     return 5;
-}
-
-- (CGFloat)tableView:(BMTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44;
 }
 
 @end
