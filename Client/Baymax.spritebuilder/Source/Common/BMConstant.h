@@ -26,4 +26,7 @@
 #define IMG_NAV_BUTTON_BACK     IMG_FILE_NAME(@"nav_button_back.png")
 #define IMG_NAV_BUTTON_DROPDOWN IMG_FILE_NAME(@"nav_button_dropdown.png")
 
+#define BUTTON_TITLE_CANCEL     NSLocalizedString(@"取消", "")
+#define BUTTON_TITLE_DONE       NSLocalizedString(@"完成", "")
+
 #endif

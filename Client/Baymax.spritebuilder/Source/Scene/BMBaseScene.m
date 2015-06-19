@@ -10,6 +10,18 @@
 
 @implementation BMBaseScene
 
+- (id)init
+{
+    if (self = [super init]) {
+        self.contentSizeType = CCSizeTypeNormalized;
+        self.contentSize = CGSizeMake(1, 1);
+        
+        CCNode *background = [CCBReader load:@"Background" owner:self];
+        [self addChild:background];
+    }
+    return self;
+}
+
 - (void)presentSceneWithName:(NSString *)sceneName animated:(BOOL)animated
 {
     CCScene *scene = [CCBReader loadAsScene:sceneName];
@@ -19,16 +31,16 @@
 - (void)presentScene:(CCScene *)scene animated:(BOOL)animated
 {
     if (animated) {
-        [[CCDirector sharedDirector] presentScene:scene withTransition:[CCTransition transitionMoveInUp]];
+        [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionMoveInUp]];
     } else {
-        [[CCDirector sharedDirector] presentScene:scene];
+        [[CCDirector sharedDirector] pushScene:scene];
     }
 }
 
 - (void)dismissSceneAnimated:(BOOL)animated
 {
     if (animated) {
-        [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionMoveInDown]];
+        [[CCDirector sharedDirector] popToRootSceneWithTransition:[CCTransition transitionRevealDown]];
     } else {
         [[CCDirector sharedDirector] popScene];
     }

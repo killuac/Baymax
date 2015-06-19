@@ -7,8 +7,13 @@
 //
 
 #import "CCNode.h"
+#import "BMConstant.h"
 
-@interface BMBaseScene : CCNode
+@interface BMBaseScene : CCNode {
+    CCNodeColor *_background;
+}
+
+@property (nonatomic, strong, readonly) CCNodeColor *background;
 
 - (void)presentScene:(CCScene *)scene animated:(BOOL)animated;
 - (void)presentSceneWithName:(NSString *)sceneName animated:(BOOL)animated;

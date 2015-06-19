@@ -23,4 +23,10 @@
     self.visible = YES;
 }
 
+- (void)setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    self.visible = YES;
+}
+
 @end

@@ -121,7 +121,7 @@
 
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_cellHolders[indexPath.row] cell];
+    return [_cellHolders[indexPath.row+[self totcalRowCountInSections:indexPath.section]] cell];
 }
 
 - (id)init
@@ -307,7 +307,7 @@
             BMTableViewCellHolder *holder = [_cellHolders objectAtIndex:oldIdx];
             if (holder) {
                 [self.contentNode removeChild:holder.cell cleanup:YES];
-                holder.cell = nil;
+//                holder.cell = nil;
             }
         }
     }
@@ -516,6 +516,11 @@ done:
 - (NSUInteger)row
 {
     return [objc_getAssociatedObject(self, @selector(row)) unsignedIntegerValue];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p | Section = %tu | Row = %tu >", [self class], self, self.section, self.row];
 }
 
 @end

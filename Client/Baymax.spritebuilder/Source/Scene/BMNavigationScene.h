@@ -9,13 +9,12 @@
 #import "BMBaseScene.h"
 #import "BMNavigationBar.h"
 
-@interface BMNavigationScene : BMBaseScene <BMNavigationBarDelegate> {
-    BMNavigationBar *_navigationBar;
-}
+@interface BMNavigationScene : BMBaseScene <BMNavigationBarDelegate>
 
 @property (nonatomic, strong, readonly) BMNavigationBar *navigationBar;
 
 - (void)pushSceneWithName:(NSString *)sceneName;
+- (void)pushScene:(CCScene *)scene;
 - (void)popScene;
 
 @end

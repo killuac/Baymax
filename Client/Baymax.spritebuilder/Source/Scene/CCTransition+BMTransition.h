@@ -14,5 +14,7 @@
 + (instancetype)transitionPushRight;
 + (instancetype)transitionMoveInUp;
 + (instancetype)transitionMoveInDown;
++ (instancetype)transitionRevealUp;
++ (instancetype)transitionRevealDown;
 
 @end

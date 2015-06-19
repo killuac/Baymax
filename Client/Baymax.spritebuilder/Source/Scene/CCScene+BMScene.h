@@ -10,6 +10,8 @@
 
 @interface CCScene (BMScene)
 
++ (instancetype)sceneWithNode:(CCNode *)node;
+
 - (void)showText:(NSString *)text;
 
 - (void)showActivityIndicator;

@@ -32,4 +32,14 @@
     return [self transitionMoveInWithDirection:CCTransitionDirectionDown duration:DURATION_SCENE_TRANSITION];
 }
 
++ (instancetype)transitionRevealUp
+{
+    return [self transitionRevealWithDirection:CCTransitionDirectionUp duration:DURATION_SCENE_TRANSITION];
+}
+
++ (instancetype)transitionRevealDown
+{
+    return [self transitionRevealWithDirection:CCTransitionDirectionDown duration:DURATION_SCENE_TRANSITION];
+}
+
 @end

@@ -16,6 +16,7 @@
 }
 
 @property (nonatomic, weak) id <BMTabBarDelegate> delegate;
+@property (nonatomic, weak, readonly) CCNodeColor *background;
 @property (nonatomic, weak, readonly) NSArray *items;
 @property (nonatomic, weak, readonly) BMTabBarItem *selectedItem;
 

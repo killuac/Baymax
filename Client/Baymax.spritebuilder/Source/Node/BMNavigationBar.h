@@ -14,6 +14,7 @@
 @interface BMNavigationBar : CCNode
 
 @property (nonatomic, weak) id <BMNavigationBarDelegate> delegate;
+@property (nonatomic, weak, readonly) CCNodeColor *background;
 @property (nonatomic, weak, readonly) CCLabelTTF *titleLabel;
 @property (nonatomic, weak, readonly) BMNavBarItem *leftBarItem;
 @property (nonatomic, weak, readonly) BMNavBarItem *rightBarItem;

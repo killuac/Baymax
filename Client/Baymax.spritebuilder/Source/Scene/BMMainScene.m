@@ -8,21 +8,20 @@
 
 #import "BMMainScene.h"
 #import "BMConstant.h"
+#import "BMAutoBrandScene.h"
 
 @implementation BMMainScene
 
 - (void)didLoadFromCCB
 {
-    _navigationBar.delegate = self;
-    [_navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
-    
-//    [_roundCell.cellButton drawTopRoundCorner];
+    self.navigationBar.delegate = self;
+    [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
 {
-    if ([item isEqual:_navigationBar.rightBarItem]) {
-        [self pushSceneWithName:@"SignInScene"];
+    if ([item isEqual:self.navigationBar.rightBarItem]) {
+        [self presentScene:[CCScene sceneWithNode:[BMAutoBrandScene node]] animated:YES];
     }
 }
 

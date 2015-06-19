@@ -10,6 +10,13 @@
 
 @implementation CCScene (BMScene)
 
++ (instancetype)sceneWithNode:(CCNode *)node
+{
+    CCScene *scene = [CCScene node];
+    [scene addChild:node];
+    return scene;
+}
+
 - (void)showText:(NSString *)text
 {
     //!!!:
