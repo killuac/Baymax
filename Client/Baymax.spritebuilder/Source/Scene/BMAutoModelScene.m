@@ -18,8 +18,30 @@
         [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
         self.navigationBar.rightBarItem.title = BUTTON_TITLE_DONE;
         self.navigationBar.rightBarItem.enabled = NO;
+        
+        [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
     return self;
+}
+
+- (void)setAutoSeries:(BMAutoSeries *)autoSeries
+{
+    _autoSeries = autoSeries;
+    if (_autoSeries.autoModels) {
+        [self.tableView reloadData];
+    }
+}
+
+- (void)loadData
+{
+    if (_autoSeries.autoModels) return;
+    
+    NSURL *url = _autoSeries.autoModelsURL;
+    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
+        _autoSeries.autoModels = container.autoModels;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
@@ -33,12 +55,13 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return 10;
+    return _autoSeries.autoModels.count;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryCheckmark];
+    cell.textLabel.string = [_autoSeries.autoModels[indexPath.row] modelName];
     return cell;
 }
 

@@ -9,7 +9,9 @@
 #import "BMNavigationScene.h"
 #import "BMTableView.h"
 
-@interface BMTableViewScene : BMNavigationScene <BMTableViewDataSource, BMTableViewDelegate>
+@interface BMTableViewScene : BMNavigationScene <BMTableViewDataSource, BMTableViewDelegate> {
+    BMTableView *_tableView;
+}
 
 @property (nonatomic, strong, readonly) BMTableView *tableView;
 

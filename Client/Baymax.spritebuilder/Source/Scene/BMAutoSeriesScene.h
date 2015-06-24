@@ -7,7 +7,10 @@
 //
 
 #import "BMTableViewScene.h"
+#import "BMAutoBrandScene.h"
 
 @interface BMAutoSeriesScene : BMTableViewScene
+
+@property (nonatomic, weak) BMAutoBrand *autoBrand;
 
 @end

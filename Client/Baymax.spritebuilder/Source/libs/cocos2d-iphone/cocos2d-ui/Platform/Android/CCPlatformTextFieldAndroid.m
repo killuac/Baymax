@@ -24,6 +24,11 @@
     CCEditText *_editText;
 }
 
+- (id)nativeTextField
+{
+    return _editText;
+}
+
 - (id) init {
     if (self=[super init]) {
         dispatch_async(dispatch_get_main_queue(), ^{

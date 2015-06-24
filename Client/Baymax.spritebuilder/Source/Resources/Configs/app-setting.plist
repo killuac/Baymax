@@ -9,7 +9,7 @@
 		<key>host</key>
 		<string>localhost</string>
 		<key>port</key>
-		<integer>8080</integer>
+		<real>8080</real>
 	</dict>
 	<key>isFirstLaunch</key>
 	<false/>

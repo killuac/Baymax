@@ -23,15 +23,31 @@ static BMSessionManager *instanceOfSessionManager = nil;
     return instanceOfSessionManager;
 }
 
+- (void)showActivityIndicator
+{
+    [[CCDirector sharedDirector].runningScene showActivityIndicator];
+}
+
+- (void)removeActivityIndicator
+{
+    [[CCDirector sharedDirector].runningScene removeActivityIndicator];
+}
+
 - (AFHTTPRequestOperation *)GET:(NSURL *)url
                      parameters:(id)parameters
                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    [self showActivityIndicator];
+    
     return [self GET:url.relativePath
           parameters:parameters
-             success:success
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 [self removeActivityIndicator];
+                 success(operation, responseObject);
+             }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"GET ERROR: %@", error);
+                 [self removeActivityIndicator];
                  if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                      [self.delegate sessionManager:self didFailWithError:error];
                  }
@@ -42,11 +58,17 @@ static BMSessionManager *instanceOfSessionManager = nil;
                       parameters:(id)parameters
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    [self showActivityIndicator];
+    
     return [self POST:url.relativePath
            parameters:parameters
-              success:success
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [self removeActivityIndicator];
+                  success(operation, responseObject);
+              }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"POST ERROR: %@", error);
+                  [self removeActivityIndicator];
                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                       [self.delegate sessionManager:self didFailWithError:error];
                   }
@@ -58,11 +80,18 @@ static BMSessionManager *instanceOfSessionManager = nil;
        constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    [self showActivityIndicator];
+    
     return [self POST:url.relativePath
            parameters:parameters
-constructingBodyWithBlock:block success:success
+constructingBodyWithBlock:block
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [self removeActivityIndicator];
+                  success(operation, responseObject);
+              }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"POST MULTIPART ERROR: %@", error);
+                  [self removeActivityIndicator];
                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                       [self.delegate sessionManager:self didFailWithError:error];
                   }
@@ -73,11 +102,17 @@ constructingBodyWithBlock:block success:success
                        parameters:(id)parameters
                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    [self showActivityIndicator];
+    
     return [self PATCH:url.relativePath
             parameters:parameters
-               success:success
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   [self removeActivityIndicator];
+                   success(operation, responseObject);
+               }
                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    NSLog(@"PATCH ERROR: %@", error);
+                   [self removeActivityIndicator];
                    if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                        [self.delegate sessionManager:self didFailWithError:error];
                    }

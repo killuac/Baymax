@@ -68,7 +68,7 @@ const CGSize FIXED_SIZE = {568, 384};
     }
     else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
     {
-        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+        return UIInterfaceOrientationMaskPortrait;
     }
     else
     {

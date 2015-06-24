@@ -6,8 +6,19 @@
 //  Copyright (c) 2015 Syzygy. All rights reserved.
 //
 
-#import "BMBaseScene.h"
+#import "BMTableViewScene.h"
+#import "BMUser.h"
 
-@interface BMSignInScene : CCNode
+@interface BMSignInScene : BMTableViewScene {
+    CCTextField *_mobileTextField, *_passwordTextField;
+    CCButton *_signButton;
+}
+
+@property (nonatomic, strong, readonly) CCButton *signButton;
+
+- (void)didLoadFromCCB;
+- (void)loadOnce;
+
+- (void)signIn:(CCButton *)button;
 
 @end

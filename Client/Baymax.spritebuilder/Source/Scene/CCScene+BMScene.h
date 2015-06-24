@@ -12,9 +12,4 @@
 
 + (instancetype)sceneWithNode:(CCNode *)node;
 
-- (void)showText:(NSString *)text;
-
-- (void)showActivityIndicator;
-- (void)removeActivityIndicator;
-
 @end

@@ -17,19 +17,4 @@
     return scene;
 }
 
-- (void)showText:(NSString *)text
-{
-    //!!!:
-}
-
-- (void)showActivityIndicator
-{
-    //!!!:
-}
-
-- (void)removeActivityIndicator
-{
-    //!!!:
-}
-
 @end

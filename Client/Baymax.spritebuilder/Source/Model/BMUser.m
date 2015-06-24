@@ -14,6 +14,7 @@
 {
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
+        @"wrongPassword": @"isWrongPassword",
         @"_links.automobiles.href": @"automobilesURL",
         @"_links.addresses.href": @"addressesURL",
         @"_embedded.autombiles": @"autombiles",

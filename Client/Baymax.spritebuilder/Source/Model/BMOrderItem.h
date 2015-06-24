@@ -15,9 +15,9 @@
 
 @property (nonatomic, assign) NSUInteger itemId;
 @property (nonatomic, assign) NSUInteger orderId;
-@property (nonatomic, assign) ushort partsItemId;
-@property (nonatomic, assign) ushort serviceId;
-@property (nonatomic, assign) ushort quantity;
+@property (nonatomic, assign) short partsItemId;
+@property (nonatomic, assign) short serviceId;
+@property (nonatomic, assign) short quantity;
 @property (nonatomic, assign) double price;
 @property (nonatomic, copy) NSString *itemName;
 @property (nonatomic, copy) NSString *itemDescription;

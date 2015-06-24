@@ -50,7 +50,7 @@
     if (firstScene) {
         return firstScene;
     } else {
-        NSString *sceneName = ([BMCredential sharedCredential].isSignedIn) ? SIGN_SCENE : MAIN_SCENE;
+        NSString *sceneName = ([BMCredential sharedCredential].isSignedIn) ? MAIN_SCENE : SIGN_SCENE;
         return [CCBReader loadAsScene:sceneName];
     }
 }

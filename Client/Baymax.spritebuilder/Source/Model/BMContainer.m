@@ -14,7 +14,9 @@
 {
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
-        @"_embedded.autoBrands": @"autoBrands"
+        @"_embedded.autoBrands": @"autoBrands",
+        @"_embedded.autoSeries": @"autoSerieses",
+        @"_embedded.autoModels": @"autoModels"
     }];
 }
 

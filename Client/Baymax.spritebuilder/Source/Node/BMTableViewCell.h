@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, BMTableViewCellStyle) {
 typedef NS_ENUM(NSInteger, BMTableViewCellAccessoryType) {
     BMTableViewCellAccessoryNone,
     BMTableViewCellAccessoryDisclosureIndicator,
+    BMTableViewCellAccessoryDetailDisclosureButton,
     BMTableViewCellAccessoryCheckmark
 };
 
@@ -49,7 +50,8 @@ typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
 @property (nonatomic, weak, readonly) BMImageSprite *imageSprite;
 @property (nonatomic, weak, readonly) CCLabelTTF *textLabel;
 @property (nonatomic, weak, readonly) CCLabelTTF *detailTextLabel;
-@property (nonatomic, weak, readonly) CCSprite *accessorySprite;
+@property (nonatomic, weak, readonly) CCTextField *textField;
+@property (nonatomic, weak, readonly) CCButton *accessoryButton;
 
 @property (nonatomic, readonly) BMTableViewCellStyle style;
 @property (nonatomic, assign) BMTableViewCellAccessoryType accessoryType;
@@ -57,6 +59,7 @@ typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
 
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) BOOL highlighted;
+@property (nonatomic, assign, readonly) BOOL editing;
 
 - (void)selected:(BMCellButton *)button;
 

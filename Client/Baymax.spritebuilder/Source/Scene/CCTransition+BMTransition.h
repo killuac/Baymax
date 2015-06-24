@@ -8,6 +8,8 @@
 
 #import "CCTransition.h"
 
+#define DURATION_SCENE_TRANSITION   0.25f
+
 @interface CCTransition (BMTransition)
 
 + (instancetype)transitionPushLeft;

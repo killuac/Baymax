@@ -18,8 +18,17 @@
         
         CCNode *background = [CCBReader load:@"Background" owner:self];
         [self addChild:background];
+        
+        [self scheduleBlock:^(CCTimer *timer) {
+            [self loadData];
+        } delay:DURATION_SCENE_TRANSITION];
     }
     return self;
+}
+
+- (void)loadData
+{
+//  Implemented by subclass
 }
 
 - (void)presentSceneWithName:(NSString *)sceneName animated:(BOOL)animated

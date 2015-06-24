@@ -7,6 +7,8 @@
 //
 
 #import "BMTableViewScene.h"
+#import "BMContainer.h"
+#import "BMAutoBrand.h"
 
 @interface BMAutoBrandScene : BMTableViewScene
 

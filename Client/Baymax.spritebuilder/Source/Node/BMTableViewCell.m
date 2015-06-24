@@ -11,10 +11,10 @@
 #import "BMUtil.h"
 
 #define HIGHLIGHTED_COLOR   [CCColor whiteColor]
-#define SELECTED_COLOR      [CCColor colorWithRed:38/255.0 green:60/255.0 blue:114/255.0]
+#define SELECTED_COLOR      [CCColor colorWithRed:43/255.0 green:65/255.0 blue:116/255.0]
 
 @implementation BMTableViewCell {
-    CCColor *_textFontColor, *_detailTextFontColor;
+    NSMutableDictionary *_properties;
 }
 
 + (instancetype)cellWithStyle:(BMTableViewCellStyle)style accessoryType:(BMTableViewCellAccessoryType)accessoryType
@@ -35,8 +35,17 @@
 {
     _indentWidth = 10.0f;
     
+//  Set border line content size
     CGFloat width = self.contentSize.width + 2;
-    _borderLine.contentSize = CGSizeMake(width/self.contentSize.width, 1);
+    _borderLine.contentSize = CGSizeMake(width/self.contentSize.width, 1.04);
+    
+//  Save previous node's property to buffer
+    _properties = [NSMutableDictionary dictionary];
+    [[self getAllChildren] enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
+        if ([node isMemberOfClass:[CCLabelTTF class]]) {
+            [_properties setObject:[node fontColor] forKey:@([node hash])];
+        }
+    }];
 }
 
 - (BMTableView *)tableView
@@ -61,58 +70,87 @@
         case BMTableViewCellStyleDefault:
             [_nodesBox removeChild:_valueLabelsBox];
             [_nodesBox removeChild:_subtitleLabelsBox];
+            _valueLabelsBox = nil; _subtitleLabelsBox = nil;
             break;
             
         case BMTableViewCellStyleValue:
-            [_nodesBox removeChild:_subtitleLabelsBox];
             labelsBox = _valueLabelsBox;
+            [_nodesBox removeChild:_subtitleLabelsBox];
+            _subtitleLabelsBox = nil;
             break;
             
         case BMTableViewCellStyleSubtitle:
-            [_nodesBox removeChild:_valueLabelsBox];
             labelsBox = _subtitleLabelsBox;
+            [_nodesBox removeChild:_valueLabelsBox];
+            _valueLabelsBox = nil;
             break;
     }
     
     if (labelsBox) {
-        [_textLabel removeFromParent];
+        [_textLabel removeFromParent]; _textLabel = nil;
         _textLabel = [labelsBox getNonRecursiveChildByName:@"textLabel"];
         _detailTextLabel = [labelsBox getNonRecursiveChildByName:@"detailTextLabel"];
     }
-    
-    _textFontColor = _textLabel.fontColor;
-    _detailTextFontColor = _detailTextLabel.fontColor;
 }
 
 - (void)setupAccessoryType
 {
     NSString *imageName = nil;
     
+    _accessoryButton.userInteractionEnabled = NO;
+    
     switch (_accessoryType) {
         case BMTableViewCellAccessoryNone:
-            _accessorySprite.visible = NO; return;
+            _accessoryButton.visible = NO; return;
             break;
             
         case BMTableViewCellAccessoryCheckmark:
             imageName = IMG_FILE_NAME(@"check_mark");
-            _accessorySprite.visible = NO;
+            _accessoryButton.visible = NO;
             break;
             
         case BMTableViewCellAccessoryDisclosureIndicator:
             imageName = IMG_FILE_NAME(@"disclosure_indicator");
             break;
+            
+        case BMTableViewCellAccessoryDetailDisclosureButton:
+            imageName = IMG_FILE_NAME(@"detail_disclosure_button");
+            _accessoryButton.userInteractionEnabled = YES;
+            break;
     }
     
-    _accessorySprite.name = [imageName lastPathComponent];
-    _accessorySprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@".png"]];
+    CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@".png"]];
+    CCSpriteFrame *spriteFrameHL = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@"_highlighted.png"]];
+    CCSprite *sprite = [CCSprite spriteWithSpriteFrame:spriteFrame];
+    _accessoryButton.preferredSize = _accessoryButton.maxSize = sprite.contentSize;
+    [_accessoryButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
+    [_accessoryButton setBackgroundSpriteFrame:spriteFrameHL forState:CCControlStateHighlighted];
+    [_accessoryButton setBackgroundColor:[CCColor whiteColor] forState:CCControlStateHighlighted];
 }
 
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
+    _indexPath = indexPath;
+    
+    [self layout];
+    
+    _contentButton.enabled = !self.editing;
+    if (self.editing) {
+        _nodesBox.spacing = 0;
+        [_nodesBox removeChild:_textLabel]; _textLabel = nil;
+        [_nodesBox removeChild:_valueLabelsBox]; _valueLabelsBox = nil;
+        [_nodesBox removeChild:_subtitleLabelsBox]; _subtitleLabelsBox = nil;
+    } else {
+        [_nodesBox removeChild:_textField]; _textField = nil;
+    }
+}
+
+- (void)layout
+{
     if (BMTableViewStyleGrouped == [self tableView].style) {
-        NSUInteger rowCount = [[self tableView] rowCountInSection:indexPath.section];
+        NSUInteger rowCount = [[self tableView] rowCountInSection:_indexPath.section];
 //      First row or last row
-        if (0 == indexPath.row || indexPath.row == rowCount - 1) {
+        if (0 == _indexPath.row || _indexPath.row == rowCount - 1) {
             NSString *bgImageName, *borderImageName;
             if (rowCount > 1) {
                 bgImageName = @"table_view_cell_group_half.png";
@@ -126,20 +164,23 @@
             [_contentButton setBackgroundSpriteFrame:[CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(bgImageName)]];
             _borderLine.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(borderImageName)];
             
-            if (indexPath.row > 0) {
+            if (_indexPath.row > 0) {
                 [self removeChild:_separatorLine];
                 _contentButton.background.rotation = _borderLine.rotation = 180;
             }
         }
     } else {
-        if (0 == indexPath.row) {
+        if (0 == _indexPath.row) {
             CCSprite9Slice *line = [_separatorLine copySprite9Slice];
             line.position = ccp(0.5, 1);
             [self addChild:line];
         }
     }
     
-    _indexPath = indexPath;
+    if (![self tableView].hasBorderLine) {
+        [self removeChild:_borderLine];
+        _borderLine = nil;
+    }
 }
 
 - (void)setContentSize:(CGSize)contentSize
@@ -154,29 +195,27 @@
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
-    NSString *imageName = _accessorySprite.name;
+    [[self getAllChildren] enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
+        if ([node isMemberOfClass:[CCLabelTTF class]]) {
+            CCColor *color = (highlighted) ? HIGHLIGHTED_COLOR : _properties[@([node hash])];
+            [node setFontColor:color];
+        }
+    }];
     
-    if (highlighted) {
-        _textLabel.fontColor = _detailTextLabel.fontColor = HIGHLIGHTED_COLOR;
-        _accessorySprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME([imageName stringByAppendingString:@"_highlighted.png"])];
-    } else {
-        _textLabel.fontColor = _textFontColor;
-        _detailTextLabel.fontColor = _detailTextFontColor;
-        _accessorySprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME([imageName stringByAppendingString:@".png"])];
-    }
+    _accessoryButton.highlighted = highlighted;
 }
 
 - (void)setSelected:(BOOL)selected
 {
-    if (selected) {
-        _textLabel.fontColor = _detailTextLabel.fontColor = SELECTED_COLOR;
-    } else {
-        _textLabel.fontColor = _textFontColor;
-        _detailTextLabel.fontColor = _detailTextFontColor;
-    }
+    [[self getAllChildren] enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
+        if ([node isMemberOfClass:[CCLabelTTF class]]) {
+            CCColor *color = (selected) ? SELECTED_COLOR : _properties[@([node hash])];
+            [node setFontColor:color];
+        }
+    }];
     
     _contentButton.selected = selected;
-    _accessorySprite.visible = selected;
+    _accessoryButton.visible = _accessoryButton.selected = selected;
 }
 
 - (void)selected:(BMCellButton *)button
@@ -186,6 +225,15 @@
         self.selected = YES;
     }
     [[self tableView] selectRowAtIndexPath:_indexPath];
+}
+
+- (BOOL)editing
+{
+    if ([[self tableView].dataSource respondsToSelector:@selector(tableView:canEditRowAtIndexPath:)]) {
+        return [[self tableView].dataSource tableView:[self tableView] canEditRowAtIndexPath:_indexPath];
+    } else {
+        return NO;
+    }
 }
 
 - (NSString *)description

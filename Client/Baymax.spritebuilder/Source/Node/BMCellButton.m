@@ -75,8 +75,8 @@
 
 - (void)mouseUp:(NSEvent *)theEvent
 {
-    [super mouseUp:theEvent];
     [[self tableViewCell] setHighlighted:NO];
+    [super mouseUp:theEvent];
 }
 #endif
 

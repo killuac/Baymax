@@ -26,7 +26,7 @@ typedef NS_ENUM(ushort, BMOrderStatus) {
 @property (nonatomic, assign) NSUInteger orderId;
 @property (nonatomic, assign) NSUInteger automobileId;
 @property (nonatomic, assign) BMOrderStatus status;
-@property (nonatomic, assign) ushort paymentId;
+@property (nonatomic, assign) short paymentId;
 @property (nonatomic, assign) NSUInteger addressId;
 @property (nonatomic, copy) NSString *employeeId;
 @property (nonatomic, copy) NSString *coworkerId;

@@ -5,6 +5,11 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "Catetory.h"
+#import "BMSessionManager.h"
+#endif
+
+#if __CC_PLATFORM_ANDROID
+#import <AndroidKit/AndroidKit.h>
 #endif
 
 

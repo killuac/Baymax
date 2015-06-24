@@ -30,7 +30,7 @@
     CCLayoutBox *box = (CCLayoutBox *)self.parent;
     CCNode *valueLabelsBox = [box getNonRecursiveChildByName:@"valueLabelsBox"];
     if (valueLabelsBox) {
-        CGFloat accessoryWidth = [self tableViewCell].accessorySprite.contentSize.width + indent * 2;
+        CGFloat accessoryWidth = [self tableViewCell].accessoryButton.preferredSize.width + indent * 2;
         CGFloat width = [self tableViewCell].contentSize.width - (self.contentSize.width + indent/2 + box.spacing + accessoryWidth);
         valueLabelsBox.contentSize = CGSizeMake(width, valueLabelsBox.contentSize.height);
     }

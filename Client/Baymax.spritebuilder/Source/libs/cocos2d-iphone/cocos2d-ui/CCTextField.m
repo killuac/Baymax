@@ -82,11 +82,18 @@
 }
 
 #if __CC_PLATFORM_IOS
-- (UITextField *)textField {
+- (UITextField *)textField
+{
+    return _platformTextField.nativeTextField;
+}
+#elif __CC_PLATFORM_ANDROID
+- (AndroidEditText *)textField
+{
     return _platformTextField.nativeTextField;
 }
 #elif __CC_PLATFORM_MAC
-- (NSTextField *)textField {
+- (NSTextField *)textField
+{
     return _platformTextField.nativeTextField;
 }
 #endif

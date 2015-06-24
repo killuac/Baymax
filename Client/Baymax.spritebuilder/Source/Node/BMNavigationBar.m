@@ -13,7 +13,7 @@
 - (void)didLoadFromCCB
 {
 #if __CC_PLATFORM_ANDROID
-    [self setHeight:[self height] - 20];
+    [self setHeight:[self height] - 10];
 #endif
 }
 

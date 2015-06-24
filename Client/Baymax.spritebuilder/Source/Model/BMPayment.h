@@ -10,7 +10,7 @@
 
 @interface BMPayment : JSONModel
 
-@property (nonatomic, assign) ushort paymentId;
+@property (nonatomic, assign) short paymentId;
 @property (nonatomic, copy) NSString *paymentName;
 
 @end

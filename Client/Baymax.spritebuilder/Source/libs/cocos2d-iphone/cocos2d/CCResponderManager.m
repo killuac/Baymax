@@ -232,7 +232,7 @@
 
     // End editing any text fields
 #if __CC_PLATFORM_IOS
-    [[CCDirector sharedDirector].view endEditing:YES];
+//    [[CCDirector sharedDirector].view endEditing:YES];
 #endif
     BOOL responderCanAcceptTouch;
     

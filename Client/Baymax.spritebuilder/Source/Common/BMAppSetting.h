@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy) NSString *protocol;
 @property (nonatomic, copy) NSString *host;
-@property (nonatomic, assign) NSNumber *port;
+@property (nonatomic, strong) NSNumber *port;
 
 @end
 

@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *realName;
 @property (nonatomic, copy) NSString *email;
+@property (nonatomic, assign) BOOL isWrongPassword;
 @property (nonatomic, strong) NSDate *createTime;
 @property (nonatomic, strong) NSURL<Optional> *avatarURL;
 

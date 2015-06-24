@@ -47,14 +47,12 @@ static BMServerAPI *instanceOfServerAPI = nil;
 
 + (void)writeAPIFile
 {
-    [[BMSessionManager sharedSessionManager] GET:@"api"
-                                      parameters:nil
-                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[BMSessionManager sharedSessionManager] GET:@"api" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         NSString *fileName = [docDir stringByAppendingPathComponent:JSON_SERVER_API];
-        [responseObject writeToFile:fileName atomically:YES];
-    }
-                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        BMServerAPI *serverAPI = [BMServerAPI modelWithDictionary:responseObject];
+        [[serverAPI toJSONData] writeToFile:fileName atomically:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"GET server api error: %@", error);
     }];
 }

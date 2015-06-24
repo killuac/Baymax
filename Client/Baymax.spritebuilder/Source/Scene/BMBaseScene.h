@@ -9,7 +9,13 @@
 #import "CCNode.h"
 #import "BMConstant.h"
 
-@interface BMBaseScene : CCNode {
+@protocol BMDataService <NSObject>
+
+- (void)loadData;
+
+@end
+
+@interface BMBaseScene : CCNode <BMDataService> {
     CCNodeColor *_background;
 }
 

@@ -13,6 +13,8 @@
 
 - (void)didLoadFromCCB
 {
+    self.navigationBar.titleLabel.string = @"我的订单";
+    
     [_tableView setupWithStyle:BMTableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;

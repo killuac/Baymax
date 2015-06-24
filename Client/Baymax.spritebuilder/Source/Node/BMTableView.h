@@ -35,7 +35,8 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 @property (nonatomic, weak) id <BMTableViewDataSource> dataSource;
 
 @property (nonatomic, assign, readonly) BMTableViewStyle style;
-@property (nonatomic, assign, readonly) CGFloat margin;
+@property (nonatomic, assign) CGFloat margin;       // Default 10, only valid for grouped style
+@property (nonatomic, assign) BOOL hasBorderLine;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
@@ -104,6 +105,9 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 
 @optional
 - (NSUInteger)numberOfSectionsInTableView:(BMTableView *)tableView;  // Default is 1 if not implemented
+
+// Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be not editable.
+- (BOOL)tableView:(BMTableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

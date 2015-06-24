@@ -12,7 +12,7 @@
 
 - (void)didLoadFromCCB
 {
-//    [_tableView setupWithStyle:BMTableViewStyleGrouped];
+    self.navigationBar.titleLabel.string = @"我";
 }
 
 @end

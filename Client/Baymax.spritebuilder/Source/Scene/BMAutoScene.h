@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 Syzygy. All rights reserved.
 //
 
-#import "BMNavigationScene.h"
-#import "BMTableView.h"
+#import "BMTableViewScene.h"
 
-@interface BMAutoScene : BMNavigationScene
+@interface BMAutoScene : BMNavigationScene <BMTableViewDataSource, BMTableViewDelegate>
 
 @property (nonatomic, weak, readonly) BMTableView *tableView;
 

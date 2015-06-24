@@ -70,10 +70,14 @@
 - (void)didLoadFromCCB
 {
     _style = BMTableViewStylePlain;
+    _margin = 10;
+    _hasBorderLine = YES;
     
-    CGFloat height = SCREEN_HEIGHT - [self navigationBar].contentSize.height - [self tabBar].contentSize.height;
-    self.position = ccp(self.position.x, [self navigationBar].contentSize.height);
-    self.contentSize = CGSizeMake(self.contentSize.width, height);
+    if ([self navigationBar]) {
+        CGFloat height = SCREEN_HEIGHT - [self navigationBar].contentSize.height - [self tabBar].contentSize.height;
+        self.position = ccp(self.position.x, [self navigationBar].contentSize.height);
+        self.contentSize = CGSizeMake(self.contentSize.width, height);
+    }
 }
 
 - (void)setupWithStyle:(BMTableViewStyle)style
@@ -98,7 +102,7 @@
 
 - (CGFloat)margin
 {
-    return (BMTableViewStylePlain == _style) ? 0.0f: 10.0f;
+    return (BMTableViewStyleGrouped == _style) ? _margin : 0.0f;
 }
 
 #if __CC_PLATFORM_IOS

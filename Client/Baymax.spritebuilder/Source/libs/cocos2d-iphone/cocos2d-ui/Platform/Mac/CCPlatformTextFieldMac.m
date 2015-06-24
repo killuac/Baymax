@@ -16,6 +16,12 @@
 @implementation CCPlatformTextFieldMac {
     NSTextField *_textField;
 }
+
+- (id)nativeTextField
+{
+    return _textField;
+}
+
 - (id) init {
     if (self = [super init]) {
         // Create NSTextField and set it up
@@ -85,7 +91,6 @@
 {
     [_textField removeFromSuperview];
 }
-
 
 - (void) setString:(NSString *)string
 {
