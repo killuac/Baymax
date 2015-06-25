@@ -7,6 +7,7 @@
 //
 
 #import "BMSignInScene.h"
+#import "BMCredential.h"
 
 @implementation BMSignInScene
 
@@ -23,6 +24,8 @@
     _tableView.dataSource = self;
     
     [self scheduleOnce:@selector(loadOnce) delay:0];
+    
+    _userService = [BMUserService new];
 }
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
@@ -86,12 +89,13 @@
 - (void)loadOnce
 {
 //  CCEditText(Android) is created async by calling dispatch_async(), so need set placeholder until creation finished.
-    _mobileTextField.placeholder = @"手机号码 (11位)";
-    _passwordTextField.placeholder = @"密码 (不小于6位)";
+    _mobileTextField.placeholder = PLACEHOLDER_MOBILE;
+    _passwordTextField.placeholder = PLACEHOLDER_PASSWORD;
     
     _mobileTextField.keyboardType = BMKeyboardTypeNumberPad;
     _passwordTextField.keyboardType = BMKeyboardTypeASCIICapable;
     
+    _mobileTextField.string = [BMCredential sharedCredential].mobile;
     [_mobileTextField becomeFirstResponder];
 }
 
@@ -102,17 +106,35 @@
 
 - (void)signIn:(CCButton *)button
 {
-    NSURL *url = [BMServerAPI sharedServerAPI].usersURL;
-    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMUser *user = [BMUser modelWithDictionary:responseObject];
-        if (404 == operation.response.statusCode) {
-            //            !!! - 手机号不存在
-        } else if (401 == operation.response.statusCode) {
-            //            !!! - 密码错误
+    BMUser *user = [BMUser new];
+    user.mobile = _mobileTextField.string;
+    user.password = _passwordTextField.string;
+    
+    [_userService signInWithData:user result:^(id service) {
+        if (_userService.user.isNotFound) {
+            [self showTextTip:TIP_MOBILE_NOT_FOUND];
+        } else if (_userService.user.isWrongPassword) {
+            [self showTextTip:TIP_PASSWORD_WRONG];
         } else {
-            
+            [self showMainScene];
         }
     }];
+}
+
+- (void)showMainScene
+{
+    CCScene *scene = [CCBReader loadAsScene:MAIN_SCENE];
+    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFade]];
+    
+    [self saveUserCredential];
+}
+
+- (void)saveUserCredential
+{
+    [BMCredential sharedCredential].mobile = _mobileTextField.string;
+    [BMCredential sharedCredential].password = _passwordTextField.string;
+    [BMCredential sharedCredential].isSignedIn = YES;
+    [[BMCredential sharedCredential] save];
 }
 
 @end

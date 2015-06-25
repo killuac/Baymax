@@ -12,7 +12,7 @@
 
 - (void)didLoadFromCCB
 {
-    self.navigationBar.titleLabel.string = @"我";
+    self.navigationBar.titleLabel.string = NAV_TITLE_ME;
 }
 
 @end

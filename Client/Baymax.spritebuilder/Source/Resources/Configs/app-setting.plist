@@ -12,7 +12,7 @@
 		<real>8080</real>
 	</dict>
 	<key>isFirstLaunch</key>
-	<false/>
+	<true/>
 	<key>guideScene</key>
 	<string></string>
 </dict>

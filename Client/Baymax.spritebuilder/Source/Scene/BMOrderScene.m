@@ -13,7 +13,7 @@
 
 - (void)didLoadFromCCB
 {
-    self.navigationBar.titleLabel.string = @"我的订单";
+    self.navigationBar.titleLabel.string = NAV_TITLE_ORDER;
     
     [_tableView setupWithStyle:BMTableViewStyleGrouped];
     _tableView.delegate = self;

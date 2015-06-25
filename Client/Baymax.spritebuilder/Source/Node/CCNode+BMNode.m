@@ -11,11 +11,6 @@
 
 @implementation CCNode (BMNode)
 
-+ (id)nodeWithData:(id)data
-{
-    return [CCNode node];
-}
-
 - (NSArray *)getAllChildren
 {
     NSMutableArray *allChildren = [NSMutableArray array];
@@ -43,19 +38,27 @@
     return [self getChildByName:name recursively:YES];
 }
 
-- (void)showText:(NSString *)text
+- (void)showTextTip:(NSString *)text
 {
-    //!!!:
+    [self showTextTip:text withType:BMTextTipTypeError];
+}
+
+- (void)showTextTip:(NSString *)text withType:(BMTextTipType)type
+{
+    BMTextTip *textTip = (BMTextTip *)[CCBReader load:@"TextTip"];
+    [textTip showText:text type:type inNode:self];
+}
+
+- (void)removeTextTip
+{
+    [self removeActivityIndicator];
+    [self removeChildByName:@"textTip"];
 }
 
 - (void)showActivityIndicator
 {
-    [self removeActivityIndicator];
-    
-    CCSprite *indicator = [CCSprite spriteWithImageNamed:IMG_FILE_NAME(@"activity_indicator.png")];
-    indicator.position = SCREEN_CENTER;
-    [self addChild:indicator z:1000 name:@"activityIndicator"];
-    [indicator runRotateForever];
+    BMActivityIndicator *activityIndicator = (BMActivityIndicator *)[CCBReader load:@"ActivityIndicator"];
+    [activityIndicator showInNode:self];
 }
 
 - (void)removeActivityIndicator
@@ -63,12 +66,29 @@
     [self removeChildByName:@"activityIndicator"];
 }
 
+#pragma mark - Animation
 - (void)runRotateForever
 {
-    id rotate = [CCActionRotateBy actionWithDuration:0.75 angle:360];
+    id rotate = [CCActionRotateBy actionWithDuration:DURATION_ROTATE angle:360];
     id repeat = [CCActionRepeatForever actionWithAction:rotate];
     
     [self runAction:repeat];
+}
+
+- (void)runFadeInWithBlock:(void (^)())block
+{
+    id fade = [CCActionFadeIn actionWithDuration:DURATION_FADE];
+    id callBlock = (block) ? [CCActionCallBlock actionWithBlock:block] : nil;
+    
+    [self runAction:[CCActionSequence actions:fade, callBlock, nil]];
+}
+
+- (void)runFadeOutWithBlock:(void (^)())block
+{
+    id fade = [CCActionFadeOut actionWithDuration:DURATION_FADE];
+    id callBlock = (block) ? [CCActionCallBlock actionWithBlock:block] : nil;
+    
+    [self runAction:[CCActionSequence actions:fade, callBlock, nil]];
 }
 
 @end

@@ -32,21 +32,33 @@ public class UserController {
         this.entityLinks = entityLinks;
     }
 
+//    @RequestMapping(value = "/signIn", method = RequestMethod.POST)
+//    public HttpEntity signIn(@RequestBody User anUser) {
+//        User user = userService.signIn(anUser);
+//        if (null != user) {
+//            HttpStatus status = anUser.isWrongPassword() ? HttpStatus.UNAUTHORIZED : HttpStatus.OK;
+//            Resource<User> resource = new Resource<User>(user);
+//            if (HttpStatus.OK == status) {
+//                resource.add(entityLinks.linkToSingleResource(user));
+//                resource.add(entityLinks.linkForSingleResource(user).slash(REL_AUTOMOBILES).withRel(REL_AUTOMOBILES));
+//                resource.add(entityLinks.linkForSingleResource(user).slash(REL_ADDRESSES).withRel(REL_ADDRESSES));
+//            }
+//            return new ResponseEntity(resource, status);
+//        } else {
+//            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+//        }
+//    }
+
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
     public HttpEntity signIn(@RequestBody User anUser) {
         User user = userService.signIn(anUser);
-        if (null != user) {
-            HttpStatus status = anUser.isWrongPassword() ? HttpStatus.UNAUTHORIZED : HttpStatus.OK;
-            Resource<User> resource = new Resource<User>(user);
-            if (HttpStatus.OK == status) {
-                resource.add(entityLinks.linkToSingleResource(user));
-                resource.add(entityLinks.linkForSingleResource(user).slash(REL_AUTOMOBILES).withRel(REL_AUTOMOBILES));
-                resource.add(entityLinks.linkForSingleResource(user).slash(REL_ADDRESSES).withRel(REL_ADDRESSES));
-            }
-            return new ResponseEntity(resource, status);
-        } else {
-            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        Resource<User> resource = new Resource<User>(user);
+        if (!user.isNotFound() && !user.isWrongPassword()) {
+            resource.add(entityLinks.linkToSingleResource(user));
+            resource.add(entityLinks.linkForSingleResource(user).slash(REL_AUTOMOBILES).withRel(REL_AUTOMOBILES));
+            resource.add(entityLinks.linkForSingleResource(user).slash(REL_ADDRESSES).withRel(REL_ADDRESSES));
         }
+        return new ResponseEntity(resource, HttpStatus.OK);
     }
 
     @ResponseStatus(HttpStatus.OK)

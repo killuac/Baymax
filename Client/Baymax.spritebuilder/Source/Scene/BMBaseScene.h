@@ -8,6 +8,7 @@
 
 #import "CCNode.h"
 #import "BMConstant.h"
+#import "BMBaseService.h"
 
 @protocol BMDataService <NSObject>
 

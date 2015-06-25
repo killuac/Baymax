@@ -14,7 +14,10 @@
 {
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
+        @"notFound": @"isNotFound",
+        @"mobileTaken": @"isMobileTaken",
         @"wrongPassword": @"isWrongPassword",
+        @"wrongVcode": @"isWrongVcode",
         @"_links.automobiles.href": @"automobilesURL",
         @"_links.addresses.href": @"addressesURL",
         @"_embedded.autombiles": @"autombiles",

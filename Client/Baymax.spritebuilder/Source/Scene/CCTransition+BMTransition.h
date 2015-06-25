@@ -9,6 +9,7 @@
 #import "CCTransition.h"
 
 #define DURATION_SCENE_TRANSITION   0.25f
+#define DURATION_SCENE_FADE         1.0f
 
 @interface CCTransition (BMTransition)
 
@@ -18,5 +19,6 @@
 + (instancetype)transitionMoveInDown;
 + (instancetype)transitionRevealUp;
 + (instancetype)transitionRevealDown;
++ (instancetype)transitionFade;
 
 @end

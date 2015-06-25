@@ -7,9 +7,10 @@
 //
 
 #import "BMTableViewScene.h"
-#import "BMContainer.h"
-#import "BMAutoBrand.h"
+#import "BMAutomobileService.h"
 
 @interface BMAutoBrandScene : BMTableViewScene
+
+@property (nonatomic, strong, readonly) BMAutomobileService *autoService;
 
 @end

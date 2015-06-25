@@ -7,19 +7,27 @@
 //
 
 #import "CCNode.h"
+#import "BMTextTip.h"
+#import "BMActivityIndicator.h"
+
+#define DURATION_FADE       0.5f
+#define DURATION_ROTATE     0.75f
 
 @interface CCNode (BMNode)
-
-+ (id)nodeWithData:(id)data;
 
 - (NSArray *)getAllChildren;
 - (id)getNonRecursiveChildByName:(NSString *)name;
 - (id)getRecursiveChildByName:(NSString *)name;
 
-- (void)showText:(NSString *)text;
+- (void)showTextTip:(NSString *)text;
+- (void)showTextTip:(NSString *)text withType:(BMTextTipType)type;
+- (void)removeTextTip;
+
 - (void)showActivityIndicator;
 - (void)removeActivityIndicator;
 
 - (void)runRotateForever;
+- (void)runFadeInWithBlock:(void(^)())block;
+- (void)runFadeOutWithBlock:(void(^)())block;
 
 @end

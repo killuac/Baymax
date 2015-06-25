@@ -18,9 +18,16 @@ static BMSessionManager *instanceOfSessionManager = nil;
 {
     if (!instanceOfSessionManager) {
         instanceOfSessionManager = [[self alloc] initWithBaseURL:[BMAppSetting defaultAppSetting].baseURL];
+        instanceOfSessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
         [instanceOfSessionManager.requestSerializer setValue:HTTP_HEADER_ACCEPT forHTTPHeaderField:@"Accept"];
     }
     return instanceOfSessionManager;
+}
+
+- (NSString *)decodingString:(NSString *)string
+{
+    return [[string stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+            stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (void)showActivityIndicator

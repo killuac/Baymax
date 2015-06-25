@@ -19,9 +19,10 @@ static BMCredential *instanceOfCredential = nil;
         NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         NSString *fileName = [docDir stringByAppendingPathComponent:JSON_CREDENTIAL];
         if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
-            instanceOfCredential = [self modelWithDictionary:[NSDictionary dictionaryWithContentsOfFile:fileName]];
+            instanceOfCredential = [self modelWithData:[NSData dataWithContentsOfFile:fileName]];
         } else {
             instanceOfCredential = [[self alloc] init];
+            instanceOfCredential.mobile = @"";
         }
     }
     return instanceOfCredential;

@@ -18,7 +18,7 @@
 - (void)didLoadFromCCB
 {
     self.navigationBar.delegate = self;
-    self.navigationBar.titleLabel.string = @"我的爱车";
+    self.navigationBar.titleLabel.string = NAV_TITLE_AUTOMOBILE;
     [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
 }
 

@@ -14,7 +14,7 @@
 {
     if (self = [super init]) {
         self.navigationBar.delegate = self;
-        self.navigationBar.titleLabel.string = @"车的型号";
+        self.navigationBar.titleLabel.string = NAV_TITLE_AUTOMODEL;
         [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
         self.navigationBar.rightBarItem.title = BUTTON_TITLE_DONE;
         self.navigationBar.rightBarItem.enabled = NO;
@@ -24,22 +24,22 @@
     return self;
 }
 
-- (void)setAutoSeries:(BMAutoSeries *)autoSeries
+- (void)setAutoService:(BMAutomobileService *)autoService
 {
-    _autoSeries = autoSeries;
-    if (_autoSeries.autoModels) {
-        [self.tableView reloadData];
-    }
+    _autoService = autoService;
+    if (self.autoModels) [self.tableView reloadData];
+}
+
+- (NSArray *)autoModels
+{
+    return _autoService.selectedSeries.autoModels;
 }
 
 - (void)loadData
 {
-    if (_autoSeries.autoModels) return;
+    if (self.autoModels) return;
     
-    NSURL *url = _autoSeries.autoModelsURL;
-    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
-        _autoSeries.autoModels = container.autoModels;
+    [_autoService findOneSeriesModels:^(id service) {
         [self.tableView reloadData];
     }];
 }
@@ -55,13 +55,13 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return _autoSeries.autoModels.count;
+    return self.autoModels.count;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryCheckmark];
-    cell.textLabel.string = [_autoSeries.autoModels[indexPath.row] modelName];
+    cell.textLabel.string = [self.autoModels[indexPath.row] modelName];
     return cell;
 }
 

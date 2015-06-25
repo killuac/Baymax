@@ -12,6 +12,7 @@
 #import "BMConstant.h"
 
 #define DEFAULT_TABLE_VIEW_CELL @"TableViewCell"
+#define NAME_VALUE_LABELS_BOX   @"valueLabelsBox"
 
 typedef NS_ENUM(NSInteger, BMTableViewCellStyle) {
     BMTableViewCellStyleDefault,	// Simple cell with text label and optional image view (behavior of UITableViewCell in iPhoneOS 2.x)

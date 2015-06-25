@@ -49,7 +49,7 @@
 - (void)dismissSceneAnimated:(BOOL)animated
 {
     if (animated) {
-        [[CCDirector sharedDirector] popToRootSceneWithTransition:[CCTransition transitionRevealDown]];
+        [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionRevealDown]];
     } else {
         [[CCDirector sharedDirector] popScene];
     }

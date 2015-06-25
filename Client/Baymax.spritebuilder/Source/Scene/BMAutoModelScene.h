@@ -11,6 +11,6 @@
 
 @interface BMAutoModelScene : BMTableViewScene
 
-@property (nonatomic, weak) BMAutoSeries *autoSeries;
+@property (nonatomic, weak) BMAutomobileService *autoService;
 
 @end

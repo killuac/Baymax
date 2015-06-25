@@ -15,7 +15,7 @@
 {
     if (self = [super init]) {
         self.navigationBar.delegate = self;
-        self.navigationBar.titleLabel.string = @"车的系列";
+        self.navigationBar.titleLabel.string = NAV_TITLE_AUTOSERIES;
         [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
         
         [_tableView setupWithStyle:BMTableViewStyleGrouped];
@@ -23,22 +23,22 @@
     return self;
 }
 
-- (void)setAutoBrand:(BMAutoBrand *)autoBrand
+- (void)setAutoService:(BMAutomobileService *)autoService
 {
-    _autoBrand = autoBrand;
-    if (_autoBrand.autoSerieses) {
-        [self.tableView reloadData];
-    }
+    _autoService = autoService;
+    if (self.autoSerieses) [self.tableView reloadData];
+}
+
+- (NSArray *)autoSerieses
+{
+    return _autoService.selectedBrand.autoSerieses;
 }
 
 - (void)loadData
 {
-    if (_autoBrand.autoSerieses) return;
+    if (self.autoSerieses) return;
     
-    NSURL *url = _autoBrand.autoSeriesesURL;
-    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
-        _autoBrand.autoSerieses = container.autoSerieses;
+    [_autoService findOneBrandSerieses:^(id service) {
         [self.tableView reloadData];
     }];
 }
@@ -52,20 +52,22 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return _autoBrand.autoSerieses.count;
+    return self.autoSerieses.count;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
-    cell.textLabel.string = [_autoBrand.autoSerieses[indexPath.row] seriesName];
+    cell.textLabel.string = [self.autoSerieses[indexPath.row] seriesName];
     return cell;
 }
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _autoService.selectedSeries = self.autoSerieses[indexPath.row];
+    
     BMAutoModelScene *node = [BMAutoModelScene node];
-    node.autoSeries = _autoBrand.autoSerieses[indexPath.row];
+    node.autoService = self.autoService;
     [self pushScene:[CCScene sceneWithNode:node]];
 }
 

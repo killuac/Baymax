@@ -10,7 +10,8 @@
 
 @implementation JSONValueTransformer (BMJSONValueTransformer)
 
-- (NSDate *)NSDateFromNSString:(NSString*)string {
+- (NSDate *)NSDateFromNSString:(NSString*)string
+{
     static dispatch_once_t onceInput;
     static NSDateFormatter* inputDateFormatter;
     dispatch_once(&onceInput, ^{
@@ -21,7 +22,8 @@
     return [inputDateFormatter dateFromString:string];
 }
 
-- (NSString *)JSONObjectFromNSDate:(NSDate *)date {
+- (NSString *)JSONObjectFromNSDate:(NSDate *)date
+{
     static dispatch_once_t onceOutput;
     static NSDateFormatter *outputDateFormatter;
     dispatch_once(&onceOutput, ^{
@@ -29,6 +31,14 @@
         [outputDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
         [outputDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
     });
-    return [outputDateFormatter stringFromDate:date];}
+    return [outputDateFormatter stringFromDate:date];
+}
+
+- (NSString *)JSONObjectFromNSURL:(NSURL *)url
+{
+    NSString *string = [[url absoluteString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSRange range = [string rangeOfString:@"{"];
+    return (range.location != NSNotFound) ? [string substringToIndex:range.location] : string;
+}
 
 @end

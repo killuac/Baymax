@@ -26,6 +26,9 @@ public class UserService {
                 anUser.setWrongPassword(true);
                 user = anUser;
             }
+        } else {
+            anUser.setNotFound(true);
+            user = anUser;
         }
         return user;
     }

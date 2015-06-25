@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
@@ -62,7 +64,16 @@ public class User implements Identifiable<Integer> {    // For creating resource
     private String avatarName;
 
     @Transient
+    private boolean notFound;
+
+    @Transient
+    private boolean mobileTaken;
+
+    @Transient
     private boolean wrongPassword;
+
+    @Transient
+    private boolean wrongVcode;
 
     @OneToMany(mappedBy = "user")
     @Where(clause = "obsolete = '0'")
@@ -89,8 +100,10 @@ public class User implements Identifiable<Integer> {    // For creating resource
     }
 
     public void setUserName(String userName) {
-        this.userName = (null != userName && "" != userName) ? userName : randomAnUserName();
+        this.userName = (null != userName && !userName.isEmpty()) ? userName : randomAnUserName();
     }
+
+    private final static Logger logger = LoggerFactory.getLogger(User.class);
 
     public String randomAnUserName() {
         return Constant.PREFIX_RANDOM_USER +

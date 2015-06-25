@@ -68,20 +68,20 @@
     
     switch (_style) {
         case BMTableViewCellStyleDefault:
-            [_nodesBox removeChild:_valueLabelsBox];
-            [_nodesBox removeChild:_subtitleLabelsBox];
+            [_valueLabelsBox removeFromParent];
+            [_subtitleLabelsBox removeFromParent];
             _valueLabelsBox = nil; _subtitleLabelsBox = nil;
             break;
             
         case BMTableViewCellStyleValue:
             labelsBox = _valueLabelsBox;
-            [_nodesBox removeChild:_subtitleLabelsBox];
+            [_subtitleLabelsBox removeFromParent];
             _subtitleLabelsBox = nil;
             break;
             
         case BMTableViewCellStyleSubtitle:
             labelsBox = _subtitleLabelsBox;
-            [_nodesBox removeChild:_valueLabelsBox];
+            [_valueLabelsBox removeFromParent];
             _valueLabelsBox = nil;
             break;
     }
@@ -137,11 +137,11 @@
     _contentButton.enabled = !self.editing;
     if (self.editing) {
         _nodesBox.spacing = 0;
-        [_nodesBox removeChild:_textLabel]; _textLabel = nil;
-        [_nodesBox removeChild:_valueLabelsBox]; _valueLabelsBox = nil;
-        [_nodesBox removeChild:_subtitleLabelsBox]; _subtitleLabelsBox = nil;
+        [_textLabel removeFromParent]; _textLabel = nil;
+        [_valueLabelsBox removeFromParent]; _valueLabelsBox = nil;
+        [_subtitleLabelsBox removeFromParent]; _subtitleLabelsBox = nil;
     } else {
-        [_nodesBox removeChild:_textField]; _textField = nil;
+        [_textField removeFromParent]; _textField = nil;
     }
 }
 
@@ -158,14 +158,14 @@
             } else {
                 bgImageName = @"table_view_cell_group_full.png";
                 borderImageName = @"table_view_cell_full_border.png";
-                [self removeChild:_separatorLine];
+                [_separatorLine removeFromParent];
             }
             
             [_contentButton setBackgroundSpriteFrame:[CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(bgImageName)]];
             _borderLine.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(borderImageName)];
             
             if (_indexPath.row > 0) {
-                [self removeChild:_separatorLine];
+                [_separatorLine removeFromParent];
                 _contentButton.background.rotation = _borderLine.rotation = 180;
             }
         }
@@ -178,7 +178,7 @@
     }
     
     if (![self tableView].hasBorderLine) {
-        [self removeChild:_borderLine];
+        [_borderLine removeFromParent];
         _borderLine = nil;
     }
 }

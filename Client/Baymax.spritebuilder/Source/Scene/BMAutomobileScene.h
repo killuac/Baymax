@@ -7,6 +7,7 @@
 //
 
 #import "BMTableViewScene.h"
+#import "BMAutomobileService.h"
 
 @interface BMAutomobileScene : BMTableViewScene
 

@@ -33,14 +33,14 @@
         CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"button_accessory.png")];
         CCSprite *sprite = [CCSprite spriteWithSpriteFrame:spriteFrame];
         _sendButton = cell.accessoryButton;
-        _sendButton.title = @"发送";
+        _sendButton.title = BUTTON_TITLE_FETCH_VCODE;
         _sendButton.position = ccpAdd(cell.accessoryButton.position, ccp(5, 0));
         _sendButton.preferredSize = cell.accessoryButton.maxSize = sprite.contentSize;
         [_sendButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
         _sendButton.visible = YES;
         _sendButton.enabled= NO;
         _sendButton.userInteractionEnabled = cell.accessoryButton.togglesSelectedState = YES;
-        [_sendButton setTarget:self selector:@selector(send:)];
+        [_sendButton setTarget:self selector:@selector(fetchVerificationCode:)];
         
         _vcodeTextField = cell.textField;
         CGFloat width = _vcodeTextField.contentSize.width - _sendButton.preferredSize.width;
@@ -56,12 +56,17 @@
 - (void)loadOnce
 {
     [super loadOnce];
-    _vcodeTextField.placeholder = @"短信验证码 (6位)";
+    _vcodeTextField.placeholder = PLACEHOLDER_VCODE;
     _vcodeTextField.keyboardType = BMKeyboardTypeNumberPad;
     
-    _passwordTextField.block = ^(CCTextField *textField) {
+    [_passwordTextField setTarget:self selector:@selector(textFieldDidFinishEditing:)];
+}
+
+- (void)textFieldDidFinishEditing:(CCTextField *)textField
+{
+    if (!_vcodeTextField.isFirstResponder) {
         [_vcodeTextField becomeFirstResponder];
-    };
+    }
 }
 
 - (void)update:(CCTime)delta
@@ -71,7 +76,7 @@
     _signButton.enabled = (_signButton.enabled && (_vcodeTextField.string.length == VERIFICATION_CODE_LENGTH));
 }
 
-- (void)send:(CCButton *)button
+- (void)fetchVerificationCode:(CCButton *)button
 {
     
 }
@@ -85,9 +90,19 @@
 
 - (void)signUp:(CCButton *)button
 {
-    NSURL *url = [BMServerAPI sharedServerAPI].usersURL;
-    [[BMSessionManager sharedSessionManager] POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    BMUser *user = [BMUser new];
+    user.mobile = _mobileTextField.string;
+    user.password = _passwordTextField.string;
+    user.verificationCode = _vcodeTextField.string;
+    
+    [self.userService createWithData:user result:^(id service) {
+        if (self.userService.user.isMobileTaken) {
+            [self showTextTip:TIP_MOBILE_TAKEN];
+        } else if (self.userService.user.isWrongVcode) {
+            [self showTextTip:TIP_VCODE_WRONG];
+        } else {
+            [self showMainScene];
+        }
     }];
 }
 

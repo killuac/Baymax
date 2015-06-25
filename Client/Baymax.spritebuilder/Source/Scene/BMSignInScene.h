@@ -7,12 +7,14 @@
 //
 
 #import "BMTableViewScene.h"
-#import "BMUser.h"
+#import "BMUserService.h"
 
 @interface BMSignInScene : BMTableViewScene {
     CCTextField *_mobileTextField, *_passwordTextField;
     CCButton *_signButton;
 }
+
+@property (nonatomic, strong, readonly) BMUserService *userService;
 
 @property (nonatomic, strong, readonly) CCButton *signButton;
 
@@ -20,5 +22,7 @@
 - (void)loadOnce;
 
 - (void)signIn:(CCButton *)button;
+
+- (void)showMainScene;
 
 @end

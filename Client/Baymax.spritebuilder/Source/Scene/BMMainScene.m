@@ -14,7 +14,7 @@
 - (void)didLoadFromCCB
 {
     self.navigationBar.delegate = self;
-    self.navigationBar.titleLabel.string = @"保养";
+    self.navigationBar.titleLabel.string = NAV_TITLE_MAINTENANCE;
     [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_DROPDOWN];
     [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
 }

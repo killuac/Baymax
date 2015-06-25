@@ -310,7 +310,7 @@
         if (!NSLocationInRange(oldIdx, range)) {
             BMTableViewCellHolder *holder = [_cellHolders objectAtIndex:oldIdx];
             if (holder) {
-                [self.contentNode removeChild:holder.cell cleanup:YES];
+                [holder.cell removeFromParent];
 //                holder.cell = nil;
             }
         }

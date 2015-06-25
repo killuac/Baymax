@@ -9,30 +9,32 @@
 #import "BMAutoBrandScene.h"
 #import "BMAutoSeriesScene.h"
 
-@implementation BMAutoBrandScene {
-    NSArray *_autoBrands;
-}
+@implementation BMAutoBrandScene
 
 - (id)init
 {
     if (self = [super init]) {
         self.navigationBar.delegate = self;
-        self.navigationBar.titleLabel.string = @"车的品牌";
+        self.navigationBar.titleLabel.string = NAV_TITLE_AUTOBRAND;
         self.navigationBar.leftBarItem.title = BUTTON_TITLE_CANCEL;
         
         [_tableView setupWithStyle:BMTableViewStyleGrouped];
+        
+        _autoService = [BMAutomobileService new];
     }
     return self;
 }
 
+- (NSArray *)autoBrands
+{
+    return _autoService.autoBrands;
+}
+
 - (void)loadData
 {
-    if (_autoBrands) return;
+    if (self.autoBrands) return;
     
-    NSURL *url = [BMServerAPI sharedServerAPI].autoBrandsURL;
-    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
-        _autoBrands = container.autoBrands;
+    [_autoService findAllBrands:^(id service) {
         [self.tableView reloadData];
     }];
 }
@@ -46,20 +48,22 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return _autoBrands.count;
+    return self.autoBrands.count;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
-    cell.textLabel.string = [_autoBrands[indexPath.row] brandName];
+    cell.textLabel.string = [self.autoBrands[indexPath.row] brandName];
     return cell;
 }
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _autoService.selectedBrand = self.autoBrands[indexPath.row];
+    
     BMAutoSeriesScene *node = [BMAutoSeriesScene node];
-    node.autoBrand = _autoBrands[indexPath.row];
+    node.autoService = self.autoService;
     [self pushScene:[CCScene sceneWithNode:node]];
 }
 

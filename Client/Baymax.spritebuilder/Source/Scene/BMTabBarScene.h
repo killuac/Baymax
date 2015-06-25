@@ -10,6 +10,7 @@
 #import "BMTabBar.h"
 
 @interface BMTabBarScene : BMBaseScene <BMTabBarDelegate> {
+    CCNode *_animationNode;
     CCNode *_scenesBox;
 }
 

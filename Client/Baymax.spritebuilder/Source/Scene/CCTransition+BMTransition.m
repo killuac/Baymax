@@ -40,4 +40,9 @@
     return [self transitionRevealWithDirection:CCTransitionDirectionDown duration:DURATION_SCENE_TRANSITION];
 }
 
++ (instancetype)transitionFade
+{
+    return [self transitionFadeWithColor:[CCColor whiteColor] duration:DURATION_SCENE_FADE];
+}
+
 @end
