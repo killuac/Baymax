@@ -14,7 +14,7 @@
 
 - (BMTableViewCell *)tableViewCell
 {
-    return (BMTableViewCell *)self.parent.parent;
+    return (BMTableViewCell *) (self.parent.parent ? self.parent.parent : self.parent);
 }
 
 - (void)setSpriteFrame:(CCSpriteFrame *)spriteFrame
@@ -22,12 +22,13 @@
     [super setSpriteFrame:spriteFrame];
     
     CGFloat indent = [self tableViewCell].indentWidth;
-    self.parent.position = ccp(indent/2, self.parent.position.y);
+    self.parent.position = ccp(indent, self.parent.position.y);
     
     CGFloat height = [self tableViewCell].contentSize.height - indent;
     self.contentSize = CGSizeMake(height, height);
     
     CCLayoutBox *box = (CCLayoutBox *)self.parent;
+    if (!box) return;
     CCNode *valueLabelsBox = [box getNonRecursiveChildByName:NAME_VALUE_LABELS_BOX];
     if (valueLabelsBox) {
         CGFloat accessoryWidth = [self tableViewCell].accessoryButton.preferredSize.width + indent * 2;

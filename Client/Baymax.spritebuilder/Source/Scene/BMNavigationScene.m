@@ -21,20 +21,39 @@
     return self;
 }
 
-- (void)pushSceneWithName:(NSString *)sceneName
+- (void)pushSceneWithName:(NSString *)sceneName animated:(BOOL)animated
 {
     CCScene *scene = [CCBReader loadAsScene:sceneName];
-    [self pushScene:scene];
+    [self pushScene:scene animated:animated];
 }
 
-- (void)pushScene:(CCScene *)scene
+- (void)pushScene:(CCScene *)scene animated:(BOOL)animated
 {
-    [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionPushLeft]];
+    scene.lastScene = self.scene;
+    
+    if (animated) {
+        [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionPushLeft]];
+    } else {
+        [[CCDirector sharedDirector] pushScene:scene];
+    }
 }
 
-- (void)popScene
+- (void)popSceneAnimated:(BOOL)animated
 {
-    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushRight]];
+    if (animated) {
+        [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushRight]];
+    } else {
+        [[CCDirector sharedDirector] popScene];
+    }
+}
+
+- (void)popToRootSceneAnimated:(BOOL)animated
+{
+    if (animated) {
+        [[CCDirector sharedDirector] popToRootSceneWithTransition:[CCTransition transitionRevealDown]];
+    } else {
+        [[CCDirector sharedDirector] popToRootScene];
+    }
 }
 
 @end

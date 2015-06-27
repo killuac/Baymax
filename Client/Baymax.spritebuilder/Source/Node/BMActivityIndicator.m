@@ -16,7 +16,7 @@
     [self removeActivityIndicator];
     
     self.position = SCREEN_CENTER;
-    [node addChild:self z:1000 name:@"activityIndicator"];
+    [node addChild:self z:1000 name:NAME_ACTIVITY_INDICATOR];
     [_iconSprite runRotateForever];
 }
 

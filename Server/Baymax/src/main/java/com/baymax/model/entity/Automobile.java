@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -28,9 +31,6 @@ public class Automobile {
     private int userId;
 
     @Column
-    private short modelId;
-
-    @Column
     private String registrationPlate;
 
     @Column
@@ -48,8 +48,9 @@ public class Automobile {
     @Column
     private Timestamp createTime;
 
+    @RestResource(exported = false)
     @ManyToOne
-    @JoinColumn(name = "modelId", insertable = false, updatable = false)
+    @JoinColumn(name = "modelId")
     private AutoModel autoModel;
 
     @ManyToOne
@@ -58,16 +59,6 @@ public class Automobile {
 
     @OneToMany(mappedBy = "automobile")
     private List<Order> orders;
-
-    @JsonIgnore
-    public AutoModel getAutoModel() {
-        return autoModel;
-    }
-
-    @JsonProperty
-    public void setAutoModel(AutoModel autoModel) {
-        this.autoModel = autoModel;
-    }
 
     public String getBrandName() {
         return autoModel.getAutoSeries().getAutoBrand().getBrandName();
@@ -85,17 +76,19 @@ public class Automobile {
         return autoModel.getOilCapacity();
     }
 
+    private final static Logger logger = LoggerFactory.getLogger(Automobile.class);
+
     public String getLogoURL() {
         return autoModel.getAutoSeries().getAutoBrand().getLogoURL();
     }
 
     @JsonIgnore
-    public User getUser() {
-        return user;
+    public AutoModel getAutoModel() {
+        return autoModel;
     }
 
     @JsonProperty
-    public void setUser(User user) {
-        this.user = user;
+    public void setAutoModel(AutoModel autoModel) {
+        this.autoModel = autoModel;
     }
 }

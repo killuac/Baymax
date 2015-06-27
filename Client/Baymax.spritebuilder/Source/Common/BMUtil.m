@@ -8,10 +8,23 @@
 
 #import "BMUtil.h"
 
-@implementation BMUtil
+NSString *DocumentFilePath(NSString *fileName)
+{
+    NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *path = [docDir stringByAppendingPathComponent:fileName];
+    if ([fileName rangeOfString:@"/"].location != NSNotFound) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:[path stringByDeletingLastPathComponent]
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:nil];
+    }
+    return path;
+}
 
-@end
-
+NSString *PlistFilePath(NSString *fileName)
+{
+    return [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+}
 
 NSString *StringFromCGPoint(CGPoint point)
 {

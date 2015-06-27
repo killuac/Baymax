@@ -8,6 +8,7 @@
 
 #import "BMSignInScene.h"
 #import "BMCredential.h"
+#import "BMTabBarScene.h"
 
 @implementation BMSignInScene
 
@@ -97,6 +98,19 @@
     
     _mobileTextField.string = [BMCredential sharedCredential].mobile;
     [_mobileTextField becomeFirstResponder];
+    
+    [_mobileTextField setTarget:self selector:@selector(checkMobileNumber:)];
+    [_passwordTextField setTarget:self selector:@selector(checkPassword:)];
+}
+
+- (void)checkMobileNumber:(CCTextField *)textField
+{
+//  !!! - 校验手机号码是否有效
+}
+
+- (void)checkPassword:(CCTextField *)textField
+{
+//  !!! - 校验密码是否含有非法字符
 }
 
 - (void)update:(CCTime)delta
@@ -105,7 +119,7 @@
 }
 
 - (void)signIn:(CCButton *)button
-{
+{    
     BMUser *user = [BMUser new];
     user.mobile = _mobileTextField.string;
     user.password = _passwordTextField.string;
@@ -119,14 +133,22 @@
             [self showMainScene];
         }
     }];
+    
+    [self.scene showActivityBackground];
 }
 
 - (void)showMainScene
 {
-    CCScene *scene = [CCBReader loadAsScene:MAIN_SCENE];
+    if (!_userService.user) return;
+    
+    BMTabBarScene *tabBarScene = (BMTabBarScene *)[CCBReader load:MAIN_SCENE];
+    tabBarScene.userService = _userService;
+    CCScene *scene = [CCScene sceneWithNode:tabBarScene];
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFade]];
     
     [self saveUserCredential];
+    
+    [self.userService downloadAllAutoLogos];
 }
 
 - (void)saveUserCredential

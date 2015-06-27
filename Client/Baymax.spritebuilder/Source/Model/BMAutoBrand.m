@@ -7,6 +7,7 @@
 //
 
 #import "BMAutoBrand.h"
+#import "BMUtil.h"
 
 @implementation BMAutoBrand
 
@@ -17,6 +18,11 @@
         @"_links.autoSerieses.href": @"autoSeriesesURL",
         @"_embedded.autoSeries": @"autoSerieses"
     }];
+}
+
+- (NSString<Ignore> *)logoFile
+{
+    return DocumentFilePath(self.logoURL.relativePath);
 }
 
 @end

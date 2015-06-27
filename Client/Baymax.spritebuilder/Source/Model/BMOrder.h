@@ -35,8 +35,8 @@ typedef NS_ENUM(ushort, BMOrderStatus) {
 @property (nonatomic, assign) double amount;
 @property (nonatomic, strong) NSDate *serviceTime;
 @property (nonatomic, strong) NSDate *createTime;
-@property (nonatomic, strong) NSDate *acceptTime;
-@property (nonatomic, strong) NSDate *completeTime;
+@property (nonatomic, strong) NSDate<Optional> *acceptTime;
+@property (nonatomic, strong) NSDate<Optional> *completeTime;
 @property (nonatomic, copy) NSString *statusName;
 @property (nonatomic, copy) NSString *paymentName;
 @property (nonatomic, copy) NSString *detailAddress;

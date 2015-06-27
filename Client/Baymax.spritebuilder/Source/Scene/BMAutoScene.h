@@ -7,9 +7,10 @@
 //
 
 #import "BMTableViewScene.h"
+#import "BMTabBarScene.h"
 
-@interface BMAutoScene : BMNavigationScene <BMTableViewDataSource, BMTableViewDelegate>
+@interface BMAutoScene : BMTableViewScene
 
-@property (nonatomic, weak, readonly) BMTableView *tableView;
+@property (nonatomic, weak, readonly) BMUserService *userService;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "CCNode.h"
 
+#define NAME_ACTIVITY_INDICATOR @"ActivityIndicator"
+
 @interface BMActivityIndicator : CCNode
 
 @property (nonatomic, weak, readonly) CCSprite *background;

@@ -24,6 +24,7 @@
 - (void)removeTextTip;
 
 - (void)showActivityIndicator;
+- (void)showActivityBackground;
 - (void)removeActivityIndicator;
 
 - (void)runRotateForever;

@@ -26,15 +26,21 @@
 
 + (instancetype)cellWithCCBNamed:(NSString *)name Style:(BMTableViewCellStyle)style
 {
-    BMTableViewCell *cell = (BMTableViewCell *)[CCBReader load:name];
+    id cell = [CCBReader load:name];
     [cell setupWithStyle:style accessoryType:BMTableViewCellAccessoryNone];
     return cell;
 }
 
+- (id)init
+{
+    if (self = [super init]) {
+        _indentWidth = 10.0f;
+    }
+    return self;
+}
+
 - (void)didLoadFromCCB
 {
-    _indentWidth = 10.0f;
-    
 //  Set border line content size
     CGFloat width = self.contentSize.width + 2;
     _borderLine.contentSize = CGSizeMake(width/self.contentSize.width, 1.04);
@@ -173,7 +179,7 @@
         if (0 == _indexPath.row) {
             CCSprite9Slice *line = [_separatorLine copySprite9Slice];
             line.position = ccp(0.5, 1);
-            [self addChild:line];
+            if (line) [self addChild:line];
         }
     }
     
@@ -194,7 +200,8 @@
     }
 }
 
-- (void)setHighlighted:(BOOL)highlighted {
+- (void)setHighlighted:(BOOL)highlighted
+{
     [[self getAllChildren] enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
         if ([node isMemberOfClass:[CCLabelTTF class]]) {
             CCColor *color = (highlighted) ? HIGHLIGHTED_COLOR : _properties[@([node hash])];

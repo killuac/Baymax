@@ -41,16 +41,8 @@
     [CCBReader configureCCFileUtils];
     
     [[CCPackageManager sharedManager] loadPackages];
-
-    [self setupApplication];
     
     [director runWithScene:[self startScene]];
-}
-
-- (void)setupApplication
-{
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    [[AFNetworkReachabilityManager sharedManager] checkReachability];
 }
 
 - (CCScene *)startScene
@@ -77,6 +69,12 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
     [[CCPackageManager sharedManager] savePackages];
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] checkReachability];
 }
 
 @end

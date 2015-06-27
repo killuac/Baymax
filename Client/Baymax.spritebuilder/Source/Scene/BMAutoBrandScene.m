@@ -18,8 +18,6 @@
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOBRAND;
         self.navigationBar.leftBarItem.title = BUTTON_TITLE_CANCEL;
         
-        [_tableView setupWithStyle:BMTableViewStyleGrouped];
-        
         _autoService = [BMAutomobileService new];
     }
     return self;
@@ -35,8 +33,13 @@
     if (self.autoBrands) return;
     
     [_autoService findAllBrands:^(id service) {
-        [self.tableView reloadData];
+        [self reloadData];
     }];
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
@@ -54,6 +57,7 @@
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
+    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:[self.autoBrands[indexPath.row] logoFile]];
     cell.textLabel.string = [self.autoBrands[indexPath.row] brandName];
     return cell;
 }
@@ -64,7 +68,7 @@
     
     BMAutoSeriesScene *node = [BMAutoSeriesScene node];
     node.autoService = self.autoService;
-    [self pushScene:[CCScene sceneWithNode:node]];
+    [self pushScene:[CCScene sceneWithNode:node] animated:YES];
 }
 
 @end

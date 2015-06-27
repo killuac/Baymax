@@ -11,9 +11,7 @@
 #import "BMAutoBrandScene.h"
 #import "BMAutoTableViewCell.h"
 
-@implementation BMAutoScene {
-    NSArray *_automobiles;
-}
+@implementation BMAutoScene
 
 - (void)didLoadFromCCB
 {
@@ -24,12 +22,34 @@
 
 - (void)loadData
 {
-    NSURL *url = [BMServerAPI sharedServerAPI].autoBrandsURL;
-    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
-        _automobiles = container.automobiles;
-        [self.tableView reloadData];
+    if (self.automobiles) {
+        [self reloadData]; return;
+    }
+    
+    [self.userService findAutomobiles:^(id service) {
+        [self reloadData];
     }];
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
+}
+
+- (void)reloadData:data
+{
+    [self.userService updateAutomobiles:data];
+    [self reloadData];
+}
+
+- (NSArray *)automobiles
+{
+    return self.userService.user.automobiles;
+}
+
+- (BMUserService *)userService
+{
+    return ((BMTabBarScene *)(self.parent.parent)).userService;
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
@@ -41,18 +61,31 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return _automobiles.count;
+    return 1;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMAutoTableViewCell *cell = [BMAutoTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
-    BMAutomobile *automobile = _automobiles[indexPath.row];
-    cell.titleLabel.string = [automobile.brandName stringByAppendingString:automobile.seriesName];
+    BMAutomobile *automobile = self.automobiles[indexPath.section];
+    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:automobile.logoFile];
+    cell.titleLabel.string = automobile.titleName;
     cell.modelLabel.string = automobile.modelName;
-    cell.plateNoLabel.string = automobile.registrationPlate;
-    cell.mainCountLabel.string = @(automobile.maintenanceCount).stringValue;
+    if (automobile.registrationPlate)
+        cell.plateNoLabel.string = automobile.registrationPlate;
+    NSString *string = cell.mainCountLabel.string;
+    cell.mainCountLabel.string = [string stringByReplacingOccurrencesOfString:@"&" withString:@(automobile.maintenanceCount).stringValue];
     return cell;
+}
+
+- (CGFloat)tableView:(BMTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+- (NSUInteger)numberOfSectionsInTableView:(BMTableView *)tableView
+{
+    return self.automobiles.count;
 }
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

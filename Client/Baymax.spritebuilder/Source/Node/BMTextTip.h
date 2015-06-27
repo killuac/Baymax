@@ -8,6 +8,8 @@
 
 #import "CCNode.h"
 
+#define NAME_TEXT_TIP   @"TextTip"
+
 typedef NS_ENUM(NSUInteger, BMTextTipType) {
     BMTextTipTypeError,
     BMTextTipTypeWarning,

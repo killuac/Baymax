@@ -14,14 +14,14 @@
 - (id)init
 {
     if (self = [super init]) {
-        _tableView = (BMTableView *)[CCBReader load:@"TableView"];
-        NSLog(@"%f, %f", self.navigationBar.contentSize.height, [self tabBar].contentSize.height);
+        _tableView = [BMTableView tableViewWithStyle:BMTableViewStyleGrouped];
         CGFloat height = SCREEN_HEIGHT - self.navigationBar.contentSize.height - [self tabBar].contentSize.height;
         _tableView.position = ccp(self.position.x, self.navigationBar.contentSize.height);
         _tableView.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerTopLeft);
         _tableView.contentSize = CGSizeMake(self.contentSize.width, height);
         [self addChild:_tableView];
         
+//      Must set delegate, then set data source.
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

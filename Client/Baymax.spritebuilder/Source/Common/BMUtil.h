@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BMUtil : NSObject
-
-@end
+NSString *DocumentFilePath(NSString *fileName);
+NSString *PlistFilePath(NSString *fileName);
 
 NSString *StringFromCGPoint(CGPoint point);
 NSString *StringFromCGSize(CGSize size);

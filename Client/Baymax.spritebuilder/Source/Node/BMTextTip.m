@@ -17,7 +17,7 @@
     
     self.position = SCREEN_CENTER;
     _textLabel.string = text;
-    [node addChild:self z:1000 name:@"textTip"];
+    [node addChild:self z:1000 name:NAME_TEXT_TIP];
     
     NSString *imageName = nil;
     switch (type) {

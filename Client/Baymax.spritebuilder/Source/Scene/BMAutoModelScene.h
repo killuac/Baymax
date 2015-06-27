@@ -9,6 +9,8 @@
 #import "BMTableViewScene.h"
 #import "BMAutoSeriesScene.h"
 
+@protocol BMAutoModelSceneDelegate;
+
 @interface BMAutoModelScene : BMTableViewScene
 
 @property (nonatomic, weak) BMAutomobileService *autoService;

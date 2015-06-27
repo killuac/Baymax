@@ -17,8 +17,6 @@
         self.navigationBar.delegate = self;
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOSERIES;
         [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
-        
-        [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
     return self;
 }
@@ -26,7 +24,7 @@
 - (void)setAutoService:(BMAutomobileService *)autoService
 {
     _autoService = autoService;
-    if (self.autoSerieses) [self.tableView reloadData];
+    if (self.autoSerieses) [self reloadData];
 }
 
 - (NSArray *)autoSerieses
@@ -39,14 +37,19 @@
     if (self.autoSerieses) return;
     
     [_autoService findOneBrandSerieses:^(id service) {
-        [self.tableView reloadData];
+        [self reloadData];
     }];
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
 {
     if ([item isEqual:self.navigationBar.leftBarItem]) {
-        [self popScene];
+        [self popSceneAnimated:YES];
     }
 }
 
@@ -68,7 +71,7 @@
     
     BMAutoModelScene *node = [BMAutoModelScene node];
     node.autoService = self.autoService;
-    [self pushScene:[CCScene sceneWithNode:node]];
+    [self pushScene:[CCScene sceneWithNode:node] animated:YES];
 }
 
 @end

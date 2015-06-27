@@ -10,6 +10,8 @@
 
 @interface CCScene (BMScene)
 
+@property (nonatomic, strong) CCScene *lastScene;
+
 + (instancetype)sceneWithNode:(CCNode *)node;
 
 @end

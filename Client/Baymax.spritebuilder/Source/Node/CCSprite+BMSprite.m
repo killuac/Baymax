@@ -15,6 +15,11 @@
     return [self spriteWithSpriteFrame:[CCSpriteFrame frameWithContentsOfFile:path]];
 }
 
++ (instancetype)spriteWithData:(NSData *)data
+{
+    return [self spriteWithSpriteFrame:[CCSpriteFrame frameWithData:data]];
+}
+
 - (id)copySprite
 {
     CCSprite *sprite = [CCSprite spriteWithSpriteFrame:self.spriteFrame];

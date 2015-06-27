@@ -8,6 +8,7 @@
 
 #import "BMServerAPI.h"
 #import "BMSessionManager.h"
+#import "BMAppSetting.h"
 
 #define JSON_SERVER_API @"server-api.json"
 
@@ -38,20 +39,18 @@ static BMServerAPI *instanceOfServerAPI = nil;
 + (instancetype)sharedServerAPI
 {
     if (!instanceOfServerAPI) {
-        NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-        NSString *fileName = [docDir stringByAppendingPathComponent:JSON_SERVER_API];
-        instanceOfServerAPI = [self modelWithData:[NSData dataWithContentsOfFile:fileName]];
+        instanceOfServerAPI = [self modelWithData:[NSData dataWithContentsOfFile:DocumentFilePath(JSON_SERVER_API)]];
     }
     return instanceOfServerAPI;
 }
 
 + (void)writeAPIFile
 {
-    [[BMSessionManager sharedSessionManager] GET:@"api" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-        NSString *fileName = [docDir stringByAppendingPathComponent:JSON_SERVER_API];
+    NSString *urlString = [[BMAppSetting defaultAppSetting].baseURL.absoluteString stringByAppendingString:@"/api"];
+    
+    [[BMSessionManager sharedSessionManager] GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMServerAPI *serverAPI = [BMServerAPI modelWithDictionary:responseObject];
-        [[serverAPI toJSONData] writeToFile:fileName atomically:YES];
+        [[serverAPI toJSONData] writeToFile:DocumentFilePath(JSON_SERVER_API) atomically:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"GET server api error: %@", error);
     }];

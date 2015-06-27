@@ -12,6 +12,8 @@
 
 @interface BMAutomobileService : BMBaseService
 
+@property (nonatomic, strong, readonly) BMAutomobile *automobile;
+
 @property (nonatomic, strong, readonly) NSArray *autoBrands;
 @property (nonatomic, strong) BMAutoBrand *selectedBrand;
 @property (nonatomic, strong) BMAutoSeries *selectedSeries;

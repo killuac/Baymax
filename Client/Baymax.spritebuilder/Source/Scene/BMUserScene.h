@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Syzygy. All rights reserved.
 //
 
-#import "BMNavigationScene.h"
-#import "BMTableView.h"
+#import "BMTableViewScene.h"
+#import "BMTabBarScene.h"
 
-@interface BMUserScene : BMNavigationScene
+@interface BMUserScene : BMTableViewScene
 
-@property (nonatomic, weak, readonly) BMTableView *tableView;
+@property (nonatomic, weak, readonly) BMUserService *userService;
 
 @end

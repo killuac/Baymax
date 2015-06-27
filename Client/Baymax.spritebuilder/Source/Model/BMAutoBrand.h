@@ -14,10 +14,14 @@
 
 @interface BMAutoBrand : JSONModel
 
+@property (nonatomic, assign) short brandId;
 @property (nonatomic, copy) NSString *brandName;
+@property (nonatomic, copy) NSString *logoName;
 @property (nonatomic, strong) NSURL *logoURL;
 
+@property (nonatomic, strong, readonly) NSString<Ignore> *logoFile;
+
 @property (nonatomic, strong) NSURL<Optional> *autoSeriesesURL;
-@property (nonatomic, strong) NSArray<BMAutoSeries, Optional> *autoSerieses;
+@property (nonatomic, strong) NSArray<BMAutoSeries, Ignore> *autoSerieses;
 
 @end

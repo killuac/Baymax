@@ -35,13 +35,6 @@
 - (void)run
 {
     [super run];
-    [self setupApplication];
-}
-
-- (void)setupApplication
-{
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    [[AFNetworkReachabilityManager sharedManager] checkReachability];
 }
 
 - (CCScene *)startScene
@@ -76,7 +69,9 @@
 
 - (void)onResume
 {
-    
+    [super onResume];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] checkReachability];
 }
 
 @end

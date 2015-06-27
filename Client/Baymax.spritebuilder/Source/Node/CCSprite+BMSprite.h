@@ -11,6 +11,7 @@
 @interface CCSprite (BMSprite)
 
 + (instancetype)spriteWithContentsOfFile:(NSString *)path;
++ (instancetype)spriteWithData:(NSData *)data;
 
 - (id)copySprite;
 - (id)copySprite9Slice;

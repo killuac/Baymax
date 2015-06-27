@@ -10,6 +10,17 @@
 
 @implementation BMBaseService
 
++ (instancetype)serviceWithModel:(id)modelObject
+{
+    return [[self alloc] initWithModel:modelObject];
+}
+
+- (instancetype)initWithModel:(id)modelObject
+{
+//  Implement by subclass
+    return [super init];
+}
+
 - (NSInteger)statusCode
 {
     return self.response.statusCode;

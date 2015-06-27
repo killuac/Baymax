@@ -7,6 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
+#import "BMUtil.h"
 #import "BMConstant.h"
 
 @interface BMServer : JSONModel

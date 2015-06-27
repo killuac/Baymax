@@ -10,17 +10,22 @@
 #import "BMAutoModel.h"
 #import "BMAutoSeriesPartsItem.h"
 
+@class BMAutoBrand;
+
 @protocol BMAutoSeries <NSObject>
 @end
 
 @interface BMAutoSeries : JSONModel
 
+@property (nonatomic, assign) short seriesId;
 @property (nonatomic, copy) NSString *seriesName;
+
+@property (nonatomic, strong) BMAutoBrand<Optional> *autoBrand;
 
 @property (nonatomic, strong) NSURL<Optional> *autoModelsURL;
 @property (nonatomic, strong) NSURL<Optional> *autoSeriesPartsItemsURL;
 
-@property (nonatomic, strong) NSArray<BMAutoModel, Optional> *autoModels;
+@property (nonatomic, strong) NSArray<BMAutoModel, Ignore> *autoModels;
 @property (nonatomic, strong) NSArray<AutoSeriesPartsItem, Optional> *autoSeriesPartsItems;
 
 @end

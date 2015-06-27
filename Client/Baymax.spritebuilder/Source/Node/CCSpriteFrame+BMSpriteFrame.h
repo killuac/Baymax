@@ -10,6 +10,7 @@
 
 @interface CCSpriteFrame (BMSpriteFrame)
 
-+ (instancetype)frameWithContentsOfFile:(NSString*)path;
++ (instancetype)frameWithContentsOfFile:(NSString *)path;
++ (instancetype)frameWithData:(NSData *)data;
 
 @end

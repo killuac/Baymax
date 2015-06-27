@@ -10,8 +10,16 @@
 
 @implementation BMAutoTableViewCell
 
++ (instancetype)cellWithStyle:(BMTableViewCellStyle)style accessoryType:(BMTableViewCellAccessoryType)accessoryType
+{
+    id cell = [BMAutoTableViewCell cellWithCCBNamed:@"AutoTableViewCell" Style:style];
+    [cell setAccessoryType:accessoryType];
+    return cell;
+}
+
 - (void)setHighlighted:(BOOL)highlighted
 {
+//  Do not highlight label string
 }
 
 @end

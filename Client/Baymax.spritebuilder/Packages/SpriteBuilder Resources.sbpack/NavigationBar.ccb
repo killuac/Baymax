@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>15</integer>
+	<integer>16</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -231,7 +231,7 @@
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>保养</string>
+									<string></string>
 									<false/>
 								</array>
 							</dict>
@@ -1067,8 +1067,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

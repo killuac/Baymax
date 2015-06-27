@@ -34,11 +34,14 @@
     return [outputDateFormatter stringFromDate:date];
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 - (NSString *)JSONObjectFromNSURL:(NSURL *)url
 {
     NSString *string = [[url absoluteString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSRange range = [string rangeOfString:@"{"];
     return (range.location != NSNotFound) ? [string substringToIndex:range.location] : string;
 }
+#pragma clang diagnostic pop
 
 @end

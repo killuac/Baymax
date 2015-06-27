@@ -31,6 +31,11 @@
 //  Implemented by subclass
 }
 
+- (void)reloadData
+{
+//  Implemented by subclass
+}
+
 - (void)presentSceneWithName:(NSString *)sceneName animated:(BOOL)animated
 {
     CCScene *scene = [CCBReader loadAsScene:sceneName];
@@ -39,19 +44,41 @@
 
 - (void)presentScene:(CCScene *)scene animated:(BOOL)animated
 {
+    scene.lastScene = self.scene;
+    
     if (animated) {
-        [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionMoveInUp]];
+        [[CCDirector sharedDirector] presentScene:scene withTransition:[CCTransition transitionMoveInUp]];
     } else {
-        [[CCDirector sharedDirector] pushScene:scene];
+        [[CCDirector sharedDirector] presentScene:scene];
     }
 }
 
 - (void)dismissSceneAnimated:(BOOL)animated
 {
     if (animated) {
-        [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionRevealDown]];
+        [[CCDirector sharedDirector] replaceScene:self.scene.lastScene withTransition:[CCTransition transitionRevealDown]];
     } else {
-        [[CCDirector sharedDirector] popScene];
+        [[CCDirector sharedDirector] replaceScene:self.scene.lastScene];
+    }
+}
+
+- (void)dismissToRootSceneAnimated:(BOOL)animated
+{
+    if (animated) {
+        [[CCDirector sharedDirector] replaceScene:self.rootScene withTransition:[CCTransition transitionRevealDown]];
+    } else {
+        [[CCDirector sharedDirector] replaceScene:self.rootScene];
+    }
+}
+
+- (CCScene *)rootScene
+{
+    CCScene *lastScene = self.scene.lastScene;
+    
+    if (lastScene) {
+        return [lastScene.children.firstObject rootScene];
+    } else {
+        return self.scene;
     }
 }
 

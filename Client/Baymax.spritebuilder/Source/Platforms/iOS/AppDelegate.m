@@ -68,8 +68,6 @@
 
 - (void)setupApplication
 {
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    [[AFNetworkReachabilityManager sharedManager] checkReachability];
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
@@ -94,9 +92,11 @@
     return nil;
 }
 
-//- (void)applicationDidBecomeActive:(UIApplication *)application
-//{
-//    Affect performance
-//}
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [super applicationDidBecomeActive:application];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] checkReachability];
+}
 
 @end

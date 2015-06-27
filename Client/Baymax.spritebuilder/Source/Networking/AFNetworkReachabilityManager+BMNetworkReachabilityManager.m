@@ -7,13 +7,16 @@
 //
 
 #import "AFNetworkReachabilityManager+BMNetworkReachabilityManager.h"
+#import "BMConstant.h"
 
 @implementation AFNetworkReachabilityManager (BMNetworkReachabilityManager)
 
 - (void)checkReachability
 {
     [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"SHIT!!! %@", AFStringFromNetworkReachabilityStatus(status));
+        if (AFNetworkReachabilityStatusNotReachable == status) {
+            [[CCDirector sharedDirector].runningScene showTextTip:TIP_CONNECTION_FAILED withType:BMTextTipTypeWarning];
+        }
     }];
 }
 

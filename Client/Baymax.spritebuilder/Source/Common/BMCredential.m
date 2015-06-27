@@ -7,6 +7,7 @@
 //
 
 #import "BMCredential.h"
+#import "BMUtil.h"
 
 #define JSON_CREDENTIAL @"credential.json"
 
@@ -16,8 +17,7 @@ static BMCredential *instanceOfCredential = nil;
 + (instancetype)sharedCredential
 {
     if (!instanceOfCredential) {
-        NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-        NSString *fileName = [docDir stringByAppendingPathComponent:JSON_CREDENTIAL];
+        NSString *fileName = DocumentFilePath(JSON_CREDENTIAL);
         if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
             instanceOfCredential = [self modelWithData:[NSData dataWithContentsOfFile:fileName]];
         } else {
@@ -30,9 +30,7 @@ static BMCredential *instanceOfCredential = nil;
 
 - (void)save
 {
-    NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *fileName = [docDir stringByAppendingPathComponent:JSON_CREDENTIAL];
-    [[self toJSONData] writeToFile:fileName atomically:YES];
+    [[self toJSONData] writeToFile:DocumentFilePath(JSON_CREDENTIAL) atomically:YES];
 }
 
 @end

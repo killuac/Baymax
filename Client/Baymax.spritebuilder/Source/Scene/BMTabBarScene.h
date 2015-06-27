@@ -8,11 +8,14 @@
 
 #import "BMNavigationScene.h"
 #import "BMTabBar.h"
+#import "BMUserService.h"
 
 @interface BMTabBarScene : BMBaseScene <BMTabBarDelegate> {
     CCNode *_animationNode;
     CCNode *_scenesBox;
 }
+
+@property (nonatomic, strong) BMUserService *userService;
 
 @property (nonatomic, weak, readonly) NSArray *scenes;
 @property (nonatomic, weak, readonly) BMBaseScene *selectedScene;

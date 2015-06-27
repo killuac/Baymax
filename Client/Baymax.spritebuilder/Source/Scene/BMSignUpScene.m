@@ -78,7 +78,7 @@
 
 - (void)fetchVerificationCode:(CCButton *)button
 {
-    
+//  !!! - 获取短信验证码
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
@@ -104,6 +104,8 @@
             [self showMainScene];
         }
     }];
+    
+    [self.scene showActivityBackground];
 }
 
 @end

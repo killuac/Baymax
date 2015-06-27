@@ -13,8 +13,9 @@
 
 @property (nonatomic, strong, readonly) BMNavigationBar *navigationBar;
 
-- (void)pushSceneWithName:(NSString *)sceneName;
-- (void)pushScene:(CCScene *)scene;
-- (void)popScene;
+- (void)pushSceneWithName:(NSString *)sceneName animated:(BOOL)animated;
+- (void)pushScene:(CCScene *)scene animated:(BOOL)animated;
+- (void)popSceneAnimated:(BOOL)animated;
+- (void)popToRootSceneAnimated:(BOOL)animated;
 
 @end

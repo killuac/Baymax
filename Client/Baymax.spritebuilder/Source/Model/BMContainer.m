@@ -16,7 +16,9 @@
     {
         @"_embedded.autoBrands": @"autoBrands",
         @"_embedded.autoSeries": @"autoSerieses",
-        @"_embedded.autoModels": @"autoModels"
+        @"_embedded.autoModels": @"autoModels",
+        @"_embedded.automobiles": @"automobiles",
+        @"_embedded.addresses": @"addresses"
     }];
 }
 

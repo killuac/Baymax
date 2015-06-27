@@ -11,6 +11,7 @@
 
 #import "CCNode+BMNode.h"
 #import "CCSprite+BMSprite.h"
+#import "CCButton+BMButton.h"
 #import "CCTextField+BMTextField.h"
 #import "CCPlatformTextField+BMPlatformTextField.h"
 #import "CCSpriteFrame+BMSpriteFrame.h"

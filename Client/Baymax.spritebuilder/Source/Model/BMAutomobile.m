@@ -7,6 +7,7 @@
 //
 
 #import "BMAutomobile.h"
+#import "BMUtil.h"
 
 @implementation BMAutomobile
 
@@ -17,6 +18,21 @@
         @"_links.orders.href": @"ordersURL",
         @"_embedded.orders": @"orders"
     }];
+}
+
+- (NSComparisonResult)compare:(id)object
+{
+    return [self.createTime compare:[object createTime]];
+}
+
+- (NSString<Ignore> *)titleName
+{
+    return [_brandName stringByAppendingString:_seriesName];
+}
+
+- (NSString<Ignore> *)logoFile
+{
+    return DocumentFilePath(self.logoURL.relativePath);
 }
 
 @end

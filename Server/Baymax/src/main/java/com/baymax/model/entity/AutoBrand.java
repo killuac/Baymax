@@ -37,16 +37,6 @@ public class AutoBrand {
     @OneToMany(mappedBy = "autoBrand", cascade = CascadeType.ALL)
     private List<AutoSeries> autoSerieses;
 
-    @JsonIgnore
-    public String getLogoName() {
-        return logoName;
-    }
-
-    @JsonProperty
-    public void setLogoName(String logoName) {
-        this.logoName = logoName;
-    }
-
     public String getLogoURL() {
         return propertiesInstance().getLogoBaseURL() + logoName;
     }

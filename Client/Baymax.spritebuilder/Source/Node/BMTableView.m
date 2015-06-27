@@ -69,10 +69,6 @@
 
 - (void)didLoadFromCCB
 {
-    _style = BMTableViewStylePlain;
-    _margin = 10;
-    _hasBorderLine = YES;
-    
     if ([self navigationBar]) {
         CGFloat height = SCREEN_HEIGHT - [self navigationBar].contentSize.height - [self tabBar].contentSize.height;
         self.position = ccp(self.position.x, [self navigationBar].contentSize.height);
@@ -131,6 +127,9 @@
 - (id)init
 {
     if (self = [super init]) {
+        _margin = 10;
+        _hasBorderLine = YES;
+        
         self.contentNode = [BMTableViewContentNode node];
         
         self.contentNode.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, CCSizeUnitPoints);
@@ -304,7 +303,7 @@
 
 - (void)showRowsForRange:(NSRange)range
 {
-    if (NSEqualRanges(range, _currentlyVisibleRange)) return;
+    if (NSEqualRanges(range, _currentlyVisibleRange) || _cellHolders.count == 0) return;
     
     for (NSUInteger oldIdx = _currentlyVisibleRange.location; oldIdx < NSMaxRange(_currentlyVisibleRange); oldIdx++) {
         if (!NSLocationInRange(oldIdx, range)) {
@@ -338,7 +337,7 @@
                     cell.indexPath = indexPath;
                     cell.position = CGPointMake(self.margin, [self locationForCellWithIndexPath:indexPath] + deltaMargin);
                     cell.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerTopLeft);
-                    cell.contentSize = CGSizeMake(holder.cell.contentSize.width - 2*self.margin, [self heightForRowAtIndexPath:indexPath]);
+                    cell.contentSize = CGSizeMake(cell.contentSize.width - 2*self.margin, [self heightForRowAtIndexPath:indexPath]);
                 } else {
                     [self.contentNode addChild:holder.cell];
                 }

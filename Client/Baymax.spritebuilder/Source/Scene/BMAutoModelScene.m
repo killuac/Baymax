@@ -7,8 +7,13 @@
 //
 
 #import "BMAutoModelScene.h"
+#import "BMTabBarScene.h"
+#import "BMMainScene.h"
+#import "BMAutoScene.h"
 
-@implementation BMAutoModelScene
+@implementation BMAutoModelScene {
+    BMAutoModel *_autoModel;
+}
 
 - (id)init
 {
@@ -18,8 +23,6 @@
         [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
         self.navigationBar.rightBarItem.title = BUTTON_TITLE_DONE;
         self.navigationBar.rightBarItem.enabled = NO;
-        
-        [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
     return self;
 }
@@ -27,7 +30,7 @@
 - (void)setAutoService:(BMAutomobileService *)autoService
 {
     _autoService = autoService;
-    if (self.autoModels) [self.tableView reloadData];
+    if (self.autoModels) [self reloadData];
 }
 
 - (NSArray *)autoModels
@@ -40,17 +43,36 @@
     if (self.autoModels) return;
     
     [_autoService findOneSeriesModels:^(id service) {
-        [self.tableView reloadData];
+        [self reloadData];
     }];
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
 {
     if ([item isEqual:self.navigationBar.leftBarItem]) {
-        [self popScene];
+        [self popSceneAnimated:YES];
     } else {
-        [self dismissSceneAnimated:YES];
+        BMAutomobile *automobile = [BMAutomobile new];
+        automobile.userId = [[self selectedTabScene] userService].userId;
+        automobile.autoModel = _autoModel;
+        
+        [_autoService createWithData:automobile result:^(id service) {
+            [[self selectedTabScene] reloadData:_autoService.automobile];
+            [self dismissToRootSceneAnimated:YES];
+        }];
+        
+        [self.scene showActivityBackground];
     }
+}
+
+- (id)selectedTabScene
+{
+    return [self.rootScene.children.firstObject selectedScene];
 }
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
@@ -67,9 +89,8 @@
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.navigationBar.rightBarItem.enabled) {
-        self.navigationBar.rightBarItem.enabled = YES;
-    }
+    _autoModel = self.autoModels[indexPath.row];
+    self.navigationBar.rightBarItem.enabled = YES;
 }
 
 @end

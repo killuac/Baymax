@@ -131,6 +131,9 @@
 		E3278FC31B3914810054D1B4 /* BMSignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278FC21B3914810054D1B4 /* BMSignUpScene.m */; };
 		E3278FC41B3914810054D1B4 /* BMSignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278FC21B3914810054D1B4 /* BMSignUpScene.m */; };
 		E3278FC51B3914810054D1B4 /* BMSignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278FC21B3914810054D1B4 /* BMSignUpScene.m */; };
+		E33EF5951B3D279500A3F1CC /* CCButton+BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */; };
+		E33EF5961B3D279500A3F1CC /* CCButton+BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */; };
+		E33EF5971B3D279500A3F1CC /* CCButton+BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */; };
 		E375D23C1B22DEB9001FA4A0 /* libThirdKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */; };
 		E375D2791B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
 		E375D27A1B26DA63001FA4A0 /* BMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E375D2781B26DA63001FA4A0 /* BMUser.m */; };
@@ -458,6 +461,9 @@
 		E3278FBD1B385DAA0054D1B4 /* BMSignScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSignScene.m; sourceTree = "<group>"; };
 		E3278FC11B3914810054D1B4 /* BMSignUpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSignUpScene.h; sourceTree = "<group>"; };
 		E3278FC21B3914810054D1B4 /* BMSignUpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSignUpScene.m; sourceTree = "<group>"; };
+		E33EF5931B3D279500A3F1CC /* CCButton+BMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCButton+BMButton.h"; sourceTree = "<group>"; };
+		E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCButton+BMButton.m"; sourceTree = "<group>"; };
+		E341F3021B3F1C3500B58966 /* libSSZipArchiveMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSSZipArchiveMac.a; path = "Source/libs/cocos2d-iphone/external/SSZipArchive/build/Debug/libSSZipArchiveMac.a"; sourceTree = "<group>"; };
 		E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libThirdKit.a; path = "Libraries/build/Debug-iphoneos/libThirdKit.a"; sourceTree = "<group>"; };
 		E375D2771B26DA63001FA4A0 /* BMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMUser.h; sourceTree = "<group>"; };
 		E375D2781B26DA63001FA4A0 /* BMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMUser.m; sourceTree = "<group>"; };
@@ -884,6 +890,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E341F3021B3F1C3500B58966 /* libSSZipArchiveMac.a */,
 				E375D23B1B22DEB9001FA4A0 /* libThirdKit.a */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
@@ -1099,6 +1106,8 @@
 		E3A9F5EA1B2A78B700F92CAE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E33EF5931B3D279500A3F1CC /* CCButton+BMButton.h */,
+				E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */,
 				E38E7CE81B2FDB490065A098 /* CCNode+BMNode.h */,
 				E38E7CE91B2FDB490065A098 /* CCNode+BMNode.m */,
 				E3E417AB1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.h */,
@@ -1574,6 +1583,7 @@
 				E375D27B1B26DA63001FA4A0 /* BMUser.m in Sources */,
 				E3A9F58E1B27E8FF00F92CAE /* BMParts.m in Sources */,
 				E3E417AF1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.m in Sources */,
+				E33EF5971B3D279500A3F1CC /* CCButton+BMButton.m in Sources */,
 				E38E7CF31B3036CD0065A098 /* BMImageSprite.m in Sources */,
 				E3278FC01B385DAA0054D1B4 /* BMSignScene.m in Sources */,
 				E3278FA71B3405A90054D1B4 /* BMTableViewScene.m in Sources */,
@@ -1631,6 +1641,7 @@
 				E3C44C641B2C1741007DA129 /* BMTableView.m in Sources */,
 				E375D27A1B26DA63001FA4A0 /* BMUser.m in Sources */,
 				E302AE141B3BBB0300A8D371 /* BMBaseService.m in Sources */,
+				E33EF5961B3D279500A3F1CC /* CCButton+BMButton.m in Sources */,
 				E375D2B01B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
 				E3A9F5F91B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */,
 				E3A9F5601B27414400F92CAE /* BMAutomobile.m in Sources */,
@@ -1729,6 +1740,7 @@
 				E38E7CF11B3036CD0065A098 /* BMImageSprite.m in Sources */,
 				E3278FBE1B385DAA0054D1B4 /* BMSignScene.m in Sources */,
 				E3278FA51B3405A90054D1B4 /* BMTableViewScene.m in Sources */,
+				E33EF5951B3D279500A3F1CC /* CCButton+BMButton.m in Sources */,
 				E3A9F5CE1B29C9F800F92CAE /* BMTabBarItem.m in Sources */,
 				E3E417A61B39EF7A00D003E3 /* CCTextField+BMTextField.m in Sources */,
 				E38E7CEA1B2FDB490065A098 /* CCNode+BMNode.m in Sources */,
@@ -1813,9 +1825,14 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"\"Source/libs/cocos2d-iphone/external/SSZipArchive\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source/libs/cocos2d-iphone/external/SSZipArchive/build/Debug",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_CFLAGS = "";
@@ -1859,9 +1876,14 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"\"Source/libs/cocos2d-iphone/external/SSZipArchive\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source/libs/cocos2d-iphone/external/SSZipArchive/build/Debug",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "";
@@ -1902,6 +1924,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"\"Source/libs/cocos2d-iphone/external/SSZipArchive\"/**",
 					"$(SRCROOT)/Libraries/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Android/Info.plist;
@@ -1957,6 +1980,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"\"Source/libs/cocos2d-iphone/external/SSZipArchive\"/**",
 					"$(SRCROOT)/Libraries/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/Android/Info.plist;
@@ -2080,6 +2104,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"\"Source/libs/cocos2d-iphone/external/SSZipArchive\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -2118,6 +2143,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"\"Source/libs/cocos2d-iphone/external/SSZipArchive\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;

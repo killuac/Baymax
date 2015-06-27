@@ -17,4 +17,14 @@
     return scene;
 }
 
+- (void)setLastScene:(CCScene *)lastScene
+{
+    objc_setAssociatedObject(self, @selector(lastScene), lastScene, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CCScene *)lastScene
+{
+    return objc_getAssociatedObject(self, @selector(lastScene));
+}
+
 @end

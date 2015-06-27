@@ -35,6 +35,10 @@ public class CustomProperties {
 
     private String avatarPath;
 
+    private String logoZip;
+
+    private String partsZip;
+
     public String getBaseURLString() {
         return "http://" + address.getHostName();
     }
@@ -49,5 +53,13 @@ public class CustomProperties {
 
     public String getAvatarBaseURL() {
         return getBaseURLString() + avatarPath;
+    }
+
+    public String getLogoZipURL() {
+        return getBaseURLString() + logoZip;
+    }
+
+    public String getPartsZipURL() {
+        return getBaseURLString() + partsZip;
     }
 }

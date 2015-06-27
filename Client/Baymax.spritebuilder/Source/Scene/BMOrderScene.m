@@ -14,10 +14,6 @@
 - (void)didLoadFromCCB
 {
     self.navigationBar.titleLabel.string = NAV_TITLE_ORDER;
-    
-    [_tableView setupWithStyle:BMTableViewStyleGrouped];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
 }
 
 - (BMTabBarScene *)tabBarScene
@@ -27,7 +23,7 @@
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
 {
-    return 5;
+    return 0;
 }
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -35,11 +31,6 @@
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleValue accessoryType:BMTableViewCellAccessoryCheckmark];
     cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:@"ccbResources/bmw.png"];
     return cell;
-}
-
-- (NSUInteger)numberOfSectionsInTableView:(BMTableView *)tableView
-{
-    return 5;
 }
 
 @end

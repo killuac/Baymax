@@ -7,9 +7,6 @@
 //
 
 #import "BMSessionManager.h"
-#import "BMAppSetting.h"
-
-#define HTTP_HEADER_ACCEPT  @"application/json"
 
 @implementation BMSessionManager
 
@@ -17,9 +14,12 @@ static BMSessionManager *instanceOfSessionManager = nil;
 + (instancetype)sharedSessionManager
 {
     if (!instanceOfSessionManager) {
-        instanceOfSessionManager = [[self alloc] initWithBaseURL:[BMAppSetting defaultAppSetting].baseURL];
+//        instanceOfSessionManager = [[self alloc] initWithBaseURL:[BMAppSetting defaultAppSetting].baseURL];
+        instanceOfSessionManager = [self manager];
         instanceOfSessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        [instanceOfSessionManager.requestSerializer setValue:HTTP_HEADER_ACCEPT forHTTPHeaderField:@"Accept"];
+        [instanceOfSessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [instanceOfSessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
     }
     return instanceOfSessionManager;
 }
@@ -44,9 +44,10 @@ static BMSessionManager *instanceOfSessionManager = nil;
                      parameters:(id)parameters
                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    if (!url) return nil;
     [self showActivityIndicator];
     
-    return [self GET:url.relativePath
+    return [self GET:url.absoluteString
           parameters:parameters
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  [self removeActivityIndicator];
@@ -61,13 +62,23 @@ static BMSessionManager *instanceOfSessionManager = nil;
              }];
 }
 
+- (AFHTTPRequestOperation *)GetResource:(NSURL *)url
+                                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+{
+    self.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFHTTPRequestOperation *operation = [self GET:url parameters:nil success:success];
+    self.responseSerializer = [AFJSONResponseSerializer serializer];
+    return operation;
+}
+
 - (AFHTTPRequestOperation *)POST:(NSURL *)url
                       parameters:(id)parameters
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    if (!url) return nil;
     [self showActivityIndicator];
     
-    return [self POST:url.relativePath
+    return [self POST:url.absoluteString
            parameters:parameters
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   [self removeActivityIndicator];
@@ -87,6 +98,7 @@ static BMSessionManager *instanceOfSessionManager = nil;
        constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    if (!url) return nil;
     [self showActivityIndicator];
     
     return [self POST:url.relativePath
@@ -109,6 +121,7 @@ constructingBodyWithBlock:block
                        parameters:(id)parameters
                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
+    if (!url) return nil;
     [self showActivityIndicator];
     
     return [self PATCH:url.relativePath

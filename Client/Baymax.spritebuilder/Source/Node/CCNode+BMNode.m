@@ -45,25 +45,31 @@
 
 - (void)showTextTip:(NSString *)text withType:(BMTextTipType)type
 {
-    BMTextTip *textTip = (BMTextTip *)[CCBReader load:@"TextTip"];
+    BMTextTip *textTip = (BMTextTip *)[CCBReader load:NAME_TEXT_TIP];
     [textTip showText:text type:type inNode:self];
 }
 
 - (void)removeTextTip
 {
     [self removeActivityIndicator];
-    [self removeChildByName:@"textTip"];
+    [self removeChildByName:NAME_TEXT_TIP];
 }
 
 - (void)showActivityIndicator
 {
-    BMActivityIndicator *activityIndicator = (BMActivityIndicator *)[CCBReader load:@"ActivityIndicator"];
+    BMActivityIndicator *activityIndicator = (BMActivityIndicator *)[CCBReader load:NAME_ACTIVITY_INDICATOR];
     [activityIndicator showInNode:self];
+}
+
+- (void)showActivityBackground
+{
+    BMActivityIndicator *activityIndicator = (BMActivityIndicator *)[self getChildByName:NAME_ACTIVITY_INDICATOR recursively:YES];
+    activityIndicator.background.opacity = 1;
 }
 
 - (void)removeActivityIndicator
 {
-    [self removeChildByName:@"activityIndicator"];
+    [self removeChildByName:NAME_ACTIVITY_INDICATOR];
 }
 
 #pragma mark - Animation

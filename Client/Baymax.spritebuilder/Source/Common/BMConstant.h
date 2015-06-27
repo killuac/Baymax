@@ -50,8 +50,9 @@
 #define TIP_CONNECTION_FAILED       NSLocalizedString(@"网络连接似乎断了", "")
 #define TIP_MOBILE_INVALID          NSLocalizedString(@"手机号码无效", "")
 #define TIP_MOBILE_TAKEN            NSLocalizedString(@"手机号码已经被注册", "")
-#define TIP_MOBILE_NOT_FOUND        NSLocalizedString(@"帐号不存在", "")
+#define TIP_MOBILE_NOT_FOUND        NSLocalizedString(@"手机号码尚未注册", "")
 #define TIP_PASSWORD_WRONG          NSLocalizedString(@"密码错误", "")
+#define TIP_PASSWORD_INVALID        NSLocalizedString(@"密码含有非法字符", "")
 #define TIP_VCODE_WRONG             NSLocalizedString(@"验证码错误", "")
 
 #define SWAP(a, b)                  (a ^= b, b ^= a, a ^= b)

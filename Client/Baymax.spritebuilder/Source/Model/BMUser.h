@@ -15,7 +15,7 @@
 @property (nonatomic, assign) NSUInteger userId;
 @property (nonatomic, copy) NSString *mobile;
 @property (nonatomic, copy) NSString<Optional> *password;
-@property (nonatomic, copy) NSString<Ignore> *verificationCode;
+@property (nonatomic, copy) NSString<Optional> *verificationCode;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString<Optional> *realName;
 @property (nonatomic, copy) NSString<Optional> *email;
@@ -27,10 +27,13 @@
 @property (nonatomic, assign) BOOL isWrongPassword;
 @property (nonatomic, assign) BOOL isWrongVcode;
 
+@property (nonatomic, strong) NSURL *logoZipURL;
+@property (nonatomic, strong) NSURL *partsZipURL;
+
 @property (nonatomic, strong) NSURL<Optional> *automobilesURL;
 @property (nonatomic, strong) NSURL<Optional> *addressesURL;
 
-@property (nonatomic, strong) NSArray<BMAutomobile, Optional> *autombiles;
-@property (nonatomic, strong) NSArray<BMAddress, Optional> *addresses;
+@property (nonatomic, strong) NSMutableArray<BMAutomobile, Optional> *automobiles;
+@property (nonatomic, strong) NSMutableArray<BMAddress, Optional> *addresses;
 
 @end

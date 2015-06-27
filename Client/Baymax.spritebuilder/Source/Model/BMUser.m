@@ -25,4 +25,12 @@
     }];
 }
 
+- (void)setAutomobiles:(NSMutableArray<BMAutomobile,Optional> *)automobiles
+{
+    [automobiles sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2];
+    }];
+    _automobiles = automobiles;
+}
+
 @end

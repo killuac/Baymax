@@ -22,16 +22,14 @@ static BMAppSetting *instanceOfAppSetting = nil;
 + (instancetype)defaultAppSetting
 {
     if (!instanceOfAppSetting) {
-        NSString *fileName = [[NSBundle mainBundle] pathForResource:APP_SETTING ofType:PLIST];
-        instanceOfAppSetting = [self modelWithDictionary:[NSDictionary dictionaryWithContentsOfFile:fileName]];
+        instanceOfAppSetting = [self modelWithDictionary:[NSDictionary dictionaryWithContentsOfFile:PlistFilePath(APP_SETTING)]];
     }
     return instanceOfAppSetting;
 }
 
 - (void)save
 {
-    NSString *fileName = [[NSBundle mainBundle] pathForResource:APP_SETTING ofType:PLIST];
-    [[self toDictionary] writeToFile:fileName atomically:YES];
+    [[self toDictionary] writeToFile:PlistFilePath(APP_SETTING) atomically:YES];
 }
 
 - (NSURL *)baseURL
