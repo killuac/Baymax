@@ -18,12 +18,18 @@
     self.navigationBar.titleLabel.string = NAV_TITLE_MAINTENANCE;
     [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
     [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_DROPDOWN];
+    
+    _orderService = [BMOrderService new];
 }
 
 - (void)loadData
 {
     [self.userService findAutomobiles:^(id service) {
         self.navigationBar.titleLabel.string = [self.userService.automobiles.firstObject titleName];
+    }];
+    
+    [self.orderService findAllItems:^(id service) {
+        
     }];
 }
 
@@ -41,6 +47,11 @@
 - (BMUserService *)userService
 {
     return ((BMTabBarScene *)(self.parent.parent)).userService;
+}
+
+- (NSArray *)allItems
+{
+    return self.orderService.allItems;
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item

@@ -19,13 +19,7 @@
 - (id)getNonRecursiveChildByName:(NSString *)name;
 - (id)getRecursiveChildByName:(NSString *)name;
 
-- (void)showTextTip:(NSString *)text;
-- (void)showTextTip:(NSString *)text withType:(BMTextTipType)type;
-- (void)removeTextTip;
-
-- (void)showActivityIndicator;
-- (void)showActivityBackground;
-- (void)removeActivityIndicator;
+- (void)setUserInteractionEnabledRecursively:(BOOL)userInteractionEnabled;
 
 - (void)runRotateForever;
 - (void)runFadeInWithBlock:(void(^)())block;

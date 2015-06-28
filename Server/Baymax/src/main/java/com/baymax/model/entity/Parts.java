@@ -26,6 +26,9 @@ public class Parts {
     private String partsName;
 
     @Column
+    private String imageName;
+
+    @Column
     private boolean obsolete;
 
     @OneToMany(mappedBy = "parts", cascade = CascadeType.ALL)

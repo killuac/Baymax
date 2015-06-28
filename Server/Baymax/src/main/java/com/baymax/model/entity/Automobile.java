@@ -76,10 +76,8 @@ public class Automobile {
         return autoModel.getOilCapacity();
     }
 
-    private final static Logger logger = LoggerFactory.getLogger(Automobile.class);
-
-    public String getLogoURL() {
-        return autoModel.getAutoSeries().getAutoBrand().getLogoURL();
+    public String getLogoName() {
+        return autoModel.getAutoSeries().getAutoBrand().getLogoName();
     }
 
     @JsonIgnore

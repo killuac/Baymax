@@ -7,8 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-import static com.baymax.common.CustomProperties.propertiesInstance;
-
 /**
  * Created by Killua on 5/22/15.
  */
@@ -49,17 +47,4 @@ public class PartsItem {
     @JoinColumn(name = "partsId", insertable = false, updatable = false)
     private Parts parts;
 
-    @JsonIgnore
-    public String getImageName() {
-        return imageName;
-    }
-
-    @JsonProperty
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
-
-    public String getImageURL() {
-        return propertiesInstance().getPartsBaseURL() + imageName;
-    }
 }

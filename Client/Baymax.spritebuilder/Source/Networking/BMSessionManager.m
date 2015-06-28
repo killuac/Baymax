@@ -30,44 +30,33 @@ static BMSessionManager *instanceOfSessionManager = nil;
             stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)showActivityIndicator
-{
-    [[CCDirector sharedDirector].runningScene showActivityIndicator];
-}
-
-- (void)removeActivityIndicator
-{
-    [[CCDirector sharedDirector].runningScene removeActivityIndicator];
-}
-
 - (AFHTTPRequestOperation *)GET:(NSURL *)url
                      parameters:(id)parameters
                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
     if (!url) return nil;
-    [self showActivityIndicator];
     
     return [self GET:url.absoluteString
           parameters:parameters
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 [self removeActivityIndicator];
                  success(operation, responseObject);
              }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"GET ERROR: %@", error);
-                 [self removeActivityIndicator];
+                 [BMActivityIndicator remove];
                  if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                      [self.delegate sessionManager:self didFailWithError:error];
                  }
              }];
 }
 
-- (AFHTTPRequestOperation *)GetResource:(NSURL *)url
+- (AFHTTPRequestOperation *)getResource:(NSURL *)url
                                 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
     self.responseSerializer = [AFHTTPResponseSerializer serializer];
     AFHTTPRequestOperation *operation = [self GET:url parameters:nil success:success];
     self.responseSerializer = [AFJSONResponseSerializer serializer];
+    
     return operation;
 }
 
@@ -76,17 +65,15 @@ static BMSessionManager *instanceOfSessionManager = nil;
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
     if (!url) return nil;
-    [self showActivityIndicator];
     
     return [self POST:url.absoluteString
            parameters:parameters
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  [self removeActivityIndicator];
                   success(operation, responseObject);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"POST ERROR: %@", error);
-                  [self removeActivityIndicator];
+                  [BMActivityIndicator remove];
                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                       [self.delegate sessionManager:self didFailWithError:error];
                   }
@@ -99,18 +86,16 @@ static BMSessionManager *instanceOfSessionManager = nil;
                          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
     if (!url) return nil;
-    [self showActivityIndicator];
     
     return [self POST:url.relativePath
            parameters:parameters
 constructingBodyWithBlock:block
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  [self removeActivityIndicator];
                   success(operation, responseObject);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"POST MULTIPART ERROR: %@", error);
-                  [self removeActivityIndicator];
+                  [BMActivityIndicator remove];
                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                       [self.delegate sessionManager:self didFailWithError:error];
                   }
@@ -122,17 +107,15 @@ constructingBodyWithBlock:block
                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 {
     if (!url) return nil;
-    [self showActivityIndicator];
     
     return [self PATCH:url.relativePath
             parameters:parameters
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                   [self removeActivityIndicator];
                    success(operation, responseObject);
                }
                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    NSLog(@"PATCH ERROR: %@", error);
-                   [self removeActivityIndicator];
+                   [BMActivityIndicator remove];
                    if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                        [self.delegate sessionManager:self didFailWithError:error];
                    }

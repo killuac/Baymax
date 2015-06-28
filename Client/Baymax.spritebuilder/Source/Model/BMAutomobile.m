@@ -7,7 +7,7 @@
 //
 
 #import "BMAutomobile.h"
-#import "BMUtil.h"
+#import "BMServerAPI.h"
 
 @implementation BMAutomobile
 
@@ -33,6 +33,11 @@
 - (NSString<Ignore> *)logoFile
 {
     return DocumentFilePath(self.logoURL.relativePath);
+}
+
+- (NSURL<Ignore> *)logoURL
+{
+    return (_logoName) ? (id)[[BMServerAPI sharedServerAPI].logoBaseURL URLByAppendingPathComponent:_logoName] : _logoName;
 }
 
 @end

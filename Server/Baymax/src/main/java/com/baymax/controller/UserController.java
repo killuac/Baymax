@@ -22,6 +22,7 @@ public class UserController {
 
     private final String REL_AUTOMOBILES = "automobiles";
     private final String REL_ADDRESSES   = "addresses";
+    
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
     private final UserService userService;
     private final EntityLinks entityLinks;

@@ -11,4 +11,8 @@
 
 @interface BMOrderService : BMBaseService
 
+@property (nonatomic, strong, readonly) NSArray *allItems;
+
+- (void)findAllItems:(void (^)(id service))result;
+
 @end

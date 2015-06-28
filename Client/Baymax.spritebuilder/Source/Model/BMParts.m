@@ -7,6 +7,7 @@
 //
 
 #import "BMParts.h"
+#import "BMServerAPI.h"
 
 @implementation BMParts
 
@@ -17,6 +18,11 @@
         @"_links.partsItems.href": @"partsItemsURL",
         @"_embedded.partsItems": @"partsItems"
     }];
+}
+
+- (NSURL<Ignore> *)imageURL
+{
+    return (_imageName) ? (id)[[BMServerAPI sharedServerAPI].partsBaseURL URLByAppendingPathComponent:_imageName] : _imageName;
 }
 
 @end

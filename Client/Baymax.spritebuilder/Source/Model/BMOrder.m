@@ -7,6 +7,7 @@
 //
 
 #import "BMOrder.h"
+#import "BMServerAPI.h"
 
 @implementation BMOrder
 
@@ -18,6 +19,11 @@
         @"needInvoice": @"isNeedInvoice",
         @"description": @"orderDescription"
     }];
+}
+
+- (NSURL<Ignore> *)autoLogoURL
+{
+    return (_autoLogoName) ? (id)[[BMServerAPI sharedServerAPI].logoBaseURL URLByAppendingPathComponent:_autoLogoName] : _autoLogoName;
 }
 
 @end

@@ -10,6 +10,8 @@
 #import "BMAutoBrand.h"
 #import "BMAutomobile.h"
 #import "BMAddress.h"
+#import "BMParts.h"
+#import "BMService.h"
 
 @interface BMContainer : JSONModel
 
@@ -18,5 +20,8 @@
 @property (nonatomic, strong) NSArray<BMAutoModel, Optional> *autoModels;
 @property (nonatomic, strong) NSMutableArray<BMAutomobile, Optional> *automobiles;
 @property (nonatomic, strong) NSMutableArray<BMAddress, Optional> *addresses;
+
+@property (nonatomic, strong) NSArray<BMParts, Optional> *partses;
+@property (nonatomic, strong) NSArray<BMService, Optional> *services;
 
 @end

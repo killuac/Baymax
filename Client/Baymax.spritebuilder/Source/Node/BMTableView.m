@@ -193,6 +193,7 @@
         // Rows may have different heights
         NSUInteger startSection = 0;
         NSUInteger startRow = 0;
+        NSUInteger iterateRow = 0;
         NSUInteger rowCount = 0;
         CGFloat currentRowPos = 0;
         
@@ -220,10 +221,16 @@
             deltaMargin += self.margin * 2;
         }
         
+        if (startRow == 0 && startSection == 0 && rowCount > 0) {
+            startRow = rowCount;
+            startSection = [self sectionCount];
+        }
+        
     find_end_row:
         // Find end row
+        iterateRow = startRow;
         for (NSUInteger section = startSection; section < [self sectionCount]; section++) {
-            for (NSUInteger row = startRow; row < rowCount + [self rowCountInSection:section]; row++) {
+            for (NSUInteger row = iterateRow; row < rowCount + [self rowCountInSection:section]; row++, iterateRow++) {
                 // Check if we are out of visible range
                 if (currentRowPos + deltaMargin > scrollPosition + tableHeight){
                     goto done_if;

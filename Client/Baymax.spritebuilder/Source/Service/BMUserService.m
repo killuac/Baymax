@@ -8,7 +8,6 @@
 
 #import "BMUserService.h"
 #import "BMAutomobileService.h"
-#import "SSZipArchive.h"
 
 @implementation BMUserService
 
@@ -32,24 +31,18 @@
     [_user.automobiles addObject:automobile];
 }
 
-- (void)downloadAllAutoLogos
-{
-    NSString *logoZipFile = DocumentFilePath(_user.logoZipURL.relativePath);
-    [[BMSessionManager sharedSessionManager] GetResource:_user.logoZipURL success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [responseObject writeToFile:logoZipFile atomically:YES];
-        [SSZipArchive unzipFileAtPath:logoZipFile toDestination:[logoZipFile stringByDeletingPathExtension]];
-        [[NSFileManager defaultManager] removeItemAtPath:logoZipFile error:nil];
-    }];
-}
-
 - (void)createWithData:(id)data result:(void (^)(id))result
 {
     NSURL *url = [BMServerAPI sharedServerAPI].usersURL;
+    
+    [BMActivityIndicator showWithText:TIP_SIGNING_UP];
     
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _user = [BMUser modelWithDictionary:responseObject];
         _response = operation.response;
         if (result) result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 
@@ -57,10 +50,14 @@
 {
     NSURL *url = [BMServerAPI sharedServerAPI].signInURL;
     
+    [BMActivityIndicator showWithText:TIP_SIGNING_IN];
+    
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _user = [BMUser modelWithDictionary:responseObject];
         _response = operation.response;
         if (result) result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 
@@ -68,10 +65,14 @@
 {
     NSURL *url = _user.automobilesURL;
     
+    [BMActivityIndicator show];
+    
     [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _user.automobiles = container.automobiles;
         result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 

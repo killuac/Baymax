@@ -27,6 +27,9 @@ public class Service {
     private double price;
 
     @Column
+    private String imageName;
+
+    @Column
     private String description;
 
     @Column

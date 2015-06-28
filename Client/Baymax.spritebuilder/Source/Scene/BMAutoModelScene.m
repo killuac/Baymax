@@ -65,8 +65,6 @@
             [[self selectedTabScene] reloadData:_autoService.automobile];
             [self dismissToRootSceneAnimated:YES];
         }];
-        
-        [self.scene showActivityBackground];
     }
 }
 

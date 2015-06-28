@@ -126,15 +126,13 @@
     
     [_userService signInWithData:user result:^(id service) {
         if (_userService.user.isNotFound) {
-            [self showTextTip:TIP_MOBILE_NOT_FOUND];
+            [BMTextTip showText:TIP_MOBILE_NOT_FOUND];
         } else if (_userService.user.isWrongPassword) {
-            [self showTextTip:TIP_PASSWORD_WRONG];
+            [BMTextTip showText:TIP_PASSWORD_WRONG];
         } else {
             [self showMainScene];
         }
     }];
-    
-    [self.scene showActivityBackground];
 }
 
 - (void)showMainScene
@@ -147,8 +145,6 @@
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFade]];
     
     [self saveUserCredential];
-    
-    [self.userService downloadAllAutoLogos];
 }
 
 - (void)saveUserCredential

@@ -20,18 +20,19 @@
 @property (nonatomic, copy) NSString *brandName;
 @property (nonatomic, copy) NSString *seriesName;
 @property (nonatomic, copy) NSString *modelName;
+@property (nonatomic, copy) NSString *logoName;
 @property (nonatomic, copy) NSString<Optional> *registrationPlate;
 @property (nonatomic, copy) NSString<Optional> *vinNumber;
 @property (nonatomic, assign) NSUInteger mileage;
 @property (nonatomic, assign) short oilCapacity;
 @property (nonatomic, assign) short maintenanceCount;
 @property (nonatomic, strong) NSDate<Optional> *createTime;
-@property (nonatomic, strong) NSURL *logoURL;
 
 @property (nonatomic, strong) BMAutoModel<Optional> *autoModel;
 
 @property (nonatomic, strong) NSString<Ignore> *titleName;
 @property (nonatomic, strong, readonly) NSString<Ignore> *logoFile;
+@property (nonatomic, strong, readonly) NSURL<Ignore> *logoURL;
 
 @property (nonatomic, strong) NSURL<Optional> *ordersURL;
 @property (nonatomic, strong) NSArray<BMOrder, Optional> *orders;

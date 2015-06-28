@@ -8,8 +8,6 @@
 
 #import "CCNode.h"
 
-#define NAME_TEXT_TIP   @"TextTip"
-
 typedef NS_ENUM(NSUInteger, BMTextTipType) {
     BMTextTipTypeError,
     BMTextTipTypeWarning,
@@ -24,6 +22,7 @@ typedef NS_ENUM(NSUInteger, BMTextTipType) {
 @property (nonatomic, weak, readonly) CCSprite *iconSprite;
 @property (nonatomic, weak, readonly) CCLabelTTF *textLabel;
 
-- (void)showText:(NSString *)text type:(BMTextTipType)type inNode:(CCNode *)node;
++ (void)showText:(NSString *)text;
++ (void)showText:(NSString *)text type:(BMTextTipType)type;
 
 @end

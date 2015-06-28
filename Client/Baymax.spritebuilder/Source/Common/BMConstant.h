@@ -54,6 +54,9 @@
 #define TIP_PASSWORD_WRONG          NSLocalizedString(@"密码错误", "")
 #define TIP_PASSWORD_INVALID        NSLocalizedString(@"密码含有非法字符", "")
 #define TIP_VCODE_WRONG             NSLocalizedString(@"验证码错误", "")
+#define TIP_INITIALIZATION          NSLocalizedString(@"初始化...", "")
+#define TIP_SIGNING_UP              NSLocalizedString(@"创建中...", "")
+#define TIP_SIGNING_IN              NSLocalizedString(@"登录中...", "")
 
 #define SWAP(a, b)                  (a ^= b, b ^= a, a ^= b)
 

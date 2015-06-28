@@ -8,13 +8,15 @@
 
 #import "CCNode.h"
 
-#define NAME_ACTIVITY_INDICATOR @"ActivityIndicator"
-
 @interface BMActivityIndicator : CCNode
 
 @property (nonatomic, weak, readonly) CCSprite *background;
 @property (nonatomic, weak, readonly) CCSprite *iconSprite;
+@property (nonatomic, weak, readonly) CCLabelTTF *textLabel;
 
-- (void)showInNode:(CCNode *)node;
++ (void)show;
++ (void)showWithText:(NSString *)text;
++ (void)showWithText:(NSString *)text userInteractionEnabled:(BOOL)userInteractionEnabled;
++ (void)remove;
 
 @end

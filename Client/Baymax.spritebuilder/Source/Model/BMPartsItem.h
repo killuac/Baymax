@@ -19,6 +19,7 @@
 @property (nonatomic, assign) double fourLiterPrice;
 @property (nonatomic, copy) NSString *brandName;
 @property (nonatomic, copy) NSString *partsItemDesc;
-@property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, copy) NSString *imageName;
+@property (nonatomic, strong, readonly) NSURL<Ignore> *imageURL;
 
 @end

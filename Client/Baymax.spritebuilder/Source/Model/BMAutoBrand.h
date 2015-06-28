@@ -17,8 +17,8 @@
 @property (nonatomic, assign) short brandId;
 @property (nonatomic, copy) NSString *brandName;
 @property (nonatomic, copy) NSString *logoName;
-@property (nonatomic, strong) NSURL *logoURL;
 
+@property (nonatomic, strong, readonly) NSURL<Ignore> *logoURL;
 @property (nonatomic, strong, readonly) NSString<Ignore> *logoFile;
 
 @property (nonatomic, strong) NSURL<Optional> *autoSeriesesURL;

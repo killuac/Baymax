@@ -15,7 +15,7 @@
 {
     [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (AFNetworkReachabilityStatusNotReachable == status) {
-            [[CCDirector sharedDirector].runningScene showTextTip:TIP_CONNECTION_FAILED withType:BMTextTipTypeWarning];
+            [BMTextTip showText:TIP_CONNECTION_FAILED type:BMTextTipTypeWarning];
         }
     }];
 }

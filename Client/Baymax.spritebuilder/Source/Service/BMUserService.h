@@ -23,6 +23,4 @@
 
 - (void)findAutomobiles:(void (^)(id service))result;
 
-- (void)downloadAllAutoLogos;
-
 @end

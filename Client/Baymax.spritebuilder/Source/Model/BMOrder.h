@@ -41,7 +41,9 @@ typedef NS_ENUM(ushort, BMOrderStatus) {
 @property (nonatomic, copy) NSString *paymentName;
 @property (nonatomic, copy) NSString *detailAddress;
 @property (nonatomic, copy) NSString *orderDescription;
-@property (nonatomic, strong) NSURL *autoLogoURL;
+
+@property (nonatomic, copy) NSString *autoLogoName;
+@property (nonatomic, strong) NSURL<Ignore> *autoLogoURL;
 
 @property (nonatomic, strong) NSArray<BMOrderItem> *orderItems;
 

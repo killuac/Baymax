@@ -97,15 +97,13 @@
     
     [self.userService createWithData:user result:^(id service) {
         if (self.userService.user.isMobileTaken) {
-            [self showTextTip:TIP_MOBILE_TAKEN];
+            [BMTextTip showText:TIP_MOBILE_TAKEN];
         } else if (self.userService.user.isWrongVcode) {
-            [self showTextTip:TIP_VCODE_WRONG];
+            [BMTextTip showText:TIP_VCODE_WRONG];
         } else {
             [self showMainScene];
         }
     }];
-    
-    [self.scene showActivityBackground];
 }
 
 @end

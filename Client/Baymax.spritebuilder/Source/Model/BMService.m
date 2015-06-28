@@ -7,6 +7,7 @@
 //
 
 #import "BMService.h"
+#import "BMServerAPI.h"
 
 @implementation BMService
 
@@ -16,6 +17,11 @@
     {
         @"description": @"serviceDesc"
     }];
+}
+
+- (NSURL<Ignore> *)imageURL
+{
+    return (_imageName) ? (id)[[BMServerAPI sharedServerAPI].partsBaseURL URLByAppendingPathComponent:_imageName] : _imageName;
 }
 
 @end

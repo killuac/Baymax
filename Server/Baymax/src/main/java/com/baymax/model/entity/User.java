@@ -9,15 +9,12 @@ import lombok.Setter;
 import org.hibernate.annotations.Where;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Random;
-
-import static com.baymax.common.CustomProperties.propertiesInstance;
 
 /**
  * Created by Killua on 4/29/15.
@@ -109,27 +106,5 @@ public class User implements Identifiable<Integer> {    // For creating resource
     public String randomAnUserName() {
         return Constant.PREFIX_RANDOM_USER +
                 (long)(new Random(Long.parseLong(mobile)).nextDouble()*Math.pow(10, 16));
-    }
-
-    @JsonIgnore
-    public String getAvatarName() {
-        return avatarName;
-    }
-
-    @JsonProperty
-    public void setAvatarName(String avatarName) {
-        this.avatarName = avatarName;
-    }
-
-    public String getAvatarURL() {
-        return (null != avatarName) ? propertiesInstance().getAvatarBaseURL() + avatarName : "";
-    }
-
-    public String getLogoZipURL() {
-        return propertiesInstance().getLogoZipURL();
-    }
-
-    public String getPartsZipURL() {
-        return propertiesInstance().getPartsZipURL();
     }
 }

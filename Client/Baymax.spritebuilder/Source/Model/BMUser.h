@@ -20,15 +20,13 @@
 @property (nonatomic, copy) NSString<Optional> *realName;
 @property (nonatomic, copy) NSString<Optional> *email;
 @property (nonatomic, strong) NSDate<Optional> *createTime;
-@property (nonatomic, strong) NSURL<Optional> *avatarURL;
+@property (nonatomic, copy) NSString<Optional> *avatarName;
+@property (nonatomic, strong, readonly) NSURL<Ignore> *avatarURL;
 
 @property (nonatomic, assign) BOOL isNotFound;
 @property (nonatomic, assign) BOOL isMobileTaken;
 @property (nonatomic, assign) BOOL isWrongPassword;
 @property (nonatomic, assign) BOOL isWrongVcode;
-
-@property (nonatomic, strong) NSURL *logoZipURL;
-@property (nonatomic, strong) NSURL *partsZipURL;
 
 @property (nonatomic, strong) NSURL<Optional> *automobilesURL;
 @property (nonatomic, strong) NSURL<Optional> *addressesURL;

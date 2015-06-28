@@ -38,38 +38,15 @@
     return [self getChildByName:name recursively:YES];
 }
 
-- (void)showTextTip:(NSString *)text
+- (void)setUserInteractionEnabledRecursively:(BOOL)userInteractionEnabled
 {
-    [self showTextTip:text withType:BMTextTipTypeError];
-}
-
-- (void)showTextTip:(NSString *)text withType:(BMTextTipType)type
-{
-    BMTextTip *textTip = (BMTextTip *)[CCBReader load:NAME_TEXT_TIP];
-    [textTip showText:text type:type inNode:self];
-}
-
-- (void)removeTextTip
-{
-    [self removeActivityIndicator];
-    [self removeChildByName:NAME_TEXT_TIP];
-}
-
-- (void)showActivityIndicator
-{
-    BMActivityIndicator *activityIndicator = (BMActivityIndicator *)[CCBReader load:NAME_ACTIVITY_INDICATOR];
-    [activityIndicator showInNode:self];
-}
-
-- (void)showActivityBackground
-{
-    BMActivityIndicator *activityIndicator = (BMActivityIndicator *)[self getChildByName:NAME_ACTIVITY_INDICATOR recursively:YES];
-    activityIndicator.background.opacity = 1;
-}
-
-- (void)removeActivityIndicator
-{
-    [self removeChildByName:NAME_ACTIVITY_INDICATOR];
+    for (id node in self.children) {
+        if ([node isKindOfClass:[CCButton class]]) {
+            [node setUserInteractionEnabled:userInteractionEnabled];
+        } else {
+            [node setUserInteractionEnabledRecursively:userInteractionEnabled];
+        }
+    }
 }
 
 #pragma mark - Animation

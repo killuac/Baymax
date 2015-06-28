@@ -99,8 +99,8 @@ public class Order {
     private Rating rating;
 
 
-    public String getAutoLogoURL() {
-        return automobile.getLogoURL();
+    public String getAutoLogoName() {
+        return automobile.getLogoName();
     }
 
     public String getStatusName() {

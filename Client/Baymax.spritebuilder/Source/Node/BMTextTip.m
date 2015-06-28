@@ -9,15 +9,33 @@
 #import "BMTextTip.h"
 #import "BMConstant.h"
 
+#define NAME_TEXT_TIP   @"TextTip"
+
 @implementation BMTextTip
 
-- (void)showText:(NSString *)text type:(BMTextTipType)type inNode:(CCNode *)node
++ (void)showText:(NSString *)text
 {
-    [node removeTextTip];
+    [self showText:text type:BMTextTipTypeError];
+}
+
++ (void)showText:(NSString *)text type:(BMTextTipType)type
+{
+    [self removeText];
     
+    BMTextTip *textTip = (BMTextTip *)[CCBReader load:NAME_TEXT_TIP];
+    [textTip showText:text type:type inScece:[CCDirector sharedDirector].runningScene];
+}
+
++ (void)removeText
+{
+    [[CCDirector sharedDirector].runningScene removeChildByName:NAME_TEXT_TIP];
+}
+
+- (void)showText:(NSString *)text type:(BMTextTipType)type inScece:(CCScene *)scene;
+{
     self.position = SCREEN_CENTER;
-    _textLabel.string = text;
-    [node addChild:self z:1000 name:NAME_TEXT_TIP];
+    self.textLabel.string = text;
+    [scene addChild:self z:1000 name:NAME_TEXT_TIP];
     
     NSString *imageName = nil;
     switch (type) {
@@ -45,7 +63,7 @@
     
     [self scheduleBlock:^(CCTimer *timer) {
         [self.background runFadeOutWithBlock:^{
-            [node removeTextTip];
+            [self.class removeText];
         }];
     } delay:2];
 }

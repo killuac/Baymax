@@ -7,7 +7,6 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-#import "BMUtil.h"
 #import "BMServerAPI.h"
 
 @class BMSessionManager;
@@ -43,7 +42,7 @@
                        parameters:(id)parameters
                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success;
 
-- (AFHTTPRequestOperation *)GetResource:(NSURL *)url
+- (AFHTTPRequestOperation *)getResource:(NSURL *)url
                                 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success;
 
 @end

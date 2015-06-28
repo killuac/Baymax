@@ -7,6 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
+#import "BMAppSetting.h"
 
 @interface BMServerAPI : JSONModel
 
@@ -25,8 +26,16 @@
 @property (nonatomic, strong) NSURL *paymentsURL;
 @property (nonatomic, strong) NSURL *ratingsURL;
 
+@property (nonatomic, strong) NSURL *logoBaseURL;
+@property (nonatomic, strong) NSURL *logoZipURL;
+@property (nonatomic, strong) NSURL *partsBaseURL;
+@property (nonatomic, strong) NSURL *partsZipURL;
+@property (nonatomic, strong) NSURL *avatarBaseURL;
+
 + (instancetype)sharedServerAPI;
 
 + (void)writeAPIFile;
+
+- (void)downloadAllAutoLogos;
 
 @end

@@ -19,6 +19,8 @@
     _selectedScene = _scenes.firstObject;
     _tabBar.delegate = self;
     
+    self.userService = [BMUserService new];
+    
 //    id actions = [CCActionSequence actionWithArray:@
 //                  [[CCActionTween actionWithDuration:0.4 key:@"roll" from:0.0f to:M_PI_2],
 //                   //                   [CCActionCallFunc actionWithTarget:self selector:@selector(swapImage)],
@@ -29,7 +31,6 @@
 - (void)loadData
 {
     if ([BMCredential sharedCredential].isSignedIn) {
-        self.userService = [BMUserService new];
         BMUser *user = [BMUser new];
         user.mobile = [BMCredential sharedCredential].mobile;
         user.password = [BMCredential sharedCredential].password;
@@ -45,6 +46,7 @@
     _selectedScene = [_scenesBox getNonRecursiveChildByName:item.name];
     _selectedScene.visible = YES;
     
+    [BMActivityIndicator remove];
     [_selectedScene loadData];
 }
 

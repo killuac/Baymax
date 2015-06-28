@@ -8,11 +8,16 @@
 
 #import <JSONModel/JSONModel.h>
 
+@protocol BMService <NSObject>
+@end
+
 @interface BMService : JSONModel
 
 @property (nonatomic, assign) short serviceId;
 @property (nonatomic, assign) double price;
 @property (nonatomic, copy) NSString *serviceName;
 @property (nonatomic, copy) NSString *serviceDesc;
+@property (nonatomic, copy) NSString *imageName;
+@property (nonatomic, strong, readonly) NSURL<Ignore> *imageURL;
 
 @end

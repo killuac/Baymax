@@ -7,6 +7,7 @@
 //
 
 #import "BMUser.h"
+#import "BMServerAPI.h"
 
 @implementation BMUser
 
@@ -31,6 +32,11 @@
         return [obj1 compare:obj2];
     }];
     _automobiles = automobiles;
+}
+
+- (NSURL<Ignore> *)avatarURL
+{
+    return (_avatarName) ? (id)[[BMServerAPI sharedServerAPI].avatarBaseURL URLByAppendingPathComponent:_avatarName] : _avatarName;
 }
 
 @end

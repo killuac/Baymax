@@ -22,15 +22,22 @@
 {
     NSURL *url = [BMServerAPI sharedServerAPI].automobilesURL;
     
+    [BMActivityIndicator show];
+    
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _automobile = [BMAutomobile modelWithDictionary:responseObject];
         _response = operation.response;
+        result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 
 - (void)findAllBrands:(void (^)(id))result
 {
     NSURL *url = [BMServerAPI sharedServerAPI].autoBrandsURL;
+    
+    [BMActivityIndicator show];
     
     [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
@@ -39,12 +46,20 @@
         
         [_autoBrands enumerateObjectsUsingBlock:^(BMAutoBrand *autoBrand, NSUInteger idx, BOOL *stop) {
             if (![[NSFileManager defaultManager] fileExistsAtPath:autoBrand.logoFile]) {
-                [[BMSessionManager sharedSessionManager] GetResource:autoBrand.logoURL
+                [[BMSessionManager sharedSessionManager] getResource:autoBrand.logoURL
                                                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     [responseObject writeToFile:autoBrand.logoFile atomically:YES];
+                    if (idx+1 == _autoBrands.count) {
+                        result(self);
+                        [BMActivityIndicator remove];
+                    }
                 }];
+            } else {
+                if (idx+1 == _autoBrands.count) {
+                    result(self);
+                    [BMActivityIndicator remove];
+                }
             }
-            if (idx+1 == _autoBrands.count) result(self);
         }];
     }];
 }
@@ -52,6 +67,8 @@
 - (void)findOneBrandSerieses:(void (^)(id))result
 {
     NSURL *url = _selectedBrand.autoSeriesesURL;
+    
+    [BMActivityIndicator show];
     
     [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
@@ -63,12 +80,16 @@
         }
         
         result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 
 - (void)findOneSeriesModels:(void (^)(id))result
 {
     NSURL *url = _selectedSeries.autoModelsURL;
+    
+    [BMActivityIndicator show];
     
     [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
@@ -80,6 +101,8 @@
         }
         
         result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 
