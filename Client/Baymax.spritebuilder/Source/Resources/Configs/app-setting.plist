@@ -7,7 +7,7 @@
 		<key>protocol</key>
 		<string>http</string>
 		<key>host</key>
-		<string>115.29.190.0</string>
+		<string>localhost</string>
 		<key>port</key>
 		<real>8080</real>
 	</dict>

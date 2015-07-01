@@ -50,14 +50,14 @@
                                                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     [responseObject writeToFile:autoBrand.logoFile atomically:YES];
                     if (idx+1 == _autoBrands.count) {
-                        result(self);
                         [BMActivityIndicator remove];
+                        result(self);
                     }
                 }];
             } else {
                 if (idx+1 == _autoBrands.count) {
-                    result(self);
                     [BMActivityIndicator remove];
+                    result(self);
                 }
             }
         }];

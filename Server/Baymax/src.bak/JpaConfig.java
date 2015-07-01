@@ -23,11 +23,10 @@ import javax.sql.DataSource;
  * Created by Killua on 5/3/15.
  */
 
-@Deprecated
-//@Configuration
-//@ComponentScan
-//@EnableTransactionManagement
-//@EnableWebMvc
+@Configuration
+@ComponentScan
+@EnableTransactionManagement
+@EnableWebMvc
 public class JpaConfig extends AbstractDispatcherServletInitializer {
 
     @Override
@@ -47,7 +46,7 @@ public class JpaConfig extends AbstractDispatcherServletInitializer {
 
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
-        HikariConfig config = new HikariConfig("/database.properties");
+        HikariConfig config = new HikariConfig("/src.bak/database.properties");
         return new HikariDataSource(config);
     }
 

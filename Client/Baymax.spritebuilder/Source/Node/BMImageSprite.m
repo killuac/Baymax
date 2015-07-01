@@ -19,13 +19,15 @@
 
 - (void)setSpriteFrame:(CCSpriteFrame *)spriteFrame
 {
-    [super setSpriteFrame:spriteFrame];
-    
     CGFloat indent = [self tableViewCell].indentWidth;
-    self.parent.position = ccp(indent, self.parent.position.y);
     
-    CGFloat height = [self tableViewCell].contentSize.height - indent;
-    self.contentSize = CGSizeMake(height, height);
+    if (spriteFrame) {
+        [super setSpriteFrame:spriteFrame];
+        self.parent.position = ccp(indent, self.parent.position.y);
+        
+        CGFloat height = [self tableViewCell].contentSize.height - indent;
+        self.contentSize = CGSizeMake(height, height);
+    }
     
     CCLayoutBox *box = (CCLayoutBox *)self.parent;
     if (!box) return;

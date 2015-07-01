@@ -20,12 +20,6 @@
     _tabBar.delegate = self;
     
     self.userService = [BMUserService new];
-    
-//    id actions = [CCActionSequence actionWithArray:@
-//                  [[CCActionTween actionWithDuration:0.4 key:@"roll" from:0.0f to:M_PI_2],
-//                   //                   [CCActionCallFunc actionWithTarget:self selector:@selector(swapImage)],
-//                   [CCActionTween actionWithDuration:0.4 key:@"roll" from:M_PI_2 to:M_PI]]];
-//    [self runAction:actions];
 }
 
 - (void)loadData

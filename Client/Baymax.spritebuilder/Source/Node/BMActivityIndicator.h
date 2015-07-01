@@ -18,5 +18,6 @@
 + (void)showWithText:(NSString *)text;
 + (void)showWithText:(NSString *)text userInteractionEnabled:(BOOL)userInteractionEnabled;
 + (void)remove;
++ (void)resumeAnimation;
 
 @end

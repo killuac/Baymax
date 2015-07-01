@@ -35,12 +35,14 @@
 {
     if (self = [super init]) {
         _indentWidth = 10.0f;
+        _selectionStyle = BMTableViewCellSelectionStyleBlue;
+        _allowsSelection = YES;
     }
     return self;
 }
 
 - (void)didLoadFromCCB
-{
+{    
 //  Set border line content size
     CGFloat width = self.contentSize.width + 2;
     _borderLine.contentSize = CGSizeMake(width/self.contentSize.width, 1.04);
@@ -103,11 +105,13 @@
 {
     NSString *imageName = nil;
     
-    _accessoryButton.userInteractionEnabled = NO;
-    
     switch (_accessoryType) {
-        case BMTableViewCellAccessoryNone:
-            _accessoryButton.visible = NO; return;
+        case BMTableViewCellAccessoryNone: {
+            _accessoryButton.visible = NO;
+            CGSize size = _valueLabelsBox.contentSize;
+            _valueLabelsBox.contentSize = CGSizeMake(size.width+20, size.height);
+            return;
+        }
             break;
             
         case BMTableViewCellAccessoryCheckmark:
@@ -120,7 +124,7 @@
             break;
             
         case BMTableViewCellAccessoryDetailDisclosureButton:
-            imageName = IMG_FILE_NAME(@"detail_disclosure_button");
+            imageName = IMG_FILE_NAME(@"button_detail_disclosure");
             _accessoryButton.userInteractionEnabled = YES;
             break;
     }
@@ -134,18 +138,54 @@
     [_accessoryButton setBackgroundColor:[CCColor whiteColor] forState:CCControlStateHighlighted];
 }
 
+- (void)setAccessoryType:(BMTableViewCellAccessoryType)accessoryType
+{
+    _accessoryType = accessoryType;
+    [self setupAccessoryType];
+}
+
+- (void)setSelectionStyle:(BMTableViewCellSelectionStyle)selectionStyle
+{
+    switch (selectionStyle) {
+        case BMTableViewCellSelectionStyleNone:
+            [_contentButton setBackgroundColor:[CCColor whiteColor] forState:CCControlStateHighlighted];
+            break;
+            
+        case BMTableViewCellSelectionStyleGray:
+            [_contentButton setBackgroundColor:[CCColor lightGrayColor] forState:CCControlStateHighlighted];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setAllowsSelection:(BOOL)allowsSelection
+{
+    _contentButton.enabled = _allowsSelection = allowsSelection;
+    
+    if (!allowsSelection) {
+        _detailTextLabel.fontColor = [CCColor lightGrayColor];
+    }
+}
+
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
     _indexPath = indexPath;
     
     [self layout];
     
-    _contentButton.enabled = !self.editing;
+    _contentButton.enabled = (_allowsSelection && !self.editing);
+    
     if (self.editing) {
         _nodesBox.spacing = 0;
         [_textLabel removeFromParent]; _textLabel = nil;
         [_valueLabelsBox removeFromParent]; _valueLabelsBox = nil;
         [_subtitleLabelsBox removeFromParent]; _subtitleLabelsBox = nil;
+        if (!_imageSprite.spriteFrame) {
+            [_imageSprite removeFromParent];
+            _textField.preferredSize = CGSizeMake(_textField.preferredSize.width+40, self.contentSizeInPoints.height);
+        }
     } else {
         [_textField removeFromParent]; _textField = nil;
     }
@@ -198,6 +238,11 @@
         CGFloat width = _valueLabelsBox.contentSize.width - (preSize.width - contentSize.width);
         _valueLabelsBox.contentSize = CGSizeMake(width, _valueLabelsBox.contentSize.height);
     }
+    
+    if (_textField) {
+        CGFloat width = _textField.preferredSize.width - (preSize.width - contentSize.width);
+        _textField.preferredSize = CGSizeMake(width, _textField.contentSize.height);
+    }
 }
 
 - (void)setHighlighted:(BOOL)highlighted
@@ -210,10 +255,16 @@
     }];
     
     _accessoryButton.highlighted = highlighted;
+    
+    if (!highlighted && self.selected) {
+        self.selected = YES;
+    }
 }
 
 - (void)setSelected:(BOOL)selected
 {
+    [self tableView].selectedIndexPath = _indexPath;
+    
     [[self getAllChildren] enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
         if ([node isMemberOfClass:[CCLabelTTF class]]) {
             CCColor *color = (selected) ? SELECTED_COLOR : _properties[@([node hash])];
@@ -221,17 +272,23 @@
         }
     }];
     
-    _contentButton.selected = selected;
-    _accessoryButton.visible = _accessoryButton.selected = selected;
+    _selected = _contentButton.selected = selected;
+    _accessoryButton.selected = selected;
+    _accessoryButton.visible = selected;
 }
 
-- (void)selected:(BMCellButton *)button
+- (void)selectCell:(BMCellButton *)button
 {
     if (BMTableViewCellAccessoryCheckmark == _accessoryType) {
-        [[self tableView] selectedCell].selected = NO;
-        self.selected = YES;
+        if (!button.selected) {
+            [[self tableView] selectedCell].selected = NO;
+            [[self tableView] selectRowAtIndexPath:_indexPath];
+        } else {
+            [[self tableView] deselectRowAtIndexPath:_indexPath];
+        }
+    } else {
+        [[self tableView] selectRowAtIndexPath:_indexPath];
     }
-    [[self tableView] selectRowAtIndexPath:_indexPath];
 }
 
 - (BOOL)editing

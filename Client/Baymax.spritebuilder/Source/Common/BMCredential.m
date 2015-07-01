@@ -7,7 +7,6 @@
 //
 
 #import "BMCredential.h"
-#import "BMUtil.h"
 
 #define JSON_CREDENTIAL @"credential.json"
 

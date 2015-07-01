@@ -14,9 +14,10 @@
 - (id)init
 {
     if (self = [super init]) {
-        self.navigationBar.delegate = self;
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOBRAND;
         self.navigationBar.leftBarItem.title = BUTTON_TITLE_CANCEL;
+        
+        [_tableView setupWithStyle:BMTableViewStyleGrouped];
         
         _autoService = [BMAutomobileService new];
     }
@@ -30,16 +31,11 @@
 
 - (void)loadData
 {
-    if (self.autoBrands) return;
+    if (self.autoBrands.count) return;
     
     [_autoService findAllBrands:^(id service) {
         [self reloadData];
     }];
-}
-
-- (void)reloadData
-{
-    [self.tableView reloadData];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item

@@ -10,15 +10,17 @@
 
 @implementation BMOrderService
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _partsService = [BMPartsService new];
+    }
+    return self;
+}
+
 - (void)findAllItems:(void (^)(id))result
 {
-    NSURL *url = [BMServerAPI sharedServerAPI].partsBaseURL;
-    
-    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
-        _response = operation.response;
-        _allItems = [NSMutableArray arrayWithArray:container.partses];
-        
+    [_partsService findAll:^(id service) {
         [self findAllServices:result];
     }];
 }
@@ -31,11 +33,13 @@
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _response = operation.response;
         
-        NSMutableArray *items = [NSMutableArray arrayWithArray:_allItems];
+        NSMutableArray *items = [NSMutableArray arrayWithArray:_partsService.allPartses];
         [items addObjectsFromArray:container.services];
         _allItems = items;
         
         result(self);
+        
+        [BMActivityIndicator remove];
     }];
 }
 

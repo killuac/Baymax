@@ -16,9 +16,28 @@
         _navigationBar = (BMNavigationBar *)[CCBReader load:@"NavigationBar"];
         _navigationBar.positionType = CCPositionTypeNormalized;
         _navigationBar.position = ccp(0.5, 1);
+        _navigationBar.delegate = self;
         [self addChild:_navigationBar z:100];
     }
     return self;
+}
+
+- (void)onEnterTransitionDidFinish
+{
+    [super onEnterTransitionDidFinish];
+    
+    if ([_delegate respondsToSelector:@selector(navigationScene:didShowFrom:)]) {
+        [_delegate navigationScene:self didShowFrom:self.scene.lastScene.children.firstObject];
+    }
+}
+
+- (void)onExitTransitionDidStart
+{
+    [super onExitTransitionDidStart];
+    
+    if ([_delegate respondsToSelector:@selector(navigationSceneDidPop:)]) {
+        [_delegate navigationSceneDidPop:self];
+    }
 }
 
 - (void)pushSceneWithName:(NSString *)sceneName animated:(BOOL)animated
@@ -36,6 +55,20 @@
     } else {
         [[CCDirector sharedDirector] pushScene:scene];
     }
+    
+    [self scheduleBlock:^(CCTimer *timer) {
+        BMNavigationScene *navScene = scene.children.firstObject;
+        [navScene.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
+    } delay:DURATION_SCENE_TRANSITION];
+}
+
+- (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
+{
+    if ([_delegate respondsToSelector:@selector(navigationSceneDidPop:)]) {
+        [_delegate navigationSceneDidPop:self];
+    }
+    
+    [self popSceneAnimated:YES];
 }
 
 - (void)popSceneAnimated:(BOOL)animated

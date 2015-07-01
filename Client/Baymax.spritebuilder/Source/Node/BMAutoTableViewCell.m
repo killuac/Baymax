@@ -12,7 +12,7 @@
 
 + (instancetype)cellWithStyle:(BMTableViewCellStyle)style accessoryType:(BMTableViewCellAccessoryType)accessoryType
 {
-    id cell = [BMAutoTableViewCell cellWithCCBNamed:@"AutoTableViewCell" Style:style];
+    BMAutoTableViewCell *cell = [BMAutoTableViewCell cellWithCCBNamed:@"AutoTableViewCell" Style:style];
     [cell setAccessoryType:accessoryType];
     return cell;
 }

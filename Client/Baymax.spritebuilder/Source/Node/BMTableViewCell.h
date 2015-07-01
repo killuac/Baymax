@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, BMTableViewCellAccessoryType) {
 
 typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
     BMTableViewCellSelectionStyleNone,
-    BMTableViewCellSelectionStyleBlue,
+    BMTableViewCellSelectionStyleBlue,  // default
     BMTableViewCellSelectionStyleGray,
 };
 
@@ -56,12 +56,14 @@ typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
 
 @property (nonatomic, readonly) BMTableViewCellStyle style;
 @property (nonatomic, assign) BMTableViewCellAccessoryType accessoryType;
+@property (nonatomic, assign) BMTableViewCellSelectionStyle selectionStyle;
+@property (nonatomic, assign) BOOL allowsSelection;
 @property (nonatomic, assign) CGFloat indentWidth;  // Width for each level. default is 10.0
 
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) BOOL highlighted;
 @property (nonatomic, assign, readonly) BOOL editing;
 
-- (void)selected:(BMCellButton *)button;
+- (void)selectCell:(BMCellButton *)button;
 
 @end

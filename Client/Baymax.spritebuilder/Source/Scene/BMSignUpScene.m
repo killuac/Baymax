@@ -10,7 +10,7 @@
 
 @implementation BMSignUpScene {
     __weak CCTextField *_vcodeTextField;
-    __weak CCButton *_sendButton;
+    __weak CCButton *_fetchVcodeButton;
 }
 
 - (void)didLoadFromCCB
@@ -27,23 +27,21 @@
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (2 == indexPath.row) {
-        BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryNone];
+        BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDetailDisclosureButton];
         cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"icon_verification_code.png")];
         
         CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"button_accessory.png")];
         CCSprite *sprite = [CCSprite spriteWithSpriteFrame:spriteFrame];
-        _sendButton = cell.accessoryButton;
-        _sendButton.title = BUTTON_TITLE_FETCH_VCODE;
-        _sendButton.position = ccpAdd(cell.accessoryButton.position, ccp(5, 0));
-        _sendButton.preferredSize = cell.accessoryButton.maxSize = sprite.contentSize;
-        [_sendButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
-        _sendButton.visible = YES;
-        _sendButton.enabled= NO;
-        _sendButton.userInteractionEnabled = cell.accessoryButton.togglesSelectedState = YES;
-        [_sendButton setTarget:self selector:@selector(fetchVerificationCode:)];
+        _fetchVcodeButton = cell.accessoryButton;
+        _fetchVcodeButton.title = BUTTON_TITLE_FETCH_VCODE;
+        _fetchVcodeButton.position = ccpAdd(cell.accessoryButton.position, ccp(5, 0));
+        _fetchVcodeButton.preferredSize = cell.accessoryButton.maxSize = sprite.contentSize;
+        [_fetchVcodeButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
+        cell.accessoryButton.togglesSelectedState = YES;
+        [_fetchVcodeButton setTarget:self selector:@selector(fetchVerificationCode:)];
         
         _vcodeTextField = cell.textField;
-        CGFloat width = _vcodeTextField.contentSize.width - _sendButton.preferredSize.width;
+        CGFloat width = _vcodeTextField.contentSize.width - (_fetchVcodeButton.preferredSize.width+15);
         _vcodeTextField.preferredSize = CGSizeMake(width, _vcodeTextField.preferredSize.height);
         _vcodeTextField.maxLength = VERIFICATION_CODE_LENGTH;
         
@@ -72,7 +70,7 @@
 - (void)update:(CCTime)delta
 {
     [super update:delta];
-    _sendButton.enabled = (_mobileTextField.string.length == MOBILE_MAX_LENGTH);
+    _fetchVcodeButton.enabled = (_mobileTextField.string.length == MOBILE_MAX_LENGTH);
     _signButton.enabled = (_signButton.enabled && (_vcodeTextField.string.length == VERIFICATION_CODE_LENGTH));
 }
 

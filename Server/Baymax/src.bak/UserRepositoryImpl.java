@@ -16,9 +16,8 @@ import java.util.List;
  * Created by Killua on 4/29/15.
  */
 
-@Deprecated
 @Repository
-public abstract class UserRepositoryImpl implements UserRepository {
+public class UserRepositoryImpl implements UserRepository {
 
     private EntityManager entityManager;
 

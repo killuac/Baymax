@@ -18,22 +18,19 @@
     self.navigationBar.delegate = self;
     self.navigationBar.titleLabel.string = NAV_TITLE_AUTOMOBILE;
     [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
+    
+    [_tableView setupWithStyle:BMTableViewStyleGrouped];
 }
 
 - (void)loadData
 {
-    if (self.automobiles) {
+    if (self.automobiles.count) {
         [self reloadData]; return;
     }
     
     [self.userService findAutomobiles:^(id service) {
         [self reloadData];
     }];
-}
-
-- (void)reloadData
-{
-    [self.tableView reloadData];
 }
 
 - (void)reloadData:data

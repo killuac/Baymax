@@ -82,4 +82,10 @@
     }
 }
 
+- (void)onExitTransitionDidStart
+{
+    [super onExitTransitionDidStart];
+    [BMActivityIndicator resumeAnimation];
+}
+
 @end

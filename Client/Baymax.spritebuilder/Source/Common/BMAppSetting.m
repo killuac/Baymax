@@ -9,7 +9,6 @@
 #import "BMAppSetting.h"
 
 #define APP_SETTING @"app-setting"
-#define PLIST       @"plist"
 
 @implementation BMServer
 

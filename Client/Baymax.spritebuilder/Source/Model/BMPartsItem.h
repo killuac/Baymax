@@ -20,6 +20,13 @@
 @property (nonatomic, copy) NSString *brandName;
 @property (nonatomic, copy) NSString *partsItemDesc;
 @property (nonatomic, copy) NSString *imageName;
+
+@property (nonatomic, assign) NSNumber<Ignore> *selected;
+@property (nonatomic, strong) NSNumber<Ignore> *totalPrice;
+
 @property (nonatomic, strong, readonly) NSURL<Ignore> *imageURL;
+@property (nonatomic, strong, readonly) NSString<Ignore> *imageFile;
+
+- (BOOL)isSelected;
 
 @end

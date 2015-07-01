@@ -37,6 +37,14 @@
     [self.runningScene setUserInteractionEnabledRecursively:YES];
 }
 
++ (void)resumeAnimation
+{
+    BMActivityIndicator *indicator = (id)[self.runningScene.lastScene getChildByName:NAME_ACTIVITY_INDICATOR recursively:NO];
+    if (indicator) {
+        [indicator.iconSprite runRotateForever];
+    }
+}
+
 + (CCScene *)runningScene
 {
     return [CCDirector sharedDirector].runningScene;
@@ -44,21 +52,21 @@
 
 - (void)showText:(NSString *)text userInteractionEnabled:(BOOL)userInteractionEnabled inScene:(CCScene *)scene
 {
-    if (![scene getChildByName:NAME_ACTIVITY_INDICATOR recursively:NO]) {
-        self.position = SCREEN_CENTER;
-        self.textLabel.string = text;
-        self.background.visible = text.length > 0;
-        [_iconSprite runRotateForever];
-        [scene addChild:self z:1000 name:NAME_ACTIVITY_INDICATOR];
-        
-        if (!userInteractionEnabled) {
-            [self.class.runningScene setUserInteractionEnabledRecursively:NO];
-            CCNodeColor *maskNode = [CCNodeColor nodeWithColor:[CCColor blackColor]];
-            maskNode.opacity = 0.3;
-            maskNode.contentSizeType = CCSizeTypeNormalized;
-            maskNode.contentSize = CGSizeMake(1, 1);
-            [scene addChild:maskNode z:100 name:NAME_MASK_NODE];
-        }
+    [BMActivityIndicator remove];
+    
+    self.position = SCREEN_CENTER;
+    self.textLabel.string = text;
+    self.background.visible = text.length > 0;
+    [_iconSprite runRotateForever];
+    [scene addChild:self z:1000 name:NAME_ACTIVITY_INDICATOR];
+    
+    if (!userInteractionEnabled) {
+        [self.class.runningScene setUserInteractionEnabledRecursively:NO];
+        CCNodeColor *maskNode = [CCNodeColor nodeWithColor:[CCColor blackColor]];
+        maskNode.opacity = 0.3;
+        maskNode.contentSizeType = CCSizeTypeNormalized;
+        maskNode.contentSize = CGSizeMake(1, 1);
+        [scene addChild:maskNode z:100 name:NAME_MASK_NODE];
     }
 }
 

@@ -18,11 +18,11 @@
 - (id)init
 {
     if (self = [super init]) {
-        self.navigationBar.delegate = self;
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOMODEL;
-        [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_BACK];
         self.navigationBar.rightBarItem.title = BUTTON_TITLE_DONE;
         self.navigationBar.rightBarItem.enabled = NO;
+        
+        [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
     return self;
 }
@@ -40,22 +40,17 @@
 
 - (void)loadData
 {
-    if (self.autoModels) return;
+    if (self.autoModels.count) return;
     
     [_autoService findOneSeriesModels:^(id service) {
         [self reloadData];
     }];
 }
 
-- (void)reloadData
-{
-    [self.tableView reloadData];
-}
-
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
 {
     if ([item isEqual:self.navigationBar.leftBarItem]) {
-        [self popSceneAnimated:YES];
+        [super navigationBar:navBar didSelectItem:item];
     } else {
         BMAutomobile *automobile = [BMAutomobile new];
         automobile.userId = [[self selectedTabScene] userService].userId;

@@ -46,6 +46,7 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)selectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)deselectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 /** The height of the rows. The unit depends on rowHeightUnit and defaults to points.
  @note Changing the row height calls reloadData. */
@@ -117,6 +118,7 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 @optional
 - (CGFloat)tableView:(BMTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(BMTableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

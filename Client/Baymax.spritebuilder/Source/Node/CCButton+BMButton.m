@@ -24,7 +24,7 @@ static NSTimeInterval previousTimestamp;
 
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    if (touch.tapCount == 1 && (touch.timestamp - previousTimestamp) > DURATION_SCENE_TRANSITION) {
+    if (touch.tapCount == 1) {
         [super touchMoved:touch withEvent:event];
     }
     previousTimestamp = touch.timestamp;

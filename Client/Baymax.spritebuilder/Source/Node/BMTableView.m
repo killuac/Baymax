@@ -110,7 +110,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(CCTouch *)touch
 {
     if (!self.parent.visible) return NO;
-    return [super gestureRecognizer:gestureRecognizer shouldReceiveTouch:touch];
+    return [super gestureRecognizer:gestureRecognizer shouldReceiveTouch:(id)touch];
 }
 #endif
 
@@ -121,7 +121,8 @@
 
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_cellHolders[indexPath.row+[self totcalRowCountInSections:indexPath.section]] cell];
+    
+    return (id)[_cellHolders[indexPath.row+[self totalRowCountInSections:indexPath.section]] cell];
 }
 
 - (id)init
@@ -157,7 +158,7 @@
     return [_dataSource tableView:self numberOfRowsInSection:sectionNumber];
 }
 
-- (NSUInteger)totcalRowCountInSections:(NSUInteger)sectionCount
+- (NSUInteger)totalRowCountInSections:(NSUInteger)sectionCount
 {
     NSUInteger rowCount = 0;
     for (NSUInteger i = 0; i < sectionCount; i++) {
@@ -291,11 +292,16 @@
     if (!_delegate) return 0;
     
     CGFloat location = 0;
-    NSUInteger rowCount = [self totcalRowCountInSections:indexPath.section] + indexPath.row;
+    NSUInteger rowCount = [self totalRowCountInSections:indexPath.section] + indexPath.row;
     
     if ([_delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
-        for (NSUInteger i = 0; i < rowCount; i++) {
-            location += [self heightForRowAtIndexPath:indexPath];
+        if (indexPath.section > 0 || indexPath.row > 0) {
+            for (NSUInteger section = 0; section <= indexPath.section; section++) {
+                NSUInteger maxRow = (section == indexPath.section) ? indexPath.row : [self rowCountInSection:section];
+                for (NSUInteger row = 0; row < maxRow; row++) {
+                    location += [self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+                }
+            }
         }
     } else {
         location += rowCount * _rowHeight;
@@ -341,10 +347,10 @@
                     BMTableViewCell *cell = [_dataSource tableView:self cellForRowAtIndexPath:indexPath];
                     holder.cell = cell;
                     [self.contentNode addChild:cell];
-                    cell.indexPath = indexPath;
                     cell.position = CGPointMake(self.margin, [self locationForCellWithIndexPath:indexPath] + deltaMargin);
                     cell.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerTopLeft);
                     cell.contentSize = CGSizeMake(cell.contentSize.width - 2*self.margin, [self heightForRowAtIndexPath:indexPath]);
+                    cell.indexPath = indexPath;
                 } else {
                     [self.contentNode addChild:holder.cell];
                 }
@@ -486,10 +492,24 @@ done:
 {
     self.selectedIndexPath = indexPath;
     
+    if (BMTableViewCellAccessoryCheckmark == self.selectedCell.accessoryType) {
+        self.selectedCell.selected = YES;
+    }
+    
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [_delegate tableView:self didSelectRowAtIndexPath:indexPath];
     } else {
         [self triggerAction];
+    }
+}
+
+- (void)deselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
+        self.selectedCell.selected = NO;
+        [_delegate tableView:self didDeselectRowAtIndexPath:indexPath];
+    } else {
+        self.selectedCell.selected = YES;
     }
 }
 

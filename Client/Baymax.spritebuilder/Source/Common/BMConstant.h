@@ -58,6 +58,8 @@
 #define TIP_SIGNING_UP              NSLocalizedString(@"创建中...", "")
 #define TIP_SIGNING_IN              NSLocalizedString(@"登录中...", "")
 
+#define TEXT_PRICE_UNIT             NSLocalizedString(@"元", "")
+
 #define SWAP(a, b)                  (a ^= b, b ^= a, a ^= b)
 
 #endif

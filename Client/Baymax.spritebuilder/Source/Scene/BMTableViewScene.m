@@ -14,7 +14,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        _tableView = [BMTableView tableViewWithStyle:BMTableViewStyleGrouped];
+        _tableView = [BMTableView tableViewWithStyle:BMTableViewStylePlain];
         CGFloat height = SCREEN_HEIGHT - self.navigationBar.contentSize.height - [self tabBar].contentSize.height;
         _tableView.position = ccp(self.position.x, self.navigationBar.contentSize.height);
         _tableView.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerTopLeft);
@@ -26,6 +26,11 @@
         _tableView.dataSource = self;
     }
     return self;
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
 }
 
 - (BMTabBar *)tabBar

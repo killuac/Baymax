@@ -7,6 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
+#import "BMUtil.h"
 
 @interface BMCredential : JSONModel
 

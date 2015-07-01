@@ -45,38 +45,50 @@
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     [super touchBegan:touch withEvent:event];
-    [[self tableViewCell] setHighlighted:self.enabled];
+    if (touch.tapCount == 1 && self.enabled) {
+        [[self tableViewCell] setHighlighted:self.enabled];
+    }
 }
 
 - (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    [super touchEnded:touch withEvent:event];
-    [[self tableViewCell] setHighlighted:NO];
+    if (touch.tapCount <= 1 && self.enabled) {
+        [[self tableViewCell] setHighlighted:NO];
+        [super touchEnded:touch withEvent:event];
+    }
 }
 
 - (void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    [super touchCancelled:touch withEvent:event];
-    [[self tableViewCell] setHighlighted:NO];
+    if (touch.tapCount <= 1 && self.enabled) {
+        [[self tableViewCell] setHighlighted:NO];
+        [super touchCancelled:touch withEvent:event];
+    }
 }
 
 #else   // __CC_PLATFORM_MAC
 - (void)mouseDown:(NSEvent *)theEvent
 {
     [super mouseDown:theEvent];
-    [[self tableViewCell] setHighlighted:self.enabled];
+    if (self.enabled) {
+        [[self tableViewCell] setHighlighted:self.enabled];
+    }
 }
 
 - (void)mouseDownExited:(NSEvent *)event
 {
-    self.highlighted = NO;
-    [[self tableViewCell] setHighlighted:NO];
+    if (self.enabled) {
+        self.highlighted = NO;
+        [[self tableViewCell] setHighlighted:NO];
+    }
 }
 
 - (void)mouseUp:(NSEvent *)theEvent
 {
-    [[self tableViewCell] setHighlighted:NO];
-    [super mouseUp:theEvent];
+    if (self.enabled) {
+        [[self tableViewCell] setHighlighted:NO];
+        [super mouseUp:theEvent];
+    }
 }
 #endif
 

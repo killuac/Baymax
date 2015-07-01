@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray<BMAddress, Optional> *addresses;
 
 @property (nonatomic, strong) NSArray<BMParts, Optional> *partses;
+@property (nonatomic, strong) NSArray<BMPartsItem, Optional> *partsItems;
 @property (nonatomic, strong) NSArray<BMService, Optional> *services;
 
 @end

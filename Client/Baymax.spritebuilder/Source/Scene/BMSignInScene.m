@@ -23,6 +23,7 @@
     _tableView.verticalScrollEnabled = NO;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [_tableView setupWithStyle:BMTableViewStylePlain];
     
     [self scheduleOnce:@selector(loadOnce) delay:0];
     
@@ -36,7 +37,8 @@
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryNone];
+    BMTableViewCellAccessoryType accessoryType = (0 == indexPath.row) ? BMTableViewCellAccessoryNone : BMTableViewCellAccessoryDetailDisclosureButton;
+    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:accessoryType];
     
     NSString *imageName = nil;
     if (0 == indexPath.row) {
@@ -53,8 +55,6 @@
         accessoryButton.preferredSize = accessoryButton.maxSize = sprite.contentSize;
         [accessoryButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
         [accessoryButton setBackgroundSpriteFrame:spriteFrameSel forState:CCControlStateSelected];
-        accessoryButton.visible = YES;
-        accessoryButton.userInteractionEnabled = accessoryButton.togglesSelectedState = YES;
         [accessoryButton setTarget:self selector:@selector(eyePressed:)];
         
         _passwordTextField = cell.textField;

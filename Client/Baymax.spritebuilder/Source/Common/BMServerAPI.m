@@ -61,18 +61,18 @@ static BMServerAPI *instanceOfServerAPI = nil;
         
         [serverAPI downloadAllAutoLogos];
         
-//        [BMAppSetting defaultAppSetting].isFirstLaunch = NO;
-//        [[BMAppSetting defaultAppSetting] save];
+        [BMAppSetting defaultAppSetting].isFirstLaunch = NO;
+        [[BMAppSetting defaultAppSetting] save];
     }];
 }
 
 - (void)downloadAllAutoLogos
 {
-//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
     NSString *logoZipFile = DocumentFilePath(self.logoZipURL.relativePath);
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *content = [fileManager contentsOfDirectoryAtPath:[logoZipFile stringByDeletingLastPathComponent] error:nil];
+    NSArray *content = [fileManager contentsOfDirectoryAtPath:[logoZipFile stringByDeletingPathExtension] error:nil];
     if (content.count > 0) return;
     
     [BMActivityIndicator showWithText:TIP_INITIALIZATION userInteractionEnabled:NO];

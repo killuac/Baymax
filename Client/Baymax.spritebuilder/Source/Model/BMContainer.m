@@ -18,7 +18,10 @@
         @"_embedded.autoSeries": @"autoSerieses",
         @"_embedded.autoModels": @"autoModels",
         @"_embedded.automobiles": @"automobiles",
-        @"_embedded.addresses": @"addresses"
+        @"_embedded.addresses": @"addresses",
+        @"_embedded.partses": @"partses",
+        @"_embedded.partsItems": @"partsItems",
+        @"_embedded.services": @"services"
     }];
 }
 

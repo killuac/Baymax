@@ -20,9 +20,23 @@
     }];
 }
 
+- (NSString<Ignore> *)imageFile
+{
+    return DocumentFilePath(self.imageURL.relativePath);
+}
+
 - (NSURL<Ignore> *)imageURL
 {
     return (_imageName) ? (id)[[BMServerAPI sharedServerAPI].partsBaseURL URLByAppendingPathComponent:_imageName] : _imageName;
+}
+
+- (BMPartsItem<Ignore> *)selectedPartsItem
+{
+    for (BMPartsItem *item in self.partsItems) {
+        if (item.isSelected)
+            return item;
+    }
+    return nil;
 }
 
 @end

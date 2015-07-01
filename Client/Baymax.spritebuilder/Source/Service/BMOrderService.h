@@ -6,12 +6,15 @@
 //  Copyright (c) 2015 Syzygy. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "BMBaseService.h"
+#import "BMPartsService.h"
 
 @interface BMOrderService : BMBaseService
 
+@property (nonatomic, strong, readonly) BMPartsService *partsService;
 @property (nonatomic, strong, readonly) NSArray *allItems;
+
+@property (nonatomic, assign) double amount;
 
 - (void)findAllItems:(void (^)(id service))result;
 
