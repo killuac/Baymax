@@ -9,13 +9,13 @@
 #import <JSONModel/JSONModel.h>
 #import "BMOrderItem.h"
 
-typedef NS_ENUM(ushort, BMOrderStatus) {
-    OrderStatusCreated = 1,
-    OrderStatusAccepted,
-    OrderStatusWaiting,
-    OrderStatusRating,
-    OrderStatusSuccess,
-    OrderStatusClosed
+typedef NS_ENUM(short, BMOrderStatus) {
+    BMOrderStatusCreated = 1,
+    BMOrderStatusAccepted,
+    BMOrderStatusWaiting,
+    BMOrderStatusRating,
+    BMOrderStatusSuccess,
+    BMOrderStatusClosed
 };
 
 @protocol BMOrder <NSObject>
@@ -25,11 +25,11 @@ typedef NS_ENUM(ushort, BMOrderStatus) {
 
 @property (nonatomic, assign) NSUInteger orderId;
 @property (nonatomic, assign) NSUInteger automobileId;
-@property (nonatomic, assign) BMOrderStatus status;
+@property (nonatomic, assign) BMOrderStatus statusId;
 @property (nonatomic, assign) short paymentId;
 @property (nonatomic, assign) NSUInteger addressId;
-@property (nonatomic, copy) NSString *employeeId;
-@property (nonatomic, copy) NSString *coworkerId;
+@property (nonatomic, copy) NSString<Optional> *employeeId;
+@property (nonatomic, copy) NSString<Optional> *coworkerId;
 @property (nonatomic, assign) BOOL isOwnParts;
 @property (nonatomic, assign) BOOL isNeedInvoice;
 @property (nonatomic, assign) double amount;
@@ -40,7 +40,9 @@ typedef NS_ENUM(ushort, BMOrderStatus) {
 @property (nonatomic, copy) NSString *statusName;
 @property (nonatomic, copy) NSString *paymentName;
 @property (nonatomic, copy) NSString *detailAddress;
-@property (nonatomic, copy) NSString *orderDescription;
+@property (nonatomic, copy) NSString<Optional> *remark;
+
+@property (nonatomic, copy) NSString<Ignore> *reserveDate;
 
 @property (nonatomic, copy) NSString *autoLogoName;
 @property (nonatomic, strong) NSURL<Ignore> *autoLogoURL;

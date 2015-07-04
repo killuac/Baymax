@@ -11,9 +11,14 @@
 
 @implementation BMModelItem
 
-- (NSString<Optional> *)value
+- (NSUInteger)maxLength
 {
-    return (_value) ? _value : @"";
+    return _maxLengthValue.unsignedIntegerValue;
+}
+
+- (BMKeyboardType)keyboardType
+{
+    return _keyboardTypeValue.unsignedIntegerValue;
 }
 
 @end
@@ -24,11 +29,10 @@
 
 @implementation BMMainNextSceneModel
 
-+ (instancetype)new
++ (instancetype)model
 {
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:PlistFilePath(@"main-next-scene")];
     BMMainNextSceneModel *model = [self modelWithDictionary:dict];
-    ((BMModelItem *)[model.sections.firstObject items][1]).value = [BMCredential sharedCredential].mobile;
     
     return model;
 }

@@ -44,6 +44,11 @@ static BMSessionManager *instanceOfSessionManager = nil;
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"GET ERROR: %@", error);
                  [BMActivityIndicator remove];
+                 
+                 if (-1004 == error.code) {
+                     [BMTextTip showText:TIP_CONNECTION_FAILED];
+                 }
+                 
                  if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                      [self.delegate sessionManager:self didFailWithError:error];
                  }
@@ -74,6 +79,11 @@ static BMSessionManager *instanceOfSessionManager = nil;
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"POST ERROR: %@", error);
                   [BMActivityIndicator remove];
+                  
+                  if (-1004 == error.code) {
+                      [BMTextTip showText:TIP_CONNECTION_FAILED];
+                  }
+                  
                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                       [self.delegate sessionManager:self didFailWithError:error];
                   }
@@ -96,6 +106,11 @@ constructingBodyWithBlock:block
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"POST MULTIPART ERROR: %@", error);
                   [BMActivityIndicator remove];
+                  
+                  if (-1004 == error.code) {
+                      [BMTextTip showText:TIP_CONNECTION_FAILED];
+                  }
+                  
                   if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                       [self.delegate sessionManager:self didFailWithError:error];
                   }
@@ -116,6 +131,11 @@ constructingBodyWithBlock:block
                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    NSLog(@"PATCH ERROR: %@", error);
                    [BMActivityIndicator remove];
+                   
+                   if (-1004 == error.code) {
+                       [BMTextTip showText:TIP_CONNECTION_FAILED];
+                   }
+                   
                    if ([self.delegate respondsToSelector:@selector(sessionManager:didFailWithError:)]) {
                        [self.delegate sessionManager:self didFailWithError:error];
                    }

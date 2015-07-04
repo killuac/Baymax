@@ -37,4 +37,12 @@ public class OrderService {
         order.setOrderItems((List)orderItems);
         return order;
     }
+
+    public List<Order> findAll() {
+        return orderRepository.findAll();
+    }
+
+    public Order findOne(int orderId) {
+        return orderRepository.findOne(orderId);
+    }
 }

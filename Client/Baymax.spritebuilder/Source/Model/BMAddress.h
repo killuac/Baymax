@@ -14,10 +14,11 @@
 @interface BMAddress : JSONModel
 
 @property (nonatomic, assign) NSUInteger addressId;
-@property (nonatomic, assign) ushort districtId;
+@property (nonatomic, assign) short districtId;
 @property (nonatomic, assign) NSUInteger userId;
 @property (nonatomic, copy) NSString *mobile;
 @property (nonatomic, copy) NSString *realName;
 @property (nonatomic, copy) NSString *detailAddress;
+@property (nonatomic, assign) BOOL isDefaultAddress;
 
 @end

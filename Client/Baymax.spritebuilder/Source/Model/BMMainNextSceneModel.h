@@ -17,9 +17,13 @@
 @property (nonatomic, copy) NSString *labelText;
 @property (nonatomic, assign) BMTableViewCellAccessoryType accessoryType;
 @property (nonatomic, assign) BOOL isEditable;
-@property (nonatomic, assign) NSUInteger maxLength;
+@property (nonatomic, strong) NSNumber<Optional> *maxLengthValue;
+@property (nonatomic, strong) NSNumber<Optional> *keyboardTypeValue;
 @property (nonatomic, copy) NSString<Optional> *imageName;
 @property (nonatomic, copy) NSString<Optional> *value;
+
+- (NSUInteger)maxLength;
+- (BMKeyboardType)keyboardType;
 
 @end
 
@@ -33,16 +37,6 @@
 @end
 
 @interface BMMainNextSceneModel : JSONModel
-
-//@property (nonatomic, strong) BMModelItem *contact;
-//@property (nonatomic, strong) BMModelItem *mobile;
-//@property (nonatomic, strong) BMModelItem *registrationPlate;
-//@property (nonatomic, strong) BMModelItem *reserveDate;
-//@property (nonatomic, strong) BMModelItem *area;
-//@property (nonatomic, strong) BMModelItem *address;
-//@property (nonatomic, strong) BMModelItem *payment;
-//@property (nonatomic, strong) BMModelItem *needInvoice;
-//@property (nonatomic, strong) BMModelItem *remark;
 
 @property (nonatomic, strong) NSArray<BMModelSection> *sections;
 

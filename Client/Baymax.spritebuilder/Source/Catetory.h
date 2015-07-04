@@ -24,12 +24,17 @@
 #import "JSONValueTransformer+BMJSONValueTransformer.h"
 
 #if __CC_PLATFORM_IOS
+#import "CCDirectorIOS+BMDirectorIOS.h"
+#import "CCGLView+BMGLView.h"
+#import "UITextField+BMTextField.h"
 #import "CCPlatformTextFieldIOS+BMPlatformTextFieldIOS.h"
 
 #elif __CC_PLATFORM_MAC
+#import "CCDirectorMac+BMDirectorMac.h"
 #import "CCPlatformTextFieldMac+BMPlatformTextFieldMac.h"
 
 #elif __CC_PLATFORM_ANDROID
+#import "CCDirectorAndroid+BMDirectorAndroid.h"
 #import "CCPlatformTextFieldAndroid+BMPlatformTextFieldAndroid.h"
 #endif
 

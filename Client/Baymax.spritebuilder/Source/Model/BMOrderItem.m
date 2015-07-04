@@ -7,6 +7,7 @@
 //
 
 #import "BMOrderItem.h"
+#import "BMOrder.h"
 
 @implementation BMOrderItem
 

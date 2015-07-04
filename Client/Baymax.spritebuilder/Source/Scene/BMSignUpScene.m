@@ -7,6 +7,7 @@
 //
 
 #import "BMSignUpScene.h"
+#import "BMButtonFactory.h"
 
 @implementation BMSignUpScene {
     __weak CCTextField *_vcodeTextField;
@@ -26,29 +27,25 @@
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (2 == indexPath.row) {
-        BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDetailDisclosureButton];
-        cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"icon_verification_code.png")];
-        
-        CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"button_accessory.png")];
-        CCSprite *sprite = [CCSprite spriteWithSpriteFrame:spriteFrame];
-        _fetchVcodeButton = cell.accessoryButton;
-        _fetchVcodeButton.title = BUTTON_TITLE_FETCH_VCODE;
-        _fetchVcodeButton.position = ccpAdd(cell.accessoryButton.position, ccp(5, 0));
-        _fetchVcodeButton.preferredSize = cell.accessoryButton.maxSize = sprite.contentSize;
-        [_fetchVcodeButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
-        cell.accessoryButton.togglesSelectedState = YES;
-        [_fetchVcodeButton setTarget:self selector:@selector(fetchVerificationCode:)];
-        
-        _vcodeTextField = cell.textField;
-        CGFloat width = _vcodeTextField.contentSize.width - (_fetchVcodeButton.preferredSize.width+15);
-        _vcodeTextField.preferredSize = CGSizeMake(width, _vcodeTextField.preferredSize.height);
-        _vcodeTextField.maxLength = VERIFICATION_CODE_LENGTH;
-        
-        return cell;
-    } else {
+    if (indexPath.row < 2) {
         return [super tableView:tableView cellForRowAtIndexPath:indexPath];
     }
+    
+    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDetailDisclosureButton];
+    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"icon_verification_code.png")];
+    
+    _fetchVcodeButton = [BMButtonFactory createNormalAccessoryButtonInCell:cell];
+    _fetchVcodeButton.title = BUTTON_TITLE_FETCH_VCODE;
+    _fetchVcodeButton.position = ccpAdd(_fetchVcodeButton.position, ccp(5, 0));
+    [_fetchVcodeButton setTarget:self selector:@selector(fetchVerificationCode:)];
+    
+    _vcodeTextField = cell.textField;
+    CGFloat width = _vcodeTextField.contentSize.width - (_fetchVcodeButton.preferredSize.width+15);
+    _vcodeTextField.preferredSize = CGSizeMake(width, _vcodeTextField.preferredSize.height);
+    _vcodeTextField.maxLength = VERIFICATION_CODE_LENGTH;
+    _vcodeTextField.placeholder = PLACEHOLDER_VCODE;
+    
+    return cell;
 }
 
 - (void)loadOnce
@@ -88,7 +85,7 @@
 
 - (void)signUp:(CCButton *)button
 {
-    BMUser *user = [BMUser new];
+    BMUser *user = [[BMUser alloc] init];
     user.mobile = _mobileTextField.string;
     user.password = _passwordTextField.string;
     user.verificationCode = _vcodeTextField.string;

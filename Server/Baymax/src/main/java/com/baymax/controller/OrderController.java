@@ -9,12 +9,14 @@ import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Killua on 5/8/15.
  */
 
 @RestController
-@RequestMapping("/api/orderList")
+@RequestMapping("/api/orders")
 public class OrderController implements ResourceProcessor<Resource<Order>> {
 
     private final OrderService orderService;
@@ -36,6 +38,16 @@ public class OrderController implements ResourceProcessor<Resource<Order>> {
     @RequestMapping(value = "/{orderId}", method = RequestMethod.PATCH)
     public void update(@RequestBody Order anOrder) {
         orderService.save(anOrder);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Order> findAll() {
+        return orderService.findAll();
+    }
+
+    @RequestMapping(value = "/{orderId}", method = RequestMethod.GET)
+    public Order findOne(@PathVariable int orderId) {
+        return orderService.findOne(orderId);
     }
 
     @Override

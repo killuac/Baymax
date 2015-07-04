@@ -14,7 +14,9 @@
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLength</key>
+					<key>maxLengthValue</key>
+					<integer>0</integer>
+					<key>keyboardTypeValue</key>
 					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_contact.png</string>
@@ -26,8 +28,10 @@
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLength</key>
+					<key>maxLengthValue</key>
 					<integer>11</integer>
+					<key>keyboardTypeValue</key>
+					<integer>4</integer>
 					<key>imageName</key>
 					<string>icon_mobile.png</string>
 				</dict>
@@ -43,31 +47,19 @@
 					<integer>1</integer>
 					<key>isEditable</key>
 					<false/>
-					<key>maxLength</key>
-					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_calendar.png</string>
 				</dict>
 				<dict>
 					<key>labelText</key>
-					<string>预约地点</string>
-					<key>accessoryType</key>
-					<integer>1</integer>
-					<key>isEditable</key>
-					<false/>
-					<key>maxLength</key>
-					<integer>0</integer>
-					<key>imageName</key>
-					<string>icon_area.png</string>
-				</dict>
-				<dict>
-					<key>labelText</key>
-					<string>详细地址</string>
+					<string>预约地点 (详细地址)</string>
 					<key>accessoryType</key>
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLength</key>
+					<key>maxLengthValue</key>
+					<integer>0</integer>
+					<key>keyboardTypeValue</key>
 					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_location.png</string>
@@ -84,8 +76,6 @@
 					<integer>1</integer>
 					<key>isEditable</key>
 					<false/>
-					<key>maxLength</key>
-					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_payment.png</string>
 				</dict>
@@ -96,8 +86,6 @@
 					<integer>2</integer>
 					<key>isEditable</key>
 					<false/>
-					<key>maxLength</key>
-					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_invoice.png</string>
 				</dict>
@@ -113,7 +101,9 @@
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLength</key>
+					<key>maxLengthValue</key>
+					<integer>0</integer>
+					<key>keyboardTypeValue</key>
 					<integer>0</integer>
 				</dict>
 			</array>

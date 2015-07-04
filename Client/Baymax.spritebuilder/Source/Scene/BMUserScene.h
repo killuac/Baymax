@@ -13,4 +13,6 @@
 
 @property (nonatomic, weak, readonly) BMUserService *userService;
 
+@property (nonatomic, weak, readonly) CCSprite9Slice *avatarSprite;
+
 @end

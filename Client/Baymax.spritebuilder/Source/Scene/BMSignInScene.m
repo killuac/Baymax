@@ -9,6 +9,7 @@
 #import "BMSignInScene.h"
 #import "BMCredential.h"
 #import "BMTabBarScene.h"
+#import "BMButtonFactory.h"
 
 @implementation BMSignInScene
 
@@ -27,7 +28,7 @@
     
     [self scheduleOnce:@selector(loadOnce) delay:0];
     
-    _userService = [BMUserService new];
+    _userService = [[BMUserService alloc] init];
 }
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
@@ -45,23 +46,20 @@
         imageName = @"icon_mobile.png";
         _mobileTextField = cell.textField;
         _mobileTextField.maxLength = MOBILE_MAX_LENGTH;
+        _mobileTextField.placeholder = PLACEHOLDER_MOBILE;
     }
     else {
         imageName = @"icon_password.png";
-        CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"button_password.png")];
-        CCSpriteFrame *spriteFrameSel = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(@"button_password_selected.png")];
-        CCSprite *sprite = [CCSprite spriteWithSpriteFrame:spriteFrame];
-        CCButton *accessoryButton = cell.accessoryButton;
-        accessoryButton.preferredSize = accessoryButton.maxSize = sprite.contentSize;
-        [accessoryButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
-        [accessoryButton setBackgroundSpriteFrame:spriteFrameSel forState:CCControlStateSelected];
-        [accessoryButton setTarget:self selector:@selector(eyePressed:)];
+        cell.accessoryButton = [BMButtonFactory createPasswordButtonInCell:cell];
+        [cell.accessoryButton setTarget:self selector:@selector(eyePressed:)];
         
         _passwordTextField = cell.textField;
-        CGFloat width = _passwordTextField.contentSize.width - accessoryButton.preferredSize.width;
+        CGFloat width = _passwordTextField.contentSize.width - cell.accessoryButton.preferredSize.width;
         _passwordTextField.preferredSize = CGSizeMake(width, _passwordTextField.preferredSize.height);
         _passwordTextField.secureTextEntry = YES;
+        _passwordTextField.placeholder = PLACEHOLDER_PASSWORD;
     }
+    
     cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(imageName)];
     
     return cell;
@@ -120,7 +118,7 @@
 
 - (void)signIn:(CCButton *)button
 {    
-    BMUser *user = [BMUser new];
+    BMUser *user = [[BMUser alloc] init];
     user.mobile = _mobileTextField.string;
     user.password = _passwordTextField.string;
     
@@ -142,7 +140,7 @@
     BMTabBarScene *tabBarScene = (BMTabBarScene *)[CCBReader load:MAIN_SCENE];
     tabBarScene.userService = _userService;
     CCScene *scene = [CCScene sceneWithNode:tabBarScene];
-    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFade]];
+    [(id)[CCDirector sharedDirector] replaceScene:scene animated:YES];
     
     [self saveUserCredential];
 }
@@ -154,5 +152,23 @@
     [BMCredential sharedCredential].isSignedIn = YES;
     [[BMCredential sharedCredential] save];
 }
+
+
+#if __CC_PLATFORM_IOS
+- (void)onEnterTransitionDidFinish
+{
+    [super onEnterTransitionDidFinish];
+    
+    self.scene.colorRGBA = BACKGROUND_COLOR_TRANSPARENT;
+}
+
+- (void)onExitTransitionDidStart
+{
+    [super onExitTransitionDidStart];
+    [CCGLView removeBackgroundUIView];
+    
+    self.scene.colorRGBA = BACKGROUND_COLOR;
+}
+#endif
 
 @end

@@ -16,9 +16,21 @@
     return [JSONKeyMapper jsonKeyMapperWithDictionary:@
     {
         @"ownParts": @"isOwnParts",
-        @"needInvoice": @"isNeedInvoice",
-        @"description": @"orderDescription"
+        @"needInvoice": @"isNeedInvoice"
     }];
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.statusId = BMOrderStatusCreated;
+    }
+    return self;
+}
+
+- (NSString<Ignore> *)reserveDate
+{
+    return @"7月31日 10~12点";     // !!!
 }
 
 - (NSURL<Ignore> *)autoLogoURL

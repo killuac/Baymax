@@ -7,8 +7,24 @@
 //
 
 #import "CCScene+BMScene.h"
+#import "BMConstant.h"
 
 @implementation CCScene (BMScene)
+
++ (void)load
+{
+    Method original = class_getInstanceMethod(self.class, @selector(init));
+    Method swizzled = class_getInstanceMethod(self.class, @selector(swizzledInit));
+    
+    method_exchangeImplementations(original, swizzled);
+}
+
+- (instancetype)swizzledInit
+{
+    CCScene *scene = [self swizzledInit];
+    scene.colorRGBA = BACKGROUND_COLOR;
+    return scene;
+}
 
 + (instancetype)sceneWithNode:(CCNode *)node
 {

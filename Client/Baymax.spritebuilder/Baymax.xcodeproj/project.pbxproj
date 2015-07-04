@@ -324,6 +324,32 @@
 		E3E161FA1B44624C002D04B9 /* BMPasswordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E161F91B44624C002D04B9 /* BMPasswordButton.m */; };
 		E3E161FB1B44624C002D04B9 /* BMPasswordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E161F91B44624C002D04B9 /* BMPasswordButton.m */; };
 		E3E161FC1B44624C002D04B9 /* BMPasswordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E161F91B44624C002D04B9 /* BMPasswordButton.m */; };
+		E3E162061B4545E7002D04B9 /* CCGLView+BMGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162051B4545E7002D04B9 /* CCGLView+BMGLView.m */; };
+		E3E162091B456C0B002D04B9 /* UITextField+BMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162081B456C0B002D04B9 /* UITextField+BMTextField.m */; };
+		E3E162131B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162121B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.m */; };
+		E3E162161B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162151B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.m */; };
+		E3E162191B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162181B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.m */; };
+		E3E1622F1B4663EB002D04B9 /* BMButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1622E1B4663EB002D04B9 /* BMButtonFactory.m */; };
+		E3E162301B4663EB002D04B9 /* BMButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1622E1B4663EB002D04B9 /* BMButtonFactory.m */; };
+		E3E162311B4663EB002D04B9 /* BMButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1622E1B4663EB002D04B9 /* BMButtonFactory.m */; };
+		E3E1623B1B4694B9002D04B9 /* BMPaymentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1623A1B4694B9002D04B9 /* BMPaymentScene.m */; };
+		E3E1623C1B4694B9002D04B9 /* BMPaymentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1623A1B4694B9002D04B9 /* BMPaymentScene.m */; };
+		E3E1623D1B4694B9002D04B9 /* BMPaymentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1623A1B4694B9002D04B9 /* BMPaymentScene.m */; };
+		E3E162411B46E3F4002D04B9 /* BMProvinceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162401B46E3F4002D04B9 /* BMProvinceScene.m */; };
+		E3E162421B46E3F4002D04B9 /* BMProvinceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162401B46E3F4002D04B9 /* BMProvinceScene.m */; };
+		E3E162431B46E3F4002D04B9 /* BMProvinceScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162401B46E3F4002D04B9 /* BMProvinceScene.m */; };
+		E3E162461B46E3FF002D04B9 /* BMCityScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162451B46E3FF002D04B9 /* BMCityScene.m */; };
+		E3E162471B46E3FF002D04B9 /* BMCityScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162451B46E3FF002D04B9 /* BMCityScene.m */; };
+		E3E162481B46E3FF002D04B9 /* BMCityScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162451B46E3FF002D04B9 /* BMCityScene.m */; };
+		E3E1624B1B46E443002D04B9 /* BMDistrictScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1624A1B46E443002D04B9 /* BMDistrictScene.m */; };
+		E3E1624C1B46E443002D04B9 /* BMDistrictScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1624A1B46E443002D04B9 /* BMDistrictScene.m */; };
+		E3E1624D1B46E443002D04B9 /* BMDistrictScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1624A1B46E443002D04B9 /* BMDistrictScene.m */; };
+		E3E1625F1B47B726002D04B9 /* BMAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1625E1B47B725002D04B9 /* BMAddressService.m */; };
+		E3E162601B47B726002D04B9 /* BMAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1625E1B47B725002D04B9 /* BMAddressService.m */; };
+		E3E162611B47B726002D04B9 /* BMAddressService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1625E1B47B725002D04B9 /* BMAddressService.m */; };
+		E3E162641B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162631B47D4AE002D04B9 /* BMOrderDetailScene.m */; };
+		E3E162651B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162631B47D4AE002D04B9 /* BMOrderDetailScene.m */; };
+		E3E162661B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E162631B47D4AE002D04B9 /* BMOrderDetailScene.m */; };
 		E3E417A61B39EF7A00D003E3 /* CCTextField+BMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E417A51B39EF7A00D003E3 /* CCTextField+BMTextField.m */; };
 		E3E417A71B39EF7A00D003E3 /* CCTextField+BMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E417A51B39EF7A00D003E3 /* CCTextField+BMTextField.m */; };
 		E3E417A81B39EF7A00D003E3 /* CCTextField+BMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E417A51B39EF7A00D003E3 /* CCTextField+BMTextField.m */; };
@@ -615,6 +641,30 @@
 		E3E161F41B446219002D04B9 /* BMToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMToggleButton.m; sourceTree = "<group>"; };
 		E3E161F81B44624C002D04B9 /* BMPasswordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPasswordButton.h; sourceTree = "<group>"; };
 		E3E161F91B44624C002D04B9 /* BMPasswordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMPasswordButton.m; sourceTree = "<group>"; };
+		E3E162041B4545E7002D04B9 /* CCGLView+BMGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCGLView+BMGLView.h"; path = "Source/Platforms/iOS/CCGLView+BMGLView.h"; sourceTree = "<group>"; };
+		E3E162051B4545E7002D04B9 /* CCGLView+BMGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCGLView+BMGLView.m"; path = "Source/Platforms/iOS/CCGLView+BMGLView.m"; sourceTree = "<group>"; };
+		E3E162071B456C0B002D04B9 /* UITextField+BMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextField+BMTextField.h"; path = "Source/Platforms/iOS/UITextField+BMTextField.h"; sourceTree = "<group>"; };
+		E3E162081B456C0B002D04B9 /* UITextField+BMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextField+BMTextField.m"; path = "Source/Platforms/iOS/UITextField+BMTextField.m"; sourceTree = "<group>"; };
+		E3E162111B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCDirectorIOS+BMDirectorIOS.h"; path = "Source/Platforms/iOS/CCDirectorIOS+BMDirectorIOS.h"; sourceTree = "<group>"; };
+		E3E162121B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCDirectorIOS+BMDirectorIOS.m"; path = "Source/Platforms/iOS/CCDirectorIOS+BMDirectorIOS.m"; sourceTree = "<group>"; };
+		E3E162141B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCDirectorMac+BMDirectorMac.h"; path = "Source/Platforms/Mac/CCDirectorMac+BMDirectorMac.h"; sourceTree = "<group>"; };
+		E3E162151B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCDirectorMac+BMDirectorMac.m"; path = "Source/Platforms/Mac/CCDirectorMac+BMDirectorMac.m"; sourceTree = "<group>"; };
+		E3E162171B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCDirectorAndroid+BMDirectorAndroid.h"; path = "Source/Platforms/Android/CCDirectorAndroid+BMDirectorAndroid.h"; sourceTree = "<group>"; };
+		E3E162181B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCDirectorAndroid+BMDirectorAndroid.m"; path = "Source/Platforms/Android/CCDirectorAndroid+BMDirectorAndroid.m"; sourceTree = "<group>"; };
+		E3E1622D1B4663EB002D04B9 /* BMButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMButtonFactory.h; sourceTree = "<group>"; };
+		E3E1622E1B4663EB002D04B9 /* BMButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMButtonFactory.m; sourceTree = "<group>"; };
+		E3E162391B4694B9002D04B9 /* BMPaymentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPaymentScene.h; sourceTree = "<group>"; };
+		E3E1623A1B4694B9002D04B9 /* BMPaymentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMPaymentScene.m; sourceTree = "<group>"; };
+		E3E1623F1B46E3F4002D04B9 /* BMProvinceScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMProvinceScene.h; sourceTree = "<group>"; };
+		E3E162401B46E3F4002D04B9 /* BMProvinceScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMProvinceScene.m; sourceTree = "<group>"; };
+		E3E162441B46E3FF002D04B9 /* BMCityScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCityScene.h; sourceTree = "<group>"; };
+		E3E162451B46E3FF002D04B9 /* BMCityScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCityScene.m; sourceTree = "<group>"; };
+		E3E162491B46E443002D04B9 /* BMDistrictScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDistrictScene.h; sourceTree = "<group>"; };
+		E3E1624A1B46E443002D04B9 /* BMDistrictScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDistrictScene.m; sourceTree = "<group>"; };
+		E3E1625D1B47B725002D04B9 /* BMAddressService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressService.h; sourceTree = "<group>"; };
+		E3E1625E1B47B725002D04B9 /* BMAddressService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddressService.m; sourceTree = "<group>"; };
+		E3E162621B47D4AE002D04B9 /* BMOrderDetailScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrderDetailScene.h; sourceTree = "<group>"; };
+		E3E162631B47D4AE002D04B9 /* BMOrderDetailScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrderDetailScene.m; sourceTree = "<group>"; };
 		E3E417A41B39EF7A00D003E3 /* CCTextField+BMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTextField+BMTextField.h"; sourceTree = "<group>"; };
 		E3E417A51B39EF7A00D003E3 /* CCTextField+BMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTextField+BMTextField.m"; sourceTree = "<group>"; };
 		E3E417AB1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPlatformTextField+BMPlatformTextField.h"; sourceTree = "<group>"; };
@@ -746,8 +796,14 @@
 			children = (
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
+				E3E162111B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.h */,
+				E3E162121B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.m */,
+				E3E162041B4545E7002D04B9 /* CCGLView+BMGLView.h */,
+				E3E162051B4545E7002D04B9 /* CCGLView+BMGLView.m */,
 				E3E417B61B39F24D00D003E3 /* CCPlatformTextFieldIOS+BMPlatformTextFieldIOS.h */,
 				E3E417B71B39F24D00D003E3 /* CCPlatformTextFieldIOS+BMPlatformTextFieldIOS.m */,
+				E3E162071B456C0B002D04B9 /* UITextField+BMTextField.h */,
+				E3E162081B456C0B002D04B9 /* UITextField+BMTextField.m */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -757,6 +813,8 @@
 			children = (
 				5B12102E197484FA004C1E1D /* BaymaxActivity.h */,
 				5B12102F197484FA004C1E1D /* BaymaxActivity.m */,
+				E3E162171B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.h */,
+				E3E162181B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.m */,
 				E3E417B91B39F27D00D003E3 /* CCPlatformTextFieldAndroid+BMPlatformTextFieldAndroid.h */,
 				E3E417BA1B39F27D00D003E3 /* CCPlatformTextFieldAndroid+BMPlatformTextFieldAndroid.m */,
 			);
@@ -840,6 +898,8 @@
 			children = (
 				7A40360519DDEE84007B6E8F /* AppDelegate.h */,
 				7A40360619DDEE84007B6E8F /* AppDelegate.m */,
+				E3E162141B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.h */,
+				E3E162151B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.m */,
 				E3E417BC1B39F29400D003E3 /* CCPlatformTextFieldMac+BMPlatformTextFieldMac.h */,
 				E3E417BD1B39F29400D003E3 /* CCPlatformTextFieldMac+BMPlatformTextFieldMac.m */,
 			);
@@ -1052,6 +1112,8 @@
 				E37AC2CF1B3C829900103A72 /* BMActivityIndicator.m */,
 				E3278FB21B372F7A0054D1B4 /* BMAutoTableViewCell.h */,
 				E3278FB31B372F7A0054D1B4 /* BMAutoTableViewCell.m */,
+				E3E1622D1B4663EB002D04B9 /* BMButtonFactory.h */,
+				E3E1622E1B4663EB002D04B9 /* BMButtonFactory.m */,
 				E3A9F64D1B2AEC9E00F92CAE /* BMCellButton.h */,
 				E3A9F64E1B2AEC9E00F92CAE /* BMCellButton.m */,
 				E38E7CEF1B3036CD0065A098 /* BMImageSprite.h */,
@@ -1098,6 +1160,8 @@
 		E375D2AC1B26E7D2001FA4A0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E3E1625D1B47B725002D04B9 /* BMAddressService.h */,
+				E3E1625E1B47B725002D04B9 /* BMAddressService.m */,
 				E302ADFF1B3BB22D00A8D371 /* BMAutomobileService.h */,
 				E302AE001B3BB22D00A8D371 /* BMAutomobileService.m */,
 				E302AE111B3BBB0300A8D371 /* BMBaseService.h */,
@@ -1186,6 +1250,7 @@
 		E3A9F60A1B2A91EA00F92CAE /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E3E1623E1B4694E6002D04B9 /* Base */,
 				E3278F9E1B3403960054D1B4 /* BMAutoBrandScene.h */,
 				E3278F9F1B3403960054D1B4 /* BMAutoBrandScene.m */,
 				E3278FB71B3844AE0054D1B4 /* BMAutomobileScene.h */,
@@ -1196,28 +1261,30 @@
 				E3A9F60C1B2A91EA00F92CAE /* BMAutoScene.m */,
 				E3278FA81B3478B60054D1B4 /* BMAutoSeriesScene.h */,
 				E3278FA91B3478B60054D1B4 /* BMAutoSeriesScene.m */,
-				E3A9F6431B2ABFED00F92CAE /* BMBaseScene.h */,
-				E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */,
+				E3E162441B46E3FF002D04B9 /* BMCityScene.h */,
+				E3E162451B46E3FF002D04B9 /* BMCityScene.m */,
+				E3E162491B46E443002D04B9 /* BMDistrictScene.h */,
+				E3E1624A1B46E443002D04B9 /* BMDistrictScene.m */,
 				E3BDFE171B43A000000A6ABD /* BMMainNextScene.h */,
 				E3BDFE181B43A000000A6ABD /* BMMainNextScene.m */,
 				E3A9F60D1B2A91EA00F92CAE /* BMMainScene.h */,
 				E3A9F60E1B2A91EA00F92CAE /* BMMainScene.m */,
-				E3A9F60F1B2A91EA00F92CAE /* BMNavigationScene.h */,
-				E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */,
+				E3E162621B47D4AE002D04B9 /* BMOrderDetailScene.h */,
+				E3E162631B47D4AE002D04B9 /* BMOrderDetailScene.m */,
 				E3A9F6111B2A91EA00F92CAE /* BMOrderScene.h */,
 				E3A9F6121B2A91EA00F92CAE /* BMOrderScene.m */,
 				E3BDFE061B41D27C000A6ABD /* BMPartsScene.h */,
 				E3BDFE071B41D27C000A6ABD /* BMPartsScene.m */,
+				E3E162391B4694B9002D04B9 /* BMPaymentScene.h */,
+				E3E1623A1B4694B9002D04B9 /* BMPaymentScene.m */,
+				E3E1623F1B46E3F4002D04B9 /* BMProvinceScene.h */,
+				E3E162401B46E3F4002D04B9 /* BMProvinceScene.m */,
 				E3A9F6131B2A91EA00F92CAE /* BMSignInScene.h */,
 				E3A9F6141B2A91EA00F92CAE /* BMSignInScene.m */,
 				E3278FBC1B385DAA0054D1B4 /* BMSignScene.h */,
 				E3278FBD1B385DAA0054D1B4 /* BMSignScene.m */,
 				E3278FC11B3914810054D1B4 /* BMSignUpScene.h */,
 				E3278FC21B3914810054D1B4 /* BMSignUpScene.m */,
-				E3A9F6151B2A91EA00F92CAE /* BMTabBarScene.h */,
-				E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */,
-				E3278FA31B3405A90054D1B4 /* BMTableViewScene.h */,
-				E3278FA41B3405A90054D1B4 /* BMTableViewScene.m */,
 				E3A9F6171B2A91EA00F92CAE /* BMUserScene.h */,
 				E3A9F6181B2A91EA00F92CAE /* BMUserScene.m */,
 				E3A9F63D1B2AB1FA00F92CAE /* Category */,
@@ -1235,6 +1302,21 @@
 				E3A9F63F1B2AB21700F92CAE /* CCTransition+BMTransition.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		E3E1623E1B4694E6002D04B9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E3A9F6431B2ABFED00F92CAE /* BMBaseScene.h */,
+				E3A9F6441B2ABFED00F92CAE /* BMBaseScene.m */,
+				E3A9F60F1B2A91EA00F92CAE /* BMNavigationScene.h */,
+				E3A9F6101B2A91EA00F92CAE /* BMNavigationScene.m */,
+				E3A9F6151B2A91EA00F92CAE /* BMTabBarScene.h */,
+				E3A9F6161B2A91EA00F92CAE /* BMTabBarScene.m */,
+				E3278FA31B3405A90054D1B4 /* BMTableViewScene.h */,
+				E3278FA41B3405A90054D1B4 /* BMTableViewScene.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1603,6 +1685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3278FBB1B3844AE0054D1B4 /* BMAutomobileScene.m in Sources */,
+				E3E162611B47B726002D04B9 /* BMAddressService.m in Sources */,
 				E37AC2CD1B3C58E800103A72 /* BMTextTip.m in Sources */,
 				E3E161F21B43FC99002D04B9 /* BMUserSceneModel.m in Sources */,
 				E302AE0A1B3BB23A00A8D371 /* BMUserService.m in Sources */,
@@ -1615,11 +1698,13 @@
 				E375D2B61B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
 				E3A9F56B1B27CE0100F92CAE /* BMDistrict.m in Sources */,
 				E3E161FC1B44624C002D04B9 /* BMPasswordButton.m in Sources */,
+				E3E1624D1B46E443002D04B9 /* BMDistrictScene.m in Sources */,
 				E302AE151B3BBB0300A8D371 /* BMBaseService.m in Sources */,
 				E375D2A51B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				E3BDFE0A1B41D27C000A6ABD /* BMPartsScene.m in Sources */,
 				7A40360419DDEE84007B6E8F /* main.m in Sources */,
 				E3A9F61B1B2A91EA00F92CAE /* BMAutoScene.m in Sources */,
+				E3E162481B46E3FF002D04B9 /* BMCityScene.m in Sources */,
 				E302AE031B3BB22D00A8D371 /* BMAutomobileService.m in Sources */,
 				E3D358781B31546900769C9B /* BMUtil.m in Sources */,
 				E3A9F5FF1B2A910900F92CAE /* BMNavigationBar.m in Sources */,
@@ -1656,7 +1741,9 @@
 				E3278FB11B3478C80054D1B4 /* BMAutoModelScene.m in Sources */,
 				E3BDFE1B1B43A000000A6ABD /* BMMainNextScene.m in Sources */,
 				E37AC2D21B3C829900103A72 /* BMActivityIndicator.m in Sources */,
+				E3E1623D1B4694B9002D04B9 /* BMPaymentScene.m in Sources */,
 				E3A9F6601B2B367700F92CAE /* CCScene+BMScene.m in Sources */,
+				E3E162431B46E3F4002D04B9 /* BMProvinceScene.m in Sources */,
 				E3A9F5521B27339000F92CAE /* BMAutoModel.m in Sources */,
 				E3A9F64C1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
 				E3A9F61E1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
@@ -1667,12 +1754,15 @@
 				E3A9F5751B27CF7600F92CAE /* BMEmployee.m in Sources */,
 				E3A9F54D1B27328600F92CAE /* BMAutoSeries.m in Sources */,
 				E3A9F6421B2AB21700F92CAE /* CCTransition+BMTransition.m in Sources */,
+				E3E162661B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */,
 				E3A9F63C1B2A955C00F92CAE /* BMNavBarItem.m in Sources */,
+				E3E162161B464CEB002D04B9 /* CCDirectorMac+BMDirectorMac.m in Sources */,
 				E375D2B11B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
 				E3E161F71B446219002D04B9 /* BMToggleButton.m in Sources */,
 				E3278FAC1B3478B60054D1B4 /* BMAutoSeriesScene.m in Sources */,
 				E3A9F6211B2A91EA00F92CAE /* BMNavigationScene.m in Sources */,
 				E3E161ED1B43FC7E002D04B9 /* BMMainNextSceneModel.m in Sources */,
+				E3E162311B4663EB002D04B9 /* BMButtonFactory.m in Sources */,
 				E3A9F5841B27E83700F92CAE /* BMPayment.m in Sources */,
 				E3A9F55C1B273E8600F92CAE /* BMAddress.m in Sources */,
 				E302AE0F1B3BB25100A8D371 /* BMOrderService.m in Sources */,
@@ -1693,6 +1783,7 @@
 				E3A9F56F1B27CE7900F92CAE /* BMProvince.m in Sources */,
 				E37AC2D11B3C829900103A72 /* BMActivityIndicator.m in Sources */,
 				E3A9F5651B27CCD500F92CAE /* BMCity.m in Sources */,
+				E3E162421B46E3F4002D04B9 /* BMProvinceScene.m in Sources */,
 				E3278FB01B3478C80054D1B4 /* BMAutoModelScene.m in Sources */,
 				E3A9F5741B27CF7600F92CAE /* BMEmployee.m in Sources */,
 				E375D2A41B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
@@ -1708,6 +1799,7 @@
 				E33EF5961B3D279500A3F1CC /* CCButton+BMButton.m in Sources */,
 				E375D2B01B26F558001FA4A0 /* BMAutoBrand.m in Sources */,
 				E3A9F5F91B2A79AE00F92CAE /* AFNetworkReachabilityManager+BMNetworkReachabilityManager.m in Sources */,
+				E3E162471B46E3FF002D04B9 /* BMCityScene.m in Sources */,
 				E3A9F5601B27414400F92CAE /* BMAutomobile.m in Sources */,
 				E3A9F58D1B27E8FF00F92CAE /* BMParts.m in Sources */,
 				E37AC2CC1B3C58E800103A72 /* BMTextTip.m in Sources */,
@@ -1729,6 +1821,7 @@
 				E3A9F5B21B29138E00F92CAE /* BMServerAPI.m in Sources */,
 				E3E161EC1B43FC7E002D04B9 /* BMMainNextSceneModel.m in Sources */,
 				E302AE021B3BB22D00A8D371 /* BMAutomobileService.m in Sources */,
+				E3E1624C1B46E443002D04B9 /* BMDistrictScene.m in Sources */,
 				E3E161F61B446219002D04B9 /* BMToggleButton.m in Sources */,
 				E37AC2C51B3C3EE900103A72 /* BMActionSheet.m in Sources */,
 				E3E417A71B39EF7A00D003E3 /* CCTextField+BMTextField.m in Sources */,
@@ -1741,12 +1834,16 @@
 				E3A9F6231B2A91EA00F92CAE /* BMOrderScene.m in Sources */,
 				E3278FA11B3403960054D1B4 /* BMAutoBrandScene.m in Sources */,
 				E38E7CEB1B2FDB490065A098 /* CCNode+BMNode.m in Sources */,
+				E3E162601B47B726002D04B9 /* BMAddressService.m in Sources */,
 				E3BDFE1A1B43A000000A6ABD /* BMMainNextScene.m in Sources */,
+				E3E162301B4663EB002D04B9 /* BMButtonFactory.m in Sources */,
 				E3A9F6641B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */,
 				E3A9F5881B27E89800F92CAE /* BMRating.m in Sources */,
 				E3A9F6501B2AEC9E00F92CAE /* BMCellButton.m in Sources */,
 				E3E417AE1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.m in Sources */,
+				E3E162651B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */,
 				E3A9F6201B2A91EA00F92CAE /* BMNavigationScene.m in Sources */,
+				E3E162191B464D0D002D04B9 /* CCDirectorAndroid+BMDirectorAndroid.m in Sources */,
 				E3E417BB1B39F27D00D003E3 /* CCPlatformTextFieldAndroid+BMPlatformTextFieldAndroid.m in Sources */,
 				E3278FBF1B385DAA0054D1B4 /* BMSignScene.m in Sources */,
 				E38E7CF21B3036CD0065A098 /* BMImageSprite.m in Sources */,
@@ -1757,6 +1854,7 @@
 				E3A9F5511B27339000F92CAE /* BMAutoModel.m in Sources */,
 				E3A9F64B1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
 				E3278FB51B372F7A0054D1B4 /* BMAutoTableViewCell.m in Sources */,
+				E3E1623C1B4694B9002D04B9 /* BMPaymentScene.m in Sources */,
 				E3BDFE091B41D27C000A6ABD /* BMPartsScene.m in Sources */,
 				E3BDFE101B41DB0F000A6ABD /* BMPartsService.m in Sources */,
 				E3A9F61A1B2A91EA00F92CAE /* BMAutoScene.m in Sources */,
@@ -1774,9 +1872,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3278FB91B3844AE0054D1B4 /* BMAutomobileScene.m in Sources */,
+				E3E1624B1B46E443002D04B9 /* BMDistrictScene.m in Sources */,
 				E37AC2CB1B3C58E800103A72 /* BMTextTip.m in Sources */,
+				E3E1625F1B47B726002D04B9 /* BMAddressService.m in Sources */,
 				E3E161F01B43FC99002D04B9 /* BMUserSceneModel.m in Sources */,
 				E302AE081B3BB23A00A8D371 /* BMUserService.m in Sources */,
+				E3E162641B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */,
+				E3E162131B46320E002D04B9 /* CCDirectorIOS+BMDirectorIOS.m in Sources */,
 				E3A9F5C41B2952BB00F92CAE /* BMCredential.m in Sources */,
 				E3A9F6451B2ABFED00F92CAE /* BMBaseScene.m in Sources */,
 				E3BDFE0F1B41DB0F000A6ABD /* BMPartsService.m in Sources */,
@@ -1788,6 +1890,7 @@
 				E3E161FA1B44624C002D04B9 /* BMPasswordButton.m in Sources */,
 				E302AE131B3BBB0300A8D371 /* BMBaseService.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				E3E162461B46E3FF002D04B9 /* BMCityScene.m in Sources */,
 				E3BDFE081B41D27C000A6ABD /* BMPartsScene.m in Sources */,
 				E3A9F6191B2A91EA00F92CAE /* BMAutoScene.m in Sources */,
 				E3D358761B31546900769C9B /* BMUtil.m in Sources */,
@@ -1813,24 +1916,29 @@
 				E37AC2C41B3C3EE900103A72 /* BMActionSheet.m in Sources */,
 				E3A9F58C1B27E8FF00F92CAE /* BMParts.m in Sources */,
 				E38E7CF11B3036CD0065A098 /* BMImageSprite.m in Sources */,
+				E3E162411B46E3F4002D04B9 /* BMProvinceScene.m in Sources */,
 				E3278FBE1B385DAA0054D1B4 /* BMSignScene.m in Sources */,
 				E3278FA51B3405A90054D1B4 /* BMTableViewScene.m in Sources */,
+				E3E1622F1B4663EB002D04B9 /* BMButtonFactory.m in Sources */,
 				E33EF5951B3D279500A3F1CC /* CCButton+BMButton.m in Sources */,
 				E3A9F5CE1B29C9F800F92CAE /* BMTabBarItem.m in Sources */,
 				E3E417A61B39EF7A00D003E3 /* CCTextField+BMTextField.m in Sources */,
 				E38E7CEA1B2FDB490065A098 /* CCNode+BMNode.m in Sources */,
 				E3A9F6631B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */,
 				E3A9F56E1B27CE7900F92CAE /* BMProvince.m in Sources */,
+				E3E1623B1B4694B9002D04B9 /* BMPaymentScene.m in Sources */,
 				E3A9F5641B27CCD500F92CAE /* BMCity.m in Sources */,
 				E3278FAF1B3478C80054D1B4 /* BMAutoModelScene.m in Sources */,
 				E3A9F65E1B2B367700F92CAE /* CCScene+BMScene.m in Sources */,
 				E3A9F5501B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3E162091B456C0B002D04B9 /* UITextField+BMTextField.m in Sources */,
 				E3BDFE191B43A000000A6ABD /* BMMainNextScene.m in Sources */,
 				E37AC2D01B3C829900103A72 /* BMActivityIndicator.m in Sources */,
 				E3A9F64A1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
 				E3A9F61C1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
 				E3A9F5871B27E89800F92CAE /* BMRating.m in Sources */,
 				E3A9F6251B2A91EA00F92CAE /* BMSignInScene.m in Sources */,
+				E3E162061B4545E7002D04B9 /* CCGLView+BMGLView.m in Sources */,
 				E3E417AD1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.m in Sources */,
 				E3A9F6281B2A91EA00F92CAE /* BMTabBarScene.m in Sources */,
 				E3A9F59B1B28219800F92CAE /* BMAutoSeriesPartsItem.m in Sources */,

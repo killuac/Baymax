@@ -10,8 +10,11 @@
 
 @interface JSONModel (BMJSONModel)
 
++ (instancetype)model;
 + (instancetype)modelWithString:(NSString *)string;
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
 + (instancetype)modelWithData:(NSData *)data;
+
+@property (nonatomic, assign) BOOL isSelected;
 
 @end

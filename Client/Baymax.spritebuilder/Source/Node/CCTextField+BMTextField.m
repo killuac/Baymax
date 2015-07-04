@@ -113,4 +113,11 @@
 #endif
 }
 
+- (void)setString:(NSString *)string
+{
+    if (string) {
+        self.platformTextField.string = string;
+    }
+}
+
 @end

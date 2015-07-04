@@ -22,12 +22,6 @@
 {
     if (self.allPartsItems) {
         [self reloadData];
-        
-        if (self.partsService.selectedPartsItem) {
-            NSUInteger idx = [self.allPartsItems indexOfObject:self.partsService.selectedPartsItem];
-            BMTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:idx inSection:0]];
-            cell.selected = YES;
-        }
         return;
     }
     
@@ -73,25 +67,28 @@
     cell.textLabel.string = partsItem.brandName;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.0f %@", price, TEXT_PRICE_UNIT];
     
+    NSUInteger idx = [self.allPartsItems indexOfObject:self.partsService.selectedPartsItem];
+    cell.selected = (idx == indexPath.row);
+    
     return cell;
 }
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMPartsItem *partsItem = self.partsService.selectedPartsItem;
-    partsItem.selected = @(NO);
-    self.mainScene.orderService.amount -= partsItem.totalPrice.doubleValue;
+    partsItem.isSelected = NO;
+    self.mainScene.orderService.selectedOrder.amount -= partsItem.totalPrice.doubleValue;
     
     partsItem = self.allPartsItems[indexPath.row];
-    [partsItem setSelected:@(YES)];
-    self.mainScene.orderService.amount += partsItem.totalPrice.doubleValue;
+    partsItem.isSelected = YES;
+    self.mainScene.orderService.selectedOrder.amount += partsItem.totalPrice.doubleValue;
 }
 
 - (void)tableView:(BMTableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMPartsItem *partsItem = self.allPartsItems[indexPath.row];
-    partsItem.selected = @(NO);
-    self.mainScene.orderService.amount -= partsItem.totalPrice.doubleValue;
+    partsItem.isSelected = NO;
+    self.mainScene.orderService.selectedOrder.amount -= partsItem.totalPrice.doubleValue;
     
 }
 

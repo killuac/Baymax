@@ -16,6 +16,8 @@
 - (id)copySprite;
 - (id)copySprite9Slice;
 
+- (CGImageRef)newCGImage;
 - (CCSpriteFrame *)newRoundCornerSpriteFrameWithRadius:(CGFloat[])radiuses;
+- (void)drawFullRoundCorner;
 
 @end

@@ -7,12 +7,15 @@
 //
 
 #import "BMTableViewScene.h"
+#import "BMOrderService.h"
 
-@interface BMMainNextScene : BMTableViewScene
+@interface BMMainNextScene : BMTableViewScene <BMNavigationSceneDelegate>
 
 @property (nonatomic, strong, readonly) CCNodeColor *buttonBackground;
 @property (nonatomic, strong, readonly) CCLabelTTF *amountLabel;
 @property (nonatomic, strong, readonly) CCButton *orderButton;
+
+@property (nonatomic, weak) BMOrderService *orderService;
 
 - (void)createOrder:(CCButton *)button;
 

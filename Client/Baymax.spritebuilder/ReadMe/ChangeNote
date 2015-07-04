@@ -1,24 +1,8 @@
 CCAppDelegate.m
-Comment [OALSimpleAudio sharedInstance]; Because it will make playing music pause.
-
 CCResponderManager.m
-Comment [[CCDirector sharedDirector].view endEditing:YES];
-
-CCTextField.m: add following method
-#elif __CC_PLATFORM_ANDROID
-- (AndroidEditText *)textField
-{
-    return _platformTextField.nativeTextField;
-}
-
-CCPlatformTextFieldMac.m : add following method
-- (id)nativeTextField
-{
-    return _textField;
-}
-
-CCPlatformTextFieldAndroid.m : add following method
-- (id)nativeTextField
-{
-    return _editText;
-}
+CCLabelTTF.m
+CCTextField.m
+CCPlatformTextFieldIOS.h
+CCPlatformTextFieldIOS.m
+CCPlatformTextFieldMac.m
+CCPlatformTextFieldAndroid.m

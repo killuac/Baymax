@@ -15,7 +15,7 @@
 {
     [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (AFNetworkReachabilityStatusNotReachable == status) {
-            [BMTextTip showText:TIP_CONNECTION_FAILED type:BMTextTipTypeWarning];
+            [BMTextTip showText:TIP_CONNECTION_BROKEN type:BMTextTipTypeWarning];
         }
     }];
 }

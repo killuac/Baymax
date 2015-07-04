@@ -13,6 +13,7 @@
 - (void)didLoadFromCCB
 {
     self.navigationBar.titleLabel.string = NAV_TITLE_ME;
+    [_avatarSprite drawFullRoundCorner];
 }
 
 @end

@@ -22,15 +22,6 @@
     return self;
 }
 
-- (void)onEnterTransitionDidFinish
-{
-    [super onEnterTransitionDidFinish];
-    
-    if ([_delegate respondsToSelector:@selector(navigationScene:didShowFrom:)]) {
-        [_delegate navigationScene:self didShowFrom:self.scene.lastScene.children.firstObject];
-    }
-}
-
 - (void)onExitTransitionDidStart
 {
     [super onExitTransitionDidStart];

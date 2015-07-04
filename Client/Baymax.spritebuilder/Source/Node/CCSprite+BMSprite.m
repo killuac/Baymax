@@ -120,4 +120,10 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, CGFloat radiuses[4]
 //    CGContextRestoreGState(context);
 //}
 
+- (void)drawFullRoundCorner
+{
+//    CGFloat radiuses[4] = {10, 10, 0, 0};
+//    self.spriteFrame = [self newRoundCornerSpriteFrameWithRadius:radiuses];
+}
+
 @end

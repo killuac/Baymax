@@ -13,10 +13,17 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.config.EnableEntityLinks;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.List;
 import java.util.Set;
+
+import static java.util.Arrays.asList;
 
 @SpringBootApplication
 @EnableEntityLinks

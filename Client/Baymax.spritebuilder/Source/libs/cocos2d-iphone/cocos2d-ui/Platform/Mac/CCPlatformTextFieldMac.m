@@ -17,6 +17,7 @@
     NSTextField *_textField;
 }
 
+// Add method by Killua
 - (id)nativeTextField
 {
     return _textField;

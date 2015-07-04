@@ -24,8 +24,6 @@
     [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_DROPDOWN];
     
     self.nextButton.enabled = NO;
-    
-    _orderService = [BMOrderService new];
 }
 
 - (void)loadData
@@ -33,6 +31,9 @@
     if (self.allItems.count) {
         return;
     }
+    
+    _orderService = [[BMOrderService alloc] init];
+    _orderService.userService = self.userService;
     
     [self.userService findAutomobiles:^(id service) {
         self.navigationBar.titleLabel.string = [self.userService.automobiles.firstObject titleName];
@@ -43,6 +44,8 @@
             [self addNodesToTableView];
         }];
     }];
+    
+    [self.userService findAllAddresses:nil];
 }
 
 - (void)addNodesToTableView
@@ -101,7 +104,7 @@
 //    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:[item imageFile]];
     cell.textLabel.string = IS_PARTS(item) ? [item partsName] : [item serviceName];
     double price = IS_PARTS(item) ? 0 : [item price];
-    self.orderService.amount += price;
+    self.orderService.selectedOrder.amount += price;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.f %@", price, TEXT_PRICE_UNIT];
     return cell;
 }
@@ -145,7 +148,7 @@
     cell.textLabel.string = itemName;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.f %@", price, TEXT_PRICE_UNIT];
     
-    _amountLabel.string = [NSString stringWithFormat:@"%.f %@", self.orderService.amount, TEXT_PRICE_UNIT];
+    _amountLabel.string = [NSString stringWithFormat:@"%.f %@", self.orderService.selectedOrder.amount, TEXT_PRICE_UNIT];
 }
 
 - (void)update:(CCTime)delta
@@ -163,7 +166,9 @@
 
 - (void)nextStep:(CCButton *)button
 {
-    [self pushSceneWithName:@"MainNextScene" animated:YES];
+    id nextNode = [CCBReader load:@"MainNextScene"];
+    [nextNode setOrderService:self.orderService];
+    [self pushScene:[CCScene sceneWithNode:nextNode] animated:YES];
 }
 
 @end

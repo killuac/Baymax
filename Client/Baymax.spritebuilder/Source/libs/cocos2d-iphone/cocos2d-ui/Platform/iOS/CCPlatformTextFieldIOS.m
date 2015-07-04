@@ -16,17 +16,18 @@
     CGFloat _scaleMultiplier;
     BOOL _keyboardIsShown;
     float _keyboardHeight;
+    
+    UIView *_background;
 }
 - (id) init {
     if (self=[super init]) {
         // Create UITextField and set it up
         _textField = [[UITextField alloc] initWithFrame:CGRectZero];
         _textField.delegate = self;
-        _textField.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+        _textField.backgroundColor = [UIColor clearColor];
         
         // UIKit might not be running in the same scale as us.
         _scaleMultiplier = [CCDirector sharedDirector].contentScaleFactor/[UIScreen mainScreen].scale;
-        
     }
     return self;
 }
@@ -56,7 +57,6 @@
     [super onEnterTransitionDidFinish];
     [self addUITextView];
     [self registerForKeyboardNotifications];
-
 }
 - (void) onExitTransitionDidStart
 {
@@ -90,7 +90,9 @@
 
 - (void) addUITextView
 {
-    [[[CCDirector sharedDirector] view] addSubview:_textField];
+    UIView *glView = [[CCDirector sharedDirector] view];
+    UIView *superView = glView.superview;
+    [superView insertSubview:_textField belowSubview:glView];
 }
 
 - (void) removeUITextView
@@ -218,7 +220,7 @@
         runningScene.position = newPosition;
 #else
         // Calcualte target frame
-        UIView* view = [[CCDirector sharedDirector] view];
+        UIView* view = [[CCDirector sharedDirector] view].superview;    // Changed by Killua
         CGRect frame = view.frame;
         frame.origin.y = offset;
         
@@ -244,7 +246,7 @@
     newPosition.y = 0.0f;
     runningScene.position = newPosition;
 #else
-    UIView* view = [[CCDirector sharedDirector] view];
+    UIView* view = [[CCDirector sharedDirector] view].superview;        // Changed by Killua
     [UIView beginAnimations: @"textFieldAnim" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
     [UIView setAnimationDuration: 0.2f];

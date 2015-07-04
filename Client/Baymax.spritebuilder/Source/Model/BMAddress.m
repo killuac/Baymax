@@ -10,4 +10,12 @@
 
 @implementation BMAddress
 
++ (JSONKeyMapper *)keyMapper
+{
+    return [JSONKeyMapper jsonKeyMapperWithDictionary:@
+    {
+        @"defaultAddress": @"isDefaultAddress"
+    }];
+}
+
 @end

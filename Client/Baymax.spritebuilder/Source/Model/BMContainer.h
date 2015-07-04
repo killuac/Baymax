@@ -12,6 +12,7 @@
 #import "BMAddress.h"
 #import "BMParts.h"
 #import "BMService.h"
+#import "BMPayment.h"
 
 @interface BMContainer : JSONModel
 
@@ -24,5 +25,7 @@
 @property (nonatomic, strong) NSArray<BMParts, Optional> *partses;
 @property (nonatomic, strong) NSArray<BMPartsItem, Optional> *partsItems;
 @property (nonatomic, strong) NSArray<BMService, Optional> *services;
+
+@property (nonatomic, strong) NSArray<BMPayment, Optional> *payments;
 
 @end

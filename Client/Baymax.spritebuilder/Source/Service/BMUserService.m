@@ -76,4 +76,28 @@
     }];
 }
 
+- (void)findAllAddresses:(void (^)(id))result
+{
+    NSURL *url = _user.addressesURL;
+    
+    [BMActivityIndicator show];
+    
+    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
+        _user.addresses = container.addresses;
+        if (result) result(self);
+        
+        [BMActivityIndicator remove];
+    }];
+}
+
+- (BMAddress *)defaultAddress
+{
+    for (BMAddress *address in _user.addresses) {
+        if (address.isDefaultAddress)
+            return address;
+    }
+    return nil;
+}
+
 @end

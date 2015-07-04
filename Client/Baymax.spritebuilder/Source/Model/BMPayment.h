@@ -8,6 +8,9 @@
 
 #import <JSONModel/JSONModel.h>
 
+@protocol BMPayment <NSObject>
+@end
+
 @interface BMPayment : JSONModel
 
 @property (nonatomic, assign) short paymentId;

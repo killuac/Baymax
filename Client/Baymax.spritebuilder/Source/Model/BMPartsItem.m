@@ -29,9 +29,4 @@
     return (_imageName) ? (id)[[BMServerAPI sharedServerAPI].partsBaseURL URLByAppendingPathComponent:_imageName] : _imageName;
 }
 
-- (BOOL)isSelected
-{
-    return self.selected.boolValue;
-}
-
 @end

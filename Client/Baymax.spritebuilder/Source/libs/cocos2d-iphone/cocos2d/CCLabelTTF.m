@@ -172,6 +172,8 @@ static __strong NSMutableDictionary* ccLabelTTF_registeredFonts;
 
 - (void) setString:(NSString*)str
 {
+    if (!str) return;   // Added by Killua
+    
 	NSAssert( str, @"Invalid string" );
     [self _setAttributedString:[[NSAttributedString alloc] initWithString:str]];
 }

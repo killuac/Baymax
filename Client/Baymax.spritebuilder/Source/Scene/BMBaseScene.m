@@ -16,8 +16,8 @@
         self.contentSizeType = CCSizeTypeNormalized;
         self.contentSize = CGSizeMake(1, 1);
         
-        CCNode *background = [CCBReader load:@"Background" owner:self];
-        [self addChild:background];
+//        CCNode *background = [CCBReader load:@"Background" owner:self];
+//        [self addChild:background];
         
         [self scheduleBlock:^(CCTimer *timer) {
             [self loadData];

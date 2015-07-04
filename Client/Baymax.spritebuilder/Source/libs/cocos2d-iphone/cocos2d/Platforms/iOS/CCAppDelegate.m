@@ -214,7 +214,7 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 	[CCTexture setDefaultAlphaPixelFormat:CCTexturePixelFormat_RGBA8888];
     
     // Initialise OpenAL
-//    [OALSimpleAudio sharedInstance];
+//    [OALSimpleAudio sharedInstance];  // Comment by Killua: Because it will make playing music pause
 	
 	// Create a Navigation Controller with the Director
 	navController_ = [[CCNavigationController alloc] initWithRootViewController:director];

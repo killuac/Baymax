@@ -86,6 +86,7 @@
 {
     return _platformTextField.nativeTextField;
 }
+// Add method by Killua
 #elif __CC_PLATFORM_ANDROID
 - (AndroidEditText *)textField
 {

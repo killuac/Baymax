@@ -17,6 +17,8 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
     BMTableViewStyleGrouped                 // preferences style table view
 };
 
+@class BMNavigationBar;
+
 @protocol BMTableViewDataSource;
 @protocol BMTableViewDelegate;
 
@@ -39,6 +41,8 @@ typedef NS_ENUM(NSInteger, BMTableViewStyle) {
 @property (nonatomic, assign) BOOL hasBorderLine;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
+@property (nonatomic, weak) BMNavigationBar *navigationBar;
 
 - (NSUInteger)rowCountInSection:(NSUInteger)sectionNumber;
 

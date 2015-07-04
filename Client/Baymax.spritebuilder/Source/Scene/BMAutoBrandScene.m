@@ -19,7 +19,7 @@
         
         [_tableView setupWithStyle:BMTableViewStyleGrouped];
         
-        _autoService = [BMAutomobileService new];
+        _autoService = [[BMAutomobileService alloc] init];
     }
     return self;
 }

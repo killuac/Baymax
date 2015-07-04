@@ -52,7 +52,7 @@
     if ([item isEqual:self.navigationBar.leftBarItem]) {
         [super navigationBar:navBar didSelectItem:item];
     } else {
-        BMAutomobile *automobile = [BMAutomobile new];
+        BMAutomobile *automobile = [[BMAutomobile alloc] init];
         automobile.userId = [[self selectedTabScene] userService].userId;
         automobile.autoModel = _autoModel;
         

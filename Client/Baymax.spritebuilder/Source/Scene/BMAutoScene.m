@@ -63,13 +63,12 @@
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BMAutoTableViewCell *cell = [BMAutoTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
+    BMAutoTableViewCell *cell = [BMAutoTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryNone];
     BMAutomobile *automobile = self.automobiles[indexPath.section];
     cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:automobile.logoFile];
     cell.titleLabel.string = automobile.titleName;
     cell.modelLabel.string = automobile.modelName;
-    if (automobile.registrationPlate)
-        cell.plateNoLabel.string = automobile.registrationPlate;
+    cell.plateNoLabel.string = automobile.registrationPlate;
     NSString *string = cell.mainCountLabel.string;
     cell.mainCountLabel.string = [string stringByReplacingOccurrencesOfString:@"&" withString:@(automobile.maintenanceCount).stringValue];
     return cell;

@@ -14,6 +14,9 @@
 #define SCREEN_HEIGHT               SCREEN_SIZE.height
 #define SCREEN_CENTER               ccp(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
+#define BACKGROUND_COLOR                [CCColor colorWithWhite:0.95 alpha:1]
+#define BACKGROUND_COLOR_TRANSPARENT    [CCColor colorWithWhite:0 alpha:0]
+
 #define MOBILE_MAX_LENGTH           11
 #define PASSWORD_MIN_LENGTH         6
 #define VERIFICATION_CODE_LENGTH    6
@@ -35,6 +38,7 @@
 #define NAV_TITLE_AUTOBRAND         NSLocalizedString(@"车的品牌", "")
 #define NAV_TITLE_AUTOSERIES        NSLocalizedString(@"车的系列", "")
 #define NAV_TITLE_AUTOMODEL         NSLocalizedString(@"车的型号", "")
+#define NAV_TITLE_MAIN_NEXT         NSLocalizedString(@"保养订单", "")
 
 #define BUTTON_TITLE_CANCEL         NSLocalizedString(@"取消", "")
 #define BUTTON_TITLE_DONE           NSLocalizedString(@"完成", "")
@@ -47,7 +51,8 @@
 #define PLACEHOLDER_PASSWORD        NSLocalizedString(@"密码 (不小于6位)", "")
 #define PLACEHOLDER_VCODE           NSLocalizedString(@"短信验证码 (6位)", "")
 
-#define TIP_CONNECTION_FAILED       NSLocalizedString(@"网络连接似乎断了", "")
+#define TIP_CONNECTION_FAILED       NSLocalizedString(@"暂时无法连接到服务器", "")
+#define TIP_CONNECTION_BROKEN       NSLocalizedString(@"网络连接似乎断了", "")
 #define TIP_MOBILE_INVALID          NSLocalizedString(@"手机号码无效", "")
 #define TIP_MOBILE_TAKEN            NSLocalizedString(@"手机号码已经被注册", "")
 #define TIP_MOBILE_NOT_FOUND        NSLocalizedString(@"手机号码尚未注册", "")
@@ -57,6 +62,7 @@
 #define TIP_INITIALIZATION          NSLocalizedString(@"初始化...", "")
 #define TIP_SIGNING_UP              NSLocalizedString(@"创建中...", "")
 #define TIP_SIGNING_IN              NSLocalizedString(@"登录中...", "")
+#define TIP_CREATING                NSLocalizedString(@"创建中...", "")
 
 #define TEXT_PRICE_UNIT             NSLocalizedString(@"元", "")
 

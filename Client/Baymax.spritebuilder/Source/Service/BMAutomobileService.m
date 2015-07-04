@@ -10,10 +10,10 @@
 
 @implementation BMAutomobileService
 
-- (instancetype)initWithModel:(id)modelObject
+- (instancetype)init
 {
     if (self = [super init]) {
-        _automobile = modelObject;
+        _automobile = [[BMAutomobile alloc] init];
     }
     return self;
 }
@@ -22,7 +22,7 @@
 {
     NSURL *url = [BMServerAPI sharedServerAPI].automobilesURL;
     
-    [BMActivityIndicator show];
+    [BMActivityIndicator showWithText:TIP_CREATING userInteractionEnabled:NO];
     
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _automobile = [BMAutomobile modelWithDictionary:responseObject];

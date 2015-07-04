@@ -488,7 +488,6 @@ extern EAGLContext *CCRenderDispatchSetupGL(EAGLRenderingAPI api, EAGLSharegroup
     _touchEvent.timestamp = event.timestamp;
     [_touchEvent updateTouchesBegan:touches];
     [[CCDirector sharedDirector].responderManager touchesBegan:_touchEvent.currentTouches withEvent:_touchEvent];
-    
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

@@ -24,6 +24,7 @@
     CCEditText *_editText;
 }
 
+// Add method by Killua
 - (id)nativeTextField
 {
     return _editText;

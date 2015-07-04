@@ -10,6 +10,11 @@
 
 @implementation JSONModel (BMJSONModel)
 
++ (instancetype)model
+{
+    return [[self alloc] init];
+}
+
 + (instancetype)modelWithString:(NSString *)string
 {
     NSError *error;
@@ -32,6 +37,16 @@
     id jsonModel = [[self alloc] initWithData:data error:&error];
     if (error)  NSLog(@"%@", error);
     return jsonModel;
+}
+
+- (void)setIsSelected:(BOOL)isSelected
+{
+    objc_setAssociatedObject(self, @selector(isSelected), @(isSelected), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)isSelected
+{
+    return [objc_getAssociatedObject(self, @selector(isSelected)) boolValue];
 }
 
 @end

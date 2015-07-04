@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, BMTableViewCellSelectionStyle) {
 @property (nonatomic, weak, readonly) CCLabelTTF *textLabel;
 @property (nonatomic, weak, readonly) CCLabelTTF *detailTextLabel;
 @property (nonatomic, weak, readonly) CCTextField *textField;
-@property (nonatomic, weak, readonly) CCButton *accessoryButton;
+@property (nonatomic, weak) CCButton *accessoryButton;
 
 @property (nonatomic, readonly) BMTableViewCellStyle style;
 @property (nonatomic, assign) BMTableViewCellAccessoryType accessoryType;

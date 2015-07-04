@@ -9,12 +9,18 @@
 #import "BMTableViewCell.h"
 #import "BMTableView.h"
 #import "BMUtil.h"
+#import "BMNavigationBar.h"
+#import "BMButtonFactory.h"
 
 #define HIGHLIGHTED_COLOR   [CCColor whiteColor]
 #define SELECTED_COLOR      [CCColor colorWithRed:43/255.0 green:65/255.0 blue:116/255.0]
 
 @implementation BMTableViewCell {
     NSMutableDictionary *_properties;
+    
+#if __CC_PLATFORM_IOS
+    UIImageView *_imageView;
+#endif
 }
 
 + (instancetype)cellWithStyle:(BMTableViewCellStyle)style accessoryType:(BMTableViewCellAccessoryType)accessoryType
@@ -116,7 +122,6 @@
             
         case BMTableViewCellAccessoryCheckmark:
             imageName = IMG_FILE_NAME(@"check_mark");
-            _accessoryButton.visible = NO;
             break;
             
         case BMTableViewCellAccessoryDisclosureIndicator:
@@ -125,17 +130,13 @@
             
         case BMTableViewCellAccessoryDetailDisclosureButton:
             imageName = IMG_FILE_NAME(@"button_detail_disclosure");
-            _accessoryButton.userInteractionEnabled = YES;
             break;
     }
     
-    CCSpriteFrame *spriteFrame = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@".png"]];
-    CCSpriteFrame *spriteFrameHL = [CCSpriteFrame frameWithImageNamed:[imageName stringByAppendingString:@"_highlighted.png"]];
-    CCSprite *sprite = [CCSprite spriteWithSpriteFrame:spriteFrame];
-    _accessoryButton.preferredSize = _accessoryButton.maxSize = sprite.contentSize;
-    [_accessoryButton setBackgroundSpriteFrame:spriteFrame forState:CCControlStateNormal];
-    [_accessoryButton setBackgroundSpriteFrame:spriteFrameHL forState:CCControlStateHighlighted];
-    [_accessoryButton setBackgroundColor:[CCColor whiteColor] forState:CCControlStateHighlighted];
+    self.accessoryButton = [BMButtonFactory createAccessoryButtonWithImageName:imageName inCell:self];
+    _accessoryButton.userInteractionEnabled = (BMTableViewCellAccessoryDetailDisclosureButton == _accessoryType);
+    _accessoryButton.visible = (BMTableViewCellAccessoryDisclosureIndicator == _accessoryType ||
+                                BMTableViewCellAccessoryDetailDisclosureButton == _accessoryType);
 }
 
 - (void)setAccessoryType:(BMTableViewCellAccessoryType)accessoryType
@@ -182,6 +183,7 @@
         [_textLabel removeFromParent]; _textLabel = nil;
         [_valueLabelsBox removeFromParent]; _valueLabelsBox = nil;
         [_subtitleLabelsBox removeFromParent]; _subtitleLabelsBox = nil;
+        
         if (!_imageSprite.spriteFrame) {
             [_imageSprite removeFromParent];
             _textField.preferredSize = CGSizeMake(_textField.preferredSize.width+40, self.contentSizeInPoints.height);
@@ -305,5 +307,42 @@
     return [NSString stringWithFormat:@"<%@: %p | Name = %@ | ZOrder = %tu | AnchorPoint = %@ | Position = %@ | ContentSize = %@>",
             [self class], self, _name, _zOrder, StringFromCGPoint(_anchorPoint), StringFromCGPoint(_position), StringFromCGSize(_contentSize)];
 }
+
+#if __CC_PLATFORM_IOS
+- (void)onEnterTransitionDidFinish
+{
+    [super onEnterTransitionDidFinish];
+    
+    if (self.editing) {
+        self.contentButton.visible = NO;
+        [self addBackgroundImageView];
+    }
+}
+
+- (void)onExitTransitionDidStart
+{
+    [super onExitTransitionDidStart];
+    [_imageView removeFromSuperview];
+}
+
+- (void)addBackgroundImageView
+{
+    UIImage *image = [UIImage imageWithCGImage:[_contentButton.background newCGImage]];
+    _imageView = [[UIImageView alloc] initWithImage:image];
+    
+    CGFloat scaleMultiplier = [(id)_textField.platformTextField scaleMultiplier];
+    CGFloat width = self.contentSize.width * scaleMultiplier;
+    CGFloat offsetHeight = self.tableView.navigationBar.contentSize.height;
+    CGRect frame = CGRectMake(self.position.x, self.position.y+offsetHeight, width, image.size.height/2);
+    _imageView.frame = frame;
+    
+    [(id)_textField.platformTextField setImageView:_imageView];
+    
+    UIView *glView = [CCDirector sharedDirector].view;
+    UIView *superView = glView.superview;
+    [superView insertSubview:_imageView belowSubview:_textField.textField];
+}
+#endif
+
 
 @end

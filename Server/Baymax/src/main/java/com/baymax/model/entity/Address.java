@@ -37,6 +37,9 @@ public class Address {
     private String detailAddress;
 
     @Column
+    private boolean defaultAddress;
+
+    @Column
     private boolean obsolete;
 
     @Column

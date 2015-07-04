@@ -2,7 +2,6 @@ package com.baymax.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -49,7 +48,7 @@ public class Order {
     private boolean needInvoice;
 
     @Column
-    private double amount;      // Assign it after orderItems assignment
+    private double amount;
 
     @Column
     private Timestamp serviceTime;
@@ -64,9 +63,8 @@ public class Order {
     private Timestamp completeTime;
 
     @Column
-    private String description;
+    private String remark;
 
-    @RestResource(exported = false)
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
@@ -116,9 +114,17 @@ public class Order {
     }
 
     public void setAmount(double amount) {
+        if (null == orderItems) return;
+
+        amount = 0;
         for (OrderItem orderItem : orderItems) {
-            amount += orderItem.getPrice() * orderItem.getQuantity();
+            amount += orderItem.getPrice();
         }
         this.amount = amount;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+        this.setAmount(0);
     }
 }

@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong, readonly) CCScene *rootScene;
 
-@property (nonatomic, strong, readonly) CCNodeColor *background;
+//@property (nonatomic, strong, readonly) CCNodeColor *background;
 
 - (void)presentScene:(CCScene *)scene animated:(BOOL)animated;
 - (void)presentSceneWithName:(NSString *)sceneName animated:(BOOL)animated;

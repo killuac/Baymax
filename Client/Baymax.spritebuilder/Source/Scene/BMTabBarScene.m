@@ -19,13 +19,13 @@
     _selectedScene = _scenes.firstObject;
     _tabBar.delegate = self;
     
-    self.userService = [BMUserService new];
+    self.userService = [[BMUserService alloc] init];
 }
 
 - (void)loadData
 {
     if ([BMCredential sharedCredential].isSignedIn) {
-        BMUser *user = [BMUser new];
+        BMUser *user = [[BMUser alloc] init];
         user.mobile = [BMCredential sharedCredential].mobile;
         user.password = [BMCredential sharedCredential].password;
         [self.userService signInWithData:user result:^(id service) {

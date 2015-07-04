@@ -26,7 +26,6 @@
 @protocol BMNavigationSceneDelegate <NSObject>
 
 @optional
-- (void)navigationScene:(BMNavigationScene *)navScene didShowFrom:(BMBaseScene *)fromScene;
 - (void)navigationSceneDidPop:(BMNavigationScene *)navScene;
 
 @end
