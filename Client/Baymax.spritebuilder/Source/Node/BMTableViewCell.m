@@ -229,6 +229,24 @@
         [_borderLine removeFromParent];
         _borderLine = nil;
     }
+    
+    if (_imageSprite.spriteFrame) {
+        _nodesBox.position = ccpAdd(_nodesBox.position, ccp(_indentWidth, 0));
+        
+        CGFloat indent = (self.contentSize.height > DEFAULT_ROW_HEIGHT) ? _indentWidth * 2 : _indentWidth;
+        CGFloat height = self.contentSize.height - indent;
+        _imageSprite.contentSize = CGSizeMake(height, height);
+    }
+    
+    if (_valueLabelsBox) {
+        CGFloat accessoryWidth = _accessoryButton.preferredSize.width;
+        accessoryWidth = (accessoryWidth > 0) ? accessoryWidth + _indentWidth * 2 : _indentWidth;
+        
+        CGFloat delta = (_imageSprite.spriteFrame) ? _imageSprite.contentSize.width + _indentWidth : 0;
+        CGFloat width = self.contentSize.width - (delta + _nodesBox.spacing + accessoryWidth);
+        
+        _valueLabelsBox.contentSize = CGSizeMake(width, _valueLabelsBox.contentSize.height);
+    }
 }
 
 - (void)setContentSize:(CGSize)contentSize

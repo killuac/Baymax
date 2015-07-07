@@ -34,10 +34,9 @@
         @"_links.ratings.href": @"ratingsURL",
         
         @"_links.logoBaseURL.href": @"logoBaseURL",
-        @"_links.logoZipURL.href": @"logoZipURL",
         @"_links.partsBaseURL.href": @"partsBaseURL",
-        @"_links.partsZipURL.href": @"partsZipURL",
-        @"_links.avatarBaseURL.href": @"avatarBaseURL"
+        @"_links.avatarBaseURL.href": @"avatarBaseURL",
+        @"_links.imagesZIPURL.href": @"imagesZIPURL"
     }];
 }
 
@@ -59,42 +58,30 @@ static BMServerAPI *instanceOfServerAPI = nil;
         BMServerAPI *serverAPI = [BMServerAPI modelWithDictionary:responseObject];
         [[serverAPI toJSONData] writeToFile:DocumentFilePath(JSON_SERVER_API) atomically:YES];
         
-        [serverAPI downloadAllAutoLogos];
+        [serverAPI downloadAllResources];
         
         [BMAppSetting defaultAppSetting].isFirstLaunch = NO;
         [[BMAppSetting defaultAppSetting] save];
     }];
 }
 
-- (void)downloadAllAutoLogos
+- (void)downloadAllResources
 {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
-    NSString *logoZipFile = DocumentFilePath(self.logoZipURL.relativePath);
+    NSString *imagesZIPFile = DocumentFilePath(_imagesZIPURL.relativePath);
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *content = [fileManager contentsOfDirectoryAtPath:[logoZipFile stringByDeletingPathExtension] error:nil];
-    if (content.count > 0) return;
+    if ([fileManager fileExistsAtPath:[imagesZIPFile stringByDeletingPathExtension]]) {
+        return;
+    }
     
     [BMActivityIndicator showWithText:TIP_INITIALIZATION userInteractionEnabled:NO];
     
-    [[BMSessionManager sharedSessionManager] getResource:self.logoZipURL success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [responseObject writeToFile:logoZipFile atomically:YES];
-        NSString *logoPath = [logoZipFile stringByDeletingPathExtension];
-        [SSZipArchive unzipFileAtPath:logoZipFile toDestination:logoPath];
+    [[BMSessionManager sharedSessionManager] getResource:self.imagesZIPURL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [responseObject writeToFile:imagesZIPFile atomically:YES];
+        [SSZipArchive unzipFileAtPath:imagesZIPFile toDestination:[imagesZIPFile stringByDeletingLastPathComponent]];
         
-//      After unzip, maybe there is also a "logo" folder in /image/logo/ directory because of different zip approach.
-        NSString *path = [logoPath stringByAppendingPathComponent:@"logo"];
-        if ([fileManager fileExistsAtPath:path]) {
-            NSString *logoPathTemp = [logoPath stringByAppendingString:@"temp"];
-            [fileManager moveItemAtPath:logoPath toPath:logoPathTemp error:nil];
-            
-            path = [logoPathTemp stringByAppendingPathComponent:path.lastPathComponent];
-            [fileManager moveItemAtPath:path toPath:logoPath error:nil];
-            
-            [fileManager removeItemAtPath:logoPathTemp error:nil];
-        }
-        
-        [fileManager removeItemAtPath:logoZipFile error:nil];
+        [fileManager removeItemAtPath:imagesZIPFile error:nil];
         
         [BMActivityIndicator remove];
     }];

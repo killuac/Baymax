@@ -15,6 +15,7 @@
 {
     if (self = [super init]) {
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOSERIES;
+//        [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_HOME];
         
         [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
@@ -39,6 +40,15 @@
     [_autoService findOneBrandSerieses:^(id service) {
         [self reloadData];
     }];
+}
+
+- (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
+{
+    if ([item isEqual:self.navigationBar.leftBarItem]) {
+        [super navigationBar:navBar didSelectItem:item];
+    } else {
+        [self dismissToRootSceneAnimated:YES];
+    }
 }
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section

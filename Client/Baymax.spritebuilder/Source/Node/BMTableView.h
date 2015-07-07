@@ -10,6 +10,7 @@
 #import "BMTableViewCell.h"
 #import "BMTableViewSection.h"
 
+#define DEFAULT_ROW_HEIGHT  44
 #define DEFAULT_TABLE_VIEW  @"TableView"
 
 typedef NS_ENUM(NSInteger, BMTableViewStyle) {

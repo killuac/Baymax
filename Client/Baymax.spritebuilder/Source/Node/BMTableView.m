@@ -10,9 +10,6 @@
 #import <objc/message.h>
 #import "BMTabBarScene.h"
 
-#define DEFAULT_ROW_HEIGHT  44
-
-
 #pragma mark - BMTableView+Helper
 @interface BMTableView (Helper)
 
@@ -116,6 +113,11 @@
 
 - (BMTableViewCell *)selectedCell
 {
+    for (BMTableViewCellHolder *holder in _cellHolders) {
+        if ([holder.cell isKindOfClass:[BMTableViewCell class]] && [(id)holder.cell selected]) {
+            return (id)holder.cell;
+        }
+    }
     return [self cellForRowAtIndexPath:[self selectedIndexPath]];
 }
 
@@ -492,8 +494,9 @@ done:
 {
     self.selectedIndexPath = indexPath;
     
-    if (BMTableViewCellAccessoryCheckmark == self.selectedCell.accessoryType) {
-        self.selectedCell.selected = YES;
+    BMTableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+    if (BMTableViewCellAccessoryCheckmark == cell.accessoryType) {
+        cell.selected = YES;
     }
     
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
@@ -505,11 +508,13 @@ done:
 
 - (void)deselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BMTableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+    
     if ([_delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
-        self.selectedCell.selected = NO;
+        cell.selected = NO;
         [_delegate tableView:self didDeselectRowAtIndexPath:indexPath];
     } else {
-        self.selectedCell.selected = YES;
+        cell.selected = YES;
     }
 }
 

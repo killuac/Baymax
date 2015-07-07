@@ -158,16 +158,13 @@
 - (void)onEnterTransitionDidFinish
 {
     [super onEnterTransitionDidFinish];
-    
-    self.scene.colorRGBA = BACKGROUND_COLOR_TRANSPARENT;
+    [self addBackgroundUIView];
 }
 
 - (void)onExitTransitionDidStart
 {
     [super onExitTransitionDidStart];
-    [CCGLView removeBackgroundUIView];
-    
-    self.scene.colorRGBA = BACKGROUND_COLOR;
+    [self removeBackgroundUIView];
 }
 #endif
 

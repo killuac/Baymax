@@ -17,6 +17,7 @@
 {
     if (self = [super init]) {
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOMODEL;
+//        [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_HOME];
         
         [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
@@ -46,6 +47,15 @@
 - (id)selectedTabScene
 {
     return [self.rootScene.children.firstObject selectedScene];
+}
+
+- (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
+{
+    if ([item isEqual:self.navigationBar.leftBarItem]) {
+        [super navigationBar:navBar didSelectItem:item];
+    } else {
+        [self dismissToRootSceneAnimated:YES];
+    }
 }
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section

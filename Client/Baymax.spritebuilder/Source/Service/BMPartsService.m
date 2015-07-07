@@ -20,7 +20,6 @@
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _response = operation.response;
         _allPartses = container.partses;
-        
         result(self);
     }];
 }

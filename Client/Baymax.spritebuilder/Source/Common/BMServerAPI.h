@@ -27,15 +27,14 @@
 @property (nonatomic, strong) NSURL *ratingsURL;
 
 @property (nonatomic, strong) NSURL *logoBaseURL;
-@property (nonatomic, strong) NSURL *logoZipURL;
 @property (nonatomic, strong) NSURL *partsBaseURL;
-@property (nonatomic, strong) NSURL *partsZipURL;
 @property (nonatomic, strong) NSURL *avatarBaseURL;
+@property (nonatomic, strong) NSURL *imagesZIPURL;
 
 + (instancetype)sharedServerAPI;
 
 + (void)writeAPIFile;
 
-- (void)downloadAllAutoLogos;
+- (void)downloadAllResources;
 
 @end

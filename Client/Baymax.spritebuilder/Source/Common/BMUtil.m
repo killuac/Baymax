@@ -12,7 +12,7 @@ NSString *DocumentFilePath(NSString *fileName)
 {
     NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *path = [docDir stringByAppendingPathComponent:fileName];
-    if ([fileName rangeOfString:@"/"].location != NSNotFound) {
+    if (fileName && [fileName rangeOfString:@"/"].location != NSNotFound) {
         [[NSFileManager defaultManager] createDirectoryAtPath:[path stringByDeletingLastPathComponent]
                                   withIntermediateDirectories:YES
                                                    attributes:nil

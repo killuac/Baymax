@@ -63,12 +63,14 @@
     partsItem.totalPrice = [NSNumber numberWithDouble:price];
     
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleValue accessoryType:BMTableViewCellAccessoryCheckmark];
-//    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:partsItem.imageFile];
+    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:partsItem.imageFile];
     cell.textLabel.string = partsItem.brandName;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.0f %@", price, TEXT_PRICE_UNIT];
     
-    NSUInteger idx = [self.allPartsItems indexOfObject:self.partsService.selectedPartsItem];
-    cell.selected = (idx == indexPath.row);
+    if (self.partsService.selectedPartsItem) {
+        NSUInteger idx = [self.allPartsItems indexOfObject:self.partsService.selectedPartsItem];
+        cell.selected = (idx == indexPath.row);
+    }
     
     return cell;
 }

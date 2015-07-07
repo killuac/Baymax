@@ -29,6 +29,7 @@
 #define IMG_FILE_NAME(str)          [IMG_DIRECTORY stringByAppendingString:str]
 #define IMG_NAV_BUTTON_ADD          IMG_FILE_NAME(@"nav_button_add.png")
 #define IMG_NAV_BUTTON_BACK         IMG_FILE_NAME(@"nav_button_back.png")
+#define IMG_NAV_BUTTON_HOME         IMG_FILE_NAME(@"nav_button_home.png")
 #define IMG_NAV_BUTTON_DROPDOWN     IMG_FILE_NAME(@"nav_button_dropdown.png")
 
 

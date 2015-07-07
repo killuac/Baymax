@@ -22,8 +22,6 @@
     self.navigationBar.titleLabel.string = NAV_TITLE_MAINTENANCE;
     [self.navigationBar.rightBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_ADD];
     [self.navigationBar.leftBarItem setNormalBackgroundImage:IMG_NAV_BUTTON_DROPDOWN];
-    
-    self.nextButton.enabled = NO;
 }
 
 - (void)loadData
@@ -36,8 +34,7 @@
     _orderService.userService = self.userService;
     
     [self.userService findAutomobiles:^(id service) {
-        self.navigationBar.titleLabel.string = [self.userService.automobiles.firstObject titleName];
-        _automobile = self.userService.automobiles.firstObject;
+        self.navigationBar.titleLabel.string = self.automobile.titleName;
         
         [self.orderService findAllItems:^(id service) {
             [self reloadData];
@@ -46,6 +43,17 @@
     }];
     
     [self.userService findAllAddresses:nil];
+}
+
+- (BMAutomobile *)automobile
+{
+    for (BMAutomobile *automobile in self.userService.automobiles) {
+        if (automobile.isSelected) {
+            return automobile;
+        }
+    }
+    
+    return self.userService.automobiles.firstObject;
 }
 
 - (void)addNodesToTableView
@@ -97,10 +105,12 @@
 - (void)actionSheet:(BMActionSheet *)actionSheet clickedButton:(CCButton *)button
 {
     if (![button isEqual:actionSheet.cancelButton]) {
-        [self reloadData];
         for (BMAutomobile *automobile in self.userService.automobiles) {
             if ([automobile.titleName isEqualToString:button.title]) {
-                automobile.isSelected = YES; break;
+                self.navigationBar.titleLabel.string = automobile.titleName;
+                automobile.isSelected = YES;
+                [self reloadData];
+                break;
             }
         }
     }
@@ -120,11 +130,12 @@
     BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleValue accessoryType:accessory];
     cell.allowsSelection = IS_PARTS(item);
     
-//    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:[item imageFile]];
+    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:[item imageFile]];
     cell.textLabel.string = IS_PARTS(item) ? [item partsName] : [item serviceName];
     double price = IS_PARTS(item) ? 0 : [item price];
     self.orderService.selectedOrder.amount += price;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.f %@", price, TEXT_PRICE_UNIT];
+    
     return cell;
 }
 
@@ -162,26 +173,26 @@
     }
     
     BMTableViewCell *cell = self.tableView.selectedCell;
-//    id item = (partsItem) ? partsItem : self.selectedParts;
-//    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:[item imageFile]];
+    id item = (partsItem) ? partsItem : self.selectedParts;
+    cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:[item imageFile]];
     cell.textLabel.string = itemName;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.f %@", price, TEXT_PRICE_UNIT];
     
 //    _amountLabel.string = [NSString stringWithFormat:@"%.f %@", self.orderService.selectedOrder.amount, TEXT_PRICE_UNIT];
 }
 
-- (void)update:(CCTime)delta
-{
-    for (BMParts *parts in self.orderService.partsService.allPartses) {
-        for (BMPartsItem *partsItem in parts.partsItems) {
-            if (partsItem.isSelected) {
-                _nextButton.enabled = YES; return;
-            }
-        }
-    }
-    
-    _nextButton.enabled = YES;  // !!! - Temp set YES
-}
+//- (void)update:(CCTime)delta
+//{
+//    for (BMParts *parts in self.orderService.partsService.allPartses) {
+//        for (BMPartsItem *partsItem in parts.partsItems) {
+//            if (partsItem.isSelected) {
+//                _nextButton.enabled = YES; return;
+//            }
+//        }
+//    }
+//    
+//    _nextButton.enabled = NO;
+//}
 
 - (void)nextStep:(CCButton *)button
 {

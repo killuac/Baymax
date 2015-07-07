@@ -39,8 +39,7 @@ public class CustomProperties {
     private final String logoPath = "/images/logo/";
     private final String partsPath = "/images/parts/";
     private final String avatarPath = "/images/avatar/";
-    private final String logoZip = "/images/logo.zip";
-    private final String partsZip = "/images/parts.zip";
+    private final String imagesZIP = "/images/images.zip";
 
     public String getBaseURLString() {
         try {
@@ -64,11 +63,7 @@ public class CustomProperties {
         return getBaseURLString() + avatarPath;
     }
 
-    public String getLogoZipURL() {
-        return getBaseURLString() + logoZip;
-    }
-
-    public String getPartsZipURL() {
-        return getBaseURLString() + partsZip;
+    public String getImagesZIPURL() {
+        return getBaseURLString() + imagesZIP;
     }
 }

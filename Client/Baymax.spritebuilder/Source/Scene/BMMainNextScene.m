@@ -158,7 +158,8 @@
             if (0 == indexPath.row) {
                 BMPaymentScene *node = [BMPaymentScene node];
                 node.delegate = self;
-                node.navigationBar.titleLabel.string = tableView.selectedCell.textLabel.string;
+                BMTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                node.navigationBar.titleLabel.string = cell.textLabel.string;
                 [self pushScene:[CCScene sceneWithNode:node] animated:YES];
             }
             break;
@@ -230,16 +231,13 @@
 - (void)onEnterTransitionDidFinish
 {
     [super onEnterTransitionDidFinish];
-    
-    self.scene.colorRGBA = BACKGROUND_COLOR_TRANSPARENT;
+    [self addBackgroundUIView];
 }
 
 - (void)onExitTransitionDidStart
 {
     [super onExitTransitionDidStart];
-    [CCGLView removeBackgroundUIView];
-    
-    self.scene.colorRGBA = BACKGROUND_COLOR;
+    [self removeBackgroundUIView];
 }
 #endif
 

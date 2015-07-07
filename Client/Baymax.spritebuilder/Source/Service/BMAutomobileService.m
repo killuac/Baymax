@@ -51,23 +51,26 @@
         _response = operation.response;
         _autoBrands = container.autoBrands;
         
-        [_autoBrands enumerateObjectsUsingBlock:^(BMAutoBrand *autoBrand, NSUInteger idx, BOOL *stop) {
+        __block NSUInteger idx = 1;
+        for (BMAutoBrand *autoBrand in _autoBrands) {
             if (![[NSFileManager defaultManager] fileExistsAtPath:autoBrand.logoFile]) {
                 [[BMSessionManager sharedSessionManager] getResource:autoBrand.logoURL
                                                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    [responseObject writeToFile:autoBrand.logoFile atomically:YES];
-                    if (idx+1 == _autoBrands.count) {
-                        result(self);
-                        [BMActivityIndicator remove];
-                    }
-                }];
+                                                                 [responseObject writeToFile:autoBrand.logoFile atomically:YES];
+                                                                 if (idx == _autoBrands.count) {
+                                                                     result(self);
+                                                                     [BMActivityIndicator remove];
+                                                                 }
+                                                                 idx++;
+                                                             }];
             } else {
-                if (idx+1 == _autoBrands.count) {
+                if (idx == _autoBrands.count) {
                     result(self);
                     [BMActivityIndicator remove];
                 }
+                idx++;
             }
-        }];
+        }
     }];
 }
 

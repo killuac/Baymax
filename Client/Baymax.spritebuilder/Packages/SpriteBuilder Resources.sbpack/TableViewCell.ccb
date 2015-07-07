@@ -2321,8 +2321,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>48</real>
-							<real>30</real>
+							<real>0.0</real>
+							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -2375,7 +2375,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/button_toggle_on.png</string>
+							<string></string>
 						</array>
 					</dict>
 					<dict>

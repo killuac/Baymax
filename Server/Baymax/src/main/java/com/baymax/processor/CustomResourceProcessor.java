@@ -23,10 +23,9 @@ public class CustomResourceProcessor implements ResourceProcessor<RepositoryLink
         resource.add(linkTo(methodOn(UserController.class).signIn(null)).withRel("signIn"));
 
         resource.add(new Link(propertiesInstance().getLogoBaseURL(), "logoBaseURL"));
-        resource.add(new Link(propertiesInstance().getLogoZipURL(), "logoZipURL"));
         resource.add(new Link(propertiesInstance().getPartsBaseURL(), "partsBaseURL"));
-        resource.add(new Link(propertiesInstance().getPartsZipURL(), "partsZipURL"));
         resource.add(new Link(propertiesInstance().getAvatarBaseURL(), "avatarBaseURL"));
+        resource.add(new Link(propertiesInstance().getImagesZIPURL(), "imagesZIPURL"));
 
         return resource;
     }
