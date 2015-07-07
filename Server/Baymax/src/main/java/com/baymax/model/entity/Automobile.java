@@ -1,12 +1,7 @@
 package com.baymax.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -31,6 +26,9 @@ public class Automobile {
     private int userId;
 
     @Column
+    private short modelId;
+
+    @Column
     private String registrationPlate;
 
     @Column
@@ -48,9 +46,8 @@ public class Automobile {
     @Column
     private Timestamp createTime;
 
-    @RestResource(exported = false)
     @ManyToOne
-    @JoinColumn(name = "modelId")
+    @JoinColumn(name = "modelId", insertable = false, updatable = false)
     private AutoModel autoModel;
 
     @ManyToOne
@@ -59,6 +56,10 @@ public class Automobile {
 
     @OneToMany(mappedBy = "automobile")
     private List<Order> orders;
+
+    public void setRegistrationPlate(String registrationPlate) {
+        this.registrationPlate = registrationPlate.toUpperCase();
+    }
 
     public String getBrandName() {
         return autoModel.getAutoSeries().getAutoBrand().getBrandName();
@@ -78,15 +79,5 @@ public class Automobile {
 
     public String getLogoName() {
         return autoModel.getAutoSeries().getAutoBrand().getLogoName();
-    }
-
-    @JsonIgnore
-    public AutoModel getAutoModel() {
-        return autoModel;
-    }
-
-    @JsonProperty
-    public void setAutoModel(AutoModel autoModel) {
-        this.autoModel = autoModel;
     }
 }

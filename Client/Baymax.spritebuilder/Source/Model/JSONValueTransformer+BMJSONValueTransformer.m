@@ -29,7 +29,7 @@
     dispatch_once(&onceOutput, ^{
         outputDateFormatter = [[NSDateFormatter alloc] init];
         [outputDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-        [outputDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
+        [outputDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.000+0000"];
     });
     return [outputDateFormatter stringFromDate:date];
 }

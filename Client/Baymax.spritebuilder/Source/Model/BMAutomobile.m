@@ -27,7 +27,7 @@
 
 - (NSString<Ignore> *)titleName
 {
-    return [_brandName stringByAppendingString:_seriesName];
+    return [_brandName stringByAppendingFormat:@" %@", _seriesName];
 }
 
 - (NSString<Ignore> *)logoFile

@@ -1,7 +1,10 @@
 package com.baymax.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -16,7 +19,13 @@ import java.util.List;
 @Entity
 @Table(name = "t_order")
 //@JsonIdentityInfo(property = "orderId", generator=ObjectIdGenerators.PropertyGenerator.class)
-public class Order {
+public class Order implements Identifiable<Integer> {
+
+    @JsonIgnore
+    @Override
+    public Integer getId() {
+        return orderId;
+    }
 
     @Id
     @Column
@@ -65,7 +74,8 @@ public class Order {
     @Column
     private String remark;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @RestResource(exported = false)
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 
     @ManyToOne
@@ -113,18 +123,18 @@ public class Order {
         return address.getDetailAddress();
     }
 
-    public void setAmount(double amount) {
-        if (null == orderItems) return;
-
-        amount = 0;
-        for (OrderItem orderItem : orderItems) {
-            amount += orderItem.getPrice();
+    public double getAmount() {
+        double amount = 0;
+        if (null != orderItems) {
+            for (OrderItem orderItem : orderItems) {
+                amount += orderItem.getPrice();
+            }
         }
-        this.amount = amount;
+        return amount;
     }
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
-        this.setAmount(0);
+        this.setAmount(getAmount());
     }
 }

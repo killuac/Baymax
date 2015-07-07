@@ -10,6 +10,24 @@
 
 @implementation CCButton (BMButton)
 
+- (id)copyButtonWithTitle:(NSString *)title
+{
+    CCButton *button = [CCButton buttonWithTitle:title spriteFrame:self.background.spriteFrame];
+    [button setBackgroundSpriteFrame:[self backgroundSpriteFrameForState:CCControlStateHighlighted] forState:CCControlStateHighlighted];
+    [button setBackgroundSpriteFrame:[self backgroundSpriteFrameForState:CCControlStateSelected] forState:CCControlStateSelected];
+    [button setBackgroundSpriteFrame:[self backgroundSpriteFrameForState:CCControlStateDisabled] forState:CCControlStateDisabled];
+    
+    button.anchorPoint = self.anchorPoint;
+    button.positionType = self.positionType;
+    button.contentSizeType = self.contentSizeType;
+    button.contentSize = self.contentSize;
+    button.preferredSize = self.preferredSize;
+    button.maxSize = self.maxSize;
+    button.label.fontSize = self.label.fontSize;
+    
+    return button;
+}
+
 #if !__CC_PLATFORM_MAC
 static NSTimeInterval previousTimestamp;
 

@@ -47,6 +47,11 @@
     [self reloadData];
 }
 
+- (BMMainScene *)mainScene
+{
+    return (BMMainScene *)[self.scene.lastScene.children.firstObject selectedScene];
+}
+
 - (NSArray *)itemsInSection:(NSUInteger)section
 {
     return [_model.sections[section] items];
@@ -91,12 +96,12 @@
         case 0:
             if (0 == indexPath.row) {
                 cell.textField.string = self.orderService.selectedAddress.realName;
-                cell.textField.block = ^(CCPlatformTextField *textField) {
+                cell.textField.block = ^(CCTextField *textField) {
                     self.orderService.selectedAddress.realName = textField.string;
                 };
             } else {
                 cell.textField.string = self.orderService.selectedAddress.mobile;
-                cell.textField.block = ^(CCPlatformTextField *textField) {
+                cell.textField.block = ^(CCTextField *textField) {
                     self.orderService.selectedAddress.mobile = textField.string;
                 };
             }
@@ -107,7 +112,7 @@
                 cell.detailTextLabel.string = self.orderService.selectedOrder.reserveDate;
             } else {
                 cell.textField.string = self.orderService.selectedAddress.detailAddress;
-                cell.textField.block = ^(CCPlatformTextField *textField) {
+                cell.textField.block = ^(CCTextField *textField) {
                     self.orderService.selectedAddress.detailAddress = textField.string;
                 };
             }
@@ -123,7 +128,7 @@
             
         case 3:
             cell.textField.string = self.orderService.selectedOrder.remark;
-            cell.textField.block = ^(CCPlatformTextField *textField) {
+            cell.textField.block = ^(CCTextField *textField) {
                 self.orderService.selectedOrder.remark = textField.string;
             };
             break;
@@ -176,7 +181,7 @@
 - (void)createOrder:(CCButton *)button
 {
     BMOrder *order = self.orderService.selectedOrder;
-    order.automobileId = 1;
+    order.automobileId = self.mainScene.userService.selectedAutomobile.automobileId;
     order.paymentId = self.orderService.selectedPayment.paymentId;
     order.addressId = self.orderService.selectedAddress.addressId;
     order.serviceTime = [NSDate date];      // !!! - 需要更改
@@ -185,8 +190,10 @@
     for (id item in self.orderService.allItems) {
         BMOrderItem *orderItem = [[BMOrderItem alloc] init];
         
-        if ([item isKindOfClass:[BMPartsItem class]]) {
-            orderItem.partsItem = item;
+        if ([item isKindOfClass:[BMParts class]]) {
+            orderItem.partsItem = (id)[item selectedPartsItem];
+            if (!orderItem.partsItem)
+                continue;
         } else if ([item isKindOfClass:[BMService class]]) {
             orderItem.service = item;
         } else {

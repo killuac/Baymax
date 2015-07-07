@@ -85,8 +85,27 @@
     if ([item isEqual:self.navigationBar.rightBarItem]) {
         [self presentScene:[CCScene sceneWithNode:[BMAutoBrandScene node]] animated:YES];
     } else {
-//      !!! - 选择不同车辆
+        BMActionSheet *actionSheet = [BMActionSheet actionSheet];
+        actionSheet.delegate = self;
+        for (BMAutomobile *automobile in self.userService.automobiles) {
+            [actionSheet addButtonWithTitle:automobile.titleName];
+        }
+        [actionSheet show];
     }
+}
+
+- (void)actionSheet:(BMActionSheet *)actionSheet clickedButton:(CCButton *)button
+{
+    if (![button isEqual:actionSheet.cancelButton]) {
+        [self reloadData];
+        for (BMAutomobile *automobile in self.userService.automobiles) {
+            if ([automobile.titleName isEqualToString:button.title]) {
+                automobile.isSelected = YES; break;
+            }
+        }
+    }
+    
+    [actionSheet dismiss];
 }
 
 - (NSUInteger)tableView:(BMTableView *)tableView numberOfRowsInSection:(NSUInteger)section
@@ -148,7 +167,7 @@
     cell.textLabel.string = itemName;
     cell.detailTextLabel.string = [NSString stringWithFormat:@"%.f %@", price, TEXT_PRICE_UNIT];
     
-    _amountLabel.string = [NSString stringWithFormat:@"%.f %@", self.orderService.selectedOrder.amount, TEXT_PRICE_UNIT];
+//    _amountLabel.string = [NSString stringWithFormat:@"%.f %@", self.orderService.selectedOrder.amount, TEXT_PRICE_UNIT];
 }
 
 - (void)update:(CCTime)delta

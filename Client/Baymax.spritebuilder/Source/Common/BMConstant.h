@@ -20,6 +20,7 @@
 #define MOBILE_MAX_LENGTH           11
 #define PASSWORD_MIN_LENGTH         6
 #define VERIFICATION_CODE_LENGTH    6
+#define REGISTRATION_PLATE_LENGTH   6
 
 #define MAIN_SCENE                  @"TabBarScene"
 #define SIGN_SCENE                  @"SignScene"
@@ -38,6 +39,7 @@
 #define NAV_TITLE_AUTOBRAND         NSLocalizedString(@"车的品牌", "")
 #define NAV_TITLE_AUTOSERIES        NSLocalizedString(@"车的系列", "")
 #define NAV_TITLE_AUTOMODEL         NSLocalizedString(@"车的型号", "")
+#define NAV_TITLE_PLATE             NSLocalizedString(@"车牌号码", "")
 #define NAV_TITLE_MAIN_NEXT         NSLocalizedString(@"保养订单", "")
 
 #define BUTTON_TITLE_CANCEL         NSLocalizedString(@"取消", "")
@@ -50,6 +52,7 @@
 #define PLACEHOLDER_MOBILE          NSLocalizedString(@"手机号码 (11位)", "")
 #define PLACEHOLDER_PASSWORD        NSLocalizedString(@"密码 (不小于6位)", "")
 #define PLACEHOLDER_VCODE           NSLocalizedString(@"短信验证码 (6位)", "")
+#define PLACEHOLDER_PLATE           NSLocalizedString(@"车牌号码 (6位)", "")
 
 #define TIP_CONNECTION_FAILED       NSLocalizedString(@"暂时无法连接到服务器", "")
 #define TIP_CONNECTION_BROKEN       NSLocalizedString(@"网络连接似乎断了", "")

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework:springloaded:1.2.1.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/springloaded/1.2.1.RELEASE/19f77b8126e3ac8e74fa8a851930816b4d09ecb1/springloaded-1.2.1.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/springloaded/1.2.1.RELEASE/5f621f420d91cb3e8192cd6ed9cf70a7e51ebf62/springloaded-1.2.1.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -10,7 +10,6 @@
 #import "BMConstant.h"
 
 #define NAME_ACTIVITY_INDICATOR @"ActivityIndicator"
-#define NAME_MASK_NODE          @"maskNode"
 
 @implementation BMActivityIndicator
 
@@ -33,7 +32,6 @@
 + (void)remove
 {
     [self.runningScene removeChildByName:NAME_ACTIVITY_INDICATOR];
-    [self.runningScene removeChildByName:NAME_MASK_NODE];
     [self.runningScene setUserInteractionEnabledRecursively:YES];
 }
 
@@ -55,19 +53,12 @@
     [BMActivityIndicator remove];
     
     self.position = SCREEN_CENTER;
-    self.textLabel.string = text;
-    self.background.visible = text.length > 0;
+    _textLabel.string = text;
+    _bottomBox.visible = text.length > 0;
+    _background.visible = !userInteractionEnabled;
     [_iconSprite runRotateForever];
-    [scene addChild:self z:1000 name:NAME_ACTIVITY_INDICATOR];
     
-    if (!userInteractionEnabled) {
-        [self.class.runningScene setUserInteractionEnabledRecursively:NO];
-        CCNodeColor *maskNode = [CCNodeColor nodeWithColor:[CCColor blackColor]];
-        maskNode.opacity = 0.3;
-        maskNode.contentSizeType = CCSizeTypeNormalized;
-        maskNode.contentSize = CGSizeMake(1, 1);
-        [scene addChild:maskNode z:100 name:NAME_MASK_NODE];
-    }
+    [scene addChild:self z:1000 name:NAME_ACTIVITY_INDICATOR];
 }
 
 @end

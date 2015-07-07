@@ -9,8 +9,9 @@
 #import "BMTableViewScene.h"
 #import "BMTabBarScene.h"
 #import "BMOrderService.h"
+#import "BMActionSheet.h"
 
-@interface BMMainScene : BMTableViewScene <BMNavigationSceneDelegate>
+@interface BMMainScene : BMTableViewScene <BMNavigationSceneDelegate, BMActionSheetDelegate>
 
 @property (nonatomic, weak, readonly) BMUserService *userService;
 @property (nonatomic, weak, readonly) BMAutomobile *automobile;

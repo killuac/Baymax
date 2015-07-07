@@ -9,6 +9,8 @@
 #import <AFNetworking/AFNetworking.h>
 #import "BMServerAPI.h"
 
+#define HEAD_FIELD_LOCATION     @"Location"
+
 @class BMSessionManager;
 
 @protocol BMSessionManagerDelegate <NSObject>

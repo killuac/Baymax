@@ -2,6 +2,7 @@ package com.baymax.model.service;
 
 import com.baymax.model.entity.Order;
 import com.baymax.model.entity.OrderItem;
+import com.baymax.model.repository.AutomobileRepository;
 import com.baymax.model.repository.OrderItemRepository;
 import com.baymax.model.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +20,32 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderItemRepository orderItemRepository;
+    private final AutomobileRepository automobileRepository;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository) {
+    public OrderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository, AutomobileRepository automobileRepository) {
         this.orderRepository = orderRepository;
         this.orderItemRepository = orderItemRepository;
+        this.automobileRepository = automobileRepository;
     }
 
     @Transactional
     public Order save(Order anOrder) {
-        Order order = orderRepository.save(anOrder);
+        anOrder.setAutomobile(automobileRepository.findOne(anOrder.getAutomobileId()));
         Iterable<OrderItem> orderItems = anOrder.getOrderItems();
         for (OrderItem orderItem : orderItems) {
-            orderItem.setOrder(order);
+            orderItem.setOrder(anOrder);
+            orderItem.setPrice(orderItem.getPrice());
         }
-        orderItems = orderItemRepository.save(orderItems);
-        order.setOrderItems((List)orderItems);
+
+        anOrder.setAmount(anOrder.getAmount());
+        Order order = orderRepository.save(anOrder);
+
+        for (OrderItem orderItem : orderItems) {
+            orderItem.setOrderId(order.getOrderId());
+        }
+        orderItemRepository.save(orderItems);
+
         return order;
     }
 

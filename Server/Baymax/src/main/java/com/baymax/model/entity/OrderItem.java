@@ -48,20 +48,22 @@ public class OrderItem {
     @JoinColumn(name = "serviceId")
     private Service service;
 
-    public void setPrice(double price) {
+    public double getPrice() {
+        double price = 0;
+
         if (null != partsItem) {
             price = partsItem.getPrice();
 
             double fourLiterPrice = partsItem.getFourLiterPrice();
-            if (null != partsItem && fourLiterPrice > 0) {
+            if (fourLiterPrice > 0 && null != order && null != order.getAutomobile()) {
                 int oilCapacity = order.getAutomobile().getOilCapacity();
                 price = (oilCapacity/4) * fourLiterPrice + (oilCapacity%4) * this.price;
             }
-        } else {
+        } else if (null != service) {
             price = service.getPrice();
         }
 
-        this.price = price;
+        return price;
     }
 
     public String getItemName() {
@@ -80,7 +82,7 @@ public class OrderItem {
     @JsonProperty
     public void setPartsItem(PartsItem partsItem) {
         this.partsItem = partsItem;
-        this.setPrice(partsItem.getPrice());
+        this.setPrice(getPrice());
     }
 
     @JsonIgnore
@@ -91,6 +93,6 @@ public class OrderItem {
     @JsonProperty
     public void setService(Service service) {
         this.service = service;
-        this.setPrice(service.getPrice());
+        this.setPrice(getPrice());
     }
 }

@@ -74,4 +74,11 @@
     [self runAction:[CCActionSequence actions:fade, callBlock, nil]];
 }
 
+- (void)runAnimationWithName:(NSString *)name block:(void (^)(id sender))block
+{
+    CCAnimationManager *animationManager = self.userObject;
+    [animationManager setCompletedAnimationCallbackBlock:block];
+    [animationManager runAnimationsForSequenceNamed:name];
+}
+
 @end

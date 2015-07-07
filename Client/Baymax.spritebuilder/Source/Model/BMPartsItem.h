@@ -14,11 +14,10 @@
 @interface BMPartsItem : JSONModel
 
 @property (nonatomic, assign) short itemId;
-@property (nonatomic, assign) short partsId;
 @property (nonatomic, assign) double price;
 @property (nonatomic, assign) double fourLiterPrice;
 @property (nonatomic, copy) NSString *brandName;
-@property (nonatomic, copy) NSString *partsItemDesc;
+@property (nonatomic, copy) NSString<Optional> *partsItemDesc;
 @property (nonatomic, copy) NSString *imageName;
 
 @property (nonatomic, strong) NSNumber<Ignore> *totalPrice;

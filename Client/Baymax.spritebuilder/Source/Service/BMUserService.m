@@ -40,6 +40,7 @@
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _user = [BMUser modelWithDictionary:responseObject];
         _response = operation.response;
+        
         if (result) result(self);
         
         [BMActivityIndicator remove];
@@ -55,6 +56,7 @@
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _user = [BMUser modelWithDictionary:responseObject];
         _response = operation.response;
+        
         if (result) result(self);
         
         [BMActivityIndicator remove];
@@ -70,6 +72,8 @@
     [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _user.automobiles = container.automobiles;
+        _response = operation.response;
+        
         result(self);
         
         [BMActivityIndicator remove];
@@ -85,10 +89,21 @@
     [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _user.addresses = container.addresses;
+        _response = operation.response;
+        
         if (result) result(self);
         
         [BMActivityIndicator remove];
     }];
+}
+
+- (BMAutomobile *)selectedAutomobile
+{
+    for (BMAutomobile *automobile in _user.automobiles) {
+        if (automobile.isSelected)
+            return automobile;
+    }
+    return _user.automobiles.firstObject;
 }
 
 - (BMAddress *)defaultAddress
@@ -98,6 +113,41 @@
             return address;
     }
     return nil;
+}
+
+- (void)findAllOrders:(void (^)(id))result
+{
+    NSMutableArray *orders = [NSMutableArray array];
+    
+    [BMActivityIndicator show];
+    
+    __block NSUInteger idx = 1;
+    for (BMAutomobile *automobile in _user.automobiles) {
+        NSURL *url = automobile.ordersURL;
+        
+        [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            BMContainer *container = [BMContainer modelWithDictionary:responseObject];
+            if (container.orders) {
+                [orders addObjectsFromArray:container.orders];
+            }
+            
+            if (idx == _user.automobiles.count) {
+                _response = operation.response;
+                NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"self" ascending: NO];
+                _orders = [orders sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortOrder]];
+                
+                for (BMOrder *order in _orders) {
+                    order.automobile = automobile;
+                }
+                
+                result(self);
+                
+                [BMActivityIndicator remove];
+            }
+            
+            idx++;
+        }];
+    }
 }
 
 @end

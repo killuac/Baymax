@@ -28,10 +28,21 @@
     return self;
 }
 
+- (NSComparisonResult)compare:(id)object
+{
+    return [self.createTime compare:[object createTime]];
+}
+
 - (NSString<Ignore> *)reserveDate
 {
-    return @"7月31日 10~12点";     // !!!
+    return @"2015-07-31 10~12点";     // !!!
 }
+
+- (NSString<Ignore> *)autoLogoFile
+{
+    return DocumentFilePath(self.autoLogoURL.relativePath);
+}
+
 
 - (NSURL<Ignore> *)autoLogoURL
 {

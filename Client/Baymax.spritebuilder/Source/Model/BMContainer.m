@@ -19,10 +19,12 @@
         @"_embedded.autoModels": @"autoModels",
         @"_embedded.automobiles": @"automobiles",
         @"_embedded.addresses": @"addresses",
+        @"_embedded.provinces": @"provinces",
         @"_embedded.partses": @"partses",
         @"_embedded.partsItems": @"partsItems",
         @"_embedded.services": @"services",
         @"_embedded.payments": @"payments",
+        @"_embedded.orders": @"orders"
     }];
 }
 

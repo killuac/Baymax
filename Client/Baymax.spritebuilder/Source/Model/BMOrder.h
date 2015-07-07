@@ -18,6 +18,8 @@ typedef NS_ENUM(short, BMOrderStatus) {
     BMOrderStatusClosed
 };
 
+@class BMAutomobile;
+
 @protocol BMOrder <NSObject>
 @end
 
@@ -25,7 +27,7 @@ typedef NS_ENUM(short, BMOrderStatus) {
 
 @property (nonatomic, assign) NSUInteger orderId;
 @property (nonatomic, assign) NSUInteger automobileId;
-@property (nonatomic, assign) BMOrderStatus statusId;
+@property (nonatomic, assign) short statusId;
 @property (nonatomic, assign) short paymentId;
 @property (nonatomic, assign) NSUInteger addressId;
 @property (nonatomic, copy) NSString<Optional> *employeeId;
@@ -34,19 +36,21 @@ typedef NS_ENUM(short, BMOrderStatus) {
 @property (nonatomic, assign) BOOL isNeedInvoice;
 @property (nonatomic, assign) double amount;
 @property (nonatomic, strong) NSDate *serviceTime;
-@property (nonatomic, strong) NSDate *createTime;
+@property (nonatomic, strong) NSDate<Optional> *createTime;
 @property (nonatomic, strong) NSDate<Optional> *acceptTime;
 @property (nonatomic, strong) NSDate<Optional> *completeTime;
-@property (nonatomic, copy) NSString *statusName;
-@property (nonatomic, copy) NSString *paymentName;
-@property (nonatomic, copy) NSString *detailAddress;
+@property (nonatomic, copy) NSString<Optional> *statusName;
+@property (nonatomic, copy) NSString<Optional> *paymentName;
+@property (nonatomic, copy) NSString<Optional> *detailAddress;
 @property (nonatomic, copy) NSString<Optional> *remark;
 
 @property (nonatomic, copy) NSString<Ignore> *reserveDate;
 
-@property (nonatomic, copy) NSString *autoLogoName;
-@property (nonatomic, strong) NSURL<Ignore> *autoLogoURL;
+@property (nonatomic, copy) NSString<Optional> *autoLogoName;
+@property (nonatomic, strong, readonly) NSURL<Ignore> *autoLogoURL;
+@property (nonatomic, strong, readonly) NSString<Ignore> *autoLogoFile;
 
+@property (nonatomic, strong) BMAutomobile<Ignore> *automobile;
 @property (nonatomic, strong) NSArray<BMOrderItem> *orderItems;
 
 @end

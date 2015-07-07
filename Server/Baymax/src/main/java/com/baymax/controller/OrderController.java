@@ -2,13 +2,20 @@ package com.baymax.controller;
 
 import com.baymax.model.entity.Order;
 import com.baymax.model.service.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 /**
@@ -19,6 +26,8 @@ import java.util.List;
 @RequestMapping("/api/orders")
 public class OrderController implements ResourceProcessor<Resource<Order>> {
 
+    private final static Logger logger = LoggerFactory.getLogger(UserController.class);
+
     private final OrderService orderService;
     private final EntityLinks entityLinks;
 
@@ -28,10 +37,18 @@ public class OrderController implements ResourceProcessor<Resource<Order>> {
         this.entityLinks = entityLinks;
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public Order create(@RequestBody Order anOrder) {
-        return orderService.save(anOrder);
+    public HttpEntity create(@RequestBody Order anOrder) {
+        Order order = orderService.save(anOrder);
+
+        HttpHeaders headers = new HttpHeaders();
+        try {
+            headers.setLocation(new URI(entityLinks.linkToSingleResource(order).getHref()));
+        } catch (URISyntaxException e) {
+            logger.error(e.getMessage());
+        }
+
+        return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
     @ResponseStatus(HttpStatus.OK)

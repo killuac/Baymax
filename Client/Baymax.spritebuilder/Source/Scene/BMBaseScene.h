@@ -33,4 +33,9 @@
 - (void)dismissSceneAnimated:(BOOL)animated;
 - (void)dismissToRootSceneAnimated:(BOOL)animated;
 
+#if __CC_PLATFORM_IOS
+- (void)addBackgroundUIView;
+- (void)removeBackgroundUIView;
+#endif
+
 @end

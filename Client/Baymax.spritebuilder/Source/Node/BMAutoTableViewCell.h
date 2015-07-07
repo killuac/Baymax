@@ -10,9 +10,9 @@
 
 @interface BMAutoTableViewCell : BMTableViewCell
 
-@property (nonatomic, weak) CCLabelTTF *titleLabel;
-@property (nonatomic, weak) CCLabelTTF *modelLabel;
-@property (nonatomic, weak) CCLabelTTF *plateNoLabel;
-@property (nonatomic, weak) CCLabelTTF *mainCountLabel;
+@property (nonatomic, weak, readonly) CCLabelTTF *titleLabel;
+@property (nonatomic, weak, readonly) CCLabelTTF *modelLabel;
+@property (nonatomic, weak, readonly) CCLabelTTF *plateNoLabel;
+@property (nonatomic, weak, readonly) CCLabelTTF *mainCountLabel;
 
 @end

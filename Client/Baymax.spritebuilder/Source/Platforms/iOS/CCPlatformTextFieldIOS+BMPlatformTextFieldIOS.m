@@ -23,35 +23,8 @@
 {
     CCPlatformTextFieldIOS *platformTextField = [self swizzledInit];
     platformTextField.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self addBackgroundView];
     
     return platformTextField;
-}
-
-- (void)setBackground:(UIView *)background
-{
-    objc_setAssociatedObject(self, @selector(background), background, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (UIView *)background
-{
-    return objc_getAssociatedObject(self, @selector(background));
-}
-
-- (void)addBackgroundView
-{
-    UIView *glView = [CCDirector sharedDirector].view;
-    UIView *superView = glView.superview;
-    glView.opaque = NO;
-    
-    if (![superView.subviews.firstObject isMemberOfClass:[UIView class]]) {
-        CGSize size = [CCDirector sharedDirector].designSize;
-        CGRect frame = CGRectMake(0, 0, size.width, size.height);
-        self.background = [[UIView alloc] initWithFrame:frame];
-        self.background.backgroundColor = [BACKGROUND_COLOR UIColor];
-        [superView addSubview:self.background];
-        [superView sendSubviewToBack:self.background];
-    }
 }
 
 - (void)addUITextView

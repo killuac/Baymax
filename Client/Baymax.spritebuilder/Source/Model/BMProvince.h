@@ -9,6 +9,9 @@
 #import <JSONModel/JSONModel.h>
 #import "BMCity.h"
 
+@protocol BMProvince <NSObject>
+@end
+
 @interface BMProvince : JSONModel
 
 @property (nonatomic, copy) NSString *provinceName;

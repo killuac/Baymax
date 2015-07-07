@@ -277,6 +277,11 @@
     _selected = _contentButton.selected = selected;
     _accessoryButton.selected = selected;
     _accessoryButton.visible = selected;
+    
+    if (!self.editing) {
+        [_textField removeFromParent];
+        _contentButton.visible = YES;
+    }
 }
 
 - (void)selectCell:(BMCellButton *)button

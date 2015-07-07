@@ -16,9 +16,14 @@
 @property (nonatomic, strong, readonly) NSArray *autoBrands;
 @property (nonatomic, strong) BMAutoBrand *selectedBrand;
 @property (nonatomic, strong) BMAutoSeries *selectedSeries;
+@property (nonatomic, strong) BMAutoModel *selectedModel;
+
+@property (nonatomic, strong, readonly) NSArray *provinces;
 
 - (void)findAllBrands:(void (^)(id service))result;
 - (void)findOneBrandSerieses:(void (^)(id service))result;
 - (void)findOneSeriesModels:(void (^)(id service))result;
+
+- (void)findAllProvinces:(void (^)(id service))result;
 
 @end

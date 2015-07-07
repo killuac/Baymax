@@ -7,20 +7,16 @@
 //
 
 #import "BMAutoModelScene.h"
-#import "BMTabBarScene.h"
 #import "BMMainScene.h"
 #import "BMAutoScene.h"
+#import "BMPlateScene.h"
 
-@implementation BMAutoModelScene {
-    BMAutoModel *_autoModel;
-}
+@implementation BMAutoModelScene
 
 - (id)init
 {
     if (self = [super init]) {
         self.navigationBar.titleLabel.string = NAV_TITLE_AUTOMODEL;
-        self.navigationBar.rightBarItem.title = BUTTON_TITLE_DONE;
-        self.navigationBar.rightBarItem.enabled = NO;
         
         [_tableView setupWithStyle:BMTableViewStyleGrouped];
     }
@@ -47,22 +43,6 @@
     }];
 }
 
-- (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
-{
-    if ([item isEqual:self.navigationBar.leftBarItem]) {
-        [super navigationBar:navBar didSelectItem:item];
-    } else {
-        BMAutomobile *automobile = [[BMAutomobile alloc] init];
-        automobile.userId = [[self selectedTabScene] userService].userId;
-        automobile.autoModel = _autoModel;
-        
-        [_autoService createWithData:automobile result:^(id service) {
-            [[self selectedTabScene] reloadData:_autoService.automobile];
-            [self dismissToRootSceneAnimated:YES];
-        }];
-    }
-}
-
 - (id)selectedTabScene
 {
     return [self.rootScene.children.firstObject selectedScene];
@@ -75,15 +55,18 @@
 
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryCheckmark];
+    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleDefault accessoryType:BMTableViewCellAccessoryDisclosureIndicator];
     cell.textLabel.string = [self.autoModels[indexPath.row] modelName];
     return cell;
 }
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _autoModel = self.autoModels[indexPath.row];
-    self.navigationBar.rightBarItem.enabled = YES;
+    _autoService.selectedModel = self.autoModels[indexPath.row];
+
+    BMPlateScene *node = [BMPlateScene node];
+    node.autoService = self.autoService;
+    [self pushScene:[CCScene sceneWithNode:node] animated:YES];
 }
 
 @end

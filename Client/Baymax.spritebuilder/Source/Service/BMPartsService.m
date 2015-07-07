@@ -20,6 +20,7 @@
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _response = operation.response;
         _allPartses = container.partses;
+        
         result(self);
     }];
 }
@@ -34,6 +35,7 @@
         BMContainer *container = [BMContainer modelWithDictionary:responseObject];
         _response = operation.response;
         _selectedParts.partsItems = container.partsItems;
+        
         result(self);
         
         [BMActivityIndicator remove];

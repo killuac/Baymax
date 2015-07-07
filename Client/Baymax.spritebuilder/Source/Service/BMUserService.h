@@ -14,10 +14,12 @@
 @property (nonatomic, strong, readonly) BMUser *user;
 @property (nonatomic, strong, readonly) NSArray *automobiles;
 @property (nonatomic, strong, readonly) NSArray *addresses;
+@property (nonatomic, strong, readonly) NSArray *orders;
 
 @property (nonatomic, assign, readonly) NSUInteger userId;
 @property (nonatomic, assign, readonly) NSUInteger automobileCount;
 
+@property (nonatomic, weak, readonly) BMAutomobile *selectedAutomobile;
 @property (nonatomic, weak, readonly) BMAddress *defaultAddress;
 
 - (void)updateAutomobiles:(BMAutomobile *)automobile;
@@ -27,5 +29,7 @@
 - (void)findAutomobiles:(void (^)(id service))result;
 
 - (void)findAllAddresses:(void (^)(id service))result;
+
+- (void)findAllOrders:(void (^)(id service))result;
 
 @end

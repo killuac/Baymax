@@ -1,9 +1,6 @@
 package com.baymax.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 
@@ -23,6 +20,9 @@ public class AutoModel {
     private short modelId;
 
     @Column
+    private short seriesId;
+
+    @Column
     private String modelName;
 
     @Column
@@ -31,18 +31,7 @@ public class AutoModel {
     @Column
     private boolean obsolete;
 
-    @RestResource(exported = false)
     @ManyToOne
-    @JoinColumn(name = "seriesId")
+    @JoinColumn(name = "seriesId", insertable = false, updatable = false)
     private AutoSeries autoSeries;
-
-    @JsonIgnore
-    public AutoSeries getAutoSeries() {
-        return autoSeries;
-    }
-
-    @JsonProperty
-    public void setAutoSeries(AutoSeries autoSeries) {
-        this.autoSeries = autoSeries;
-    }
 }

@@ -10,4 +10,6 @@
 
 @interface CCButton (BMButton)
 
+- (id)copyButtonWithTitle:(NSString *)title;
+
 @end

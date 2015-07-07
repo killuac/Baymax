@@ -68,9 +68,14 @@
     cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithContentsOfFile:automobile.logoFile];
     cell.titleLabel.string = automobile.titleName;
     cell.modelLabel.string = automobile.modelName;
-    cell.plateNoLabel.string = automobile.registrationPlate;
+    
+    NSMutableString *registrationPlate = [automobile.registrationPlate mutableCopy];
+    [registrationPlate insertString:@" " atIndex:2];
+    cell.plateNoLabel.string = registrationPlate;
+    
     NSString *string = cell.mainCountLabel.string;
     cell.mainCountLabel.string = [string stringByReplacingOccurrencesOfString:@"&" withString:@(automobile.maintenanceCount).stringValue];
+    
     return cell;
 }
 

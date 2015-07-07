@@ -23,19 +23,23 @@
 - (id)copySprite
 {
     CCSprite *sprite = [CCSprite spriteWithSpriteFrame:self.spriteFrame];
-    sprite.positionType = self.positionType;
-    sprite.contentSizeType = self.contentSizeType;
-    sprite.contentSize = self.contentSize;
+    [self copyPropertiesToSprite:sprite];
     return sprite;
 }
 
 - (id)copySprite9Slice
 {
     CCSprite9Slice *sprite = [CCSprite9Slice spriteWithSpriteFrame:self.spriteFrame];
+    [self copyPropertiesToSprite:sprite];
+    return sprite;
+}
+
+- (void)copyPropertiesToSprite:(CCSprite *)sprite
+{
+    sprite.anchorPoint = self.anchorPoint;
     sprite.positionType = self.positionType;
     sprite.contentSizeType = self.contentSizeType;
     sprite.contentSize = self.contentSize;
-    return sprite;
 }
 
 - (CCSpriteFrame *)newRoundCornerSpriteFrameWithRadius:(CGFloat[])radiuses
@@ -45,7 +49,7 @@
     size_t h = self.contentSize.height;
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, (CGBitmapInfo)kCGImageAlphaPremultipliedFirst);
+    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
     
     CGContextBeginPath(context);
     CGRect rect = CGRectMake(0, 0, w, h);
@@ -122,7 +126,7 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, CGFloat radiuses[4]
 
 - (void)drawFullRoundCorner
 {
-//    CGFloat radiuses[4] = {10, 10, 0, 0};
+//    CGFloat radiuses[4] = {40, 40, 40, 40};
 //    self.spriteFrame = [self newRoundCornerSpriteFrameWithRadius:radiuses];
 }
 

@@ -25,4 +25,6 @@
 - (void)runFadeInWithBlock:(void(^)())block;
 - (void)runFadeOutWithBlock:(void(^)())block;
 
+- (void)runAnimationWithName:(NSString *)name block:(void (^)(id sender))block;
+
 @end

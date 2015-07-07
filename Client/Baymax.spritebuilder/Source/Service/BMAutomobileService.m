@@ -25,11 +25,18 @@
     [BMActivityIndicator showWithText:TIP_CREATING userInteractionEnabled:NO];
     
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _automobile = [BMAutomobile modelWithDictionary:responseObject];
-        _response = operation.response;
-        result(self);
+        NSLog(@"%@", operation.response.allHeaderFields);
+        NSString *urlString = operation.response.allHeaderFields[HEAD_FIELD_LOCATION];
+        NSURL *url = [NSURL URLWithString:urlString];
         
-        [BMActivityIndicator remove];
+        [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            _automobile = [BMAutomobile modelWithDictionary:responseObject];
+            _response = operation.response;
+            
+            result(self);
+            
+            [BMActivityIndicator remove];
+        }];
     }];
 }
 
@@ -50,14 +57,14 @@
                                                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     [responseObject writeToFile:autoBrand.logoFile atomically:YES];
                     if (idx+1 == _autoBrands.count) {
-                        [BMActivityIndicator remove];
                         result(self);
+                        [BMActivityIndicator remove];
                     }
                 }];
             } else {
                 if (idx+1 == _autoBrands.count) {
-                    [BMActivityIndicator remove];
                     result(self);
+                    [BMActivityIndicator remove];
                 }
             }
         }];
@@ -99,6 +106,23 @@
         for (BMAutoModel *autoModel in container.autoModels) {
             autoModel.autoSeries = _selectedSeries;
         }
+        
+        result(self);
+        
+        [BMActivityIndicator remove];
+    }];
+}
+
+- (void)findAllProvinces:(void (^)(id))result
+{
+    NSURL *url = [BMServerAPI sharedServerAPI].provincesURL;
+    
+    [BMActivityIndicator show];
+    
+    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
+        _provinces = container.provinces;
+        _response = operation.response;
         
         result(self);
         

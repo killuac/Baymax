@@ -9,6 +9,8 @@
 #ifndef Baymax_Catetory_h
 #define Baymax_Catetory_h
 
+#import "NSDate+BMDate.h"
+
 #import "CCNode+BMNode.h"
 #import "CCSprite+BMSprite.h"
 #import "CCButton+BMButton.h"

@@ -27,11 +27,17 @@
     [BMActivityIndicator showWithText:TIP_CREATING userInteractionEnabled:NO];
     
     [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _selectedOrder = [BMOrder modelWithDictionary:responseObject];
-        _response = operation.response;
-        result(self);
+        NSString *urlString = operation.response.allHeaderFields[HEAD_FIELD_LOCATION];
+        NSURL *url = [NSURL URLWithString:urlString];
         
-        [BMActivityIndicator remove];
+        [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            _selectedOrder = [BMOrder modelWithDictionary:responseObject];
+            _response = operation.response;
+            
+            result(self);
+            
+            [BMActivityIndicator remove];
+        }];
     }];
 }
 

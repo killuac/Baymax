@@ -88,4 +88,39 @@
     [BMActivityIndicator resumeAnimation];
 }
 
+#if __CC_PLATFORM_IOS
+- (void)setBackground:(UIView *)background
+{
+    objc_setAssociatedObject(self, @selector(background), background, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)background
+{
+    return objc_getAssociatedObject(self, @selector(background));
+}
+
+- (void)addBackgroundUIView
+{
+    self.scene.colorRGBA = BACKGROUND_COLOR_TRANSPARENT;
+    
+    UIView *glView = [CCDirector sharedDirector].view;
+    UIView *superView = glView.superview;
+    glView.opaque = NO;
+    
+    CGSize size = [CCDirector sharedDirector].designSize;
+    CGRect frame = CGRectMake(0, 0, size.width, size.height);
+    self.background = [[UIView alloc] initWithFrame:frame];
+    self.background.backgroundColor = [BACKGROUND_COLOR UIColor];
+    [superView addSubview:self.background];
+    [superView sendSubviewToBack:self.background];
+}
+
+- (void)removeBackgroundUIView
+{
+    self.scene.colorRGBA = BACKGROUND_COLOR;
+    
+    [CCGLView removeBackgroundUIView];
+}
+#endif
+
 @end

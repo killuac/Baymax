@@ -11,6 +11,7 @@
 @interface BMActivityIndicator : CCNode
 
 @property (nonatomic, weak, readonly) CCSprite *background;
+@property (nonatomic, weak, readonly) CCSprite *bottomBox;
 @property (nonatomic, weak, readonly) CCSprite *iconSprite;
 @property (nonatomic, weak, readonly) CCLabelTTF *textLabel;
 
