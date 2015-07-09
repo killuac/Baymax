@@ -53,6 +53,9 @@ public class User implements Identifiable<Integer> {    // For creating resource
     private String email;
 
     @Column
+    private String areaName;
+
+    @Column
     private boolean obsolete;
 
     @Column

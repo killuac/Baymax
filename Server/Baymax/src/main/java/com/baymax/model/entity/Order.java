@@ -78,26 +78,32 @@ public class Order implements Identifiable<Integer> {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "automobileId", insertable = false, updatable = false)
     private Automobile automobile;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "statusId", insertable = false, updatable = false)
     private OrderStatus orderStatus;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "paymentId", insertable = false, updatable = false)
     private Payment payment;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "addressId", insertable = false, updatable = false)
     private Address address;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employeeId", insertable = false, updatable = false)
     private Employee employee;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "coworkerId", insertable = false, updatable = false)
     private Employee coworker;

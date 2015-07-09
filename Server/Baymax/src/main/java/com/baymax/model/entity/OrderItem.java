@@ -67,11 +67,21 @@ public class OrderItem {
     }
 
     public String getItemName() {
-        return (null != partsItem) ? partsItem.getBrandName() : service.getServiceName();
+        return (null != partsItem) ? partsItem.getPartsName() + ": " + partsItem.getBrandName() : service.getServiceName();
     }
 
     public String getItemDescription() {
         return (null != partsItem) ? partsItem.getDescription() : service.getDescription();
+    }
+
+    @JsonIgnore
+    public Order getOrder() {
+        return order;
+    }
+
+    @JsonProperty
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     @JsonIgnore

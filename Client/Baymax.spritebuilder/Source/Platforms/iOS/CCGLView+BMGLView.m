@@ -41,11 +41,22 @@
     }
 }
 
-+ (void)removeBackgroundUIView
+- (void)addBackgroundUIView
 {
-    UIView *superView = [CCDirector sharedDirector].view.superview;
+    self.opaque = NO;
     
-    for (UIView *view in superView.subviews) {
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    CGRect frame = CGRectMake(0, 0, size.width, size.height);
+    UIView *background = [[UIView alloc] initWithFrame:frame];
+    background.backgroundColor = [BACKGROUND_COLOR UIColor];
+    
+    [self.superview addSubview:background];
+    [self.superview sendSubviewToBack:background];
+}
+
+- (void)removeBackgroundUIView
+{
+   for (UIView *view in self.superview.subviews) {
         if ([view isMemberOfClass:[UIView class]]) {
             [view removeFromSuperview];
         }

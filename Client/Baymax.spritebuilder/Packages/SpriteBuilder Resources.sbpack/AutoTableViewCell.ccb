@@ -49,7 +49,7 @@
 				<key>customClass</key>
 				<string>BMCellButton</string>
 				<key>displayName</key>
-				<string>CellButton</string>
+				<string>contentButton</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -109,7 +109,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string>selected:</string>
+							<string>selectCell:</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -377,6 +377,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1435,8 +1437,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

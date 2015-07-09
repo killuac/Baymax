@@ -20,9 +20,7 @@
 
 @end
 
-@interface BMBaseScene : CCNode <BMDataService> {
-    CCNodeColor *_background;
-}
+@interface BMBaseScene : CCNode <BMDataService>
 
 @property (nonatomic, strong, readonly) CCScene *rootScene;
 
@@ -34,8 +32,8 @@
 - (void)dismissToRootSceneAnimated:(BOOL)animated;
 
 #if __CC_PLATFORM_IOS
-- (void)addBackgroundUIView;
-- (void)removeBackgroundUIView;
+- (void)showBackgroundUIView;
+- (void)hideBackgroundUIView;
 #endif
 
 @end

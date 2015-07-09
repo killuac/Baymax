@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString<Optional> *realName;
 @property (nonatomic, copy) NSString<Optional> *email;
+@property (nonatomic, copy) NSString<Optional> *areaName;
 @property (nonatomic, strong) NSDate<Optional> *createTime;
 @property (nonatomic, copy) NSString<Optional> *avatarName;
 @property (nonatomic, strong, readonly) NSURL<Ignore> *avatarURL;

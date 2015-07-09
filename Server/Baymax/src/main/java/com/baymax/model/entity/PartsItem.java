@@ -47,4 +47,8 @@ public class PartsItem {
     @JoinColumn(name = "partsId", insertable = false, updatable = false)
     private Parts parts;
 
+    public String getPartsName() {
+        return parts.getPartsName();
+    }
+
 }

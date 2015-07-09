@@ -50,3 +50,34 @@
 }
 
 @end
+
+#pragma mark - Added classes
+@implementation BMModelItem
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [JSONKeyMapper jsonKeyMapperWithDictionary:@{
+        @"isEditable": @"isEditableValue",
+        @"maxLength": @"maxLengthValue",
+        @"keyboardType": @"keyboardTypeValue"
+    }];
+}
+
+- (BOOL)isEditable{
+    return _isEditableValue.boolValue;
+}
+
+- (NSUInteger)maxLength
+{
+    return _maxLengthValue.unsignedIntegerValue;
+}
+
+- (BMKeyboardType)keyboardType
+{
+    return _keyboardTypeValue.unsignedIntegerValue;
+}
+
+@end
+
+@implementation BMModelSection
+@end

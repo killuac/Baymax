@@ -74,7 +74,7 @@
 - (void)popToRootSceneAnimated:(BOOL)animated
 {
     if (animated) {
-        [[CCDirector sharedDirector] popToRootSceneWithTransition:[CCTransition transitionRevealDown]];
+        [[CCDirector sharedDirector] popToRootSceneWithTransition:[CCTransition transitionPushRight]];
     } else {
         [[CCDirector sharedDirector] popToRootScene];
     }

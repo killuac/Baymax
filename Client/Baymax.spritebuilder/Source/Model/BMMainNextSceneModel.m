@@ -9,24 +9,6 @@
 #import "BMMainNextSceneModel.h"
 #import "BMCredential.h"
 
-@implementation BMModelItem
-
-- (NSUInteger)maxLength
-{
-    return _maxLengthValue.unsignedIntegerValue;
-}
-
-- (BMKeyboardType)keyboardType
-{
-    return _keyboardTypeValue.unsignedIntegerValue;
-}
-
-@end
-
-@implementation BMModelSection
-
-@end
-
 @implementation BMMainNextSceneModel
 
 + (instancetype)model

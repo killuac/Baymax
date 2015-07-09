@@ -31,6 +31,7 @@
 #define IMG_NAV_BUTTON_BACK         IMG_FILE_NAME(@"nav_button_back.png")
 #define IMG_NAV_BUTTON_HOME         IMG_FILE_NAME(@"nav_button_home.png")
 #define IMG_NAV_BUTTON_DROPDOWN     IMG_FILE_NAME(@"nav_button_dropdown.png")
+#define IMG_NAV_BUTTON_SETTING      IMG_FILE_NAME(@"nav_button_setting.png")
 
 
 #define NAV_TITLE_MAINTENANCE       NSLocalizedString(@"保养", "")
@@ -42,6 +43,7 @@
 #define NAV_TITLE_AUTOMODEL         NSLocalizedString(@"车的型号", "")
 #define NAV_TITLE_PLATE             NSLocalizedString(@"车牌号码", "")
 #define NAV_TITLE_MAIN_NEXT         NSLocalizedString(@"保养订单", "")
+#define NAV_TITLE_ORDER_DETAIL      NSLocalizedString(@"订单详情", "")
 
 #define BUTTON_TITLE_CANCEL         NSLocalizedString(@"取消", "")
 #define BUTTON_TITLE_DONE           NSLocalizedString(@"完成", "")
@@ -68,7 +70,11 @@
 #define TIP_SIGNING_IN              NSLocalizedString(@"登录中...", "")
 #define TIP_CREATING                NSLocalizedString(@"创建中...", "")
 
+#define TEXT_YES                    NSLocalizedString(@"是", "")
+#define TEXT_NO                     NSLocalizedString(@"否", "")
 #define TEXT_PRICE_UNIT             NSLocalizedString(@"元", "")
+#define TEXT_NO_CONTENT             NSLocalizedString(@"暂无", "")
+#define TEXT_TOTAL_AMOUNT           NSLocalizedString(@"金额总计：& 元", "")
 
 #define SWAP(a, b)                  (a ^= b, b ^= a, a ^= b)
 

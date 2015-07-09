@@ -12,6 +12,7 @@
 #import "BMPartsScene.h"
 #import "BMMainNextScene.h"
 
+#define ROW_HEIGHT  64
 #define IS_PARTS(item)  [item isMemberOfClass:[BMParts class]]
 
 @implementation BMMainScene
@@ -36,7 +37,7 @@
     [self.userService findAutomobiles:^(id service) {
         self.navigationBar.titleLabel.string = self.automobile.titleName;
         
-        [self.orderService findAllItems:^(id service) {
+        [self.orderService findAllPartsAndServices:^(id service) {
             [self reloadData];
             [self addNodesToTableView];
         }];
@@ -58,14 +59,14 @@
 
 - (void)addNodesToTableView
 {
-    CGFloat tableHeight = _tableView.contentNode.contentSize.height;
+    CGFloat height = ROW_HEIGHT * self.allItems.count;
     
-    _nextButton.position = ccp(_nextButton.position.x, tableHeight+15);
+    _nextButton.position = ccp(_nextButton.position.x, height + 15);
     [_nextButton removeFromParent];
     _nextButton.visible = YES;
     [_tableView.contentNode addChild:_nextButton];
     
-//    _amountLabel.position = ccp(_amountLabel.position.x, tableHeight+35);
+//    _amountLabel.position = ccp(_amountLabel.position.x, height + 35);
 //    [_amountLabel removeFromParent];
 //    _amountLabel.visible = YES;
 //    [_tableView.contentNode addChild:_amountLabel];
@@ -85,20 +86,20 @@
 
 - (NSArray *)allItems
 {
-    return self.orderService.allItems;
+    return self.orderService.partsAndServices;
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item
 {
-    if ([item isEqual:self.navigationBar.rightBarItem]) {
-        [self presentScene:[CCScene sceneWithNode:[BMAutoBrandScene node]] animated:YES];
-    } else {
+    if ([item isEqual:self.navigationBar.leftBarItem]) {
         BMActionSheet *actionSheet = [BMActionSheet actionSheet];
         actionSheet.delegate = self;
         for (BMAutomobile *automobile in self.userService.automobiles) {
             [actionSheet addButtonWithTitle:automobile.titleName];
         }
         [actionSheet show];
+    } else {
+        [self presentScene:[CCScene sceneWithNode:[BMAutoBrandScene node]] animated:YES];
     }
 }
 
@@ -141,7 +142,7 @@
 
 - (CGFloat)tableView:(BMTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return ROW_HEIGHT;
 }
 
 - (void)tableView:(BMTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

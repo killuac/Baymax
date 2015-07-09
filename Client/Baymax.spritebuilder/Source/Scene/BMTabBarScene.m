@@ -14,7 +14,6 @@
 
 - (void)didLoadFromCCB
 {
-    [_background removeFromParent];
     _scenes = _scenesBox.children;
     _selectedScene = _scenes.firstObject;
     _tabBar.delegate = self;

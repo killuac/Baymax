@@ -10,4 +10,6 @@
 
 @interface BMUserSceneModel : JSONModel
 
+@property (nonatomic, strong) NSArray<BMModelSection> *sections;
+
 @end

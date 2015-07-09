@@ -33,7 +33,7 @@
     return [self.createTime compare:[object createTime]];
 }
 
-- (NSString<Ignore> *)reserveDate
+- (NSString<Ignore> *)reserveTime
 {
     return @"2015-07-31 10~12点";     // !!!
 }

@@ -8,15 +8,7 @@
 
 #import <JSONModel/JSONModel.h>
 #import "BMOrderItem.h"
-
-typedef NS_ENUM(short, BMOrderStatus) {
-    BMOrderStatusCreated = 1,
-    BMOrderStatusAccepted,
-    BMOrderStatusWaiting,
-    BMOrderStatusRating,
-    BMOrderStatusSuccess,
-    BMOrderStatusClosed
-};
+#import "BMOrderStatusModel.h"
 
 @class BMAutomobile;
 
@@ -44,7 +36,7 @@ typedef NS_ENUM(short, BMOrderStatus) {
 @property (nonatomic, copy) NSString<Optional> *detailAddress;
 @property (nonatomic, copy) NSString<Optional> *remark;
 
-@property (nonatomic, copy) NSString<Ignore> *reserveDate;
+@property (nonatomic, copy) NSString<Ignore> *reserveTime;
 
 @property (nonatomic, copy) NSString<Optional> *autoLogoName;
 @property (nonatomic, strong, readonly) NSURL<Ignore> *autoLogoURL;

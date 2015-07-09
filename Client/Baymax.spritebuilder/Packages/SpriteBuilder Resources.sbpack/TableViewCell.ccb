@@ -869,7 +869,7 @@
 								<key>value</key>
 								<array>
 									<real>11</real>
-									<real>22.5</real>
+									<real>22</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -906,7 +906,7 @@
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>宝马</string>
+									<string></string>
 									<false/>
 								</array>
 							</dict>
@@ -1075,7 +1075,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>56</real>
+									<real>22</real>
 									<real>22</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1454,7 +1454,7 @@
 										<string>Text</string>
 										<key>value</key>
 										<array>
-											<string>宝马</string>
+											<string></string>
 											<false/>
 										</array>
 									</dict>
@@ -1617,7 +1617,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>347</real>
+									<real>313</real>
 									<real>0.0</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1740,7 +1740,7 @@
 										<string>Text</string>
 										<key>value</key>
 										<array>
-											<string>X1 sDrive18i</string>
+											<string></string>
 											<false/>
 										</array>
 									</dict>
@@ -1947,7 +1947,7 @@
 										<string>Text</string>
 										<key>value</key>
 										<array>
-											<string>宝马</string>
+											<string></string>
 											<false/>
 										</array>
 									</dict>
@@ -2110,7 +2110,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>638</real>
+									<real>604</real>
 									<real>22</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2573,8 +2573,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

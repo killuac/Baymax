@@ -117,13 +117,13 @@
 - (void)onEnterTransitionDidFinish
 {
     [super onEnterTransitionDidFinish];
-    [self addBackgroundUIView];
+    [self showBackgroundUIView];
 }
 
 - (void)onExitTransitionDidStart
 {
     [super onExitTransitionDidStart];
-    [self removeBackgroundUIView];
+    [self hideBackgroundUIView];
 }
 #endif
 

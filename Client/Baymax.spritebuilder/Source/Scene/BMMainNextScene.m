@@ -11,6 +11,7 @@
 #import "BMMainNextSceneModel.h"
 #import "BMButtonFactory.h"
 #import "BMPaymentScene.h"
+#import "BMOrderDetailScene.h"
 
 @implementation BMMainNextScene {
     BMMainNextSceneModel *_model;
@@ -70,7 +71,7 @@
 - (BMTableViewCell *)tableView:(BMTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BMModelItem *modelItem = [self itemsInSection:indexPath.section][indexPath.row];
-    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:BMTableViewCellStyleValue accessoryType:modelItem.accessoryType];
+    BMTableViewCell *cell = [BMTableViewCell cellWithStyle:modelItem.cellStyle accessoryType:modelItem.accessoryType];
     
     if (modelItem.imageName) {
         cell.imageSprite.spriteFrame = [CCSpriteFrame frameWithImageNamed:IMG_FILE_NAME(modelItem.imageName)];
@@ -109,7 +110,7 @@
             
         case 1:
             if (0 == indexPath.row) {
-                cell.detailTextLabel.string = self.orderService.selectedOrder.reserveDate;
+                cell.detailTextLabel.string = self.orderService.selectedOrder.reserveTime;
             } else {
                 cell.textField.string = self.orderService.selectedAddress.detailAddress;
                 cell.textField.block = ^(CCTextField *textField) {
@@ -188,7 +189,7 @@
     order.serviceTime = [NSDate date];      // !!! - 需要更改
     
     NSMutableArray *orderItems = [NSMutableArray array];
-    for (id item in self.orderService.allItems) {
+    for (id item in self.orderService.partsAndServices) {
         BMOrderItem *orderItem = [[BMOrderItem alloc] init];
         
         if ([item isKindOfClass:[BMParts class]]) {
@@ -205,9 +206,9 @@
     order.orderItems = (id)orderItems;
     
     [self.orderService createWithData:order result:^(id service) {
-//        !!! - 调转到订单详情页面
-        NSLog(@"%@", self.orderService.selectedOrder);
-        [BMTextTip showText:@"创建成功"];
+        BMOrderDetailScene *node = (id)[CCBReader load:ORDER_DETAIL_SCENE];
+        node.orderService = self.orderService;
+        [self pushScene:[CCScene sceneWithNode:node] animated:YES];
     }];
 }
 
@@ -231,13 +232,13 @@
 - (void)onEnterTransitionDidFinish
 {
     [super onEnterTransitionDidFinish];
-    [self addBackgroundUIView];
+    [self showBackgroundUIView];
 }
 
 - (void)onExitTransitionDidStart
 {
     [super onExitTransitionDidStart];
-    [self removeBackgroundUIView];
+    [self hideBackgroundUIView];
 }
 #endif
 

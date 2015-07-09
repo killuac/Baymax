@@ -10,6 +10,7 @@
 
 @interface CCGLView (BMGLView)
 
-+ (void)removeBackgroundUIView;
+- (void)addBackgroundUIView;
+- (void)removeBackgroundUIView;
 
 @end

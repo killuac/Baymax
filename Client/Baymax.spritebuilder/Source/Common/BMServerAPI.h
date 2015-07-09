@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSURL *citiesURL;
 @property (nonatomic, strong) NSURL *ordersURL;
 @property (nonatomic, strong) NSURL *orderItemsURL;
+@property (nonatomic, strong) NSURL *orderStatusesURL;
 @property (nonatomic, strong) NSURL *partsesURL;
 @property (nonatomic, strong) NSURL *servicesURL;
 @property (nonatomic, strong) NSURL *paymentsURL;

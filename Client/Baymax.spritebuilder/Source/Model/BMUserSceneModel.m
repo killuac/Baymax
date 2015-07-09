@@ -7,7 +7,16 @@
 //
 
 #import "BMUserSceneModel.h"
+#import "BMUtil.h"
 
 @implementation BMUserSceneModel
+
++ (instancetype)model
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:PlistFilePath(@"user-scene")];
+    BMUserSceneModel *model = [self modelWithDictionary:dict];
+    
+    return model;
+}
 
 @end

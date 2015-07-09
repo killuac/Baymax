@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSArray<BMProvince, Optional> *provinces;
 
 @property (nonatomic, strong) NSArray<BMOrder, Optional> *orders;
+@property (nonatomic, strong) NSArray<BMOrderStatusModel, Optional> *orderStatuses;
 
 @property (nonatomic, strong) NSArray<BMParts, Optional> *partses;
 @property (nonatomic, strong) NSArray<BMPartsItem, Optional> *partsItems;

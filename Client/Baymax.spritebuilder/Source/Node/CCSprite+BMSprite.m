@@ -91,6 +91,7 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, CGFloat radiuses[4]
     CGContextSaveGState(context);
     float fw = CGRectGetWidth(rect);
     float fh = CGRectGetHeight(rect);
+    
     CGContextMoveToPoint(context, fw, fh/2);
     CGContextAddArcToPoint(context, fw, fh, fw/2, fh, radiuses[0]);
     CGContextAddArcToPoint(context, 0, fh, 0, fh/2, radiuses[1]);
@@ -126,8 +127,8 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, CGFloat radiuses[4]
 
 - (void)drawFullRoundCorner
 {
-//    CGFloat radiuses[4] = {40, 40, 40, 40};
-//    self.spriteFrame = [self newRoundCornerSpriteFrameWithRadius:radiuses];
+    CGFloat radiuses[4] = {40, 40, 40, 40};
+    self.spriteFrame = [self newRoundCornerSpriteFrameWithRadius:radiuses];
 }
 
 @end

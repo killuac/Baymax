@@ -10,13 +10,15 @@
 				<dict>
 					<key>labelText</key>
 					<string>联系人姓名</string>
+					<key>cellStyle</key>
+					<string>0</string>
 					<key>accessoryType</key>
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLengthValue</key>
+					<key>maxLength</key>
 					<integer>0</integer>
-					<key>keyboardTypeValue</key>
+					<key>keyboardType</key>
 					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_contact.png</string>
@@ -24,13 +26,15 @@
 				<dict>
 					<key>labelText</key>
 					<string>手机号码</string>
+					<key>cellStyle</key>
+					<string>0</string>
 					<key>accessoryType</key>
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLengthValue</key>
+					<key>maxLength</key>
 					<integer>11</integer>
-					<key>keyboardTypeValue</key>
+					<key>keyboardType</key>
 					<integer>4</integer>
 					<key>imageName</key>
 					<string>icon_mobile.png</string>
@@ -43,6 +47,8 @@
 				<dict>
 					<key>labelText</key>
 					<string>预约时间</string>
+					<key>cellStyle</key>
+					<string>1</string>
 					<key>accessoryType</key>
 					<integer>1</integer>
 					<key>isEditable</key>
@@ -53,13 +59,15 @@
 				<dict>
 					<key>labelText</key>
 					<string>预约地点 (详细地址)</string>
+					<key>cellStyle</key>
+					<string>0</string>
 					<key>accessoryType</key>
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLengthValue</key>
+					<key>maxLength</key>
 					<integer>0</integer>
-					<key>keyboardTypeValue</key>
+					<key>keyboardType</key>
 					<integer>0</integer>
 					<key>imageName</key>
 					<string>icon_location.png</string>
@@ -72,6 +80,8 @@
 				<dict>
 					<key>labelText</key>
 					<string>支付方式</string>
+					<key>cellStyle</key>
+					<string>1</string>
 					<key>accessoryType</key>
 					<integer>1</integer>
 					<key>isEditable</key>
@@ -82,6 +92,8 @@
 				<dict>
 					<key>labelText</key>
 					<string>是否需要发票</string>
+					<key>cellStyle</key>
+					<string>0</string>
 					<key>accessoryType</key>
 					<integer>2</integer>
 					<key>isEditable</key>
@@ -97,13 +109,15 @@
 				<dict>
 					<key>labelText</key>
 					<string>其他需求</string>
+					<key>cellStyle</key>
+					<string>0</string>
 					<key>accessoryType</key>
 					<integer>0</integer>
 					<key>isEditable</key>
 					<true/>
-					<key>maxLengthValue</key>
+					<key>maxLength</key>
 					<integer>0</integer>
-					<key>keyboardTypeValue</key>
+					<key>keyboardType</key>
 					<integer>0</integer>
 				</dict>
 			</array>

@@ -28,6 +28,7 @@
         @"_links.cities.href": @"citiesURL",
         @"_links.orders.href": @"ordersURL",
         @"_links.orderItems.href": @"orderItemsURL",
+        @"_links.orderStatuses.href": @"orderStatusesURL",
         @"_links.partses.href": @"partsesURL",
         @"_links.services.href": @"servicesURL",
         @"_links.payments.href": @"paymentsURL",
@@ -71,9 +72,8 @@ static BMServerAPI *instanceOfServerAPI = nil;
     
     NSString *imagesZIPFile = DocumentFilePath(_imagesZIPURL.relativePath);
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:[imagesZIPFile stringByDeletingPathExtension]]) {
-        return;
-    }
+    NSArray *contents = [fileManager contentsOfDirectoryAtPath:[imagesZIPFile stringByDeletingLastPathComponent] error:nil];
+    if (contents.count > 1) return;
     
     [BMActivityIndicator showWithText:TIP_INITIALIZATION userInteractionEnabled:NO];
     

@@ -16,6 +16,8 @@
         _selectedOrder = [BMOrder model];
         _partsService = [[BMPartsService alloc] init];
         _addressService = [[BMAddressService alloc] init];
+        
+        [self findAllStatuses:nil];
     }
     return self;
 }
@@ -41,7 +43,7 @@
     }];
 }
 
-- (void)findAllItems:(void (^)(id))result
+- (void)findAllPartsAndServices:(void (^)(id))result
 {
     [_partsService findAll:^(id service) {
         [self findAllServices:result];
@@ -58,7 +60,7 @@
         
         NSMutableArray *items = [NSMutableArray arrayWithArray:_partsService.allPartses];
         [items addObjectsFromArray:container.services];
-        _allItems = items;
+        _partsAndServices = items;
         
         result(self);
         
@@ -101,6 +103,28 @@
             return payment;
         }
     }
+    
+    return nil;
+}
+
+- (void)findAllStatuses:(void (^)(id service))result
+{
+    NSURL *url = [BMServerAPI sharedServerAPI].orderStatusesURL;
+    
+    [[BMSessionManager sharedSessionManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        BMContainer *container = [BMContainer modelWithDictionary:responseObject];
+        _statuses = container.orderStatuses;
+    }];
+}
+
+- (NSString *)statusNameForId:(BMOrderStatus)statusId
+{
+    for (BMOrderStatusModel *status in _statuses) {
+        if (statusId == status.statusId) {
+            return status.statusName;
+        }
+    }
+    
     return nil;
 }
 

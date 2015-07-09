@@ -346,6 +346,7 @@
 {
     [super onExitTransitionDidStart];
     [_imageView removeFromSuperview];
+    _imageView = nil;
 }
 
 - (void)addBackgroundImageView

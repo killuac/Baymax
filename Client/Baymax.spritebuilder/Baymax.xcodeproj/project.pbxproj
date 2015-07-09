@@ -104,6 +104,15 @@
 		E302AE131B3BBB0300A8D371 /* BMBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = E302AE121B3BBB0300A8D371 /* BMBaseService.m */; };
 		E302AE141B3BBB0300A8D371 /* BMBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = E302AE121B3BBB0300A8D371 /* BMBaseService.m */; };
 		E302AE151B3BBB0300A8D371 /* BMBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = E302AE121B3BBB0300A8D371 /* BMBaseService.m */; };
+		E3202E081B4E170200336AEB /* BMOrderStatusSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E071B4E170200336AEB /* BMOrderStatusSprite.m */; };
+		E3202E091B4E170200336AEB /* BMOrderStatusSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E071B4E170200336AEB /* BMOrderStatusSprite.m */; };
+		E3202E0A1B4E170200336AEB /* BMOrderStatusSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E071B4E170200336AEB /* BMOrderStatusSprite.m */; };
+		E3202E0F1B4E171400336AEB /* BMOrderStatusNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E0E1B4E171400336AEB /* BMOrderStatusNode.m */; };
+		E3202E101B4E171400336AEB /* BMOrderStatusNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E0E1B4E171400336AEB /* BMOrderStatusNode.m */; };
+		E3202E111B4E171400336AEB /* BMOrderStatusNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E0E1B4E171400336AEB /* BMOrderStatusNode.m */; };
+		E3202E141B4E1E7A00336AEB /* BMOrderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E131B4E1E7A00336AEB /* BMOrderStatusModel.m */; };
+		E3202E151B4E1E7A00336AEB /* BMOrderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E131B4E1E7A00336AEB /* BMOrderStatusModel.m */; };
+		E3202E161B4E1E7A00336AEB /* BMOrderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3202E131B4E1E7A00336AEB /* BMOrderStatusModel.m */; };
 		E3278F8F1B3287DF0054D1B4 /* BMTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */; };
 		E3278F901B3287DF0054D1B4 /* BMTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */; };
 		E3278F911B3287DF0054D1B4 /* BMTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */; };
@@ -502,6 +511,12 @@
 		E302AE111B3BBB0300A8D371 /* BMBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBaseService.h; sourceTree = "<group>"; };
 		E302AE121B3BBB0300A8D371 /* BMBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBaseService.m; sourceTree = "<group>"; };
 		E303025C1ACC0C3F009D9314 /* ChangeNote */ = {isa = PBXFileReference; lastKnownFileType = text; path = ChangeNote; sourceTree = "<group>"; };
+		E3202E061B4E170200336AEB /* BMOrderStatusSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrderStatusSprite.h; sourceTree = "<group>"; };
+		E3202E071B4E170200336AEB /* BMOrderStatusSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrderStatusSprite.m; sourceTree = "<group>"; };
+		E3202E0D1B4E171400336AEB /* BMOrderStatusNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrderStatusNode.h; sourceTree = "<group>"; };
+		E3202E0E1B4E171400336AEB /* BMOrderStatusNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrderStatusNode.m; sourceTree = "<group>"; };
+		E3202E121B4E1E7A00336AEB /* BMOrderStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMOrderStatusModel.h; sourceTree = "<group>"; };
+		E3202E131B4E1E7A00336AEB /* BMOrderStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMOrderStatusModel.m; sourceTree = "<group>"; };
 		E3278F8D1B3287DF0054D1B4 /* BMTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableViewSection.h; sourceTree = "<group>"; };
 		E3278F8E1B3287DF0054D1B4 /* BMTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableViewSection.m; sourceTree = "<group>"; };
 		E3278F9E1B3403960054D1B4 /* BMAutoBrandScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAutoBrandScene.h; sourceTree = "<group>"; };
@@ -1096,6 +1111,8 @@
 				E3A9F5771B27D54300F92CAE /* BMOrder.m */,
 				E3A9F57B1B27D79C00F92CAE /* BMOrderItem.h */,
 				E3A9F57C1B27D79C00F92CAE /* BMOrderItem.m */,
+				E3202E121B4E1E7A00336AEB /* BMOrderStatusModel.h */,
+				E3202E131B4E1E7A00336AEB /* BMOrderStatusModel.m */,
 				E3A9F58A1B27E8FF00F92CAE /* BMParts.h */,
 				E3A9F58B1B27E8FF00F92CAE /* BMParts.m */,
 				E3A9F58F1B27E91300F92CAE /* BMPartsItem.h */,
@@ -1137,6 +1154,10 @@
 				E3A9F6391B2A955C00F92CAE /* BMNavBarItem.m */,
 				E3A9F5FB1B2A910900F92CAE /* BMNavigationBar.h */,
 				E3A9F5FC1B2A910900F92CAE /* BMNavigationBar.m */,
+				E3202E0D1B4E171400336AEB /* BMOrderStatusNode.h */,
+				E3202E0E1B4E171400336AEB /* BMOrderStatusNode.m */,
+				E3202E061B4E170200336AEB /* BMOrderStatusSprite.h */,
+				E3202E071B4E170200336AEB /* BMOrderStatusSprite.m */,
 				E3EAC2761B4A68AB0066B972 /* BMOrderTableViewCell.h */,
 				E3EAC2771B4A68AB0066B972 /* BMOrderTableViewCell.m */,
 				E3E161F81B44624C002D04B9 /* BMPasswordButton.h */,
@@ -1710,6 +1731,7 @@
 				E37AC2CD1B3C58E800103A72 /* BMTextTip.m in Sources */,
 				E3E161F21B43FC99002D04B9 /* BMUserSceneModel.m in Sources */,
 				E302AE0A1B3BB23A00A8D371 /* BMUserService.m in Sources */,
+				E3202E161B4E1E7A00336AEB /* BMOrderStatusModel.m in Sources */,
 				E3A9F5C61B2952BB00F92CAE /* BMCredential.m in Sources */,
 				E3A9F6471B2ABFED00F92CAE /* BMBaseScene.m in Sources */,
 				E3BDFE111B41DB0F000A6ABD /* BMPartsService.m in Sources */,
@@ -1748,6 +1770,7 @@
 				E3C44C651B2C1741007DA129 /* BMTableView.m in Sources */,
 				E37AC2C61B3C3EE900103A72 /* BMActionSheet.m in Sources */,
 				E375D2C61B271772001FA4A0 /* BMSessionManager.m in Sources */,
+				E3202E111B4E171400336AEB /* BMOrderStatusNode.m in Sources */,
 				E375D27B1B26DA63001FA4A0 /* BMUser.m in Sources */,
 				E3A9F58E1B27E8FF00F92CAE /* BMParts.m in Sources */,
 				E3E417AF1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.m in Sources */,
@@ -1767,6 +1790,7 @@
 				E3E1623D1B4694B9002D04B9 /* BMPaymentScene.m in Sources */,
 				E3A9F6601B2B367700F92CAE /* CCScene+BMScene.m in Sources */,
 				E3A9F5521B27339000F92CAE /* BMAutoModel.m in Sources */,
+				E3202E0A1B4E170200336AEB /* BMOrderStatusSprite.m in Sources */,
 				E3A9F64C1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
 				E3A9F61E1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
 				E3EAC27A1B4A68AB0066B972 /* BMOrderTableViewCell.m in Sources */,
@@ -1866,6 +1890,7 @@
 				E3E162301B4663EB002D04B9 /* BMButtonFactory.m in Sources */,
 				E3A9F6641B2B48DD00F92CAE /* CCSpriteFrame+BMSpriteFrame.m in Sources */,
 				E3A9F5881B27E89800F92CAE /* BMRating.m in Sources */,
+				E3202E091B4E170200336AEB /* BMOrderStatusSprite.m in Sources */,
 				E3A9F6501B2AEC9E00F92CAE /* BMCellButton.m in Sources */,
 				E3E417AE1B39F04B00D003E3 /* CCPlatformTextField+BMPlatformTextField.m in Sources */,
 				E3E162651B47D4AE002D04B9 /* BMOrderDetailScene.m in Sources */,
@@ -1874,9 +1899,11 @@
 				E3E417BB1B39F27D00D003E3 /* CCPlatformTextFieldAndroid+BMPlatformTextFieldAndroid.m in Sources */,
 				E3278FBF1B385DAA0054D1B4 /* BMSignScene.m in Sources */,
 				E38E7CF21B3036CD0065A098 /* BMImageSprite.m in Sources */,
+				E3202E101B4E171400336AEB /* BMOrderStatusNode.m in Sources */,
 				E3A9F5A81B29133900F92CAE /* BMAppSetting.m in Sources */,
 				E3A9F6261B2A91EA00F92CAE /* BMSignInScene.m in Sources */,
 				E3A9F5CA1B29C75F00F92CAE /* BMTabBar.m in Sources */,
+				E3202E151B4E1E7A00336AEB /* BMOrderStatusModel.m in Sources */,
 				E3278FBA1B3844AE0054D1B4 /* BMAutomobileScene.m in Sources */,
 				E3A9F5511B27339000F92CAE /* BMAutoModel.m in Sources */,
 				E3A9F64B1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
@@ -1901,6 +1928,7 @@
 				E3278FB91B3844AE0054D1B4 /* BMAutomobileScene.m in Sources */,
 				E3E1624B1B46E443002D04B9 /* BMDistrictScene.m in Sources */,
 				E3EAC27F1B4A77450066B972 /* NSDate+BMDate.m in Sources */,
+				E3202E0F1B4E171400336AEB /* BMOrderStatusNode.m in Sources */,
 				E37AC2CB1B3C58E800103A72 /* BMTextTip.m in Sources */,
 				E3E1625F1B47B726002D04B9 /* BMAddressService.m in Sources */,
 				E3E161F01B43FC99002D04B9 /* BMUserSceneModel.m in Sources */,
@@ -1911,9 +1939,11 @@
 				E3A9F6451B2ABFED00F92CAE /* BMBaseScene.m in Sources */,
 				E3BDFE0F1B41DB0F000A6ABD /* BMPartsService.m in Sources */,
 				E3A9F64F1B2AEC9E00F92CAE /* BMCellButton.m in Sources */,
+				E3202E141B4E1E7A00336AEB /* BMOrderStatusModel.m in Sources */,
 				E3EAC2841B4A9CC60066B972 /* BMPlateTableViewCell.m in Sources */,
 				E3278FB41B372F7A0054D1B4 /* BMAutoTableViewCell.m in Sources */,
 				E375D2B41B26FB96001FA4A0 /* JSONValueTransformer+BMJSONValueTransformer.m in Sources */,
+				E3202E081B4E170200336AEB /* BMOrderStatusSprite.m in Sources */,
 				E3EAC2891B4A9D450066B972 /* BMPlateScene.m in Sources */,
 				E3A9F5691B27CE0100F92CAE /* BMDistrict.m in Sources */,
 				E375D2A31B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,

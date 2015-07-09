@@ -22,6 +22,7 @@
         @"_embedded.provinces": @"provinces",
         @"_embedded.partses": @"partses",
         @"_embedded.partsItems": @"partsItems",
+        @"_embedded.orderStatuses": @"orderStatuses",
         @"_embedded.services": @"services",
         @"_embedded.payments": @"payments",
         @"_embedded.orders": @"orders"

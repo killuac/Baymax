@@ -42,7 +42,7 @@
 		<key>customClass</key>
 		<string>BMOrderScene</string>
 		<key>displayName</key>
-		<string>AutoScene</string>
+		<string>OrderScene</string>
 		<key>memberVarAssignmentName</key>
 		<string></string>
 		<key>memberVarAssignmentType</key>
@@ -109,6 +109,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
