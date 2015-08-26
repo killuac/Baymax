@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSURL *servicesURL;
 @property (nonatomic, strong) NSURL *paymentsURL;
 @property (nonatomic, strong) NSURL *ratingsURL;
+@property (nonatomic, strong) NSURL *smsCodesURL;
 
 @property (nonatomic, strong) NSURL *logoBaseURL;
 @property (nonatomic, strong) NSURL *partsBaseURL;

@@ -91,6 +91,11 @@
         cell.accessoryButton = [BMButtonFactory createToggleButton:cell];
         [cell.accessoryButton setTarget:self selector:@selector(toggleSwitch:)];
         cell.allowsSelection = NO;
+        
+//        __weak typeof(self) weakSelf = self;
+//        cell.accessoryButton.block = ^(CCButton *button) {
+//            weakSelf.orderService.selectedOrder.isNeedInvoice = button.selected;
+//        };
     }
     
     switch (indexPath.section) {

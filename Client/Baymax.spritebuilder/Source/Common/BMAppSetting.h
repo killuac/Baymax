@@ -28,6 +28,9 @@
 @property (nonatomic) BOOL isFirstLaunch;
 @property (nonatomic, copy) NSString *guideScene;
 
+@property (nonatomic, copy) NSString *appID;
+@property (nonatomic, copy) NSString *appKey;
+
 - (void)save;
 
 @end

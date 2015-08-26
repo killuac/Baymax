@@ -74,6 +74,25 @@
 - (void)fetchVerificationCode:(CCButton *)button
 {
 //  !!! - 获取短信验证码
+//    [[BMSessionManager sharedSessionManager].requestSerializer setValue:@"1be2mlt1k90hbmi0g2byirrgk8ksy1yblwx0hnj4d9vs9xgk"
+//                                                     forHTTPHeaderField:@"X-AVOSCloud-Application-Id"];
+//    [[BMSessionManager sharedSessionManager].requestSerializer setValue:@"zj9gowlpfnfdscncuukyg02v3vtp5f75ptcrjek182nloqio"
+//                                                     forHTTPHeaderField:@"X-AVOSCloud-Application-Key"];
+//    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"18516057455" forKey:@"mobilePhoneNumber"];
+//    [[BMSessionManager sharedSessionManager] POST:@"https://api.leancloud.cn/1.1/requestSmsCode"
+//                                       parameters:dict
+//                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [BMTextTip showText:@"成功"];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%@", error);
+//    }];
+    
+    BMSMSCode *smsCode = [[BMSMSCode alloc] init];
+    smsCode.mobile = _mobileTextField.string;
+    
+    [self.userService sendSMSWithData:smsCode result:^(id service) {
+        
+    }];
 }
 
 - (void)navigationBar:(BMNavigationBar *)navBar didSelectItem:(BMNavBarItem *)item

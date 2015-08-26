@@ -17,7 +17,7 @@
     dispatch_once(&onceInput, ^{
         inputDateFormatter = [[NSDateFormatter alloc] init];
         [inputDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-        [inputDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.000+0000"];
+        [inputDateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
     });
     return [inputDateFormatter dateFromString:string];
 }

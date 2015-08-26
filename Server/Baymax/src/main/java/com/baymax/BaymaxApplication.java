@@ -7,23 +7,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.rest.SpringBootRepositoryRestMvcConfiguration;
 import org.springframework.boot.orm.jpa.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.config.EnableEntityLinks;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.util.List;
 import java.util.Set;
-
-import static java.util.Arrays.asList;
 
 @SpringBootApplication
 @EnableEntityLinks
@@ -52,5 +46,12 @@ public class BaymaxApplication {
         protected void configureConversionService(ConfigurableConversionService conversionService) {
             conversionService.addConverter(new AutoSeriesPartsItem.CompositeIdConverter());
         }
+    }
+
+    @Bean(destroyMethod = "destroy")
+    public ThreadPoolTaskScheduler threadPoolTaskScheduler() {
+        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+        taskScheduler.setPoolSize(10);
+        return taskScheduler;
     }
 }

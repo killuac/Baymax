@@ -140,6 +140,9 @@
 		E3278FC31B3914810054D1B4 /* BMSignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278FC21B3914810054D1B4 /* BMSignUpScene.m */; };
 		E3278FC41B3914810054D1B4 /* BMSignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278FC21B3914810054D1B4 /* BMSignUpScene.m */; };
 		E3278FC51B3914810054D1B4 /* BMSignUpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E3278FC21B3914810054D1B4 /* BMSignUpScene.m */; };
+		E3375DC61B51041200E4B363 /* BMSMSCode.m in Sources */ = {isa = PBXBuildFile; fileRef = E3375DC51B51041200E4B363 /* BMSMSCode.m */; };
+		E3375DC71B51041200E4B363 /* BMSMSCode.m in Sources */ = {isa = PBXBuildFile; fileRef = E3375DC51B51041200E4B363 /* BMSMSCode.m */; };
+		E3375DC81B51041200E4B363 /* BMSMSCode.m in Sources */ = {isa = PBXBuildFile; fileRef = E3375DC51B51041200E4B363 /* BMSMSCode.m */; };
 		E33EF5951B3D279500A3F1CC /* CCButton+BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */; };
 		E33EF5961B3D279500A3F1CC /* CCButton+BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */; };
 		E33EF5971B3D279500A3F1CC /* CCButton+BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */; };
@@ -535,6 +538,8 @@
 		E3278FBD1B385DAA0054D1B4 /* BMSignScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSignScene.m; sourceTree = "<group>"; };
 		E3278FC11B3914810054D1B4 /* BMSignUpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSignUpScene.h; sourceTree = "<group>"; };
 		E3278FC21B3914810054D1B4 /* BMSignUpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSignUpScene.m; sourceTree = "<group>"; };
+		E3375DC41B51041200E4B363 /* BMSMSCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSMSCode.h; sourceTree = "<group>"; };
+		E3375DC51B51041200E4B363 /* BMSMSCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSMSCode.m; sourceTree = "<group>"; };
 		E33EF5931B3D279500A3F1CC /* CCButton+BMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCButton+BMButton.h"; sourceTree = "<group>"; };
 		E33EF5941B3D279500A3F1CC /* CCButton+BMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCButton+BMButton.m"; sourceTree = "<group>"; };
 		E341F3021B3F1C3500B58966 /* libSSZipArchiveMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSSZipArchiveMac.a; path = "Source/libs/cocos2d-iphone/external/SSZipArchive/build/Debug/libSSZipArchiveMac.a"; sourceTree = "<group>"; };
@@ -1125,6 +1130,8 @@
 				E3A9F5861B27E89800F92CAE /* BMRating.m */,
 				E3A9F5941B27E91D00F92CAE /* BMService.h */,
 				E3A9F5951B27E91D00F92CAE /* BMService.m */,
+				E3375DC41B51041200E4B363 /* BMSMSCode.h */,
+				E3375DC51B51041200E4B363 /* BMSMSCode.m */,
 				E375D2771B26DA63001FA4A0 /* BMUser.h */,
 				E375D2781B26DA63001FA4A0 /* BMUser.m */,
 				E3E161EE1B43FC99002D04B9 /* BMUserSceneModel.h */,
@@ -1793,6 +1800,7 @@
 				E3202E0A1B4E170200336AEB /* BMOrderStatusSprite.m in Sources */,
 				E3A9F64C1B2AE06C00F92CAE /* BMTableViewCell.m in Sources */,
 				E3A9F61E1B2A91EA00F92CAE /* BMMainScene.m in Sources */,
+				E3375DC81B51041200E4B363 /* BMSMSCode.m in Sources */,
 				E3EAC27A1B4A68AB0066B972 /* BMOrderTableViewCell.m in Sources */,
 				E3A9F5891B27E89800F92CAE /* BMRating.m in Sources */,
 				E3A9F6271B2A91EA00F92CAE /* BMSignInScene.m in Sources */,
@@ -1832,6 +1840,7 @@
 				E37AC2D11B3C829900103A72 /* BMActivityIndicator.m in Sources */,
 				E3A9F5651B27CCD500F92CAE /* BMCity.m in Sources */,
 				E3278FB01B3478C80054D1B4 /* BMAutoModelScene.m in Sources */,
+				E3375DC71B51041200E4B363 /* BMSMSCode.m in Sources */,
 				E3A9F5741B27CF7600F92CAE /* BMEmployee.m in Sources */,
 				E375D2A41B26DF07001FA4A0 /* JSONModel+BMJSONModel.m in Sources */,
 				E3278F901B3287DF0054D1B4 /* BMTableViewSection.m in Sources */,
@@ -1928,6 +1937,7 @@
 				E3278FB91B3844AE0054D1B4 /* BMAutomobileScene.m in Sources */,
 				E3E1624B1B46E443002D04B9 /* BMDistrictScene.m in Sources */,
 				E3EAC27F1B4A77450066B972 /* NSDate+BMDate.m in Sources */,
+				E3375DC61B51041200E4B363 /* BMSMSCode.m in Sources */,
 				E3202E0F1B4E171400336AEB /* BMOrderStatusNode.m in Sources */,
 				E37AC2CB1B3C58E800103A72 /* BMTextTip.m in Sources */,
 				E3E1625F1B47B726002D04B9 /* BMAddressService.m in Sources */,
@@ -2360,6 +2370,7 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = Baymax;
 				PROVISIONING_PROFILE = "";
@@ -2398,6 +2409,7 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = Baymax;
 				PROVISIONING_PROFILE = "";

@@ -33,6 +33,7 @@
         @"_links.services.href": @"servicesURL",
         @"_links.payments.href": @"paymentsURL",
         @"_links.ratings.href": @"ratingsURL",
+        @"_links.smsCodes.href": @"smsCodesURL",
         
         @"_links.logoBaseURL.href": @"logoBaseURL",
         @"_links.partsBaseURL.href": @"partsBaseURL",

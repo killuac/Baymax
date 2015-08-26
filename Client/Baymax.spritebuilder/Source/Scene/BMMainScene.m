@@ -46,6 +46,12 @@
     [self.userService findAllAddresses:nil];
 }
 
+- (void)reloadData
+{
+    self.orderService.selectedOrder.amount = 0;
+    [super reloadData];
+}
+
 - (BMAutomobile *)automobile
 {
     for (BMAutomobile *automobile in self.userService.automobiles) {

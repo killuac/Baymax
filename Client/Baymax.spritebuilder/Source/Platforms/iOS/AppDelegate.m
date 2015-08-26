@@ -68,9 +68,9 @@
 
 - (void)setupApplication
 {
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
     [(id)[CCDirector sharedDirector].view addBackgroundUIView];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 - (CCScene *)startScene

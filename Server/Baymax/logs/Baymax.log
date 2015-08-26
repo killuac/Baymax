@@ -1,0 +1,64 @@
+2015-06-30 01:46:27.097  INFO 59742 --- [main] com.baymax.BaymaxApplication             : Starting BaymaxApplication on Killuas-MacBook-Pro.local with PID 59742 (/Users/Killua/Workspace/Baymax/Server/Baymax/build/classes/main started by Killua in /Users/Killua/Workspace/Baymax/Server/Baymax)
+2015-06-30 01:46:27.102 DEBUG 59742 --- [main] com.baymax.BaymaxApplication             : Running with Spring Boot v1.2.3.RELEASE, Spring v4.1.6.RELEASE
+2015-06-30 01:46:43.650  INFO 59742 --- [main] /                                        : Initializing Spring embedded WebApplicationContext
+2015-06-30 01:46:44.385  INFO 59742 --- [main] org.reflections.Reflections              : Reflections took 63 ms to scan 1 urls, producing 4 keys and 24 values 
+2015-06-30 01:46:50.367  INFO 59742 --- [main] /                                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-06-30 01:46:50.444  INFO 59742 --- [main] /                                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2015-06-30 01:46:50.456 ERROR 59742 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.boot.context.embedded.EmbeddedServletContainerException: Unable to start embedded Jetty servlet container
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainer.start(JettyEmbeddedServletContainer.java:120)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:288)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:141)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:483)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:118)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:686)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:320)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:957)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:946)
+	at com.baymax.BaymaxApplication.main(BaymaxApplication.java:30)
+Caused by: java.net.BindException: Can't assign requested address
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.Net.bind(Net.java:428)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:321)
+	at org.eclipse.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80)
+	at org.eclipse.jetty.server.ServerConnector.doStart(ServerConnector.java:236)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainer.start(JettyEmbeddedServletContainer.java:114)
+	... 9 common frames omitted
+
+2015-07-03 17:33:12.285  INFO 27365 --- [main] com.baymax.BaymaxApplication             : Starting BaymaxApplication on Killuas-MacBook-Pro.local with PID 27365 (/Users/Killua/Workspace/Baymax/Server/Baymax/build/classes/main started by Killua in /Users/Killua/Workspace/Baymax/Server/Baymax)
+2015-07-03 17:33:12.290 DEBUG 27365 --- [main] com.baymax.BaymaxApplication             : Running with Spring Boot v1.2.3.RELEASE, Spring v4.1.6.RELEASE
+2015-07-03 17:33:28.780  INFO 27365 --- [main] /                                        : Initializing Spring embedded WebApplicationContext
+2015-07-03 17:33:29.732  INFO 27365 --- [main] org.reflections.Reflections              : Reflections took 64 ms to scan 1 urls, producing 4 keys and 24 values 
+2015-07-03 17:33:35.805  INFO 27365 --- [main] /                                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-07-03 17:33:35.881  INFO 27365 --- [main] /                                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2015-07-03 17:33:35.891 ERROR 27365 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.boot.context.embedded.EmbeddedServletContainerException: Unable to start embedded Jetty servlet container
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainer.start(JettyEmbeddedServletContainer.java:120)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:288)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:141)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:483)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:118)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:686)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:320)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:957)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:946)
+	at com.baymax.BaymaxApplication.main(BaymaxApplication.java:30)
+Caused by: java.net.BindException: Can't assign requested address
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.Net.bind(Net.java:428)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:321)
+	at org.eclipse.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80)
+	at org.eclipse.jetty.server.ServerConnector.doStart(ServerConnector.java:236)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainer.start(JettyEmbeddedServletContainer.java:114)
+	... 9 common frames omitted
+

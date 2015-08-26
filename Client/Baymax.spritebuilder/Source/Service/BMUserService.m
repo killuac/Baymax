@@ -150,4 +150,15 @@
     }
 }
 
+- (void)sendSMSWithData:(id)data result:(void (^)(id))result
+{
+    NSURL *url = [BMServerAPI sharedServerAPI].smsCodesURL;
+    
+    [[BMSessionManager sharedSessionManager] POST:url parameters:[data toDictionary] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _response = operation.response;
+        
+        result(self);
+    }];
+}
+
 @end

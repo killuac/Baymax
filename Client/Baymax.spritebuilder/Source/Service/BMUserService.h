@@ -8,6 +8,7 @@
 
 #import "BMBaseService.h"
 #import "BMUser.h"
+#import "BMSMSCode.h"
 
 @interface BMUserService : BMBaseService
 
@@ -31,5 +32,7 @@
 - (void)findAllAddresses:(void (^)(id service))result;
 
 - (void)findAllOrders:(void (^)(id service))result;
+
+- (void)sendSMSWithData:(id)data result:(void (^)(id service))result;
 
 @end

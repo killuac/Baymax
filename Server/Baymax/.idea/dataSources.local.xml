@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - baymax@localhost" uuid="6813ab76-cde1-49fc-b208-e19dbb8245b2">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>baymax.*</schema-pattern>
+      <default-schemas>baymax.*</default-schemas>
+    </data-source>
+  </component>
+</project>

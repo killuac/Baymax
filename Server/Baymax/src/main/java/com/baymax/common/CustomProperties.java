@@ -18,11 +18,10 @@ import java.net.URL;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties("custom.webserver")
+@ConfigurationProperties("custom")
 public class CustomProperties {
 
     private final static Logger logger = LoggerFactory.getLogger(CustomProperties.class);
-
 
     private static CustomProperties customProperties;
 
@@ -34,7 +33,8 @@ public class CustomProperties {
         customProperties = this;
     }
 
-    private InetAddress address;
+//  WebServer Properties
+    private InetAddress webserverAddress;
 
     private final String logoPath = "/images/logo/";
     private final String partsPath = "/images/parts/";
@@ -43,11 +43,11 @@ public class CustomProperties {
 
     public String getBaseURLString() {
         try {
-            URL url = new URL("http", address.getHostName(), "");
+            URL url = new URL("http", webserverAddress.getHostName(), "");
             return url.toString();
         } catch (MalformedURLException e) {
             logger.error(e.getMessage());
-            return "http://" + address.getHostName();
+            return "http://" + webserverAddress.getHostName();
         }
     }
 
@@ -66,4 +66,9 @@ public class CustomProperties {
     public String getImagesZIPURL() {
         return getBaseURLString() + imagesZIP;
     }
+
+//  SMS Properties
+    private String smsSendUrl;
+    private String smsApikey;
+    private String smsText = "【大白保养】尊敬的用户，您的验证码是&，请在10分钟内完成验证。";
 }
